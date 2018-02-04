@@ -2,11 +2,13 @@ import { Navigation } from 'react-native-navigation';
 import HomeScreen from './src/components/screens/home';
 import PostAdScreen from './src/components/screens/postad';
 import PostAdOneScreen from './src/components/screens/postadone';
+import PostAdTwoScreen from './src/components/screens/postadtwo';
 
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
 Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
 Navigation.registerComponent('TwoFourApp.PostAdOne', () => PostAdOneScreen);
+Navigation.registerComponent('TwoFourApp.PostAdTwo', () => PostAdTwoScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

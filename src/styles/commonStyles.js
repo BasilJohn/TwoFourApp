@@ -32,6 +32,13 @@ export default CommonStyles = StyleSheet.create({
         width: 60,
         height: 60 
       },
+      // Button Styles
+  backButton: {
+    flex: 1,
+    alignItems: 'center',
+    width: 41,
+    height: 41 
+  },
       addFirstImageStyle:{
         height: 20,
         flex: 1,
@@ -43,7 +50,7 @@ export default CommonStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
      
       },
-      // post pages styles
+   // post pages styles
   postPageImageBox: {
     alignItems: 'center',
     marginTop: postSpaceHeight * 0.33,
@@ -60,6 +67,19 @@ export default CommonStyles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Poppins-Regular',
     textAlign: 'center',
+  },
+  introPageButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 60,
+    height: 60,
+  },
+  introPageButtonBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    //marginTop: postSpaceHeight * 0.27,
+    marginBottom: 20,
   },
   // Text 
   extraLargeText: {

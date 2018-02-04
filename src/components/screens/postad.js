@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 export default class PostAd extends Component {
     render(){
         return(
-        <KeyboardAvoidingView style={CommonStyles.normalSinglePage}>
+        <KeyboardAvoidingView behavior="padding" style={CommonStyles.normalSinglePage}>
         <View style={CommonStyles.postPageImageBox}>
         <Ionicons  name={'ios-add-circle-outline'} color={"black"} size={100} />
         </View>
@@ -23,7 +23,9 @@ export default class PostAd extends Component {
             />
         </View>
         </View>
-        <View style={styles.footerControlStyle}>
+        <View style={CommonStyles.introPageButtonBox}>
+        <View style={CommonStyles.introPageButton} />
+        <View style={CommonStyles.introPageButton}>
         <ImageButton
               style={CommonStyles.nextButton}
               styleImage={CommonStyles.nextButton}
@@ -33,6 +35,7 @@ export default class PostAd extends Component {
               }}
               onPress={this._handleClickNextButton.bind(this)}
             />
+        </View>
         </View>
        </KeyboardAvoidingView>
         )
