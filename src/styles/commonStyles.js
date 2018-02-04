@@ -41,6 +41,7 @@ export default CommonStyles = StyleSheet.create({
       normalSinglePage: {
         flex: 1,
         backgroundColor: "#FFFFFF",
+     
       },
       // post pages styles
   postPageImageBox: {
@@ -68,7 +69,9 @@ export default CommonStyles = StyleSheet.create({
   },
   titleText: {
     fontSize: 30,
-    lineHeight: 38
+    lineHeight: 38,
+    fontWeight:"bold",
+    paddingBottom:20
   },
   headerText: {
     fontSize: 18,
@@ -130,5 +133,35 @@ export default CommonStyles = StyleSheet.create({
   periBlueColor: {
     color: 'rgb(79,109,230)',
   },
+
+  //Textinput
+  textInput: {
+    width: deviceWidth - 55,
+    height: 45,
+    paddingLeft: 50,
+    color: 'rgb(150,150,150)',
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+  },textInputField: {
+    flexDirection: 'row',
+    width: deviceWidth-20,
+    height: 45,
+    borderColor:'rgb(229,229,229)',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderRadius: 8,
+    backgroundColor:'#FFFFFF',
+  },
+
+  footerControlStyle:{
+
+    flexDirection: 'row',
+    paddingBottom: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: 'white',
+    width:'100%',
+    height:'12%',
+    alignItems:'flex-end'
+  }
 });
 
