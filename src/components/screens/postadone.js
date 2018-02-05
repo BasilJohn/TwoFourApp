@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View,Text,StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { ImageButton } from '../common';
 import CommonStyles from '../../styles/commonStyles';
 import {  SearchBar  } from "react-native-elements";
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 var data = [
-    {"id":1,"Category":"Cars & Vehicles"},
-    {"id":2,"Category":"Electronics & Gadgets"},
-    {"id":3,"Category":"Real Estate"},
-    {"id":4,"Category":"Sports"},
-    {"id":5,"Category":"Fashion & Beauty"},
-    {"id":6,"Category":"Pets & Animals"},
-    {"id":7,"Category":"Job Openings"},
+    {"id":1,"Category":"Cars & Vehicles","Image":"ios-car-outline"},
+    {"id":2,"Category":"Electronics & Gadgets","Image":"ios-cash-outline"},
+    {"id":3,"Category":"Real Estate","Image":"ios-home-outline"},
+    {"id":4,"Category":"Sports","Image":"ios-football-outline"},
+    {"id":5,"Category":"Fashion & Beauty","Image":"ios-basket-outline"},
+    {"id":6,"Category":"Pets & Animals","Image":"ios-paw-outline"},
+    {"id":7,"Category":"Job Openings","Image":"ios-briefcase-outline"},
   ];
 
 export default class PostAd extends Component {
@@ -27,7 +27,8 @@ export default class PostAd extends Component {
         return (
             <TouchableOpacity>
             <View style={styles.categoryItem}>
-                <Text style={[ CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.mediumText]}>{itemData.item.Category}</Text>
+            <Ionicons style={styles.categoryItemAvatarStyle} name={itemData.item.Image} color={"#696969"} size={25} />
+            <Text style={[ CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.mediumText,styles.categoryTextStyle]}>{itemData.item.Category}</Text>
             </View>
              </TouchableOpacity>
             )
@@ -99,7 +100,8 @@ export default class PostAd extends Component {
 
 const styles = StyleSheet.create({
     searchBarContainerStyle: {
-      backgroundColor:"#FFF"
+      backgroundColor:"#FFF",
+      borderBottomWidth:0
     },
     searchBarInputStyle: {
         backgroundColor:"#FFF",
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         shadowColor: "#000",
         height: 60,
-        borderBottomWidth:1,
+        borderBottomWidth:0.5,
         borderColor:'black',
       },
       footerControlStyle:{
@@ -130,5 +132,19 @@ const styles = StyleSheet.create({
         flex:2,
         justifyContent:"center",
         padding:10
+    },
+    categoryTextStyle:{
+
+        paddingLeft:50,
+        fontWeight:"bold",
+        color: '#696969',
+        // fontColor:'#696969'
+    },
+    categoryItemAvatarStyle:{
+        position:'absolute',
+         bottom: 18,
+         left: 5, 
+         width: 25, 
+         height: 25
     }
   });
