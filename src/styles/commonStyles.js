@@ -153,6 +153,9 @@ export default CommonStyles = StyleSheet.create({
   periBlueColor: {
     color: 'rgb(79,109,230)',
   },
+  appFontColor:{
+     color:"#696969"
+    },
 
   //Textinput
   textInput: {
