@@ -56,7 +56,7 @@ export default class PostAd extends Component {
                 renderItem={this.renderRowItem}
                 />
                 </View>
-                <View style={[CommonStyles.introPageButtonBox]}>
+                <View style={[CommonStyles.introPageButtonBox,styles.footerControl]}>
                 <View style={CommonStyles.introPageButton}>
                     <ImageButton
                     style={CommonStyles.backButton}
@@ -105,8 +105,6 @@ const styles = StyleSheet.create({
     },
     searchBarInputStyle: {
         backgroundColor:"#FFF",
-        borderWidth:1,
-        borderColor:'black',
         borderRadius:50
       },
       categoryItem:{
@@ -123,13 +121,13 @@ const styles = StyleSheet.create({
       },
       footerControlStyle:{
        
+        flex:0.5,
         alignItems:"flex-end",
-        justifyContent:"flex-end",
-        borderColor:'black'
+        justifyContent:"flex-end"
         
     },
     middleControlStyle:{
-        flex:2,
+        flex:1,
         justifyContent:"center",
         padding:10
     },

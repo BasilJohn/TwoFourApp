@@ -22,7 +22,7 @@ export default class PostAd extends Component {
 
     render(){
         return(
-            <KeyboardAvoidingView>
+            <View>
             <View>
              <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.appFontColor]}>
              Price USD
@@ -64,7 +64,7 @@ export default class PostAd extends Component {
             <View style={CommonStyles.textInputField}>
             <TextInput 
               placeholder='Write few lines about your product'
-              style={CommonStyles.textInput}
+              style={CommonStyles.multiLinetextInput}
               underlineColorAndroid='transparent'
               multiline={true}
               numberOfLines={5}
@@ -77,7 +77,7 @@ export default class PostAd extends Component {
             btnText="POST ADs"
             /> */}
         </View>
-            </KeyboardAvoidingView>
+            </View>
         )
     }
 }
