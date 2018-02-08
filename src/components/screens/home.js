@@ -1,5 +1,5 @@
 import React, { Component } from 'React';
-import { StyleSheet,Text,View,Image,FlatList,Dimensions } from 'react-native'; 
+import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableOpacity } from 'react-native'; 
 import {Footer , SlidingMenu } from '../common' 
 import { Card , Header, SearchBar  } from "react-native-elements";
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -10,16 +10,24 @@ const equalWidth =  (width / 3 )
 
 export  default class Home extends Component {
 
-    state = {  moviesList: [] };
+   state = {  moviesList: [] };
 
   _keyExtractor = (item, index) => item.id;
 
   renderRowItem = (itemData) => {
+
     return (
-      <View style={styles.imageContainerStyle}>
+      <TouchableOpacity style={styles.imageContainerStyle} onPress={this._openadDetails.bind(this)}>
         <Image style={styles.imageStyle} source={{ uri: itemData.item.imageUrl }} resizeMode='cover' />
-      </View>
+      </TouchableOpacity>
     )
+  }
+
+  _openadDetails=()=>{
+
+    this.props.navigator.push({
+      screen: "TwoFourApp.AdDetails"
+    });
   }
 
   componentWillMount(){
@@ -44,6 +52,8 @@ export  default class Home extends Component {
   placeholder='Search' />
      )
   }
+  
+  
     render(props){
         return(
             <View style={styles.container}>
