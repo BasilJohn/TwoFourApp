@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet,TextInput , KeyboardAvoidingView,Switch } from 'react-native';
-import { ImageButton, SwitchButton,GradientButton } from '../common';
+import { View,Text,StyleSheet,TextInput , KeyboardAvoidingView,Switch, ScrollView } from 'react-native';
+import { ImageButton, SwitchButton,Button } from '../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
 import {  SearchBar  } from "react-native-elements";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default class PostAd extends Component {
 
@@ -19,68 +20,76 @@ export default class PostAd extends Component {
             isOpen: !this.state.isOpen
         });
      }
-
+     _handleClickSignUpButton() {
+        
+      }
     render(){
         return(
-            <View>
-            <View>
-             <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.appFontColor]}>
-             Price USD
-            </Text>
-            <View style={CommonStyles.textInputField}>
-            <TextInput
-              placeholder=''
-              style={CommonStyles.textInput}
+            <ScrollView contentContainerStyle={{flexGrow:1}}>
+            <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
+            <View >
+             <View >
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            Price USD
+          </Text>
+            </View>
+            <View style={[CommonStyles.textInputField]}>
+          <TextInput style={CommonStyles.textInput}
+              placeholder='Price'
               underlineColorAndroid='transparent'
-            />
+           />
             </View>
-            </View>
-            <View>
-             <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.appFontColor]}>
-             Negotiable
-            </Text>
-            <View>
-            <Switch 
+          <View style={CommonStyles.switchBoxStyle}>
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            Negotiable
+          </Text>
+          <Switch 
             onValueChange={this.onControlChange} 
-            value={this.state.isOpen}
-            />
+            value={this.state.isOpen}/>
             </View>
-            </View>
-            <View>
-             <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.appFontColor]}>
-             Free
-            </Text>
-            <View>
-            <Switch 
+            <View style={CommonStyles.switchBoxStyle}>
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            Free
+          </Text>
+          <Switch 
             onValueChange={this.onControlChange} 
-            value={this.state.isOpen}
-            />
+            value={this.state.isOpen}/>
             </View>
+            <View >
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            Description (optional)
+          </Text>
             </View>
-            <View>
-             <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.appFontColor]}>
-             Description (optional)
-            </Text>
-            <View style={CommonStyles.textInputField}>
-            <TextInput 
-              placeholder='Write few lines about your product'
-              style={CommonStyles.multiLinetextInput}
+            <View style={[CommonStyles.multiLinetextInputField]}>
+          <TextInput style={CommonStyles.multiLinetextInput}
+              placeholder='Write few lines about your products'
               underlineColorAndroid='transparent'
               multiline={true}
               numberOfLines={5}
+           />
+            </View>
+            </View>
+            </KeyboardAvoidingView>
+            <View style={[CommonStyles.buttonBox ]}>
+            <Button
+            onPress={this._handleClickSignUpButton.bind(this)}
+            buttonText={"POST AD"}
             />
-            </View>
-            </View>
-            <View style={[CommonStyles.buttonBox, {marginBottom: spaceHeight * 0.17}]}>
-            {/* <GradientButton
-            setting={shadowOpt}
-            btnText="POST ADs"
-            /> */}
-        </View>
-            </View>
+         </View>
+         </ScrollView>
+        
         )
     }
 }
 
 const ELEMENT_HEIGHT = 377;
 const spaceHeight = deviceHeight - ELEMENT_HEIGHT;
+
+const styles = StyleSheet.create({
+
+     footerControl:{
+  
+      alignItems:'center'
+       
+     }
+});

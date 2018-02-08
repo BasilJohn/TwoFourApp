@@ -16,7 +16,7 @@ Navigation.startSingleScreenApp({
     title: ""
   },
   appStyle: {
-    navBarBackgroundColor: '#36649C',
+    navBarBackgroundColor: '#345A99',
     navBarTextColor: '#F1F1F2',
     navBarButtonColor: '#F1F1F2',
   },

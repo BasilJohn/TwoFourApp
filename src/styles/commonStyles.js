@@ -27,13 +27,19 @@ export default CommonStyles = StyleSheet.create({
 
     backgroundColor: '#fff',
         flex: 1,
-        justifyContent: 'center',
+        padding:5,
     
   },addImageContainer:{
     
-   height:200,
+    height:200,
     alignItems:'center',
     justifyContent:'flex-start'
+},
+addedImageContainer:{
+   flex:1,
+   flexDirection:'row',
+   padding:10,
+
 },
 normalSinglePage:{
   backgroundColor: '#fff',
@@ -52,7 +58,8 @@ titleText: {
 },
 headerText: {
   fontSize: 18,
-  lineHeight: 30
+  lineHeight: 30,
+  paddingBottom:20
 },
 itemHeaderText: {
   fontSize: 17,
@@ -94,30 +101,43 @@ appFontColor:{
 //Form Styles
   textInputField: {
     flexDirection: 'row',
-    width: deviceWidth - 5,
+    width: deviceWidth -15,
     height: 45,
-    marginBottom: 25,
+    //marginBottom: 25,
     borderColor:'rgb(229,229,229)',
     borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 10,
     backgroundColor:'#FFFFFF',
+    
   },
   textInput: {
-    width: deviceWidth - 55,
+    width: deviceWidth ,
     height: 45,
     paddingLeft: 50,
     color: 'rgb(150,150,150)',
     fontSize: 16,
     fontFamily: 'Poppins-Regular',
+    
+  },
+   multiLinetextInputField:{
+    borderColor:'rgb(229,229,229)',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderRadius: 10,
   },
   multiLinetextInput:{
     width: deviceWidth - 55,
-    height: 45,
     paddingLeft: 50,
     color: 'rgb(150,150,150)',
     fontSize: 16,
     fontFamily: 'Poppins-Regular',
+    textAlignVertical: "top"
+  },
+  buttonBox: {
+    padding:10,
+    alignItems: 'center',
+  
   },
   //Post Ad Page
   introPageButtonBox: {
@@ -147,5 +167,10 @@ appFontColor:{
     width: 60,
     height: 60 
   },
+
+switchBoxStyle:{
+  padding:10,
+  flexDirection:'row',justifyContent:'space-between' 
+}
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,StyleSheet,TextInput, KeyboardAvoidingView ,Dimensions} from 'react-native';
+import { View,Text,StyleSheet,TextInput, KeyboardAvoidingView ,Dimensions,ScrollView, Image} from 'react-native';
 import { ImageButton, Input } from '../common';
 import CommonStyles,  { deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,28 +11,43 @@ export const IMAGE_HEIGHT_SMALL = window.width /7;
 export default class PostAd extends Component {
     render(){
         return(
-        
-    <KeyboardAwareScrollView
-    style={{ backgroundColor: '#fff' }}
-    resetScrollToCoords={{ x: 0, y: 0 }}
-    contentContainerStyle={CommonStyles.keyboardAvoidingViewContainer}
-    scrollEnabled={false}>
+     <ScrollView contentContainerStyle={{flexGrow:1}}>   
+    <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer}>
+    <View >
        <View style={CommonStyles.addImageContainer}>
-         <Ionicons  name={'ios-add-circle-outline'} color={"black"} size={100} />
+       <Image
+            source={require('../../assets/img/photo-camera.png')}
+            style={{width: 100, height:100}}
+          />
+          <View style={CommonStyles.addedImageContainer}>
+          <Image
+            source={require('../../assets/img/photo.png')}
+            style={{width: 50, height:50}}
+          />
+          <Image
+            source={require('../../assets/img/photo.png')}
+            style={{width: 50, height:50}}
+          />
+          <Image
+            source={require('../../assets/img/photo.png')}
+            style={{width: 50, height:50}}
+          />
+          </View>
         </View>
         <View >
-          <Text style={[CommonStyles.titleText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
           TITLE
           </Text>
         </View> 
         <View style={[CommonStyles.textInputField]}>
           <TextInput style={CommonStyles.textInput}
               placeholder='Sell somethings'
-              style={CommonStyles.textInput}
               underlineColorAndroid='transparent'
            />
       </View>
-    <View style={[CommonStyles.introPageButtonBox,styles.footerControl]}>
+      </View>
+  </KeyboardAvoidingView>
+  <View style={[styles.footerControl,CommonStyles.introPageButtonBox]}>
    <View style={CommonStyles.introPageButton} />
    <View style={CommonStyles.introPageButton}>
    <ImageButton
@@ -46,8 +61,8 @@ export default class PostAd extends Component {
        />
    </View>
    </View>
-  </KeyboardAwareScrollView>
-   
+  </ScrollView>
+
         )
     }
 
@@ -67,7 +82,7 @@ const styles = StyleSheet.create({
     flex:1 ,
     },
     footerControl:{
-           
+        
     alignItems:'flex-end'
        
      }

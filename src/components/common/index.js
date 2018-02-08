@@ -4,3 +4,4 @@ export * from './ImageButton';
 export * from './Input';
 export * from './switch';
 export * from './GradientButton';
+export * from './Button';
