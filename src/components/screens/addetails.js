@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { Animated, View, StyleSheet, Image, Dimensions, ScrollView } from 'react-native'
+import { Animated, View, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import ProfileTile  from './profile/profiletile';
+import CommonStyles from '../../styles/commonStyles';
+
 
 const deviceWidth = Dimensions.get('window').width
 const FIXED_BAR_WIDTH = 280
@@ -68,8 +71,8 @@ export default class App extends Component {
     return (
       <View
         style={styles.container}
-        flex={1} >
-        <ScrollView
+        flex={1}>
+        <ScrollView 
           horizontal
           showsHorizontalScrollIndicator={false}
           scrollEventThrottle={10}
@@ -86,6 +89,7 @@ export default class App extends Component {
           style={styles.barContainer}>
           {barArray}
         </View>
+        <ProfileTile/>
       </View>
     )
   }

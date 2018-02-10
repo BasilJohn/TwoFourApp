@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
       width : equalWidth,  
       borderWidth: 1,
       borderColor: 'white',
-      borderRadius: 20
+      borderRadius: 10
       
      },
      imageContainerStyle:{
