@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Animated, View, StyleSheet, Image, Dimensions,ScrollView, Text } from 'react-native';
 import ProfileTile  from './profile/profiletile';
 import CommonStyles from '../../styles/commonStyles';
+import { DetailItem } from '../common';
 
 
 const deviceWidth = Dimensions.get('window').width
@@ -89,12 +90,13 @@ export default class App extends Component {
           style={styles.barContainer}>
           {barArray}
         </View>
-        <View >
-          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
-          Description
-          </Text>
-        </View>
         <ProfileTile/>
+        <View style={CommonStyles.wrapperBox}>
+            <DetailItem 
+              headerText='Description'
+              detailText='Apple iPhone 6 used phone recently bought 32 gb internal condition urgent sale low price are not be entertained please!'
+            />
+          </View>
       </View>
     )
   }

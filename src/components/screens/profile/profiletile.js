@@ -1,11 +1,12 @@
 import React from 'React';
-import { StyleSheet,Text,View,TouchableOpacity,Image } from 'react-native';
+import { StyleSheet,Text,View,TouchableOpacity,Image, ScrollView } from 'react-native';
 export default class ProfileTile extends React.Component {
 
     state = {  profileImage: '.' };
 
    render(){
      return(
+        //  <ScrollView contentContainerStyle={{flexGrow:1}}>
         <View style={styles.mainStyle}>
         <View style={styles.containerStyle}>
             <View style={styles.imageContainer}>
@@ -34,7 +35,7 @@ export default class ProfileTile extends React.Component {
                  <Text>298 Like</Text>
                </View>    
             </View>
-           <View>
+           <View style={styles.leftRightBorder}>
                <View>
                <Image resizeMode="cover" style={styles.socialStyle}  borderRadius={5} source={require('../../../assets/img/dislike.png')} />
                </View>
@@ -52,6 +53,7 @@ export default class ProfileTile extends React.Component {
             </View>
          </View>
          </View>
+        //  </ScrollView>
              
      )
  }
@@ -60,17 +62,12 @@ export default class ProfileTile extends React.Component {
 const styles = StyleSheet.create({
 
     mainStyle:{
-        width:'100%',
+        width:'97%',
         height:'28%',
-    //    margin:20,
-       borderWidth:1,
-       borderColor:'#696969',
-       borderRadius:30,
-      shadowOpacity: 1,
-      shadowRadius:20,
-      shadowColor:'red'
-      
-
+        marginTop: 2,
+        borderRadius: 8,
+        backgroundColor: '#FFFFFF',
+        elevation:6
     },
     containerStyle: {
         flex:1,
@@ -117,11 +114,19 @@ const styles = StyleSheet.create({
      },
      profileWeightStyle:{
         flexDirection:'row',
-        justifyContent:'space-around',
+        justifyContent:'space-between',
+        alignItems:'flex-end',
         padding:10
      },
      socialStyle:{
         height:30,
         width: 30,
+     },
+     leftRightBorder:{
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        paddingLeft:20,
+        paddingRight:20
      }
+
 });

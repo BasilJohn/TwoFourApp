@@ -45,7 +45,42 @@ normalSinglePage:{
   backgroundColor: '#fff',
   flex: 1,
 },
-
+wrapperBox: {
+  marginTop: 20,
+  marginBottom: 20,
+},
+// Color
+whiteColor: {
+  color: '#FFFFFF',
+},
+greyColor: {
+  color: 'rgb(105,105,105)',
+},
+lightgreyColor: {
+  color: 'rgb(150,150,150)',
+},
+blackColor: {
+  color: 'rgb(19,19,19)',
+},
+softBlueColor: {
+  color: 'rgb(75,102,234)',
+},
+darkSkyBlueColor: {
+  color: 'rgb(63,103,230)',
+},
+periBlueColor: {
+  color: 'rgb(79,109,230)',
+},
+// Item box
+itemWhiteBox: {
+  marginTop: 2,
+  marginBottom: 5,
+  marginLeft: 5,
+  marginRight: 5,
+  borderRadius: 8,
+  backgroundColor: '#FFFFFF',
+  elevation: 6,
+},
 //// Text 
 extraLargeText: {
   height: 52,
