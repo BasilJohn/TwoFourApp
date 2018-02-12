@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Animated, View, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { Animated, View, StyleSheet, Image, Dimensions,ScrollView, Text } from 'react-native';
 import ProfileTile  from './profile/profiletile';
 import CommonStyles from '../../styles/commonStyles';
 
@@ -88,6 +88,11 @@ export default class App extends Component {
         <View
           style={styles.barContainer}>
           {barArray}
+        </View>
+        <View >
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+          Description
+          </Text>
         </View>
         <ProfileTile/>
       </View>
