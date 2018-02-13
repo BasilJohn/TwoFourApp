@@ -77,9 +77,9 @@ itemWhiteBox: {
   marginBottom: 5,
   marginLeft: 5,
   marginRight: 5,
-  borderRadius: 8,
+  borderRadius: 0,
   backgroundColor: '#FFFFFF',
-  elevation: 6,
+  elevation: 0,
 },
 //// Text 
 extraLargeText: {
@@ -206,6 +206,27 @@ appFontColor:{
 switchBoxStyle:{
   padding:10,
   flexDirection:'row',justifyContent:'space-between' 
+},
+priceButtonContainer:{
+  position:'absolute',
+  paddingTop:deviceHeight/3.5,
+  zIndex: 1,
+  alignItems: 'flex-start',
+  justifyContent:'flex-start',
+  padding:10
+},
+priceButtonStyle:{
+  width:150,
+  backgroundColor: '#36629B',
+  height:60,
+  borderRadius: 30,
+},
+//common
+row:{
+  flexDirection:'row'
+},
+horizontalRight:{
+  alignSelf:'flex-end'
 }
 });
 

@@ -6,13 +6,12 @@ export default class ProfileTile extends React.Component {
 
    render(){
      return(
-        //  <ScrollView contentContainerStyle={{flexGrow:1}}>
         <View style={styles.mainStyle}>
         <View style={styles.containerStyle}>
             <View style={styles.imageContainer}>
             <Image resizeMode="cover" style={styles.profileImageStyle}  borderRadius={50} source={require('../../../assets/img/profileimage.jpg')} />
             <View style={styles.nameContainer}>
-            <View>
+            <View  style={{paddingBottom:10}}>
              <Text style={styles.nameTextStyle}>Tony Stark</Text>
             </View>
             <View>
@@ -40,7 +39,7 @@ export default class ProfileTile extends React.Component {
                <Image resizeMode="cover" style={styles.socialStyle}  borderRadius={5} source={require('../../../assets/img/dislike.png')} />
                </View>
                <View>
-                 <Text>196 Like</Text>
+                 <Text>196 Dislike</Text>
                </View> 
             </View>
            <View elevation={5}>
@@ -53,8 +52,6 @@ export default class ProfileTile extends React.Component {
             </View>
          </View>
          </View>
-        //  </ScrollView>
-             
      )
  }
 }
@@ -63,12 +60,13 @@ const styles = StyleSheet.create({
 
     mainStyle:{
         width:'97%',
-        height:'28%',
+        height:150,
         marginTop: 2,
         borderRadius: 8,
         backgroundColor: '#FFFFFF',
-        elevation:6
-    },
+        elevation:6,
+        padding:5
+     },
     containerStyle: {
         flex:1,
         flexDirection:'row',
@@ -101,16 +99,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#7B7B7B',
         height:60,
         borderRadius: 40,
-        padding:10
+        padding:10,
+        
      },
      followButtonTextStyle:{
         alignSelf: 'center',
         textAlign:'center',
         color: '#F1F1F2',
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: '600',
-        paddingTop: 5,
-        paddingBottom: 10
+        paddingTop: 10
      },
      profileWeightStyle:{
         flexDirection:'row',
