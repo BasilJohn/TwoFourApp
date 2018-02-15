@@ -6,8 +6,8 @@ export default class Footer extends React.Component {
 
    handlePress = (text) => {
     this.props.screenProps.props.navigator.push({
-        screen: 'TwoFourApp.PostAd',
-        title: 'Post Ad'
+        screen: 'TwoFourApp.'+text,
+        title: text
       });
 
     }
@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
                 <TouchableOpacity onPress={this.handlePress.bind(this, 'Home')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-home-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.handlePress.bind(this, 'Chat')} style={styles.buttonStyle}>
+                <TouchableOpacity onPress={this.handlePress.bind(this, 'Chats')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-chatbubbles-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.handlePress.bind(this, 'PostAd')} style={styles.buttonStyle}>

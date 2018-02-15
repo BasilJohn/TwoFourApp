@@ -4,6 +4,7 @@ import PostAdScreen from './src/components/screens/postad';
 import PostAdOneScreen from './src/components/screens/postadone';
 import PostAdTwoScreen from './src/components/screens/postadtwo';
 import AdDetailsScreen from './src/components/screens/addetails';
+import ChatsScreen from './src/components/screens/chats/chats';
 
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
@@ -11,6 +12,8 @@ Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
 Navigation.registerComponent('TwoFourApp.PostAdOne', () => PostAdOneScreen);
 Navigation.registerComponent('TwoFourApp.PostAdTwo', () => PostAdTwoScreen);
 Navigation.registerComponent('TwoFourApp.AdDetails', () => AdDetailsScreen);
+Navigation.registerComponent('TwoFourApp.Chats', () => ChatsScreen);
+
 
 Navigation.startSingleScreenApp({
   screen: {
