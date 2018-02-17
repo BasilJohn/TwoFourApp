@@ -93,8 +93,7 @@ titleText: {
 },
 headerText: {
   fontSize: 18,
-  lineHeight: 30,
-  paddingBottom:20
+  lineHeight: 30
 },
 itemHeaderText: {
   fontSize: 17,

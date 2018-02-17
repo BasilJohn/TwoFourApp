@@ -1,15 +1,32 @@
 import React from 'react';
-import { View , Text } from 'react-native';
+import { View ,Text,StyleSheet,FlatList } from 'react-native';
+import ChatItem from '../chats/chatitem';
+ 
+const fav = [ { name:'Nora Brady',profileImage:''},
+              { name:'Kate Diaz',profileImage:''},
+              { name:'Sarah Austin',profileImage:''}];                
 
 export default class BlockedUsers extends React.Component {
 
-    render(){
-        return(
-          <View>
-              <Text>BlockedUsers</Text>
-          </View>   
-        )
+    state = {  buyingList: [] };
+
+     componentWillMount() {
+        this.setState({buyingList:fav})
+      }
+      
+      render(props) {
+    
+        return (
+          <FlatList
+            data={this.state.buyingList}
+            keyExtractor={(x, i) => i}
+            renderItem={({ item }) =>
+            <ChatItem type={'block'} details={item}/>
+              }>
+          </FlatList>
+        );
+      }
     }
-}
+
 
 

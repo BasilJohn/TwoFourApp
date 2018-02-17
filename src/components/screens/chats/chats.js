@@ -5,6 +5,7 @@ import Favourites from '../chats/favourites';
 import Selling from '../chats/selling';
 import Buying from '../chats/buying';
 import BlockedUsers from '../chats/blockedusers';
+import { deviceWidth } from '../../common/index';
 
 const initialLayout = {
     height: 0,
@@ -22,14 +23,14 @@ const initialLayout = {
       routes: [
         { key: 'selling', title: 'Selling' },
         { key: 'buying', title: 'Buying' },
-        { key: 'favourites', title: 'Favourites' },
-        { key: 'blockedusers', title: 'Blocked Users' }
+        { key: 'favourites', title: 'Fav' },
+        { key: 'blockedusers', title: 'Blocked' }
       ],
     };
   
     _handleIndexChange = index => this.setState({ index });
   
-    _renderHeader = props => <TabBar scrollEnabled {...props} />;
+    _renderHeader = props => <TabBar tabStyle={{justifyContent:'space-between',height:80,borderWidth:1,padding:0}}  {...props} />;
   
     _renderScene = SceneMap({
       selling: SellingRoute,

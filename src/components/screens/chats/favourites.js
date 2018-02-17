@@ -21,7 +21,7 @@ export default class Favourites extends React.Component {
             data={this.state.favouriteList}
             keyExtractor={(x, i) => i}
             renderItem={({ item }) =>
-            <ChatItem  details={item}/>
+            <ChatItem type={'favourites'} details={item}/>
               }>
           </FlatList>
         );

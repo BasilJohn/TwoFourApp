@@ -3,29 +3,47 @@ import { StyleSheet,Text,View,Image,Dimensions } from 'react-native';
 export const deviceWidth = Dimensions.get('window').width;
 export default class ProfileTile extends React.Component {
   
-  render(){
+  render(props){
+   // const { type } = this.props.type;
     return(
       <View style={styles.containerStyle}>
-      <View style={{flexDirection:'row'}}>
+      <View style={CommonStyles.row}>
      <Image style={styles.imageStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
-     <View style={{flexDirection:'column',justifyContent:'flex-start'}}>
+     <View style={{flexDirection:'column',justifyContent:'flex-start',paddingLeft:20}}>
       <View >
       <Text style={[CommonStyles.headerText,
                     CommonStyles.blackColor,
                     CommonStyles.extraBold]}>Nora Brady</Text>
       </View>
       <View >
+      {this.props.type === 'favourites' &&
       <Text style={[
             CommonStyles.normalText,
             CommonStyles.greyColor,
             CommonStyles.regularBold,
-          ]}>IPhone 7 Plus</Text>
+          ]}>IPhone 7 Plus</Text>}
       </View>
+      <View>
+      {this.props.type === 'buying' && 
+         <Text style={[
+            CommonStyles.normalText,
+            CommonStyles.greyColor,
+            CommonStyles.regularBold,
+          ]}>60 mins ago</Text>}
+       </View> 
+       <View>
+      {this.props.type === 'block' && 
+         <Text style={[
+            CommonStyles.normalText,
+            CommonStyles.greyColor,
+            CommonStyles.regularBold,
+          ]}>Block at 20 Jul 2018</Text>}
+       </View> 
       </View>
       </View>
       
       <View>
-     <Image style={styles.imageStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
+     <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
       </View>
       </View>
       )
@@ -35,18 +53,23 @@ export default class ProfileTile extends React.Component {
 const styles = StyleSheet.create({
 
     containerStyle: {
-       flex:0.2,
+       flex:0.3,
        flexDirection:'row',
-       elevation:2,
+       elevation:1,
        padding:10,
        width:deviceWidth,
-       elevation:6,
        alignItems:'center',
-       justifyContent:'space-between'
+       justifyContent:'space-between',
+       borderBottomWidth:2,
+       borderColor:'#EDEDED'
       },
       imageStyle:{
          height:70,
          width: 70
-      }
+      },
+      productStyle:{
+        height:90,
+        width: 90
+     }
      
 });
