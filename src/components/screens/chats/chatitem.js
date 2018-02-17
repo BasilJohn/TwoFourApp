@@ -6,14 +6,20 @@ export default class ProfileTile extends React.Component {
   render(){
     return(
       <View style={styles.containerStyle}>
-      <View style={{flexDirection:'row',alignself:'center'}}>
+      <View style={{flexDirection:'row'}}>
      <Image style={styles.imageStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
      <View style={{flexDirection:'column',justifyContent:'flex-start'}}>
-      <View style={{padding:5}}>
-      <Text>Nora Brady</Text>
+      <View >
+      <Text style={[CommonStyles.headerText,
+                    CommonStyles.blackColor,
+                    CommonStyles.extraBold]}>Nora Brady</Text>
       </View>
-      <View style={{padding:5}}>
-      <Text>IPhone 7 Plus</Text>
+      <View >
+      <Text style={[
+            CommonStyles.normalText,
+            CommonStyles.greyColor,
+            CommonStyles.regularBold,
+          ]}>IPhone 7 Plus</Text>
       </View>
       </View>
       </View>
@@ -31,10 +37,10 @@ const styles = StyleSheet.create({
     containerStyle: {
        flex:0.2,
        flexDirection:'row',
-       borderWidth:1,
-       borderColor:'red',
+       elevation:2,
        padding:10,
        width:deviceWidth,
+       elevation:6,
        alignItems:'center',
        justifyContent:'space-between'
       },
