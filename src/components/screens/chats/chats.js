@@ -6,7 +6,7 @@ import Selling from '../chats/selling';
 import Buying from '../chats/buying';
 import BlockedUsers from '../chats/blockedusers';
 import { deviceWidth } from '../../common/index';
-
+import CommonStyles from '../../../styles/commonStyles';
 const initialLayout = {
     height: 0,
     width: Dimensions.get('window').width,
@@ -30,7 +30,11 @@ const initialLayout = {
   
     _handleIndexChange = index => this.setState({ index });
   
-    _renderHeader = props => <TabBar tabStyle={{justifyContent:'space-between',height:80,borderWidth:1,padding:0}}  {...props} />;
+    _renderHeader = props => <TabBar 
+    labelStyle={CommonStyles.tabBarLabelStyle}
+    style={CommonStyles.tabBarStyle}
+    indicatorStyle={CommonStyles.chatTabIndicatorStyle} 
+    tabStyle={CommonStyles.chatTabStyle}  {...props} />;
   
     _renderScene = SceneMap({
       selling: SellingRoute,

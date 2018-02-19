@@ -226,6 +226,45 @@ row:{
 },
 horizontalRight:{
   alignSelf:'flex-end'
+},
+//Button Styles
+//Small button style
+smallButtonStyle:{
+  width:'100%',
+  backgroundColor: '#36659C',
+  height:60,
+  borderRadius: 25,
+  padding:10,
+},
+smallButtonTextStyle:{
+  alignSelf: 'center',
+  textAlign:'center',
+  color: '#F1F1F2',
+  fontSize: 15,
+  fontWeight: '600',
+  paddingTop: 10
+},
+//chatsPage
+chatTabStyle:{
+  justifyContent:'space-between',
+  height:60,
+  borderWidth:0,
+  padding:0,
+  backgroundColor:'#FFFFFF',
+
+  
+},
+chatTabIndicatorStyle:{
+  backgroundColor:'#355D9A',
+ 
+},
+tabBarStyle:{
+  backgroundColor:'#FFFFFF',
+  paddingBottom:2
+},
+tabBarLabelStyle:{
+  color:'#9B9B9B',
+  paddingTop:10
 }
 });
 

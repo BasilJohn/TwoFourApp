@@ -1,7 +1,9 @@
 import React from 'React';
-import { StyleSheet,Text,View,Image,Dimensions } from 'react-native';
+import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight } from 'react-native';
 export const deviceWidth = Dimensions.get('window').width;
-export default class ProfileTile extends React.Component {
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+export default class ChatItem extends React.Component {
   
   render(props){
    // const { type } = this.props.type;
@@ -23,13 +25,30 @@ export default class ProfileTile extends React.Component {
             CommonStyles.regularBold,
           ]}>IPhone 7 Plus</Text>}
       </View>
-      <View>
-      {this.props.type === 'buying' && 
+      <View >
+      { this.props.type === 'buying' &&
+      <Text style={[
+            CommonStyles.normalText,
+            CommonStyles.greyColor,
+            CommonStyles.regularBold,
+          ]}>IPhone 7 Plus</Text>}
+      </View>
+      <View >
+       {this.props.type === 'buying' &&
+       <View style={CommonStyles.row}>
+         <View style={{paddingRight:5}}>
+          <Ionicons name={'ios-timer-outline'} color={"#696969"} size={25} />
+          </View> 
+        <View> 
          <Text style={[
             CommonStyles.normalText,
             CommonStyles.greyColor,
             CommonStyles.regularBold,
-          ]}>60 mins ago</Text>}
+          ]}>60 mins ago
+          </Text>
+          </View>
+          </View> 
+        }
        </View> 
        <View>
       {this.props.type === 'block' && 
@@ -43,7 +62,14 @@ export default class ProfileTile extends React.Component {
       </View>
       
       <View>
-     <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
+      {this.props.type!='block' && 
+      <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
+      }
+      {this.props.type==='block' &&
+      <TouchableHighlight style={CommonStyles.smallButtonStyle}>
+      <Text style={CommonStyles.smallButtonTextStyle} >{"Unblock"}</Text>
+      </TouchableHighlight>  
+      }
       </View>
       </View>
       )
