@@ -230,6 +230,12 @@ horizontalRight:{
 spaceBetween:{
   justifyContent:'space-between'
 },
+paddingTen:{
+  padding:10
+},
+paddingTenLeft:{
+  padding:10
+},
 //Button Styles
 //Small button style
 smallButtonStyle:{

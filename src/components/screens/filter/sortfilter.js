@@ -1,5 +1,5 @@
 import React from 'React';
-import { View , Text,ScrollView, KeyboardAvoidingView, StyleSheet,TouchableOpacity } from 'react-native';
+import { View , Text,ScrollView, KeyboardAvoidingView, StyleSheet,TouchableOpacity,TextInput } from 'react-native';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Button } from '../../common';
 import { Slider } from "react-native-elements";
@@ -16,8 +16,8 @@ export default class SortFilter extends React.Component{
         return(
             <ScrollView contentContainerStyle={{flexGrow:1}}>
             <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
-            <View>
-            <View>
+            <View style={[CommonStyles.spaceBetween,{flex:1}]}>
+            <View style={CommonStyles.paddingTen}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Sort By
             </Text>
@@ -40,7 +40,7 @@ export default class SortFilter extends React.Component{
            </View>
             </View>    
             <View>
-            <View>
+            <View style={CommonStyles.paddingTen}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Distance
             </Text>
@@ -54,7 +54,27 @@ export default class SortFilter extends React.Component{
             </View>
             </View>
             <View>
+            <View style={CommonStyles.paddingTen}>
+            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+              Location
+            </Text>
+            </View>
+            <View style={[CommonStyles.row,CommonStyles.spaceBetween]}>
+            <View style={[CommonStyles.textInputField,{flex:0.80}]}>
+            <TextInput style={CommonStyles.textInput}
+              placeholder='Location to set'
+              underlineColorAndroid='transparent'
+            />
+            </View>
+            <View >
+            <TouchableOpacity style={styles.filterButtonStyle}>
+            <Text style={styles.filterButtonTextStyle} >{"Set"}</Text>
+             </TouchableOpacity>
+            </View>      
+            </View>
+            </View>
             <View>
+            <View style={CommonStyles.paddingTen}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Posted Within
             </Text>
