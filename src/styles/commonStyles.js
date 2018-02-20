@@ -227,6 +227,9 @@ row:{
 horizontalRight:{
   alignSelf:'flex-end'
 },
+spaceBetween:{
+  justifyContent:'space-between'
+},
 //Button Styles
 //Small button style
 smallButtonStyle:{

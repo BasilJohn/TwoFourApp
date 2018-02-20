@@ -23,7 +23,7 @@ const initialLayout = {
       routes: [
         { key: 'selling', title: 'Selling' },
         { key: 'buying', title: 'Buying' },
-        { key: 'favourites', title: 'Fav' },
+        { key: 'favourites', title: 'Liked' },
         { key: 'blockedusers', title: 'Blocked' }
       ],
     };
