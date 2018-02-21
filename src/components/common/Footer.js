@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
                 <TouchableOpacity onPress={this.handlePress.bind(this, 'PostAd')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-camera-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.handlePress.bind(this, 'Notification')} style={styles.buttonStyle}>
+                <TouchableOpacity onPress={this.handlePress.bind(this, 'RealEstateFilter')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-notifications-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.handlePress.bind(this, 'Profile')} style={styles.buttonStyle}>
