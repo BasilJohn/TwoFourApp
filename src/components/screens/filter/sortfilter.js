@@ -16,7 +16,7 @@ export default class SortFilter extends React.Component{
         return(
             <ScrollView contentContainerStyle={{flexGrow:1}}>
             <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
-            <View style={[CommonStyles.spaceBetween,{flex:1}]}>
+            <View style={[CommonStyles.spaceAround,{flex:1}]}>
             <View style={CommonStyles.paddingTen}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Sort By
@@ -45,7 +45,7 @@ export default class SortFilter extends React.Component{
               Distance
             </Text>
             </View>
-            <View style={{flex: 1, alignItems: 'stretch', justifyContent: 'center'}}>
+            <View style={[CommonStyles.paddingTen, {flex: 1, alignItems: 'stretch', justifyContent: 'center'}]}>
             <Slider
              value={this.state.value}
              onValueChange={(value) => this.setState({value})} 
