@@ -7,7 +7,7 @@ import AdDetailsScreen from './src/components/screens/addetails';
 import ChatsScreen from './src/components/screens/chats/chats';
 import SortFilterScreen from './src/components/screens/filter/sortfilter';
 import RealEstateFilterScreen from './src/components/screens/filter/realestatefilter';
-
+import AutoMobileFilterScreen from './src/components/screens/filter/automobilefilter';
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
 Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
@@ -17,7 +17,7 @@ Navigation.registerComponent('TwoFourApp.AdDetails', () => AdDetailsScreen);
 Navigation.registerComponent('TwoFourApp.Chats', () => ChatsScreen);
 Navigation.registerComponent('TwoFourApp.SortFilter', () => SortFilterScreen);
 Navigation.registerComponent('TwoFourApp.RealEstateFilter', () => RealEstateFilterScreen);
-
+Navigation.registerComponent('TwoFourApp.AutoMobileFilter', () => AutoMobileFilterScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

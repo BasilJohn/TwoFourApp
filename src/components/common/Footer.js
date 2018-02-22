@@ -29,7 +29,7 @@ export default class Footer extends React.Component {
                 <TouchableOpacity onPress={this.handlePress.bind(this, 'RealEstateFilter')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-notifications-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.handlePress.bind(this, 'Profile')} style={styles.buttonStyle}>
+                <TouchableOpacity onPress={this.handlePress.bind(this, 'AutoMobileFilter')} style={styles.buttonStyle}>
                 <Ionicons style={styles.footerImageStyle} name={'ios-contact-outline'} color={"black"} size={50} />
                 </TouchableOpacity>
             </View>

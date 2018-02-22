@@ -4,7 +4,7 @@ import { Slider } from "react-native-elements";
 import { Button } from '../../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Dropdown } from 'react-native-material-dropdown';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import RadioButton from 'react-native-radio-button'
 
 export default class RETab extends React.Component{
 
@@ -16,6 +16,12 @@ export default class RETab extends React.Component{
     _handleClickSignUpButton() {
         
     }
+    doSomething(value){
+        // this.setState({
+        //   //
+        // })
+      }
+
     render(){
         let propertyType = [{
             value: 'Apartment & Unit',
@@ -51,7 +57,7 @@ export default class RETab extends React.Component{
             <ScrollView style={[{flexGrow:1}]}>
             <View style={[CommonStyles.spaceAround,{flex:1}]}>
             <View>
-            <View style={CommonStyles.paddingTen}>
+            <View style={CommonStyles.paddingTenLeft}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Property Type
             </Text>
@@ -64,7 +70,7 @@ export default class RETab extends React.Component{
            </View>
             </View>
             <View>
-            <View style={CommonStyles.paddingTen}>
+            <View style={CommonStyles.paddingTenLeft}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Price Range
             </Text>
@@ -78,19 +84,19 @@ export default class RETab extends React.Component{
             </View>
             </View>
             <View>
-            <View style={CommonStyles.paddingTen}>
+            <View style={CommonStyles.paddingTenLeft}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Bed Rooms
             </Text>
             </View> 
             <View style={[CommonStyles.row,CommonStyles.spaceAround]}>
-             <View style={[CommonStyles.paddingTen, {flex:1}]}>
+             <View style={[CommonStyles.paddingTenLeft, {flex:1}]}>
              <Dropdown
              label=''
              data={minMax}
               />
              </View>
-             <View style={[CommonStyles.paddingTen, {flex:1}]}>
+             <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
              <Dropdown
              label=''
              data={minMax}
@@ -99,12 +105,12 @@ export default class RETab extends React.Component{
             </View>    
             </View> 
             <View>
-            <View style={CommonStyles.paddingTen}>
+            <View style={CommonStyles.paddingTenLeft}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Bath Rooms
             </Text>
             </View> 
-            <View style={[CommonStyles.paddingTen, {flex:0.5}]}>
+            <View style={[CommonStyles.paddingTenLeftRight, {flex:0.5}]}>
             <Dropdown
              label=''
              data={brNumber}
@@ -112,26 +118,29 @@ export default class RETab extends React.Component{
              </View>   
             </View>  
             <View>
-            <View style={CommonStyles.paddingTen}>
+            <View style={CommonStyles.paddingTenLeft}>
             <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
               Square Feet
             </Text>
             </View> 
-            <View style={[CommonStyles.paddingTen, {flex:0.5}]}>
+            <View style={[CommonStyles.paddingTenLeft, {flex:0.5}]}>
             <Dropdown
              label=''
              data={brNumber}
               />
              </View>   
             </View>     
-            <View>
+            <View style={[CommonStyles.row,CommonStyles.paddingTen]}>
              <View>
-             <RadioForm
-                radio_props={radio_props}
-                 initial={this.state.includeSuburbs}
-                onPress={(value) => {this.setState({includeSuburbs:!value})}}
-                /> 
-             </View>   
+             <RadioButton
+                animation={'bounceIn'}
+                isSelected={true}
+                onPress={() => this.doSomething('hello')}
+                />
+             </View>
+             <View  style={[CommonStyles.paddingTen]}>
+               <Text>Include Surrounding Suburbs</Text>
+             </View>       
             </View>   
             </View> 
             <View style={[CommonStyles.buttonBox ]}>

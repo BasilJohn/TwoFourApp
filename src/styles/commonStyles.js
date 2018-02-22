@@ -237,7 +237,7 @@ paddingTen:{
   padding:10
 },
 paddingTenLeft:{
-  padding:10
+  paddingLeft:10
 },
 paddingTenLeftRight:{
   paddingLeft:10,
