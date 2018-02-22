@@ -5,14 +5,22 @@ import { Button } from '../../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioButton from 'react-native-radio-button'
+// import MultiSlider from 'react-native-multi-slider';
 
 export default class RETab extends React.Component{
 
     state={
         value:120,
-        includeSuburbs:-1
+        includeSuburbs:-1,
+        //values: [3, 7]
     }
     
+    multiSliderValuesChange = (values) => {
+        // this.setState({
+        //     //values,
+        // });
+    }
+
     _handleClickSignUpButton() {
         
     }
@@ -66,7 +74,9 @@ export default class RETab extends React.Component{
             <Dropdown
              label=''
              data={propertyType}
-              />
+             value={"Apartment & Unit"}
+             animation={10}
+             />
            </View>
             </View>
             <View>
@@ -81,6 +91,14 @@ export default class RETab extends React.Component{
              onValueChange={(value) => this.setState({value})} 
              minimumValue={120}
              maximumValue={1200}/>
+             {/* <MultiSlider
+                    values={[this.state.values[0], this.state.values[1]]}
+                    sliderLength={280}
+                    onValuesChange={this.multiSliderValuesChange}
+                    min={0}
+                    max={10}
+                    step={1}
+                /> */}
             </View>
             </View>
             <View>
@@ -94,12 +112,16 @@ export default class RETab extends React.Component{
              <Dropdown
              label=''
              data={minMax}
+             value={"Min"}
+             animation={10}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
              <Dropdown
              label=''
              data={minMax}
+             value={"Max"}
+             animation={10}
               />
              </View>        
             </View>    
@@ -114,6 +136,8 @@ export default class RETab extends React.Component{
             <Dropdown
              label=''
              data={brNumber}
+             value={"All"}
+             animation={10}
               />
              </View>   
             </View>  
@@ -123,10 +147,12 @@ export default class RETab extends React.Component{
               Square Feet
             </Text>
             </View> 
-            <View style={[CommonStyles.paddingTenLeft, {flex:0.5}]}>
+            <View style={[CommonStyles.paddingTenLeftRight, {flex:0.5}]}>
             <Dropdown
              label=''
              data={brNumber}
+             value={"All"}
+             animation={10}
               />
              </View>   
             </View>     

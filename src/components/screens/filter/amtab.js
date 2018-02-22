@@ -95,12 +95,16 @@ export default class AMTab extends React.Component{
              <Dropdown
              label=''
              data={make}
+             value={"Ford"}
+             animation={10}
               />
              </View>
              <View style={[CommonStyles.paddingTen, {flex:1}]}>
              <Dropdown
              label=''
              data={model}
+             value={"1998"}
+             animation={10}
               />
              </View>        
             </View> 
@@ -130,12 +134,16 @@ export default class AMTab extends React.Component{
              <Dropdown
              label=''
              data={make}
+             value={"Ford"}
+             animation={10}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
              <Dropdown
              label=''
              data={model}
+             value={"1998"}
+             animation={10}
               />
              </View>        
             </View> 
@@ -151,12 +159,16 @@ export default class AMTab extends React.Component{
              <Dropdown
              label=''
              data={make}
+             value={"Ford"}
+             animation={10}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
              <Dropdown
              label=''
              data={model}
+             value={"1998"}
+             animation={10}
               />
              </View>        
             </View> 

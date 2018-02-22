@@ -3,7 +3,7 @@ import { View,Text,StyleSheet,TextInput , KeyboardAvoidingView,Switch, ScrollVie
 import { ImageButton, SwitchButton,Button } from '../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
 import {  SearchBar  } from "react-native-elements";
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 
 export default class PostAd extends Component {
 
@@ -26,8 +26,10 @@ export default class PostAd extends Component {
     render(){
         return(
             <ScrollView contentContainerStyle={{flexGrow:1}}>
-            <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
+            <KeyboardAvoidingView  
+            style={[CommonStyles.keyboardAvoidingViewContainer]} >
             <View >
+              <View>
              <View >
           <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
             Price USD
@@ -38,6 +40,7 @@ export default class PostAd extends Component {
               placeholder='Price'
               underlineColorAndroid='transparent'
            />
+            </View>
             </View>
           <View style={CommonStyles.switchBoxStyle}>
           <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
@@ -56,6 +59,7 @@ export default class PostAd extends Component {
             value={this.state.isOpen}/>
             </View>
             <View >
+            <View>
           <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
             Description (optional)
           </Text>
@@ -67,6 +71,7 @@ export default class PostAd extends Component {
               multiline={true}
               numberOfLines={5}
            />
+            </View>
             </View>
             </View>
             </KeyboardAvoidingView>

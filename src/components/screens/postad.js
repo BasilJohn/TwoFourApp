@@ -3,7 +3,6 @@ import { View,Text,StyleSheet,TextInput, KeyboardAvoidingView ,Dimensions,Scroll
 import { ImageButton, Input } from '../common';
 import CommonStyles,  { deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 const window = Dimensions.get('window');
 
 export const IMAGE_HEIGHT = window.width / 2;
