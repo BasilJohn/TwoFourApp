@@ -3,14 +3,15 @@ import { StyleSheet,Text,View,Image,FlatList,Dimensions } from 'react-native';
 
 export default class SlidingMenu extends React.Component {
 
-    state = {  moviesList: [] };
+    state = {  categoryList: [] };
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item, index) => item.categoryId;
 
   renderRowItem = (itemData) => {
+   
     return (
       <View style={styles.imageContainerStyle}>
-        <Image style={styles.imageStyle} source={{ uri: itemData.item.imageUrl }} resizeMode='cover' />
+        <Image style={styles.imageStyle} source={{ uri: itemData.item.categoryImage }} resizeMode='cover' />
       </View>
     )
   }
@@ -18,11 +19,11 @@ export default class SlidingMenu extends React.Component {
     {this.getMoviesFromApiAsync()}
   }
   getMoviesFromApiAsync = () => {
-    return fetch('http://droidtute.com/reactexample/sample_api/getMovieList.php')
+    return fetch('http://68.66.233.230:8080/api/v1/getCategories')
       .then((response) => response.json())
       .then((responseJson) => {
-        this.setState({ moviesList: responseJson.movieList })
-        return responseJson.movieList;
+        this.setState({ categoryList: responseJson })
+        return responseJson;
       })
       .catch((error) => {
         console.error(error);
@@ -32,8 +33,8 @@ export default class SlidingMenu extends React.Component {
  render(){
      return(
          <View style={styles.containerStyle}>
-              <FlatList horizontal
-            data={this.state.moviesList} 
+              <FlatList horizontal showsHorizontalScrollIndicator={false}
+            data={this.state.categoryList} 
             keyExtractor={this._keyExtractor}  
             renderItem={this.renderRowItem}
             />
