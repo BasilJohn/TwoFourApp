@@ -53,9 +53,7 @@ export  default class Home extends Component {
       ],
       animated: true
     });
-
-    //this.props.setNavigationProps(this.props.navigator);
-
+   
   }
   
   getMoviesFromApiAsync = () => {
@@ -75,6 +73,10 @@ export  default class Home extends Component {
       });
   }
   
+  static navigatorStyle = {
+    navBarCustomView:'TwoFourApp.SearchBar'
+  };
+
   constructor(props) {
     super(props);
     // if you want to listen on navigator events, set this up
@@ -94,7 +96,8 @@ export  default class Home extends Component {
 
     }
   }
-  
+ 
+
     render(props){
         return(
             <View style={styles.container}>
