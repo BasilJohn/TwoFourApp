@@ -28,7 +28,7 @@ export default class PostAd extends Component {
             <TouchableOpacity>
             <View style={styles.categoryItem}>
             <Ionicons style={styles.categoryItemAvatarStyle} name={itemData.item.Image} color={"#696969"} size={25} />
-            <Text style={[ CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.mediumText,styles.categoryTextStyle]}>{itemData.item.Category}</Text>
+            <Text style={[{fontFamily:'Poppins-Regular'}, CommonStyles.blackColor,CommonStyles.mediumText,styles.categoryTextStyle]}>{itemData.item.Category}</Text>
             </View>
              </TouchableOpacity>
             )
@@ -45,6 +45,8 @@ export default class PostAd extends Component {
             <View style={CommonStyles.normalSinglePage}>
                 <View>
                 <SearchBar
+                round
+                clearIcon   
                 containerStyle={styles.searchBarContainerStyle}
                 inputStyle={styles.searchBarInputStyle}
                 placeholder='Search Category' />
@@ -101,11 +103,13 @@ export default class PostAd extends Component {
 const styles = StyleSheet.create({
     searchBarContainerStyle: {
       backgroundColor:"#FFF",
-      borderBottomWidth:0
+    
     },
     searchBarInputStyle: {
         backgroundColor:"#FFF",
-        borderRadius:50
+        borderRadius:50,
+        elevation:6
+        
       },
       categoryItem:{
 
@@ -134,8 +138,8 @@ const styles = StyleSheet.create({
     categoryTextStyle:{
 
         paddingLeft:50,
-        fontWeight:"bold",
-        color: '#696969',
+        // fontWeight:"bold",
+        // color: '#696969',
         // fontColor:'#696969'
     },
     categoryItemAvatarStyle:{

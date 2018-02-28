@@ -1,8 +1,6 @@
 import React, { Component } from 'React';
-import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableOpacity } from 'react-native'; 
+import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableOpacity,ScrollView,Button } from 'react-native'; 
 import {Footer , SlidingMenu } from '../common' 
-import { Card , Header, SearchBar  } from "react-native-elements";
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,10 +14,11 @@ export  default class Home extends Component {
 
   renderRowItem = (itemData) => {
      return (
-      <TouchableOpacity style={styles.imageContainerStyle} onPress={this._openadDetails.bind(this)}>
+       <View style={styles.imageContainerStyle} >
+      <TouchableOpacity onPress={this._openadDetails.bind(this)}>
         <Image style={styles.imageStyle} source={{ uri: 'https://image.tmdb.org/t/p/w500'+itemData.item.poster_path }} resizeMode='cover' />
-        {/* <Text>{itemData.item.original_title}</Text> */}
       </TouchableOpacity>
+      </View>
     )
   }
 
@@ -53,7 +52,6 @@ export  default class Home extends Component {
       ],
       animated: true
     });
-   
   }
   
   getMoviesFromApiAsync = () => {
@@ -74,7 +72,10 @@ export  default class Home extends Component {
   }
   
   static navigatorStyle = {
-    navBarCustomView:'TwoFourApp.SearchBar'
+    navBarCustomView:'TwoFourApp.SearchBar',
+    navBarBackgroundColor: '#59A99C',
+    navBarComponentAlignment: 'fill', // center/fill
+
   };
 
   constructor(props) {
@@ -87,8 +88,7 @@ export  default class Home extends Component {
 
     if (event.type == 'NavBarButtonPress') {
       if (event.id == 'filter') {
-        console.log(event.id)
-        this.props.navigator.push({
+         this.props.navigator.push({
           screen: "TwoFourApp.SortFilter",
           title:'Sort and Filter'
         });
@@ -100,6 +100,7 @@ export  default class Home extends Component {
 
     render(props){
         return(
+          // <ScrollView > 
             <View style={styles.container}>
             <SlidingMenu/>
             <FlatList 
@@ -108,8 +109,11 @@ export  default class Home extends Component {
             keyExtractor={this._keyExtractor}  
             renderItem={this.renderRowItem}
             />
+            <View style={[CommonStyles.buttonBox ]}>
             <Footer screenProps={this}/>
+             </View>
             </View>
+            //  </ScrollView>
         )
     }
 }
@@ -117,25 +121,20 @@ export  default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
+      // justifyContent: 'center',
+      // alignItems: 'center'
     },flatlist: {
-        flexDirection: 'column',
-     },
-     headerStyle:{
-       width:width,
-       backgroundColor:'#549A91'
+        // flexDirection: 'column',
      },
      imageStyle:{
-      height: 150,  
-      width : equalWidth,  
-      borderWidth: 1,
-      borderColor: 'white',
-      borderRadius: 10
+      height: equalWidth-10,  
+      width : equalWidth-10,  
+      borderRadius: 10,
+    
       
      },
      imageContainerStyle:{
-       padding:1
+      padding:5
 
      }
   });

@@ -1,5 +1,6 @@
 import React from 'React';
 import { StyleSheet,Text,View,Image,FlatList,Dimensions } from 'react-native';
+import CommonStyles from '../../styles/commonStyles';
 
 export default class SlidingMenu extends React.Component {
 
@@ -11,7 +12,12 @@ export default class SlidingMenu extends React.Component {
    
     return (
       <View style={styles.imageContainerStyle}>
+      <View style={{paddingLeft:5,paddingBottom:10}}>
         <Image style={styles.imageStyle} source={{ uri: itemData.item.categoryImage }} resizeMode='cover' />
+        </View>
+        <View style={{alignSelf:'center',justifyContent:'center'}}>
+        <Text style={{fontSize:15,fontFamily:'Poppins-Regular'}}>{itemData.item.categoryName}</Text>
+        </View>
       </View>
     )
   }
@@ -46,17 +52,18 @@ export default class SlidingMenu extends React.Component {
 const styles = StyleSheet.create({
 
     containerStyle: {
-       flex:0.2,
+      //  flex:0.2,
        flexDirection:'row',
        width:'100%',
-       alignItems:'center'
+       alignItems:'center',
+       padding:10
     },
      imageStyle:{
-      height: 50,  
-      width : 50,  
+      height: 60,  
+      width : 60,  
       borderWidth: 2,
       borderColor: 'white',
-      borderRadius: 20,
+      borderRadius: 30,
       paddingRight:5
       
      },
