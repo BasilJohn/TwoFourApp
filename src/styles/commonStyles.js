@@ -208,7 +208,7 @@ switchBoxStyle:{
 },
 priceButtonContainer:{
   position:'absolute',
-  paddingTop:deviceHeight/3.5,
+  // paddingTop:deviceHeight/3.5,
   zIndex: 1,
   alignItems: 'flex-start',
   justifyContent:'flex-start',

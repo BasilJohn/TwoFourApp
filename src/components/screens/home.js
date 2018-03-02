@@ -1,6 +1,11 @@
 import React, { Component } from 'React';
 import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableOpacity,ScrollView,Button } from 'react-native'; 
 import {Footer , SlidingMenu } from '../common' 
+import CommonStyles, {
+  deviceWidth,
+  deviceHeight,
+  NAV_HEIGHT
+} from '../../styles/commonStyles';
 
 const { width, height } = Dimensions.get('window');
 
@@ -101,9 +106,9 @@ export  default class Home extends Component {
     render(props){
         return(
           <View style={styles.container}>
+          <SlidingMenu/>
          <ScrollView > 
             <View >
-            <SlidingMenu/>
             <FlatList 
             data={this.state.moviesList} 
             numColumns={3} 
@@ -120,6 +125,10 @@ export  default class Home extends Component {
         )
     }
 }
+
+const elementHeight = NAV_HEIGHT + 99;
+const itemWidth = deviceWidth - 85;
+const itemHeight = deviceHeight - elementHeight - 70;
 
 const styles = StyleSheet.create({
     container: {
@@ -139,5 +148,11 @@ const styles = StyleSheet.create({
      imageContainerStyle:{
       padding:5
 
-     }
+     },slide: {
+      alignItems: 'center',
+      width: itemWidth,
+      height: itemHeight,
+      borderRadius: 8,
+      backgroundColor: 'rgb(105,105,105)',
+    },
   });

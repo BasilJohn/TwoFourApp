@@ -5,6 +5,7 @@ import CommonStyles, { deviceHeight } from '../../styles/commonStyles';
 import { DetailItem } from '../common';
 import { SocialIcon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 const deviceWidth = Dimensions.get('window').width
 const FIXED_BAR_WIDTH = 280
@@ -18,78 +19,62 @@ const images = [
 
 export default class App extends Component {
 
+  state = {  entries: [],activeSlide:0 };
+
   numItems = images.length
   itemWidth = (FIXED_BAR_WIDTH / this.numItems) - ((this.numItems - 1) * BAR_SPACE)
   animVal = new Animated.Value(0)
 
-  render() {
-    let imageArray = []
-    let barArray = []
-    images.forEach((image, i) => {
-      console.log(image, i)
-      const thisImage = (
-        <Image
-          key={`image${i}`}
-          source={{uri: image}}
-          style={{ width: deviceWidth }}
+  _renderItem ({item, index}) {
+    
+    return (
+      <View style={styles.slide}>
+      <Image
+          style={{width: deviceWidth-100, height:  deviceHeight/2.6}}
+          source={{uri: item}}
         />
-      )
-      imageArray.push(thisImage)
-
-      const scrollBarVal = this.animVal.interpolate({
-        inputRange: [deviceWidth * (i - 1), deviceWidth * (i + 1)],
-        outputRange: [-this.itemWidth, this.itemWidth],
-        extrapolate: 'clamp',
-      })
-
-      const thisBar = (
-        <View
-          key={`bar${i}`}
-          style={[
-            styles.track,
-            {
-              width: this.itemWidth,
-              marginLeft: i === 0 ? 0 : BAR_SPACE,
-            },
-          ]}
-        >
-          <Animated.View
-
-            style={[
-              styles.bar,
-              {
-                width: this.itemWidth,
-                transform: [
-                  { translateX: scrollBarVal },
-                ],
-              },
-            ]}
-          />
         </View>
       )
-      barArray.push(thisBar)
-    })
+}
+componentWillMount(){
+ this.setState({entries:images})
+}
+get pagination () {
+  const { entries, activeSlide } = this.state;
+  return (
+      <Pagination
+        dotsLength={entries.length}
+        activeDotIndex={activeSlide}
+        containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+        dotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            marginHorizontal: 8,
+            backgroundColor: 'rgba(255, 255, 255, 0.92)'
+        }}
+        inactiveDotStyle={{
+            // Define styles for inactive dots here
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+  );
+}
+  render() {
+    const itemWidth = deviceWidth - 85;
 
     return (
       <ScrollView contentContainerStyle={{flexGrow:1}}>
       <View style={styles.container}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEventThrottle={10}
-          pagingEnabled
-          onScroll={
-            Animated.event(
-              [{ nativeEvent: { contentOffset: { x: this.animVal } } }]
-            )
-          }
-        >
-         {imageArray}
-        </ScrollView>
-        <View
-          style={styles.barContainer}>
-          {barArray}
-        </View>
+      <Carousel
+              ref={(c) => { this._carousel = c; }}
+              data={this.state.entries}
+              renderItem={this._renderItem}
+              sliderWidth={deviceWidth}
+              itemWidth={itemWidth}
+            />
+          {/* { this.pagination } */}
         </View>
         <View style={CommonStyles.priceButtonContainer}>
         <TouchableHighlight style={CommonStyles.priceButtonStyle}>
@@ -180,7 +165,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height:deviceHeight/3,
+    height:deviceHeight/2.5,
     alignItems: 'center',
     justifyContent: 'center',
     elevation:3,
@@ -239,5 +224,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily:'Poppins-SemiBold',
     paddingTop:20
- },
+ },slide: {
+  alignItems: 'center',
+  width: deviceWidth - 85,
+  height: deviceHeight/2.5,
+  borderRadius: 8,
+  backgroundColor: 'rgb(105,105,105)'
+},
 })
