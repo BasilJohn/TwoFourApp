@@ -99,7 +99,7 @@ export default class App extends Component {
         <View style={styles.productNameContainer}>
           <View style={[CommonStyles.row]}>
             <View style={{flex:0.8}}>
-          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.semiBold]}>
             {'Samsung Galaxy S8-256GB'}
           </Text>
           </View>
@@ -111,7 +111,7 @@ export default class App extends Component {
           <Text style={[
             CommonStyles.normalText,
             CommonStyles.greyColor,
-            CommonStyles.regularBold,
+            CommonStyles.light,
           ]}>
             {'Posted 2 hours ago'}
           </Text>
@@ -228,6 +228,7 @@ const styles = StyleSheet.create({
   backgroundColor: '#36629B',
   height:60,
   borderRadius: 30,
+  
 },
  reportButtonTextStyle:{
    
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     color: '#F1F1F2',
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily:'Poppins-SemiBold',
     paddingTop:20
  },
 })

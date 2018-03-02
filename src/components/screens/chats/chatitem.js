@@ -2,6 +2,7 @@ import React from 'React';
 import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight } from 'react-native';
 export const deviceWidth = Dimensions.get('window').width;
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import CommonStyles from '../../../styles/commonStyles';
 
 export default class ChatItem extends React.Component {
   
@@ -67,7 +68,7 @@ export default class ChatItem extends React.Component {
       }
       {this.props.type==='block' &&
       <TouchableHighlight style={CommonStyles.smallButtonStyle}>
-      <Text style={CommonStyles.smallButtonTextStyle} >{"Unblock"}</Text>
+      <Text style={[CommonStyles.smallButtonTextStyle,CommonStyles.semiBold]} >{"Unblock"}</Text>
       </TouchableHighlight>  
       }
       </View>

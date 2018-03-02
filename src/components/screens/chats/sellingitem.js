@@ -16,7 +16,7 @@ export default class SellinngItem extends React.Component {
       <View >
       <Text style={[CommonStyles.headerText,
                     CommonStyles.blackColor,
-                    CommonStyles.extraBold]}>Macbook pro Retina</Text>
+                    CommonStyles.extraBold]}>Macbook Pro Retina</Text>
       </View>
        <View>
        

@@ -100,8 +100,9 @@ export  default class Home extends Component {
 
     render(props){
         return(
-          // <ScrollView > 
-            <View style={styles.container}>
+          <View style={styles.container}>
+         <ScrollView > 
+            <View >
             <SlidingMenu/>
             <FlatList 
             data={this.state.moviesList} 
@@ -109,11 +110,13 @@ export  default class Home extends Component {
             keyExtractor={this._keyExtractor}  
             renderItem={this.renderRowItem}
             />
-            <View style={[CommonStyles.buttonBox ]}>
+            </View>
+           </ScrollView>
+           <View style={[CommonStyles.buttonBox ]}>
             <Footer screenProps={this}/>
              </View>
-            </View>
-            //  </ScrollView>
+           </View>
+
         )
     }
 }

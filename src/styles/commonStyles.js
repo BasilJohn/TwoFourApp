@@ -279,8 +279,9 @@ tabBarStyle:{
   paddingBottom:2
 },
 tabBarLabelStyle:{
-  color:'#9B9B9B',
-  paddingTop:10
+  color:'#6F6F6F',
+  paddingTop:10,
+  fontFamily: 'Poppins-SemiBold'
 }
 });
 

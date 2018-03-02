@@ -30,6 +30,7 @@ Navigation.startSingleScreenApp({
     navBarBackgroundColor: '#345A99',
     navBarTextColor: '#F1F1F2',
     navBarButtonColor: '#F1F1F2',
+    navBarTextFontFamily: 'Poppins-SemiBold'
   },
   animated: true,
   animationType: 'fade'
