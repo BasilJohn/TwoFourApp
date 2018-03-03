@@ -207,17 +207,18 @@ switchBoxStyle:{
   flexDirection:'row',justifyContent:'space-between' 
 },
 priceButtonContainer:{
-  position:'absolute',
-  // paddingTop:deviceHeight/3.5,
-  zIndex: 1,
+   position:'absolute',
+  //zIndex:1,
+  top:deviceHeight/2.6,
   alignItems: 'flex-start',
-  justifyContent:'flex-start',
-  padding:10
+   justifyContent:'flex-start',
+   left:10
 },
 priceButtonStyle:{
-  width:150,
+  position:'absolute',
+  width:100,
   backgroundColor: '#36629B',
-  height:60,
+  height:40,
   borderRadius: 30,
 },
 //common

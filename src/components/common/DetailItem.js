@@ -26,10 +26,6 @@ export default class DetailItem extends Component {
           ]}>
             {this.props.headerText}
           </Text>
-          {/* <Image
-            source={require('../../img/healer/expan.png')}
-            style={{width: 22, height: 22}}
-          />  */}
         </View>
         <View>
           <Text style={[
@@ -52,13 +48,5 @@ const styles = StyleSheet.create({
     marginBottom: 2
   },
 });
-
-// const PropTypes = React.PropTypes;
-
-// DetailItem.propTypes = {
-//   headerText: PropTypes.string,
-//   detailText: PropTypes.string,
-// };
-
 
 export { DetailItem }; 
