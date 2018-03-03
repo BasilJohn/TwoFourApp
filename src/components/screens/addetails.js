@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Animated, View, StyleSheet, Image, Dimensions,ScrollView, Text, TouchableOpacity,TouchableHighlight } from 'react-native';
 import ProfileTile  from './profile/profiletile';
 import CommonStyles, { deviceHeight } from '../../styles/commonStyles';
-import { DetailItem,PrimeButton,ImageSlider } from '../common';
+import { DetailItem,PrimeButton,ImageSlider,LinearGradientButton } from '../common';
 import { SocialIcon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -13,7 +13,9 @@ const BAR_SPACE = 10
 
 export default class App extends Component {
 
- 
+  handlePress = () => {
+    
+    }
 
   render() {
    
@@ -90,11 +92,11 @@ export default class App extends Component {
           </View>  
           </View>
           <View style={[CommonStyles.row, {justifyContent:'space-between',padding:10}]}>
-           <View>
-             <TouchableOpacity style={styles.messageButtonStyle}>
-            <Text style={styles.reportButtonTextStyle} >{"Message"}</Text>
-             </TouchableOpacity>
-           </View>
+          <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'Make Offer'} height={60} onPress={this.handlePress.bind(this)} />
            <View>
              <TouchableOpacity style={styles.offerButtonStyle}>
             <Text style={styles.reportButtonTextStyle} >{"Make Offer"}</Text>

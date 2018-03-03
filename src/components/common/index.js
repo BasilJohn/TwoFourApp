@@ -8,3 +8,4 @@ export * from './Button';
 export * from './DetailItem';
 export * from './primebutton';
 export * from './imageslider';
+export * from './lineargradientbutton';
