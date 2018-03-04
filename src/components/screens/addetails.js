@@ -16,7 +16,17 @@ export default class App extends Component {
   handlePress = () => {
     
     }
-
+    
+    componentDidMount(){
+    this.props.navigator.setStyle({
+     // navBarCustomView: 'TwoFourApp.NavBar',
+     // drawUnderNavBar: true,
+      navBarHidden:false,
+//navBarTranslucent: true, // make the nav bar semi-translucent, works best with drawUnderNavBar:true
+     // navBarTransparent: true, // make the nav bar transparent, works best with drawUnderNavBar:true,
+    
+    });
+  }
   render() {
    
     return (
@@ -96,7 +106,11 @@ export default class App extends Component {
               colorOne={'#3D88A7'}
               colorTwo={'#3972A0'}
               colorThree={'#355F9A'}
-              buttonText={'Make Offer'} height={60} onPress={this.handlePress.bind(this)} />
+              buttonText={'Make Offer'} 
+              height={60} 
+              width={195}
+              borderRadius={60}
+              onPress={this.handlePress.bind(this)} />
            <View>
              <TouchableOpacity style={styles.offerButtonStyle}>
             <Text style={styles.reportButtonTextStyle} >{"Make Offer"}</Text>

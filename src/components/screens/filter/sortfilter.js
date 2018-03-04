@@ -1,7 +1,7 @@
 import React from 'React';
 import { View , Text,ScrollView, KeyboardAvoidingView, StyleSheet,TouchableOpacity,TextInput } from 'react-native';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
-import { Button } from '../../common';
+import { Button,LinearGradientButton } from '../../common';
 import { Slider } from "react-native-elements";
 export default class SortFilter extends React.Component{
 
@@ -11,6 +11,9 @@ export default class SortFilter extends React.Component{
     _handleClickSignUpButton() {
         
     }
+    handlePress = () => {
+    
+    }
 
     render(){
         return(
@@ -18,30 +21,48 @@ export default class SortFilter extends React.Component{
             <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
             <View style={[CommonStyles.spaceAround,{flex:1}]}>
             <View style={CommonStyles.paddingTen}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Sort By
             </Text>
             </View>
             <View style={[CommonStyles.row,CommonStyles.spaceBetween]}>
             <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"Newest"}</Text>
-             </TouchableOpacity>
+            <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'Newest'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
            <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"Low to High"}</Text>
-             </TouchableOpacity>
+           <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'Low to High'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
            <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"High to Low"}</Text>
-             </TouchableOpacity>
+           <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'High to Low'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
             </View>    
             <View>
             <View style={CommonStyles.paddingTen}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Distance
             </Text>
             </View>
@@ -55,7 +76,7 @@ export default class SortFilter extends React.Component{
             </View>
             <View>
             <View style={CommonStyles.paddingTen}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Location
             </Text>
             </View>
@@ -67,33 +88,57 @@ export default class SortFilter extends React.Component{
             />
             </View>
             <View >
-            <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"Set"}</Text>
-             </TouchableOpacity>
+             <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'Set'} 
+              height={60} 
+              width={195}
+              borderRadius={60}
+              onPress={this.handlePress.bind(this)} />
             </View>      
             </View>
             </View>
             <View>
             <View style={CommonStyles.paddingTen}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Posted Within
             </Text>
             </View>
             <View style={[CommonStyles.row,CommonStyles.spaceBetween]}>
             <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"24 hours"}</Text>
-             </TouchableOpacity>
+            <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'24 Hrs'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
            <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"7 days"}</Text>
-             </TouchableOpacity>
+           <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'7 Days'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
            <View>
-             <TouchableOpacity style={styles.filterButtonStyle}>
-            <Text style={styles.filterButtonTextStyle} >{"30 days"}</Text>
-             </TouchableOpacity>
+           <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'30 Days'} 
+              height={60} 
+              width={250}
+              borderRadius={10}
+              onPress={this.handlePress.bind(this)} />
            </View>
             </View> 
             </View>

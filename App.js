@@ -9,6 +9,7 @@ import SortFilterScreen from './src/components/screens/filter/sortfilter';
 import RealEstateFilterScreen from './src/components/screens/filter/realestatefilter';
 import AutoMobileFilterScreen from './src/components/screens/filter/automobilefilter';
 import SearchBar from './src/components/common/searchbar';
+import NavBar from './src/components/common/gradientnavbar';
 import SignInScreen from './src/components/screens/auth/sigin';
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
@@ -21,6 +22,7 @@ Navigation.registerComponent('TwoFourApp.SortFilter', () => SortFilterScreen);
 Navigation.registerComponent('TwoFourApp.RealEstateFilter', () => RealEstateFilterScreen);
 Navigation.registerComponent('TwoFourApp.AutoMobileFilter', () => AutoMobileFilterScreen);
 Navigation.registerComponent('TwoFourApp.SearchBar', () => SearchBar);
+Navigation.registerComponent('TwoFourApp.NavBar', () => NavBar);
 Navigation.registerComponent('TwoFourApp.SignIn', () => SignInScreen);
 
 Navigation.startSingleScreenApp({

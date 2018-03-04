@@ -3,9 +3,14 @@ import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight } from 'react
 export const deviceWidth = Dimensions.get('window').width;
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CommonStyles from '../../../styles/commonStyles';
+import { LinearGradientButton } from '../../common'; 
 
 export default class ChatItem extends React.Component {
   
+  handlePress = () => {
+    
+  }
+
   render(props){
    // const { type } = this.props.type;
     return(
@@ -67,9 +72,15 @@ export default class ChatItem extends React.Component {
       <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
       }
       {this.props.type==='block' &&
-      <TouchableHighlight style={CommonStyles.smallButtonStyle}>
-      <Text style={[CommonStyles.smallButtonTextStyle,CommonStyles.semiBold]} >{"Unblock"}</Text>
-      </TouchableHighlight>  
+      <LinearGradientButton 
+      colorOne={'#3D88A7'}
+      colorTwo={'#3972A0'}
+      colorThree={'#355F9A'}
+      buttonText={'Unblock'} 
+      height={60} 
+      width={250}
+      borderRadius={60}
+      onPress={this.handlePress.bind(this)} /> 
       }
       </View>
       </View>

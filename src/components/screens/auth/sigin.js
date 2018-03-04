@@ -21,6 +21,9 @@ export default class SignInScreen extends Component {
   constructor(props) {
     super(props);
   }
+  static navigatorStyle = {
+    navBarHidden: true, // make the nav bar hidden
+  };
 
   render() {
     return (

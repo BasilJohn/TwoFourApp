@@ -1,7 +1,7 @@
 import React from 'react';
 import { View ,Text,StyleSheet,FlatList } from 'react-native';
 import ChatItem from '../chats/chatitem';
- 
+
 const fav = [ { name:'Nora Brady',profileImage:''},
               { name:'Kate Diaz',profileImage:''},
               { name:'Sarah Austin',profileImage:''}];                

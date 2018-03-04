@@ -10,10 +10,13 @@ const LinearGradientButton = (props) => {
         <LinearGradient 
             colors={[props.colorOne, props.colorTwo, props.colorThree]}
             start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-            style={styles.LinearGradientStyle}
+            style={[styles.LinearGradientStyle,{height:props.height,
+                width:deviceWidth-props.width,borderRadius:props.borderRadius}]}
             locations={[0,0.5,1]} >
-        <TouchableOpacity onPress={props.onPress} style={[styles.buttonStyle,{height:props.height}]}>
-            <Text style={styles.textStyle} >{props.buttonText}</Text>
+        <TouchableOpacity onPress={props.onPress} 
+        style={[styles.buttonStyle,{height:props.height,
+        width:deviceWidth-props.width,borderRadius:props.borderRadius}]}>
+        <Text style={styles.textStyle} >{props.buttonText}</Text>
         </TouchableOpacity>
         </LinearGradient>
     );
@@ -22,12 +25,7 @@ const LinearGradientButton = (props) => {
 
 
 const styles = StyleSheet.create({
-
-    buttonStyle: {
-        width:deviceWidth-195,
-        height:60,
-        borderRadius: 30,
-    },
+   
     textStyle: {
     justifyContent:'center',
     alignItems:'center',
@@ -38,10 +36,7 @@ const styles = StyleSheet.create({
     paddingTop:20
     }
     ,LinearGradientStyle: {
-        width:deviceWidth-195,
         backgroundColor: '#7B7B7B',
-        height:60,
-        borderRadius: 30,
      },
 
 });

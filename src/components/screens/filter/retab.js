@@ -66,7 +66,7 @@ export default class RETab extends React.Component{
             <View style={[CommonStyles.spaceAround,{flex:1}]}>
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Property Type
             </Text>
             </View>
@@ -76,12 +76,13 @@ export default class RETab extends React.Component{
              data={propertyType}
              value={"Apartment & Unit"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold]}	
              />
            </View>
             </View>
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Price Range
             </Text>
             </View>
@@ -103,7 +104,7 @@ export default class RETab extends React.Component{
             </View>
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Bed Rooms
             </Text>
             </View> 
@@ -114,6 +115,7 @@ export default class RETab extends React.Component{
              data={minMax}
              value={"Min"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold]}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
@@ -122,13 +124,14 @@ export default class RETab extends React.Component{
              data={minMax}
              value={"Max"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold]}
               />
              </View>        
             </View>    
             </View> 
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Bath Rooms
             </Text>
             </View> 
@@ -138,12 +141,13 @@ export default class RETab extends React.Component{
              data={brNumber}
              value={"All"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold]}
               />
              </View>   
             </View>  
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.greyColor,CommonStyles.extraBold]}>
               Square Feet
             </Text>
             </View> 
@@ -153,6 +157,7 @@ export default class RETab extends React.Component{
              data={brNumber}
              value={"All"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold]}
               />
              </View>   
             </View>     
@@ -165,7 +170,7 @@ export default class RETab extends React.Component{
                 />
              </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text>Include Surrounding Suburbs</Text>
+               <Text style={[CommonStyles.regularBold]}>Include Surrounding Suburbs</Text>
              </View>       
             </View>   
             </View> 
