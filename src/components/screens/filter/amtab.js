@@ -5,12 +5,13 @@ import { Button } from '../../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioButton from 'react-native-radio-button'
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 export default class AMTab extends React.Component{
 
     state={
         value:120,
-        includeSuburbs:-1
+        multiSliderValue: [3, 7]
     }
 
     doSomething(value){
@@ -119,12 +120,19 @@ export default class AMTab extends React.Component{
               Price Range
             </Text>
             </View>
-            <View style={[CommonStyles.paddingTen, {flex: 1, alignItems: 'stretch', justifyContent: 'center'}]}>
-            <Slider
-             value={this.state.value}
-             onValueChange={(value) => this.setState({value})} 
-             minimumValue={120}
-             maximumValue={1200}/>
+            <View style={[CommonStyles.paddingTen, {flex: 1,paddingTop:40, alignItems: 'stretch', justifyContent: 'center'}]}>
+            <MultiSlider
+            values={[this.state.multiSliderValue[0], this.state.multiSliderValue[1]]}
+            sliderLength={deviceWidth-30}
+            onValuesChange={this.multiSliderValuesChange}
+            min={0}
+            max={10}
+            step={1}
+            trackStyle={{backgroundColor:'#345A99',height:3}}
+            selectedStyle={{backgroundColor:'#345A99'}}
+             markerStyle={CommonStyles.markerStyle}
+             markerContainerStyle={[CommonStyles.markerContainerStyle]}
+            />
             </View>
             </View>
             <View>

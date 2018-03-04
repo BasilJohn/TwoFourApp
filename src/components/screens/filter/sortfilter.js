@@ -74,7 +74,7 @@ export default class SortFilter extends React.Component{
               Distance
             </Text>
             </View>
-            <View style={[CommonStyles.paddingTen, {flex: 1, alignItems: 'stretch', justifyContent: 'center'}]}>
+            <View style={[CommonStyles.paddingTen, {flex: 1,paddingTop:20, alignItems: 'stretch', justifyContent: 'center'}]}>
             <MultiSlider
             values={[this.state.multiSliderValue[0], this.state.multiSliderValue[1]]}
             sliderLength={deviceWidth-30}
@@ -82,11 +82,10 @@ export default class SortFilter extends React.Component{
             min={0}
             max={10}
             step={1}
-            allowOverlap
-            snapped
-            trackStyle={{height:20}}
-            markerStyle={CommonStyles.markerStyle}
-            markerContainerStyle={CommonStyles.markerStyle}
+            trackStyle={{backgroundColor:'#345A99',height:3}}
+            selectedStyle={{backgroundColor:'#345A99'}}
+             markerStyle={CommonStyles.markerStyle}
+             markerContainerStyle={[CommonStyles.markerContainerStyle]}
             />
             </View>
             </View>
