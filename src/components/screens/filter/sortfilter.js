@@ -3,16 +3,24 @@ import { View , Text,ScrollView, KeyboardAvoidingView, StyleSheet,TouchableOpaci
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Button,LinearGradientButton } from '../../common';
 import { Slider } from "react-native-elements";
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
+
 export default class SortFilter extends React.Component{
 
     state={
-        value:120
+        value:120,
+        multiSliderValue: [3, 7]
     }
     _handleClickSignUpButton() {
         
     }
     handlePress = () => {
     
+    }
+    multiSliderValuesChange = (values) => {
+      this.setState({
+        multiSliderValue: values,
+      });
     }
 
     render(){
@@ -67,11 +75,19 @@ export default class SortFilter extends React.Component{
             </Text>
             </View>
             <View style={[CommonStyles.paddingTen, {flex: 1, alignItems: 'stretch', justifyContent: 'center'}]}>
-            <Slider
-             value={this.state.value}
-             onValueChange={(value) => this.setState({value})} 
-             minimumValue={120}
-             maximumValue={1200}/>
+            <MultiSlider
+            values={[this.state.multiSliderValue[0], this.state.multiSliderValue[1]]}
+            sliderLength={deviceWidth-30}
+            onValuesChange={this.multiSliderValuesChange}
+            min={0}
+            max={10}
+            step={1}
+            allowOverlap
+            snapped
+            trackStyle={{height:20}}
+            markerStyle={CommonStyles.markerStyle}
+            markerContainerStyle={CommonStyles.markerStyle}
+            />
             </View>
             </View>
             <View>

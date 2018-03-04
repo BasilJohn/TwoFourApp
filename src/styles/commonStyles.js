@@ -283,6 +283,13 @@ tabBarLabelStyle:{
   color:'#6F6F6F',
   paddingTop:10,
   fontFamily: 'Poppins-SemiBold'
+},
+//Mutislider
+markerStyle:{
+  height:30,
+  width:30,
+  borderRadius:100,
+  backgroundColor:'#345A99'
 }
 });
 
