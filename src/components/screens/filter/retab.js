@@ -76,7 +76,8 @@ export default class RETab extends React.Component{
              data={propertyType}
              value={"Apartment & Unit"}
              animation={10}
-             itemTextStyle={[CommonStyles.regularBold]}	
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
              />
            </View>
             </View>
@@ -115,7 +116,8 @@ export default class RETab extends React.Component{
              data={minMax}
              value={"Min"}
              animation={10}
-             itemTextStyle={[CommonStyles.regularBold]}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
@@ -124,7 +126,8 @@ export default class RETab extends React.Component{
              data={minMax}
              value={"Max"}
              animation={10}
-             itemTextStyle={[CommonStyles.regularBold]}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>        
             </View>    
@@ -141,7 +144,8 @@ export default class RETab extends React.Component{
              data={brNumber}
              value={"All"}
              animation={10}
-             itemTextStyle={[CommonStyles.regularBold]}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>   
             </View>  
@@ -157,7 +161,8 @@ export default class RETab extends React.Component{
              data={brNumber}
              value={"All"}
              animation={10}
-             itemTextStyle={[CommonStyles.regularBold]}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>   
             </View>     
@@ -170,7 +175,7 @@ export default class RETab extends React.Component{
                 />
              </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text style={[CommonStyles.regularBold]}>Include Surrounding Suburbs</Text>
+               <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Include Surrounding Suburbs</Text>
              </View>       
             </View>   
             </View> 

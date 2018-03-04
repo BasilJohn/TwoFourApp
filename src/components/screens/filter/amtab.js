@@ -47,7 +47,7 @@ export default class AMTab extends React.Component{
                 />
             </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text>New</Text>
+               <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>New</Text>
              </View>
             </View>
             <View style={[CommonStyles.row,{flex:0.5}]}>
@@ -59,7 +59,7 @@ export default class AMTab extends React.Component{
                 />
             </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text>Used</Text>
+               <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Used</Text>
              </View>
             </View>
             </View>
@@ -73,7 +73,7 @@ export default class AMTab extends React.Component{
                 />
             </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text>Certified</Text>
+               <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Certified</Text>
              </View>
             </View>
             <View style={[CommonStyles.row,{flex:0.5}]}>
@@ -85,7 +85,7 @@ export default class AMTab extends React.Component{
                 />
             </View>
              <View  style={[CommonStyles.paddingTen]}>
-               <Text>All</Text>
+               <Text tyle={[CommonStyles.regularBold,CommonStyles.greyColor]}>All</Text>
              </View>
             </View>
             </View>
@@ -97,6 +97,8 @@ export default class AMTab extends React.Component{
              data={make}
              value={"Ford"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>
              <View style={[CommonStyles.paddingTen, {flex:1}]}>
@@ -105,13 +107,15 @@ export default class AMTab extends React.Component{
              data={model}
              value={"1998"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>        
             </View> 
             </View>
             <View>
             <View style={CommonStyles.paddingTen}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.greyColor]}>
               Price Range
             </Text>
             </View>
@@ -125,7 +129,7 @@ export default class AMTab extends React.Component{
             </View>
             <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.greyColor]}>
               Year
             </Text>
             </View>
@@ -136,6 +140,8 @@ export default class AMTab extends React.Component{
              data={make}
              value={"Ford"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
@@ -144,13 +150,15 @@ export default class AMTab extends React.Component{
              data={model}
              value={"1998"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>        
             </View> 
              </View>
              <View>
             <View style={CommonStyles.paddingTenLeft}>
-            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+            <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold,CommonStyles.greyColor]}>
               Mileage
             </Text>
             </View>
@@ -161,6 +169,8 @@ export default class AMTab extends React.Component{
              data={make}
              value={"Ford"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>
              <View style={[CommonStyles.paddingTenLeftRight, {flex:1}]}>
@@ -169,6 +179,8 @@ export default class AMTab extends React.Component{
              data={model}
              value={"1998"}
              animation={10}
+             itemTextStyle={[CommonStyles.regularBold,CommonStyles.greyColor]}
+             style={[CommonStyles.regularBold,CommonStyles.greyColor]}
               />
              </View>        
             </View> 
@@ -178,17 +190,17 @@ export default class AMTab extends React.Component{
                  <View>
                  <Image source={require('../../../assets/img/convertible.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Convertible</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Convertible</Text>
                  </View> 
                  <View>
                  <Image source={require('../../../assets/img/wagon.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Wagon</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Wagon</Text>
                  </View> 
                  <View>
                  <Image source={require('../../../assets/img/all-terrain-vehicle.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>SUV</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>SUV</Text>
                  </View> 
                  </View>    
              </View>  
@@ -197,17 +209,17 @@ export default class AMTab extends React.Component{
                  <View>
                  <Image source={require('../../../assets/img/truck.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Truck</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Truck</Text>
                  </View> 
                  <View>
                  <Image source={require('../../../assets/img/minivan.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Minivan</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Minivan</Text>
                  </View> 
                  <View>
                  <Image  source={require('../../../assets/img/coupe-car.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Coupe</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Coupe</Text>
                  </View> 
                  </View>    
              </View>  
@@ -216,12 +228,12 @@ export default class AMTab extends React.Component{
                  <View>
                  <Image source={require('../../../assets/img/sedan-car-model.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Sedan</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Sedan</Text>
                  </View> 
                  <View>
                  <Image source={require('../../../assets/img/car.png')}
                   style={{width: 50, height:50}}/>
-                  <Text>Hatchback</Text>
+                  <Text style={[CommonStyles.regularBold,CommonStyles.greyColor]}>Hatchback</Text>
                  </View> 
                  <View>
                  <Image  source={require('../../../assets/img/All.png')}
