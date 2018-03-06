@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Image,
   Platform,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback,ScrollView,KeyboardAvoidingView
 } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
@@ -27,6 +27,8 @@ export default class ForgotPasswordScreen extends Component {
 
   render() {
     return (
+        <ScrollView contentContainerStyle={{flexGrow:1}}>
+        <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer} >
       <View style={CommonStyles.normalSinglePage}>
         <View style={styles.titleBox}>
           <Text style={[
@@ -88,6 +90,8 @@ export default class ForgotPasswordScreen extends Component {
           </TouchableWithoutFeedback>
         </View>
       </View>
+      </KeyboardAvoidingView>
+      </ScrollView>
     );
   }
 
