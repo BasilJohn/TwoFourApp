@@ -100,6 +100,7 @@ export default class SignUpScreen extends Component {
               height={60} 
               width={20}
               borderRadius={60}
+              textPaddingTop={20}
               onPress={this._signInButtonPress.bind(this)} />
         </View>
         <View style={[CommonStyles.alignCenter]}>
@@ -115,6 +116,7 @@ export default class SignUpScreen extends Component {
               height={60} 
               width={200}
               borderRadius={60}
+              textPaddingTop={20}
               onPress={this.handlePress.bind(this)} />
         </View>
         <View>
@@ -126,6 +128,7 @@ export default class SignUpScreen extends Component {
               height={60} 
               width={200}
               borderRadius={60}
+              textPaddingTop={20}
               onPress={this.handlePress.bind(this)} />
         </View>
         </View>

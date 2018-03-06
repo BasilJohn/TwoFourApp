@@ -13,6 +13,7 @@ import NavBar from './src/components/common/gradientnavbar';
 import SignInScreen from './src/components/screens/auth/signin';
 import SignUpScreen from './src/components/screens/auth/signup';
 import ForgotPasswordScreen from './src/components/screens/auth/forgotpassword';
+import UserProfileScreen from './src/components/screens/profile/userprofile';
 
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
@@ -29,6 +30,7 @@ Navigation.registerComponent('TwoFourApp.NavBar', () => NavBar);
 Navigation.registerComponent('TwoFourApp.SignIn', () => SignInScreen);
 Navigation.registerComponent('TwoFourApp.SignUp', () => SignUpScreen);
 Navigation.registerComponent('TwoFourApp.ForgotPassword', () => ForgotPasswordScreen);
+Navigation.registerComponent('TwoFourApp.UserProfile', () => UserProfileScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

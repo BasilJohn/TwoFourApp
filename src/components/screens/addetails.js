@@ -106,10 +106,11 @@ export default class App extends Component {
               colorOne={'#3D88A7'}
               colorTwo={'#3972A0'}
               colorThree={'#355F9A'}
-              buttonText={'Make Offer'} 
+              buttonText={'Message'} 
               height={60} 
               width={195}
               borderRadius={60}
+              textPaddingTop={20}
               onPress={this.handlePress.bind(this)} />
            <View>
              <TouchableOpacity style={styles.offerButtonStyle}>

@@ -16,7 +16,7 @@ const LinearGradientButton = (props) => {
         <TouchableOpacity onPress={props.onPress} 
         style={[styles.buttonStyle,{height:props.height,
         width:deviceWidth-props.width,borderRadius:props.borderRadius}]}>
-        <Text style={styles.textStyle} >{props.buttonText}</Text>
+        <Text style={[styles.textStyle,{paddingTop:props.textPaddingTop}]} >{props.buttonText}</Text>
         </TouchableOpacity>
         </LinearGradient>
     );
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     color: '#F1F1F2',
     fontSize: 16,
     fontFamily:'Poppins-SemiBold',
-    paddingTop:20
+   
     }
     ,LinearGradientStyle: {
         backgroundColor: '#7B7B7B',

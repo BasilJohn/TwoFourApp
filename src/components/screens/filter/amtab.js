@@ -1,7 +1,7 @@
 import React from 'react';
 import { View,Text,TouchableOpacity,ScrollView,Image } from 'react-native';
 import { Slider } from "react-native-elements";
-import { Button } from '../../common';
+import { Button,LinearGradientButton } from '../../common';
 import CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import { Dropdown } from 'react-native-material-dropdown';
 import RadioButton from 'react-native-radio-button'
@@ -252,10 +252,16 @@ export default class AMTab extends React.Component{
              </View>             
             </View>
             <View style={[CommonStyles.buttonBox ]}>
-            <Button
-            onPress={this._handleClickSignUpButton.bind(this)}
-            buttonText={"Search"}
-            />
+            <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'Search'} 
+              height={60} 
+              width={20}
+              borderRadius={60}
+              textPaddingTop={20}
+              onPress={this._handleClickSignUpButton.bind(this)} />
              </View>
             </ScrollView>    
         )

@@ -80,6 +80,7 @@ export default class ChatItem extends React.Component {
       height={60} 
       width={250}
       borderRadius={60}
+      textPaddingTop={20}
       onPress={this.handlePress.bind(this)} /> 
       }
       </View>

@@ -46,8 +46,10 @@ normalSinglePage:{
   flex: 1,
 },
 wrapperBox: {
-  marginTop: 20,
-  marginBottom: 20,
+  marginTop: 10,
+  marginBottom: 10,
+},noTabScrollView: {
+  marginTop: 10,
 },
 // Color
 whiteColor: {
@@ -256,6 +258,9 @@ paddingTenLeft:{
 paddingTenLeftRight:{
   paddingLeft:10,
   paddingRight:10
+},
+paddingTenTop:{
+  paddingTop:10
 },
 //Button Styles
 //Small button style
