@@ -10,7 +10,10 @@ import RealEstateFilterScreen from './src/components/screens/filter/realestatefi
 import AutoMobileFilterScreen from './src/components/screens/filter/automobilefilter';
 import SearchBar from './src/components/common/searchbar';
 import NavBar from './src/components/common/gradientnavbar';
-import SignInScreen from './src/components/screens/auth/sigin';
+import SignInScreen from './src/components/screens/auth/signin';
+import SignUpScreen from './src/components/screens/auth/signup';
+import ForgotPasswordScreen from './src/components/screens/auth/forgotpassword';
+
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
 Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
@@ -24,6 +27,8 @@ Navigation.registerComponent('TwoFourApp.AutoMobileFilter', () => AutoMobileFilt
 Navigation.registerComponent('TwoFourApp.SearchBar', () => SearchBar);
 Navigation.registerComponent('TwoFourApp.NavBar', () => NavBar);
 Navigation.registerComponent('TwoFourApp.SignIn', () => SignInScreen);
+Navigation.registerComponent('TwoFourApp.SignUp', () => SignUpScreen);
+Navigation.registerComponent('TwoFourApp.ForgotPassword', () => ForgotPasswordScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

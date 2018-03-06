@@ -145,6 +145,19 @@ appFontColor:{
     backgroundColor:'#FFFFFF',
     
   },
+  signInTextInputField: {
+    flexDirection: 'row',
+    width: deviceWidth -15,
+    height: 45,
+    //marginBottom: 25,
+    borderColor:'rgb(229,229,229)',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderRadius: 60,
+    backgroundColor:'#FFFFFF',
+    
+    
+  },
   textInput: {
     width: deviceWidth ,
     height: 45,
@@ -296,6 +309,11 @@ markerContainerStyle:{
   // height:30,
    borderRadius:50,
   backgroundColor:'#345A99',
+},
+alignCenter:{
+
+  justifyContent:'center',
+  alignSelf:'center'
 }
 });
 
