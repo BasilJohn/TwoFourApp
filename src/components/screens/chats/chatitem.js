@@ -77,10 +77,10 @@ export default class ChatItem extends React.Component {
       colorTwo={'#3972A0'}
       colorThree={'#355F9A'}
       buttonText={'Unblock'} 
-      height={60} 
-      width={250}
+      height={40} 
+      width={260}
       borderRadius={60}
-      textPaddingTop={20}
+      textPaddingTop={10}
       onPress={this.handlePress.bind(this)} /> 
       }
       </View>
@@ -94,13 +94,16 @@ const styles = StyleSheet.create({
     containerStyle: {
        flex:0.3,
        flexDirection:'row',
-       elevation:1,
-       padding:10,
-       width:deviceWidth,
+       marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 5,
+        marginRight: 5,
+        borderRadius: 8,
+        backgroundColor: '#FFFFFF',
+        elevation: 6,
        alignItems:'center',
        justifyContent:'space-between',
-       borderBottomWidth:2,
-       borderColor:'#EDEDED'
+       
       },
       imageStyle:{
          height:70,

@@ -33,13 +33,18 @@ export default class App extends Component {
       <ScrollView contentContainerStyle={{flexGrow:1}}>
       <View style={styles.container}>
        <ImageSlider/>
-       <View style={CommonStyles.priceButtonContainer}>
+       {/* <View style={CommonStyles.priceButtonContainer}>
         <TouchableHighlight style={CommonStyles.priceButtonStyle}>
         <Text style={styles.reportButtonTextStyle} >{"$999.00"}</Text>
          </TouchableHighlight>
-           </View>
+           </View> */}
         </View>
         <View style={styles.productNameContainer}>
+        <View style={{flex:0.8}}>
+          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.semiBold]}>
+            {'$ 999.00'}
+          </Text>
+          </View>
           <View style={[CommonStyles.row]}>
             <View style={{flex:0.8}}>
           <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.semiBold]}>

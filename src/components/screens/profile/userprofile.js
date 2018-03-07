@@ -1,10 +1,12 @@
 import React from 'react';
 import { View ,Text,StyleSheet,TouchableWithoutFeedback } from 'react-native';
 import ProfileTile from '../profile/profiletile';
-import { LinearGradientButton } from '../../common';
+import { LinearGradientButton,GradientNavigationBar } from '../../common';
 import  CommonStyles ,{ deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
 import UserItemList from '../userItems/useritemlist';
+import { noNavTabbarNavigation } from '../../../styles/navigatorstyle';
 export default class UserProfile extends React.Component {
+    static navigatorStyle = noNavTabbarNavigation;
     handlePress = () => {
     
     }
@@ -54,7 +56,11 @@ export default class UserProfile extends React.Component {
     let priceType = this.state.priceType.type;
 
     return(
-        <View>
+        <View style={CommonStyles.normalPage}>
+             <GradientNavigationBar
+          navigator={this.props.navigator}
+          titleText='User Profille'
+        />
          <View style={[CommonStyles.paddingTenTop, {alignItems:'center'}]} >   
         <ProfileTile/>
         </View>

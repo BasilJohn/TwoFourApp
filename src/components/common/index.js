@@ -9,3 +9,4 @@ export * from './DetailItem';
 export * from './primebutton';
 export * from './imageslider';
 export * from './lineargradientbutton';
+export * from './gradientnavbar';

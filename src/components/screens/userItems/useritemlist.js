@@ -35,7 +35,7 @@ export default class Selling extends React.Component {
       render(props) {
     
         return (
-          <FlatList ItemSeparatorComponent={this.renderSeparator}
+          <FlatList 
             data={this.state.favouriteList}
             keyExtractor={(x, i) => i}
             renderItem={({ item }) =>

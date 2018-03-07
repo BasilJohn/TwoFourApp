@@ -21,8 +21,19 @@ export const spaceHeight = deviceHeight -  375 - 45;
 // Only for post screens
 export const introSpaceHeight = deviceHeight - 364;
 
-export default CommonStyles = StyleSheet.create({
+// Common gradient colors
+export const blueGradient = {
+  colors: ['rgb(75,102,234)', 'rgb(130,160,247)'],
+  colorsStart: {x: 0.2, y: 0.4},
+  colorsEnd: {x: 1.0, y: 1.0}
+}
 
+export default CommonStyles = StyleSheet.create({
+  normalPage: {
+    position: 'relative',
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
   keyboardAvoidingViewContainer :{
 
     backgroundColor: '#fff',
