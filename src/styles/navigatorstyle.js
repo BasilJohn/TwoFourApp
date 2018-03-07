@@ -7,8 +7,8 @@ import {
     orientation: 'portrait',
     navBarHidden: true,
     tabBarHidden: true,
-    statusBarBlur: false,
-    statusBarColor: 'rgba(75,102,234,0.9)',
+    statusBarBlur: true,
+    statusBarColor: '#355F9A',
   }
   
   export const appSingleNavigation = {

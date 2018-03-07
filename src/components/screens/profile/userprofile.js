@@ -7,51 +7,24 @@ import UserItemList from '../userItems/useritemlist';
 import { noNavTabbarNavigation } from '../../../styles/navigatorstyle';
 export default class UserProfile extends React.Component {
     static navigatorStyle = noNavTabbarNavigation;
-    handlePress = () => {
-    
-    }
-    componentDidMount(){
-        this.props.navigator.setButtons({
-          rightButtons: [
-            {
-              title: 'Edit', // if you want a textual button
-              icon: require('../../../assets/img/settings.png'), // if you want an image button
-              //component: 'example.CustomButton', // if you want a custom button
-              passProps: {}, // Object that will be passed as props to custom components (optional)
-              id: 'filter', // id of the button which will pass to your press event handler. See the section bellow for Android specific button ids
-              //testID: 'e2e_is_awesome', // if you have e2e tests, use this to find your button
-              disabled: false, // optional, used to disable the button (appears faded and doesn't interact)
-              disableIconTint: true, // optional, by default the image colors are overridden and tinted to navBarButtonColor, set to true to keep the original image colors
-              buttonColor: 'white', // Set color for the button (can also be used in setButtons function to set different button style programatically)
-              buttonFontSize: 14, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
-              buttonFontWeight: '600'
-            }
-          ],
-          animated: true
-        });
-      }
-      constructor(props) {
+
+    constructor(props) {
         super(props);
-        // if you want to listen on navigator events, set this up
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
         this.state = {
             priceType: { type: 'selling'},
         };
       }
-    
-      onNavigatorEvent(event) {
-    
-        if (event.type == 'NavBarButtonPress') {
-          if (event.id == 'filter') {
-             this.props.navigator.push({
-              screen: "TwoFourApp.AutoMobileFilter",
-              title:'Sort and Filter'
-            });
-          }
-    
-        }
-      }
 
+
+    handlePress = () => {
+    
+    }
+   
+      _handleClickSettingsButton() {
+        this.props.navigator.push({
+            screen: "TwoFourApp.UserProfileSetting"
+          });
+      }
  render(){
     let priceType = this.state.priceType.type;
 
@@ -59,9 +32,21 @@ export default class UserProfile extends React.Component {
         <View style={CommonStyles.normalPage}>
              <GradientNavigationBar
           navigator={this.props.navigator}
-          titleText='User Profille'
+          titleText='User Profile'
+          rightButtons={
+            [
+              {
+                key: 1,
+                buttonIcon: require('../../../assets/img/settings.png'),
+                buttonAction: this._handleClickSettingsButton.bind(this),
+                buttonWidth: 22,
+                buttonHeight: 22,
+              }
+            ]
+          }
         />
-         <View style={[CommonStyles.paddingTenTop, {alignItems:'center'}]} >   
+         
+         <View style={[{alignItems:'center',marginTop:50}]} >   
         <ProfileTile/>
         </View>
         <View style={CommonStyles.noTabScrollView}>
@@ -166,7 +151,7 @@ export default class UserProfile extends React.Component {
         <View style={[CommonStyles.paddingTenLeftRight,{height:300}]}>
          <UserItemList/>
          </View>
-         {/* <View><Text>Hi</Text></View> */}
+         
         </View>
     )
  }

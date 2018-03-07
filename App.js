@@ -14,6 +14,7 @@ import SignInScreen from './src/components/screens/auth/signin';
 import SignUpScreen from './src/components/screens/auth/signup';
 import ForgotPasswordScreen from './src/components/screens/auth/forgotpassword';
 import UserProfileScreen from './src/components/screens/profile/userprofile';
+import UserProfileSettingScreen from './src/components/screens/profile/userprofilesettings';
 
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
@@ -31,6 +32,7 @@ Navigation.registerComponent('TwoFourApp.SignIn', () => SignInScreen);
 Navigation.registerComponent('TwoFourApp.SignUp', () => SignUpScreen);
 Navigation.registerComponent('TwoFourApp.ForgotPassword', () => ForgotPasswordScreen);
 Navigation.registerComponent('TwoFourApp.UserProfile', () => UserProfileScreen);
+Navigation.registerComponent('TwoFourApp.UserProfileSetting', () => UserProfileSettingScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

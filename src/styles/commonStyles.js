@@ -23,9 +23,9 @@ export const introSpaceHeight = deviceHeight - 364;
 
 // Common gradient colors
 export const blueGradient = {
-  colors: ['rgb(75,102,234)', 'rgb(130,160,247)'],
-  colorsStart: {x: 0.2, y: 0.4},
-  colorsEnd: {x: 1.0, y: 1.0}
+  colors: ['#3D88A7','#3972A0', '#355F9A'],
+  colorsStart: {x: 0.0, y: 0.25},
+  colorsEnd: {x: 0.5, y: 1.0}
 }
 
 export default CommonStyles = StyleSheet.create({

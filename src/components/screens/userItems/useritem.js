@@ -16,9 +16,12 @@ export default class SellinngItem extends React.Component {
      <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
      <View style={{flexDirection:'column',justifyContent:'flex-start',paddingLeft:20}}>
       <View >
-      <Text style={[CommonStyles.headerText,
+      <Text style={[
+                    CommonStyles.itemHeaderText,
                     CommonStyles.blackColor,
-                    CommonStyles.extraBold]}>Macbook Pro Retina</Text>
+                    CommonStyles.mediumBold,
+                    {marginTop: -6}
+                  ]}>Macbook Pro Retina</Text>
       </View>
        <View>
        

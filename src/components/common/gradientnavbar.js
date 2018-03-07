@@ -211,8 +211,8 @@ GradientNavigationBar.defaultProps = {
   },
   gradientBgStyle: { 
     color: blueGradient.colors, 
-    start: {x: 0.2, y: 0.4},
-    end: {x: 1.2, y: 1.0},
+    start: {x: 0.0, y: 0.25},
+    end: {x: 0.5, y: 1.0},
   },
   titleTextStyle: {
     color: '#FFFFFF',

@@ -15,10 +15,10 @@ export default class ProfileTile extends React.Component {
             <View style={styles.nameContainer}>
             <View  style={{paddingBottom:10}}>
              <Text style={[
-            CommonStyles.headerText,
-            CommonStyles.blackColor,
-            CommonStyles.semiBold,
-          ]}>Tony Stark</Text>
+                CommonStyles.headerText,
+                CommonStyles.blackColor,
+                CommonStyles.mediumBold
+              ]}>Tony Stark</Text>
             </View>
             <View>
              <View style={{backgroundColor:'#0B9EAF',height:20,paddingTop:20}}></View>
@@ -39,8 +39,8 @@ export default class ProfileTile extends React.Component {
                <View >
                  <Text  style={[
             CommonStyles.normalText,
-            CommonStyles.greyColor,
-            CommonStyles.semiBold,
+            CommonStyles.blackColor,
+            CommonStyles.mediumBold,
           ]}>298 Like</Text>
                </View>    
             </View>
@@ -51,8 +51,8 @@ export default class ProfileTile extends React.Component {
                <View>
                  <Text  style={[
             CommonStyles.normalText,
-            CommonStyles.greyColor,
-            CommonStyles.semiBold,
+            CommonStyles.blackColor,
+            CommonStyles.mediumBold,
           ]}>196 Dislike</Text>
                </View> 
             </View>
@@ -63,8 +63,8 @@ export default class ProfileTile extends React.Component {
                <View>
                  <Text  style={[
             CommonStyles.normalText,
-            CommonStyles.greyColor,
-            CommonStyles.semiBold,
+            CommonStyles.blackColor,
+            CommonStyles.mediumBold,
           ]}>97 Followers</Text>
                </View>
             </View>
@@ -115,9 +115,9 @@ const styles = StyleSheet.create({
      followButtonStyle:{
         width:'100%',
         backgroundColor: '#7B7B7B',
-        height:60,
+        height:45,
         borderRadius: 40,
-        padding:10,
+        padding:0,
         
      },
      followButtonTextStyle:{
@@ -135,8 +135,8 @@ const styles = StyleSheet.create({
         padding:10
      },
      socialStyle:{
-        height:30,
-        width: 30,
+        height:25,
+        width: 25,
      },
      leftRightBorder:{
         borderLeftWidth: 1,
