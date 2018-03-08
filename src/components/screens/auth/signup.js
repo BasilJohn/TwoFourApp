@@ -80,6 +80,7 @@ export default class SignUpScreen extends Component {
           </View>
           <View style={CommonStyles.signInTextInputField}>
             <Image
+              resizeMode='contain'  
               source={require('../../../assets/img/envelope.png')}
               style={{position:'absolute',bottom: 12,left: 20, width: 17, height: 22}}
             />

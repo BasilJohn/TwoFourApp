@@ -45,7 +45,7 @@ export default class GradientNavigationBar extends Component {
     });
 
     return (
-      <View>
+      <View style={{position:'absolute'}}>
         <LinearGradient
           start={this.props.gradientBgStyle.start} end={this.props.gradientBgStyle.end}
           colors={this.props.gradientBgStyle.color}

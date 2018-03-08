@@ -21,7 +21,7 @@ export default class ChatItem extends React.Component {
       <View >
       <Text style={[CommonStyles.headerText,
                     CommonStyles.blackColor,
-                    CommonStyles.extraBold]}>Nora Brady</Text>
+                    CommonStyles.mediumBold]}>Nora Brady</Text>
       </View>
       <View >
       {this.props.type === 'favourites' &&

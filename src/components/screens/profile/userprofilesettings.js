@@ -9,7 +9,9 @@ export default class UserProfileSetting extends React.Component{
     _handleClickSaveButton() {
         
       }
+  _signOutButtonPress(){
 
+  }
     render(){
         return(
         <View style={CommonStyles.normalPage}>
@@ -28,8 +30,8 @@ export default class UserProfileSetting extends React.Component{
             ]
           }
         />
-        <ScrollView>
-        <View style={[{alignItems:'center',marginTop:50}]} >
+       
+        <View style={{alignItems:'center',marginTop:50}}>
         <View>   
         <Image
             source={require('../../../assets/img/photo-camera.png')}
@@ -37,6 +39,7 @@ export default class UserProfileSetting extends React.Component{
           />
         </View>
         </View>
+        <ScrollView>
         <View style={styles.titleBox}>
         <Text style={[
             CommonStyles.titleText,
@@ -68,15 +71,16 @@ export default class UserProfileSetting extends React.Component{
               style={{position:'absolute',bottom: 12,left: 20, width: 19, height: 22}}
             />
             <TextInput
-              placeholder='player@gmail.com'
+              placeholder='Player@gmail.com'
               style={CommonStyles.textInput}
               underlineColorAndroid='transparent'
             />
           </View>
           <View style={CommonStyles.signInTextInputField}>
             <Image
+              resizeMode='contain'
               source={require('../../../assets/img/padlock.png')}
-              style={{position:'absolute',bottom: 12,left: 20, width: 17, height: 22}}
+              style={{position:'absolute',bottom: 12,left: 20, width: 19, height: 22}}
             />
             <TextInput
               placeholder='Password'
@@ -86,7 +90,8 @@ export default class UserProfileSetting extends React.Component{
           </View>
           <View style={CommonStyles.signInTextInputField}>
             <Image
-              source={require('../../../assets/img/phoneCall.png')}
+              resizeMode='contain'
+              source={require('../../../assets/img/phone-call.png')}
               style={{position:'absolute',bottom: 12,left: 20, width: 19, height: 22}}
             />
             <TextInput
@@ -98,6 +103,67 @@ export default class UserProfileSetting extends React.Component{
            
            </View>  
            </KeyboardAvoidingView>
+           <View style={styles.titleBox}>
+        <Text style={[
+            CommonStyles.titleText,
+            CommonStyles.greyColor,
+            CommonStyles.semiBold,
+            CommonStyles.paddingTen,
+            {alignSelf:'flex-start'}
+          ]}>
+            Support
+          </Text>
+        </View>
+        <KeyboardAvoidingView>
+        <View style={[styles.formBox,CommonStyles.spaceAround]}>
+          <View style={[CommonStyles.signInTextInputField]}>
+            <Image
+              source={require('../../../assets/img/avatar.png')}
+              style={{position:'absolute', bottom: 12,left: 20, width: 19, height: 22}}
+            />
+            <TextInput
+              placeholder='Help'
+              style={CommonStyles.textInput}
+              underlineColorAndroid='transparent'
+            />
+          </View>
+          <View style={CommonStyles.signInTextInputField}>
+            <Image
+              source={require('../../../assets/img/avatar.png')} 
+              resizeMode='contain'
+              style={{position:'absolute',bottom: 12,left: 20, width: 19, height: 22}}
+            />
+            <TextInput
+              placeholder='Terms and Conditions'
+              style={CommonStyles.textInput}
+              underlineColorAndroid='transparent'
+            />
+          </View>
+          <View style={CommonStyles.signInTextInputField}>
+            <Image
+              source={require('../../../assets/img/avatar.png')}
+              style={{position:'absolute',bottom: 12,left: 20, width: 19, height: 22}}
+            />
+            <TextInput
+              placeholder='Privacy Policy'
+              style={CommonStyles.textInput}
+              underlineColorAndroid='transparent'
+            />
+          </View>
+           </View>  
+           </KeyboardAvoidingView> 
+           <View style={[CommonStyles.buttonBox]}>
+        <LinearGradientButton 
+              colorOne={'#3D88A7'}
+              colorTwo={'#3972A0'}
+              colorThree={'#355F9A'}
+              buttonText={'SIGN OUT'} 
+              height={60} 
+              width={20}
+              borderRadius={60}
+              textPaddingTop={20}
+              onPress={this._signOutButtonPress.bind(this)} />
+        </View>
            </ScrollView> 
         </View>
         
