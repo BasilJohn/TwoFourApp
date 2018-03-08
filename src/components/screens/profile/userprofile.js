@@ -148,7 +148,7 @@ export default class UserProfile extends React.Component {
            </View>
            
         </View>
-        <View style={[CommonStyles.paddingTenLeftRight,{height:300}]}>
+        <View style={[CommonStyles.paddingTenLeftRight,{height:deviceHeight-100}]}>
          <UserItemList/>
          </View>
          

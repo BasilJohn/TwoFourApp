@@ -14,18 +14,6 @@ const fav = [ { name:'Nora Brady',profileImage:'',productImage:''},
 
 export default class Selling extends React.Component {
 
-    renderSeparator = () => {
-        return (
-          <View
-            style={{
-              height: 1,
-              width: "100%",
-              backgroundColor: "#CED0CE",
-              elevation:6
-            }}
-          />
-        );
-      };
     state = {  favouriteList: [] };
 
      componentWillMount() {

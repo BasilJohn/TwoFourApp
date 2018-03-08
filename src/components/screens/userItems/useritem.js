@@ -1,7 +1,8 @@
 import React from 'React';
-import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight } from 'react-native';
+import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight,Alert } from 'react-native';
 export const deviceWidth = Dimensions.get('window').width;
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Swipeout from 'react-native-swipeout';
 
 
 export default class SellinngItem extends React.Component {
@@ -9,8 +10,20 @@ export default class SellinngItem extends React.Component {
    
 
   render(props){
-   // const { type } = this.props.type;
+
+    let swipeBtns = [{
+      text: 'Delete',
+      backgroundColor: 'red',
+      underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
+      
+      onPress: () => { this._alertDeleteItem() } 
+    }]; 
+    
     return(
+      <Swipeout
+      autoClose={true}
+        right={swipeBtns}
+        backgroundColor= 'transparent'>
       <View style={styles.containerStyle}>
       <View style={CommonStyles.row}>
      <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
@@ -46,7 +59,25 @@ export default class SellinngItem extends React.Component {
       </View>
       </View>
       </View>
+      </Swipeout>
       )
+  }
+  _alertDeleteItem() {
+    Alert.alert(
+      'Mark As Sold',
+      'This cant be undone once marked as sold.Confirm?',
+      [
+        {
+          text: 'NO',
+          onPress: () => console.log('Cancel Pressed'),
+          style: {
+            color: '#000'
+          },
+        },
+        {text: 'YES', onPress: () => console.log('OK Pressed')},
+      ],
+      { cancelable: false } 
+    ) 
   }
 }
 

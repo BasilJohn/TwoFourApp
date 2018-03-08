@@ -39,8 +39,8 @@ export default class UserProfileSetting extends React.Component{
           />
         </View>
         </View>
-        <ScrollView>
-        <View style={styles.titleBox}>
+        <ScrollView >
+        <View style={[styles.titleBox,{flex:0.5}]}>
         <Text style={[
             CommonStyles.titleText,
             CommonStyles.greyColor,
@@ -165,6 +165,7 @@ export default class UserProfileSetting extends React.Component{
               onPress={this._signOutButtonPress.bind(this)} />
         </View>
            </ScrollView> 
+           
         </View>
         
         )
