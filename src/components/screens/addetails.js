@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { Animated, View, StyleSheet, Image, Dimensions,ScrollView, Text, TouchableOpacity,TouchableHighlight } from 'react-native';
 import ProfileTile  from './profile/profiletile';
 import CommonStyles, { deviceHeight } from '../../styles/commonStyles';
-import { DetailItem,PrimeButton,ImageSlider,LinearGradientButton } from '../common';
+import { DetailItem,PrimeButton,ImageSlider,LinearGradientButton,GradientNavigationBar } from '../common';
 import { SocialIcon } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { noNavTabbarNavigation } from '../../styles/navigatorstyle';
 
 const deviceWidth = Dimensions.get('window').width
 const FIXED_BAR_WIDTH = 280
@@ -13,35 +14,41 @@ const BAR_SPACE = 10
 
 export default class App extends Component {
 
+  static navigatorStyle = noNavTabbarNavigation;
+
+
   handlePress = () => {
     
     }
     
-    componentDidMount(){
-    this.props.navigator.setStyle({
-     // navBarCustomView: 'TwoFourApp.NavBar',
-     // drawUnderNavBar: true,
-      navBarHidden:false,
-//navBarTranslucent: true, // make the nav bar semi-translucent, works best with drawUnderNavBar:true
-     // navBarTransparent: true, // make the nav bar transparent, works best with drawUnderNavBar:true,
-    
-    });
-  }
   render() {
    
     return (
+      <View style={CommonStyles.normalPage}>
+        <GradientNavigationBar
+          navigator={this.props.navigator}
+          titleText="Post Ad"
+          rightButtons={[
+            {
+              key: 1,
+              //buttonIcon: require("../../assets/img/settings.png"),
+              //buttonAction: this._handleClickSettingsButton.bind(this),
+              buttonWidth: 22,
+              buttonHeight: 22
+            }
+          ]}
+        />
       <ScrollView contentContainerStyle={{flexGrow:1}}>
       <View style={styles.container}>
        <ImageSlider/>
-       {/* <View style={CommonStyles.priceButtonContainer}>
-        <TouchableHighlight style={CommonStyles.priceButtonStyle}>
-        <Text style={styles.reportButtonTextStyle} >{"$999.00"}</Text>
-         </TouchableHighlight>
-           </View> */}
         </View>
         <View style={styles.productNameContainer}>
         <View style={{flex:0.8}}>
-          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.semiBold]}>
+          <Text style={[
+              CommonStyles.headerText,
+              CommonStyles.darkSkyBlueColor,
+              CommonStyles.semiBold,
+            ]}>
             {'$ 999.00'}
           </Text>
           </View>
@@ -112,10 +119,10 @@ export default class App extends Component {
               colorTwo={'#3972A0'}
               colorThree={'#355F9A'}
               buttonText={'Message'} 
-              height={60} 
+              height={50} 
               width={195}
               borderRadius={60}
-              textPaddingTop={20}
+              textPaddingTop={15}
               onPress={this.handlePress.bind(this)} />
            <View>
              <TouchableOpacity style={styles.offerButtonStyle}>
@@ -124,6 +131,7 @@ export default class App extends Component {
            </View>  
           </View>  
       </ScrollView>
+      </View>
     )
   }
 }
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
   offerButtonStyle:{
     width:deviceWidth-195,
     backgroundColor: '#7B7B7B',
-    height:60,
+    height:50,
     borderRadius: 30,
  },
  messageButtonStyle:{
@@ -170,6 +178,6 @@ const styles = StyleSheet.create({
     color: '#F1F1F2',
     fontSize: 16,
     fontFamily:'Poppins-SemiBold',
-    paddingTop:20
+    paddingTop:15
  }
 })

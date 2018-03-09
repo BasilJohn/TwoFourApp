@@ -27,7 +27,7 @@ export default class GradientNavigationBar extends Component {
   render() {
     const privateStyles = StyleSheet.create({
       navbar: {
-        position: 'absolute',
+        //position: 'absolute',
         top: 0,
         flexDirection: 'row',
         alignItems: 'center',
@@ -45,7 +45,7 @@ export default class GradientNavigationBar extends Component {
     });
 
     return (
-      <View style={{position:'absolute'}}>
+      <View >
         <LinearGradient
           start={this.props.gradientBgStyle.start} end={this.props.gradientBgStyle.end}
           colors={this.props.gradientBgStyle.color}
@@ -128,6 +128,7 @@ export default class GradientNavigationBar extends Component {
                         source={button.buttonIcon}
                         style={{width: button.buttonWidth, height: button.buttonHeight}}
                       />
+                      
                     </View>
                   </TouchableOpacity>
                 </View>
@@ -182,7 +183,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-  },
+  },nativeFeedback: {
+    height: NAV_HEIGHT,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 15,
+    paddingRight: 15,
+  }
 });
 
 //const PropTypes = React.PropTypes;

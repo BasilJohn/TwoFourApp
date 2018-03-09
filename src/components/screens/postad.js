@@ -1,16 +1,37 @@
 import React, { Component } from 'react';
 import { View,Text,StyleSheet,TextInput, KeyboardAvoidingView ,Dimensions,ScrollView, Image} from 'react-native';
-import { ImageButton, Input } from '../common';
+import { ImageButton, GradientNavigationBar } from '../common';
 import CommonStyles,  { deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { noNavTabbarNavigation } from '../../styles/navigatorstyle';
+
 const window = Dimensions.get('window');
 
 export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width /7;
 export default class PostAd extends Component {
+
+  static navigatorStyle = noNavTabbarNavigation;
+
     render(){
         return(
-     <ScrollView contentContainerStyle={{flexGrow:1}}>   
+          <View style={CommonStyles.normalPage}>
+           <GradientNavigationBar
+          navigator={this.props.navigator}
+          titleText='Post Ad'
+          rightButtons={
+            [
+              {
+                key: 1,
+                buttonIcon: require('../../assets/img/settings.png'),
+                buttonAction: this._handleClickNextButton.bind(this),
+                buttonWidth: 22,
+                buttonHeight: 22,
+              }
+            ]
+          }
+        />
+     <ScrollView contentContainerStyle={{flexGrow:1,paddingTop:50}}>   
     <KeyboardAvoidingView style={CommonStyles.keyboardAvoidingViewContainer}>
     <View >
        <View style={CommonStyles.addImageContainer}>
@@ -34,12 +55,16 @@ export default class PostAd extends Component {
           </View>
         </View>
         <View >
-          <Text style={[CommonStyles.headerText, CommonStyles.blackColor,CommonStyles.extraBold]}>
+          <Text style={[
+                    CommonStyles.headerText,
+                    CommonStyles.blackColor,
+                    CommonStyles.mediumBold
+                  ]}>
           TITLE
           </Text>
         </View> 
         <View style={[CommonStyles.textInputField]}>
-          <TextInput style={CommonStyles.textInput}
+          <TextInput style={[CommonStyles.textInputNoLeftImage]}
               placeholder='Sell somethings'
               underlineColorAndroid='transparent'
            />
@@ -61,7 +86,7 @@ export default class PostAd extends Component {
    </View>
    </View>
   </ScrollView>
-
+ </View>
         )
     }
 

@@ -30,7 +30,7 @@ export default class UserProfileSetting extends React.Component{
             ]
           }
         />
-       
+         <ScrollView >
         <View style={{alignItems:'center',marginTop:50}}>
         <View>   
         <Image
@@ -39,7 +39,7 @@ export default class UserProfileSetting extends React.Component{
           />
         </View>
         </View>
-        <ScrollView >
+      
         <View style={[styles.titleBox,{flex:0.5}]}>
         <Text style={[
             CommonStyles.titleText,

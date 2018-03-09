@@ -39,7 +39,7 @@ export default class ProfileTile extends React.Component {
               </View>
               <View>
                 <Rating
-                  type="custom"
+                  type="star"
                   //ratingImage={RATING_IMAGE}
                   ratingColor="#099DAE"
                   ratingBackgroundColor='white'

@@ -1,5 +1,5 @@
 import React, { Component } from 'React';
-import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableOpacity,ScrollView,Button } from 'react-native'; 
+import { StyleSheet,Text,View,Image,FlatList,Dimensions,TouchableHighlight,ScrollView,Button } from 'react-native'; 
 import {Footer , SlidingMenu } from '../common' 
 import CommonStyles, {
   deviceWidth,
@@ -20,9 +20,9 @@ export  default class Home extends Component {
   renderRowItem = (itemData) => {
      return (
        <View style={styles.imageContainerStyle} >
-      <TouchableOpacity onPress={this._openadDetails.bind(this)}>
-        <Image style={styles.imageStyle} source={{ uri: 'https://image.tmdb.org/t/p/w500'+itemData.item.poster_path }} resizeMode='cover' />
-      </TouchableOpacity>
+      <TouchableHighlight onPress={this._openadDetails.bind(this)}>
+        <Image style={styles.imageStyle} resizeMode="contain" source={{ uri: 'https://image.tmdb.org/t/p/w500'+itemData.item.poster_path }} resizeMode='cover' />
+      </TouchableHighlight>
       </View>
     )
   }
@@ -135,24 +135,15 @@ const styles = StyleSheet.create({
       flex: 1,
       // justifyContent: 'center',
       // alignItems: 'center'
-    },flatlist: {
-        // flexDirection: 'column',
-     },
+    },
      imageStyle:{
-      height: equalWidth-10,  
-      width : equalWidth-10,  
-      borderRadius: 10,
-    
+      height: equalWidth-6,  
+      width : equalWidth-6,  
+      borderRadius: 5,
       
      },
      imageContainerStyle:{
-      padding:5
+      padding:3
 
-     },slide: {
-      alignItems: 'center',
-      width: itemWidth,
-      height: itemHeight,
-      borderRadius: 8,
-      backgroundColor: 'rgb(105,105,105)',
-    },
+     }
   });

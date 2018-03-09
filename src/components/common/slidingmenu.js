@@ -16,7 +16,7 @@ export default class SlidingMenu extends React.Component {
         <Image style={styles.imageStyle} source={{ uri: itemData.item.categoryImage }} resizeMode='cover' />
         </View>
         <View style={{alignSelf:'center',justifyContent:'center'}}>
-        <Text style={{fontSize:15,fontFamily:'Poppins-Regular'}}>{itemData.item.categoryName}</Text>
+        <Text style={[CommonStyles.greyColor,CommonStyles.mediumBold]}>{itemData.item.categoryName}</Text>
         </View>
       </View>
     )

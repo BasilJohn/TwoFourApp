@@ -77,10 +77,10 @@ export default class ChatItem extends React.Component {
       colorTwo={'#3972A0'}
       colorThree={'#355F9A'}
       buttonText={'Unblock'} 
-      height={40} 
+      height={50} 
       width={260}
       borderRadius={60}
-      textPaddingTop={10}
+      textPaddingTop={15}
       onPress={this.handlePress.bind(this)} /> 
       }
       </View>

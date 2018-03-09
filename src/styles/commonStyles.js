@@ -180,6 +180,15 @@ appFontColor:{
     fontFamily: 'Poppins-Regular',
     
   },
+  textInputNoLeftImage: {
+    width: deviceWidth ,
+    height: 45,
+    paddingLeft: 10,
+    color: 'rgb(150,150,150)',
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+    
+  },
    multiLinetextInputField:{
     borderColor:'rgb(229,229,229)',
     borderWidth: 1,
@@ -188,7 +197,7 @@ appFontColor:{
   },
   multiLinetextInput:{
     width: deviceWidth - 55,
-    paddingLeft: 50,
+    paddingLeft: 10,
     color: 'rgb(150,150,150)',
     fontSize: 16,
     fontFamily: 'Poppins-Regular',

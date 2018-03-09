@@ -46,7 +46,7 @@ export default class UserProfile extends React.Component {
           }
         />
          
-         <View style={[{alignItems:'center',marginTop:50}]} >   
+         <View style={[{alignItems:'center'}]} >   
         <ProfileTile/>
         </View>
         <View style={CommonStyles.noTabScrollView}>
@@ -114,16 +114,16 @@ export default class UserProfile extends React.Component {
                   })()
                 }
               </TouchableWithoutFeedback>
-              <TouchableWithoutFeedback onPress={() => this.setState({priceType: {type: 'reviews'}})}>
+              <TouchableWithoutFeedback onPress={() => this.setState({priceType: {type: 'favourites'}})}>
                 {
                   (() => {
-                    if (priceType == 'reviews') {
+                    if (priceType == 'favourites') {
                       return (
                         <LinearGradientButton 
                         colorOne={'#3D88A7'}
                         colorTwo={'#3972A0'}
                         colorThree={'#355F9A'}
-                        buttonText={'Reviews'} 
+                        buttonText={'Favourites'} 
                         height={40} 
                         width={250}
                         borderRadius={60}
@@ -137,7 +137,7 @@ export default class UserProfile extends React.Component {
                         CommonStyles.mediumText,
                         CommonStyles.greyColor,
                         CommonStyles.semiBold,
-                        ]}>Reviews</Text>
+                        ]}>Favourites</Text>
                         </View>
                       )
                     }
