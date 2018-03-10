@@ -16,6 +16,7 @@ import { Navigation } from 'react-native-navigation';
 import RadioButton from 'react-native-radio-button';
 import {LinearGradientButton} from '../../common';
 import CommonStyles, { deviceHeight,shadowOpt,deviceWidth } from '../../../styles/commonStyles';
+import { noNavTabbarNavigation } from '../../../styles/navigatorstyle';
 
 export default class SignInScreen extends Component {
 
@@ -163,6 +164,44 @@ export default class SignInScreen extends Component {
   }
  
   _signInButtonPress(){
+    // const createTabs = () => {
+    //   let tabs = [
+    //     {
+    //       screen: "TwoFourApp.Home",
+    //       icon: require("../../../assets/img/home.png"),
+    //       navigatorStyle: noNavTabbarNavigation
+    //     },
+    //     {
+    //       screen: "TwoFourApp.Chats",
+    //       icon: require("../../../assets/img/chat.png"),
+    //       navigatorStyle: noNavTabbarNavigation
+    //     },
+    //     {
+    //       screen: "TwoFourApp.PostAd",
+    //       icon: require("../../../assets/img/camera.png"),
+    //       navigatorStyle: noNavTabbarNavigation
+    //     },
+    //     {
+    //       screen: "TwoFourApp.RealEstateFilter",
+    //       icon: require("../../../assets/img/notification.png"),
+    //       navigatorStyle: noNavTabbarNavigation
+    //     },
+    //     {
+    //       screen: "TwoFourApp.UserProfile",
+    //       icon: require("../../../assets/img/profile.png"),
+    //       navigatorStyle: noNavTabbarNavigation
+    //     }
+    //   ];
+    //   return tabs;
+    // };
+    // Navigation.startTabBasedApp({
+    //   tabs: createTabs(),
+    //   appStyle: {
+    //     orientation: 'portrait',
+    //     tabBarHidden: true,
+    //   },
+    //   animationType: 'slide-down'
+    // });
     this.props.navigator.push({
       screen: "TwoFourApp.Home"
     });

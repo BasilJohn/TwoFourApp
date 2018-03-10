@@ -15,7 +15,7 @@ import SignUpScreen from './src/components/screens/auth/signup';
 import ForgotPasswordScreen from './src/components/screens/auth/forgotpassword';
 import UserProfileScreen from './src/components/screens/profile/userprofile';
 import UserProfileSettingScreen from './src/components/screens/profile/userprofilesettings';
-
+import { noNavTabbarNavigation } from './src/styles/navigatorstyle';
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
 Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
@@ -34,6 +34,8 @@ Navigation.registerComponent('TwoFourApp.ForgotPassword', () => ForgotPasswordSc
 Navigation.registerComponent('TwoFourApp.UserProfile', () => UserProfileScreen);
 Navigation.registerComponent('TwoFourApp.UserProfileSetting', () => UserProfileSettingScreen);
 
+
+
 Navigation.startSingleScreenApp({
   screen: {
     screen: "TwoFourApp.SignIn",
@@ -49,3 +51,12 @@ Navigation.startSingleScreenApp({
   animationType: 'fade'
 });
 
+// Navigation.startTabBasedApp({
+//   tabs: createTabs(),
+//   // On Android, add BottomTabs styles to AppStyle
+//   appStyle: {
+//     orientation: 'portrait',
+//     tabBarHidden: true,
+//   },
+//   animationType: 'slide-down'
+// });
