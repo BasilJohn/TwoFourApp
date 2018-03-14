@@ -66,7 +66,7 @@ export default class PostAd extends Component {
                     style={[
                       CommonStyles.headerText,
                       CommonStyles.blackColor,
-                      CommonStyles.mediumBold
+                      CommonStyles.semiBold
                     ]}
                   >
                     Price USD
@@ -85,7 +85,7 @@ export default class PostAd extends Component {
                   style={[
                     CommonStyles.headerText,
                     CommonStyles.blackColor,
-                    CommonStyles.mediumBold
+                    CommonStyles.semiBold
                   ]}
                 >
                   Negotiable
@@ -100,7 +100,7 @@ export default class PostAd extends Component {
                   style={[
                     CommonStyles.headerText,
                     CommonStyles.blackColor,
-                    CommonStyles.mediumBold
+                    CommonStyles.semiBold
                   ]}
                 >
                   Free
@@ -116,7 +116,7 @@ export default class PostAd extends Component {
                     style={[
                       CommonStyles.headerText,
                       CommonStyles.blackColor,
-                      CommonStyles.mediumBold
+                      CommonStyles.semiBold
                     ]}
                   >
                     Description (optional)

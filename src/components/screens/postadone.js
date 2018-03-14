@@ -141,7 +141,7 @@ export default class PostAd extends Component {
 
 const styles = StyleSheet.create({
   searchBarContainerStyle: {
-    backgroundColor: "#FFF"
+    backgroundColor: "transparent"
   },
   searchBarInputStyle: {
     backgroundColor: "#FFF",

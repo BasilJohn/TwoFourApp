@@ -10,12 +10,14 @@ import {
   ScrollView,
   Button
 } from "react-native";
-import { Footer, SlidingMenu, CustomTabBar } from "../common";
+import { Footer, SlidingMenu, CustomTabBar,HomeSearchBar } from "../common";
 import CommonStyles, {
   deviceWidth,
   deviceHeight,
   NAV_HEIGHT
 } from "../../styles/commonStyles";
+import { noNavTabbarNavigation } from '../../styles/navigatorstyle';
+
 
 const { width, height } = Dimensions.get("window");
 
@@ -24,6 +26,9 @@ const equalWidth = width / 3;
 
 
 export default class Home extends Component {
+
+  static navigatorStyle = noNavTabbarNavigation;
+
   state = { moviesList: [] };
 
   _keyExtractor = (item, index) => item.id;
@@ -81,31 +86,31 @@ export default class Home extends Component {
       });
   };
 
-  static navigatorStyle = {
-    navBarCustomView: "TwoFourApp.SearchBar",
-    navBarBackgroundColor: "#59A99C",
-    navBarComponentAlignment: "fill" // center/fill
-  };
+  
 
   constructor(props) {
     super(props);
     // if you want to listen on navigator events, set this up
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    
   }
 
-  onNavigatorEvent(event) {
-    if (event.type == "NavBarButtonPress") {
-      if (event.id == "filter") {
-        this.props.navigator.push({
-          screen: "TwoFourApp.SortFilter",
-          title: "Sort and Filter"
-        });
-      }
-    }
-  }
 
   render(props) {
     return (
+      <View style={CommonStyles.normalPage}>
+      <HomeSearchBar
+        navigator={this.props.navigator}
+        titleText="Post Ad"
+        rightButtons={[
+          {
+            key: 1,
+            buttonIcon: require("../../assets/img/settings.png"),
+            buttonAction: this._onFilterSettingsClick.bind(this),
+            buttonWidth: 22,
+            buttonHeight: 22
+          }
+        ]}
+      />
       <View style={styles.container}>
         <SlidingMenu />
         <ScrollView>
@@ -118,11 +123,18 @@ export default class Home extends Component {
             />
           </View>
         </ScrollView>
-        <View style={[CommonStyles.buttonBox]}>
+        <View>
           <CustomTabBar navigator={this.props.navigator} isActive="tab0" />
         </View>
       </View>
+      </View>
     );
+  }
+
+  _onFilterSettingsClick() {
+    this.props.navigator.push({
+      screen: "TwoFourApp.SortFilter"
+    });
   }
 }
 

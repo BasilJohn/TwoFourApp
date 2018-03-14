@@ -324,16 +324,17 @@ tabBarLabelStyle:{
 },
 //Mutislider
 markerStyle:{
-  // width:30,
-  // height:30,
-  borderRadius:50,
+  width:25,
+  height:25,
+  // borderRadius:50,
+  //backgroundColor:'#345A99'
   backgroundColor:'#345A99'
 },
 markerContainerStyle:{
   // width:30,
   // height:30,
-   borderRadius:50,
-  backgroundColor:'#345A99',
+  //  borderRadius:50,
+  //backgroundColor:'#345A99',
 },
 alignCenter:{
 

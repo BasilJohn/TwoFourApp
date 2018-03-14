@@ -1,62 +1,74 @@
-import React from 'React';
-import { Text,View,Dimensions,StyleSheet } from 'react-native';
-import { TabViewAnimated, TabBar,SceneMap } from 'react-native-tab-view';
-import CommonStyles from '../../../styles/commonStyles';
-import Buy from '../filter/amtab';
-import Rent from '../filter/amtab';
-import Sell from '../filter/amtab';
+import React from "React";
+import { Text, View, Dimensions, StyleSheet } from "react-native";
+import { TabViewAnimated, TabBar, SceneMap } from "react-native-tab-view";
+import CommonStyles from "../../../styles/commonStyles";
+import Buy from "../filter/amtab";
+import Rent from "../filter/amtab";
+import Sell from "../filter/amtab";
+import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
+import { GradientNavigationBar } from "../../common";
 
 const initialLayout = {
-    height: 0,
-    width: Dimensions.get('window').width,
+  height: 0,
+  width: Dimensions.get("window").width
+};
+
+const BuyRoute = () => <Buy />;
+const RentRoute = () => <Rent />;
+const SellRoute = () => <Sell />;
+
+export default class RealEstateFilter extends React.Component {
+  static navigatorStyle = noNavTabbarNavigation;
+
+  state = {
+    index: 0,
+    routes: [
+      { key: "buy", title: "Buy" },
+      { key: "rent", title: "Rent" },
+      { key: "sell", title: "Sell" }
+    ]
   };
 
-  const BuyRoute = () => <Buy/>;;
-  const RentRoute = () => <Rent/>;
-  const SellRoute = () => <Sell/>;  
+  _handleIndexChange = index => this.setState({ index });
 
-export default class RealEstateFilter extends React.Component{
+  _renderHeader = props => (
+    <TabBar
+      labelStyle={CommonStyles.tabBarLabelStyle}
+      style={CommonStyles.tabBarStyle}
+      indicatorStyle={CommonStyles.chatTabIndicatorStyle}
+      tabStyle={CommonStyles.chatTabStyle}
+      {...props}
+    />
+  );
 
-    state = {
-        index: 0,
-        routes: [
-          { key: 'buy', title: 'Buy' },
-          { key: 'rent', title: 'Rent' },
-          { key: 'sell', title: 'Sell' }
-        ],
-      };
+  _renderScene = SceneMap({
+    buy: BuyRoute,
+    rent: RentRoute,
+    sell: SellRoute
+  });
 
-    _handleIndexChange = index => this.setState({ index });
-  
-    _renderHeader = props => <TabBar 
-    labelStyle={CommonStyles.tabBarLabelStyle}
-    style={CommonStyles.tabBarStyle}
-    indicatorStyle={CommonStyles.chatTabIndicatorStyle} 
-    tabStyle={CommonStyles.chatTabStyle}  {...props} />;
-  
-    _renderScene = SceneMap({
-      buy: BuyRoute,
-      rent: RentRoute,
-      sell: SellRoute
-    });
-
-
-    render(){
-        return(
-            <TabViewAnimated
-            style={styles.container}
-            navigationState={this.state}
-            renderScene={this._renderScene}
-            renderHeader={this._renderHeader}
-            onIndexChange={this._handleIndexChange}
-            initialLayout={initialLayout}
-          />    
-        )
-    }
+  render() {
+    return (
+      <View style={CommonStyles.normalPage}>
+        <GradientNavigationBar
+          navigator={this.props.navigator}
+          titleText="Filter"
+        />
+        <TabViewAnimated
+          style={styles.container}
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          renderHeader={this._renderHeader}
+          onIndexChange={this._handleIndexChange}
+          initialLayout={initialLayout}
+        />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  });
+  container: {
+    flex: 1
+  }
+});

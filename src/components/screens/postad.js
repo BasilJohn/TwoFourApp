@@ -58,7 +58,7 @@ export default class PostAd extends Component {
           <Text style={[
                     CommonStyles.headerText,
                     CommonStyles.blackColor,
-                    CommonStyles.mediumBold
+                    CommonStyles.semiBold
                   ]}>
           TITLE
           </Text>

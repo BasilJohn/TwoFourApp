@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     textAlign:'center',
-    color: '#F1F1F2',
+    color: '#FFFFFF',
     fontSize: 16,
     fontFamily:'Poppins-SemiBold',
    

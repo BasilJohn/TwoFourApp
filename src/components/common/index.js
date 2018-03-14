@@ -11,4 +11,5 @@ export * from './imageslider';
 export * from './lineargradientbutton';
 export * from './gradientnavbar';
 export * from './footertab';
+export * from './homesearchbar';
 
