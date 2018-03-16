@@ -41,10 +41,10 @@ export default class Chat extends React.Component {
   render() {
     return (
       <View style={CommonStyles.normalPage}>
-        <GradientNavigationBar
+        {/* <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Chats"
-        />
+        /> */}
         <GiftedChat
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}

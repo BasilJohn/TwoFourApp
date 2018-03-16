@@ -13,7 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class NotificationItem extends React.Component {
   render(props) {
-    console.log(this.props);
+   
     return (
       <View style={styles.containerStyle}>
         <View style={[CommonStyles.itemWhiteBox]}>
