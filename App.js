@@ -15,6 +15,7 @@ import ForgotPasswordScreen from './src/components/screens/auth/forgotpassword';
 import UserProfileScreen from './src/components/screens/profile/userprofile';
 import UserProfileSettingScreen from './src/components/screens/profile/userprofilesettings';
 import { noNavTabbarNavigation } from './src/styles/navigatorstyle';
+import  NotificationScreen  from './src/components/screens/notify/notification';
 
 Navigation.registerComponent('TwoFourApp.Home', () => HomeScreen);
 Navigation.registerComponent('TwoFourApp.PostAd', () => PostAdScreen);
@@ -31,7 +32,7 @@ Navigation.registerComponent('TwoFourApp.SignUp', () => SignUpScreen);
 Navigation.registerComponent('TwoFourApp.ForgotPassword', () => ForgotPasswordScreen);
 Navigation.registerComponent('TwoFourApp.UserProfile', () => UserProfileScreen);
 Navigation.registerComponent('TwoFourApp.UserProfileSetting', () => UserProfileSettingScreen);
-
+Navigation.registerComponent('TwoFourApp.Notification', () => NotificationScreen);
 
 
 Navigation.startSingleScreenApp({

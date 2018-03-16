@@ -64,7 +64,7 @@ export default class CustomTabBar extends Component {
           inactiveBtn: require('../../assets/img/notification.png'),
           width: 30,
           height: 30,
-          buttonAction: this.handlePress.bind(this,"RealEstateFilter"),
+          buttonAction: this.handlePress.bind(this,"Notification"),
           //buttonAction: this._onNotificationIconClick.bind(this),
         }}
         tabBtn4={{
