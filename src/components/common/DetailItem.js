@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   Platform,
-  ScrollView,
-} from 'react-native';
-import CommonStyles from '../../styles/commonStyles';
+  ScrollView
+} from "react-native";
+import CommonStyles from "../../styles/commonStyles";
 
 export default class DetailItem extends Component {
   constructor(props) {
@@ -16,23 +16,27 @@ export default class DetailItem extends Component {
 
   render() {
     return (
-      <View style={[CommonStyles.itemWhiteBox, {padding: 5}]}>
+      <View style={[CommonStyles.itemWhiteBox, { padding: 5 }]}>
         <View style={styles.headerContainer}>
-          <Text style={[
-            CommonStyles.headerText,
-            CommonStyles.blackColor,
-            CommonStyles.semiBold,
-            {marginBottom: 6}
-          ]}>
+          <Text
+            style={[
+              CommonStyles.headerText,
+              CommonStyles.blackColor,
+              CommonStyles.semiBold,
+              { marginBottom: 6 }
+            ]}
+          >
             {this.props.headerText}
           </Text>
         </View>
         <View>
-          <Text style={[
-            CommonStyles.normalText,
-            CommonStyles.greyColor,
-            CommonStyles.regularBold,
-          ]}>
+          <Text
+            style={[
+              CommonStyles.normalText,
+              CommonStyles.greyColor,
+              CommonStyles.regularBold
+            ]}
+          >
             {this.props.detailText}
           </Text>
         </View>
@@ -43,10 +47,10 @@ export default class DetailItem extends Component {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 2
-  },
+  }
 });
 
-export { DetailItem }; 
+export { DetailItem };

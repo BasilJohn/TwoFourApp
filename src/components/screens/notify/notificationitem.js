@@ -13,32 +13,32 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class NotificationItem extends React.Component {
   render(props) {
-      console.log(this.props)
+    console.log(this.props);
     return (
       <View style={styles.containerStyle}>
         <View style={[CommonStyles.itemWhiteBox]}>
-        <View>
-          <Text
-            style={[
-              CommonStyles.itemHeaderText,
-              CommonStyles.blackColor,
-              CommonStyles.regularBold,
-              { marginBottom: 6 }
-            ]}
-          >
-            {this.props.details.msg}
-          </Text>
+          <View>
+            <Text
+              style={[
+                CommonStyles.itemHeaderText,
+                CommonStyles.blackColor,
+                CommonStyles.regularBold,
+                { marginBottom: 6 }
+              ]}
+            >
+              {this.props.details.msg}
+            </Text>
           </View>
           <View>
-          <Text
-            style={[
-              CommonStyles.smallText,
-              CommonStyles.lightgreyColor,
-              CommonStyles.regularBold
-            ]}
-          >
-            45 mins ago
-          </Text>
+            <Text
+              style={[
+                CommonStyles.smallText,
+                CommonStyles.lightgreyColor,
+                CommonStyles.regularBold
+              ]}
+            >
+              45 mins ago
+            </Text>
           </View>
         </View>
       </View>

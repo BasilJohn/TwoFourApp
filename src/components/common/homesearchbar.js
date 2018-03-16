@@ -111,13 +111,16 @@ export default class HomeSearchBar extends Component {
                   // <Text style={privateStyles.titleText}>
                   //   {this.props.titleText}
                   // </Text>
-                  <View >
+                  <View>
                     <SearchBar
                       //round
                       //lightTheme
                       noIcon
                       containerStyle={styles.searchBarContainerStyle}
-                      inputStyle={[styles.searchBarInputStyle,CommonStyles.regularBold]}
+                      inputStyle={[
+                        styles.searchBarInputStyle,
+                        CommonStyles.regularBold
+                      ]}
                       placeholder="Search"
                     />
                   </View>
@@ -205,21 +208,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 15,
-    paddingRight: 15,
+    paddingRight: 15
   },
   searchBarContainerStyle: {
     backgroundColor: "transparent",
-    borderBottomWidth:0,
-    borderTopWidth:0,
-    margin:0,
-    borderColor:'transparent',
-    width:deviceWidth-100
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
+    margin: 0,
+    borderColor: "transparent",
+    width: deviceWidth - 100
   },
   searchBarInputStyle: {
-   margin:0,
-   borderRadius:60,
-   backgroundColor: "#FFF",
-   
+    margin: 0,
+    borderRadius: 60,
+    backgroundColor: "#FFF"
   }
 });
 

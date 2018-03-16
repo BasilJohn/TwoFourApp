@@ -8,26 +8,26 @@ const fav = [
   { name: "Sarah Austin", profileImage: "", productImage: "" }
 ];
 
-export default class Selling extends React.PureComponent  {
-  
+export default class Selling extends React.PureComponent {
   state = { favouriteList: [] };
 
   componentWillMount() {
     this.setState({ favouriteList: fav });
   }
 
-  componentDidMount(){
-   
-  }
+  componentDidMount() {}
 
   render(props) {
-   
     return (
       <FlatList
         data={this.state.favouriteList}
         keyExtractor={(x, i) => i}
         renderItem={({ item }) => (
-          <SellingItem type={"selling"} navigatorProps={this.props.navigator} details={item} />
+          <SellingItem
+            type={"selling"}
+            navigatorProps={this.props.navigator}
+            details={item}
+          />
         )}
       />
     );

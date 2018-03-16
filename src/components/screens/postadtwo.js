@@ -8,7 +8,12 @@ import {
   Switch,
   ScrollView
 } from "react-native";
-import { ImageButton, GradientNavigationBar,Button,LinearGradientButton } from "../common";
+import {
+  ImageButton,
+  GradientNavigationBar,
+  Button,
+  LinearGradientButton
+} from "../common";
 import CommonStyles, {
   deviceHeight,
   shadowOpt,
@@ -135,16 +140,17 @@ export default class PostAd extends Component {
             </View>
           </KeyboardAvoidingView>
           <View style={[CommonStyles.buttonBox]}>
-          <LinearGradientButton 
-              colorOne={'#3D88A7'}
-              colorTwo={'#3972A0'}
-              colorThree={'#355F9A'}
-              buttonText={'POST AD'} 
-              height={60} 
+            <LinearGradientButton
+              colorOne={"#3D88A7"}
+              colorTwo={"#3972A0"}
+              colorThree={"#355F9A"}
+              buttonText={"POST AD"}
+              height={60}
               width={20}
               borderRadius={60}
               textPaddingTop={20}
-              onPress={this._handleClickSignUpButton.bind(this)} />
+              onPress={this._handleClickSignUpButton.bind(this)}
+            />
           </View>
         </ScrollView>
       </View>

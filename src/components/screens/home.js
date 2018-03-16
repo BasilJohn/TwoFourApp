@@ -10,23 +10,19 @@ import {
   ScrollView,
   Button
 } from "react-native";
-import { Footer, SlidingMenu, CustomTabBar,HomeSearchBar } from "../common";
+import { Footer, SlidingMenu, CustomTabBar, HomeSearchBar } from "../common";
 import CommonStyles, {
   deviceWidth,
   deviceHeight,
   NAV_HEIGHT
 } from "../../styles/commonStyles";
-import { noNavTabbarNavigation } from '../../styles/navigatorstyle';
-
+import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 
 const { width, height } = Dimensions.get("window");
 
 const equalWidth = width / 3;
 
-
-
 export default class Home extends Component {
-
   static navigatorStyle = noNavTabbarNavigation;
 
   state = { moviesList: [] };
@@ -62,9 +58,7 @@ export default class Home extends Component {
     }
   }
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   getMoviesFromApiAsync = () => {
     return fetch(
@@ -86,47 +80,43 @@ export default class Home extends Component {
       });
   };
 
-  
-
   constructor(props) {
     super(props);
     // if you want to listen on navigator events, set this up
-    
   }
-
 
   render(props) {
     return (
       <View style={CommonStyles.normalPage}>
-      <HomeSearchBar
-        navigator={this.props.navigator}
-        titleText="Post Ad"
-        rightButtons={[
-          {
-            key: 1,
-            buttonIcon: require("../../assets/img/settings.png"),
-            buttonAction: this._onFilterSettingsClick.bind(this),
-            buttonWidth: 22,
-            buttonHeight: 22
-          }
-        ]}
-      />
-      <View style={styles.container}>
-        <SlidingMenu />
-        <ScrollView>
+        <HomeSearchBar
+          navigator={this.props.navigator}
+          titleText="Post Ad"
+          rightButtons={[
+            {
+              key: 1,
+              buttonIcon: require("../../assets/img/settings.png"),
+              buttonAction: this._onFilterSettingsClick.bind(this),
+              buttonWidth: 22,
+              buttonHeight: 22
+            }
+          ]}
+        />
+        <View style={styles.container}>
+          <SlidingMenu />
+          <ScrollView>
+            <View>
+              <FlatList
+                data={this.state.moviesList}
+                numColumns={3}
+                keyExtractor={this._keyExtractor}
+                renderItem={this.renderRowItem}
+              />
+            </View>
+          </ScrollView>
           <View>
-            <FlatList
-              data={this.state.moviesList}
-              numColumns={3}
-              keyExtractor={this._keyExtractor}
-              renderItem={this.renderRowItem}
-            />
+            <CustomTabBar navigator={this.props.navigator} isActive="tab0" />
           </View>
-        </ScrollView>
-        <View>
-          <CustomTabBar navigator={this.props.navigator} isActive="tab0" />
         </View>
-      </View>
       </View>
     );
   }

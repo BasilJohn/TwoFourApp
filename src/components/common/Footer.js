@@ -4,9 +4,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import CommonStyles, {
   deviceHeight,
   shadowOpt,
-  deviceWidth,blueGradient
+  deviceWidth,
+  blueGradient
 } from "../../styles/commonStyles";
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from "react-native-linear-gradient";
 
 export default class Footer extends React.Component {
   handlePress = text => {
@@ -44,31 +45,32 @@ export default class Footer extends React.Component {
           />
         </TouchableOpacity>
         <LinearGradient
-                    start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-                    colors={blueGradient.colors}
-                    style={{
-                      position: 'absolute',
-                      bottom: 9,
-                      left: (deviceWidth - 60)/2,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: 60,
-                      height: 60,
-                      elevation: 25,
-                      borderRadius: 200,
-                    }}
-                  >
-        <TouchableOpacity
-          onPress={this.handlePress.bind(this, "PostAd")}
-          style={styles.buttonStyle}
+          start={{ x: 0.0, y: 0.25 }}
+          end={{ x: 0.5, y: 1.0 }}
+          colors={blueGradient.colors}
+          style={{
+            position: "absolute",
+            bottom: 9,
+            left: (deviceWidth - 60) / 2,
+            alignItems: "center",
+            justifyContent: "center",
+            width: 60,
+            height: 60,
+            elevation: 25,
+            borderRadius: 200
+          }}
         >
-          <Ionicons
-            style={styles.footerImageStyle}
-            name={"ios-camera-outline"}
-            color={"black"}
-            size={50}
-          />
-        </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.handlePress.bind(this, "PostAd")}
+            style={styles.buttonStyle}
+          >
+            <Ionicons
+              style={styles.footerImageStyle}
+              name={"ios-camera-outline"}
+              color={"black"}
+              size={50}
+            />
+          </TouchableOpacity>
         </LinearGradient>
         <TouchableOpacity
           onPress={this.handlePress.bind(this, "RealEstateFilter")}

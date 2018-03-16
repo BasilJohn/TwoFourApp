@@ -2,12 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import NotificationItem from "../../screens/notify/notificationitem";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
-import { GradientNavigationBar } from '../../common';
+import { GradientNavigationBar } from "../../common";
 
 const fav = [
-  { msg: "Nora Brady just rated you", profileImage: "", productImage: "",timestamp:"15 mins ago" },
-  { msg: "You like a product", profileImage: "", productImage: "",timestamp:"5 mins ago" },
- 
+  {
+    msg: "Nora Brady just rated you",
+    profileImage: "",
+    productImage: "",
+    timestamp: "15 mins ago"
+  },
+  {
+    msg: "You like a product",
+    profileImage: "",
+    productImage: "",
+    timestamp: "5 mins ago"
+  }
 ];
 
 export default class Notification extends React.Component {
@@ -20,7 +29,7 @@ export default class Notification extends React.Component {
   }
 
   render(props) {
-      console.log(this.state.favouriteList)
+    console.log(this.state.favouriteList);
     return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar

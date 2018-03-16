@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { GradientNavigationBar } from "../common";
-import CommonStyles,  { deviceHeight,shadowOpt,deviceWidth } from '../../styles/commonStyles';
-import { View } from 'react-native';
+import CommonStyles, {
+  deviceHeight,
+  shadowOpt,
+  deviceWidth
+} from "../../styles/commonStyles";
+import { View } from "react-native";
 export default class Chat extends React.Component {
   static navigatorStyle = noNavTabbarNavigation;
 

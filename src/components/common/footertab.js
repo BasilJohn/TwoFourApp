@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,25 +6,24 @@ import {
   Image,
   Platform,
   TouchableWithoutFeedback,
-  TouchableOpacity,
-} from 'react-native';
-import { Navigation } from 'react-native-navigation';
+  TouchableOpacity
+} from "react-native";
+import { Navigation } from "react-native-navigation";
 
 import CommonStyles, {
   deviceWidth,
   deviceHeight,
-  blueGradient,
-} from '../../styles/commonStyles';
-import PrimeTabBar from '../../components/common/primtetab';
+  blueGradient
+} from "../../styles/commonStyles";
+import PrimeTabBar from "../../components/common/primtetab";
 
 export default class CustomTabBar extends Component {
-
-    handlePress = text => {
-        this.props.navigator.push({
-          screen: "TwoFourApp." + text,
-          title: text
-        });
-      };
+  handlePress = text => {
+    this.props.navigator.push({
+      screen: "TwoFourApp." + text,
+      title: text
+    });
+  };
 
   constructor(props) {
     super(props);
@@ -36,43 +35,43 @@ export default class CustomTabBar extends Component {
         navigator={this.props.navigator}
         isActive={this.props.isActive}
         tabBtn0={{
-          activeBtn: require('../../assets/img/cameraActive.png'),
-          inactiveBtn: require('../../assets/img/camera.png'),
+          activeBtn: require("../../assets/img/cameraActive.png"),
+          inactiveBtn: require("../../assets/img/camera.png"),
           width: 30,
           height: 30,
-          onPressButton: this.handlePress.bind(this,"PostAd"),
+          onPressButton: this.handlePress.bind(this, "PostAd")
           //onPressButton: this._onPostAdIconClick.bind(this),
         }}
         tabBtn1={{
-          activeBtn: require('../../assets/img/homeActive.png'),
-          inactiveBtn: require('../../assets/img/home.png'),
+          activeBtn: require("../../assets/img/homeActive.png"),
+          inactiveBtn: require("../../assets/img/home.png"),
           width: 30,
           height: 30,
-          buttonAction:this.handlePress.bind(this,"Home"),
+          buttonAction: this.handlePress.bind(this, "Home")
           //buttonAction: this._onHomeIconClick.bind(this),
         }}
         tabBtn2={{
-          activeBtn: require('../../assets/img/chatActive.png'),
-          inactiveBtn: require('../../assets/img/chat.png'),
+          activeBtn: require("../../assets/img/chatActive.png"),
+          inactiveBtn: require("../../assets/img/chat.png"),
           width: 30,
           height: 30,
-          buttonAction: this.handlePress.bind(this,"Chats"),
+          buttonAction: this.handlePress.bind(this, "Chats")
           //buttonAction: this._onChatsIconClick.bind(this),
         }}
         tabBtn3={{
-          activeBtn: require('../../assets/img/notificationActive.png'),
-          inactiveBtn: require('../../assets/img/notification.png'),
+          activeBtn: require("../../assets/img/notificationActive.png"),
+          inactiveBtn: require("../../assets/img/notification.png"),
           width: 30,
           height: 30,
-          buttonAction: this.handlePress.bind(this,"Notification"),
+          buttonAction: this.handlePress.bind(this, "Notification")
           //buttonAction: this._onNotificationIconClick.bind(this),
         }}
         tabBtn4={{
-          activeBtn: require('../../assets/img/profileActive.png'),
-          inactiveBtn: require('../../assets/img/profile.png'),
+          activeBtn: require("../../assets/img/profileActive.png"),
+          inactiveBtn: require("../../assets/img/profile.png"),
           width: 21,
           height: 25,
-          buttonAction: this.handlePress.bind(this,"UserProfile"),
+          buttonAction: this.handlePress.bind(this, "UserProfile")
           //buttonAction: this._onProfileIconClick.bind(this),
         }}
       />
@@ -125,6 +124,5 @@ export default class CustomTabBar extends Component {
     });
   }
 }
-
 
 export { CustomTabBar };

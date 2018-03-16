@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import {
-  Image,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { Image, StyleSheet, View } from "react-native";
 
 export default class ImageButton extends Component {
   constructor(props) {
@@ -25,7 +21,7 @@ export default class ImageButton extends Component {
     this.setState(
       {
         image: this.props.appearance.normal
-      }, 
+      },
       () => {
         if (this.props.onPress) {
           setTimeout(this.props.onPress);
@@ -48,14 +44,15 @@ export default class ImageButton extends Component {
 
   render() {
     return (
-      <View style={ this.props.style }
-        onStartShouldSetResponder={ () => true }
-        onResponderGrant={ this.onTouchStart.bind(this) }
-        onResponderRelease={ this.onTouchEnd.bind(this) }
-        onResponderTerminate={ this.onTouchCancel.bind(this) }
-        onResponderReject={ this.onTouchCancel.bind(this) }
-        >
-        <Image style={ this.props.styleImage } source={ this.state.image }/>
+      <View
+        style={this.props.style}
+        onStartShouldSetResponder={() => true}
+        onResponderGrant={this.onTouchStart.bind(this)}
+        onResponderRelease={this.onTouchEnd.bind(this)}
+        onResponderTerminate={this.onTouchCancel.bind(this)}
+        onResponderReject={this.onTouchCancel.bind(this)}
+      >
+        <Image style={this.props.styleImage} source={this.state.image} />
       </View>
     );
   }

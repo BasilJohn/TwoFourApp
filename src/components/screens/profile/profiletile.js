@@ -42,7 +42,7 @@ export default class ProfileTile extends React.Component {
                   type="star"
                   //ratingImage={RATING_IMAGE}
                   ratingColor="#099DAE"
-                  ratingBackgroundColor='white'
+                  ratingBackgroundColor="white"
                   readonly={true}
                   ratingCount={5}
                   imageSize={20}
@@ -59,7 +59,7 @@ export default class ProfileTile extends React.Component {
         </View>
         <View style={styles.profileWeightStyle}>
           <View>
-            <View style={{paddingBottom:5}}>
+            <View style={{ paddingBottom: 5 }}>
               <Image
                 resizeMode="cover"
                 style={styles.socialStyle}
@@ -80,7 +80,7 @@ export default class ProfileTile extends React.Component {
             </View>
           </View>
           <View style={styles.leftRightBorder}>
-            <View style={{paddingBottom:5}}>
+            <View style={{ paddingBottom: 5 }}>
               <Image
                 resizeMode="cover"
                 style={styles.socialStyle}
@@ -101,7 +101,7 @@ export default class ProfileTile extends React.Component {
             </View>
           </View>
           <View elevation={5}>
-            <View style={{paddingBottom:5}}>
+            <View style={{ paddingBottom: 5 }}>
               <Image
                 resizeMode="cover"
                 style={styles.socialStyle}
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   leftRightBorder: {
     borderLeftWidth: 1.5,
     borderRightWidth: 1.5,
-    borderColor:'#F0F0F0',
+    borderColor: "#F0F0F0",
     paddingLeft: 20,
     paddingRight: 20
   }

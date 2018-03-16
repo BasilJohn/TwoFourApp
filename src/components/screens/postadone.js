@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { ImageButton,GradientNavigationBar } from "../common";
+import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles from "../../styles/commonStyles";
 import { SearchBar } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 60,
     borderBottomWidth: 0.4,
-    borderColor: 'rgb(105,105,105)'
+    borderColor: "rgb(105,105,105)"
   },
   footerControlStyle: {
     flex: 0.5,
