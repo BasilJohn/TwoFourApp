@@ -1,14 +1,23 @@
 import React from 'React';
-import { StyleSheet,Text,View,Image,Dimensions, TouchableHighlight } from 'react-native';
+import { StyleSheet,Text,View,Image,Dimensions, TouchableOpacity } from 'react-native';
 export const deviceWidth = Dimensions.get('window').width;
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-export default class SellinngItem extends React.Component {
+export default class SellingItem extends React.Component {
+  
+  _openChatWindow() {
+    this.props.navigatorProps.navigator.push({
+      screen: "TwoFourApp.Chat",
+      title: "Chat"
+    });
+  }
   
   render(props){
    // const { type } = this.props.type;
+   
     return(
+      <TouchableOpacity onPress={this._openChatWindow.bind(this)}>
       <View style={styles.containerStyle}>
       <View style={CommonStyles.row}>
      <Image style={styles.productStyle} borderRadius={50} source={{ uri: 'http://lorempixel.com/400/200/' }} resizeMode='cover' />
@@ -41,6 +50,7 @@ export default class SellinngItem extends React.Component {
       </View>
       </View>
       </View>
+      </TouchableOpacity>
       )
   }
 }

@@ -21,9 +21,7 @@ const BuyingRoute = () => <Buying />;
 const BlockedUsersRoute = () => <BlockedUsers />;
 
 export default class Chats extends React.Component {
-
   static navigatorStyle = noNavTabbarNavigation;
-
 
   state = {
     index: 0,
@@ -47,12 +45,27 @@ export default class Chats extends React.Component {
     />
   );
 
-  _renderScene = SceneMap({
-    selling: SellingRoute,
-    buying: BuyingRoute,
-    favourites: FavouritesRoute,
-    blockedusers: BlockedUsersRoute
-  });
+  // _renderScene = SceneMap({
+  //   selling: SellingRoute,
+  //   buying: BuyingRoute,
+  //   favourites: FavouritesRoute,
+  //   blockedusers: BlockedUsersRoute
+  // });
+
+  _renderScene = ({ route }) => {
+    switch (route.key) {
+      case "selling":
+        return <Selling navigator={this.props} />;
+      case "buying":
+        return <Buying />;
+      case "favourites":
+        return <Favourites />;
+      case "blockedusers":
+        return <BlockedUsers />;
+      default:
+        return null;
+    }
+  };
 
   render() {
     return (
@@ -60,16 +73,16 @@ export default class Chats extends React.Component {
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Chats"
-          
         />
-      <TabViewAnimated
-        style={styles.container}
-        navigationState={this.state}
-        renderScene={this._renderScene}
-        renderHeader={this._renderHeader}
-        onIndexChange={this._handleIndexChange}
-        initialLayout={initialLayout}
-      />
+        <TabViewAnimated
+          style={styles.container}
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          renderHeader={this._renderHeader}
+          onIndexChange={this._handleIndexChange}
+          initialLayout={initialLayout}
+          useNativeDriver
+        />
       </View>
     );
   }
