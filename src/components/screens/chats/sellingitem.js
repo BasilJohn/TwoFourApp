@@ -122,12 +122,22 @@ export default class SellingItem extends React.Component {
                   style={styles.closeStyle}
                   onPress={this.toggleModal}
                 >
-                  <Ionicons
-                    style={styles.button}
-                    color={"#FFF"}
-                    name="md-arrow-back"
-                    size={30}
-                  />
+                  <View style={styles.leftButton}>
+                    <Ionicons
+                      style={styles.button}
+                      color={"#FFF"}
+                      name="md-arrow-back"
+                      size={30}
+                    />
+                    <View
+                      style={{
+                        marginLeft: 3,
+                        width: 5.5,
+                        height: 2.5,
+                        backgroundColor: "white"
+                      }}
+                    />
+                  </View>
                 </TouchableOpacity>
               </View>
               <View style={[CommonStyles.paddingTenLeftRight]}>
@@ -179,13 +189,17 @@ const styles = StyleSheet.create({
     width: 90
   },
   modal: {
-    flex: 1,
-    paddingTop: 10
-    //paddingBottom: 10
+    flex: 1
   },
   closeStyle: {
     alignItems: "flex-start",
     marginBottom: 1,
     paddingLeft: 10
+  },
+  leftButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: 52,
+    height: NAV_HEIGHT
   }
 });
