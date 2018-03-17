@@ -8,18 +8,19 @@ import {
   TouchableOpacity,
   Modal
 } from "react-native";
-export const deviceWidth = Dimensions.get("window").width;
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Chat from "../../common/chatui";
 import Icon from "react-native-vector-icons/Ionicons";
-
+import LinearGradient from "react-native-linear-gradient";
+import CommonStyles, {
+  deviceWidth,
+  deviceHeight,
+  blueGradient,
+  NAV_HEIGHT
+} from "../../../styles/commonStyles";
 export default class SellingItem extends React.Component {
   state = { modalStatus: false };
   _openChatWindow() {
-    // this.props.navigatorProps.navigator.push({
-    //   screen: "TwoFourApp.Chat",
-    //   title: "Chat"
-    // });
     this.setState({ modalStatus: true });
   }
   toggleModal = () => {
@@ -27,7 +28,6 @@ export default class SellingItem extends React.Component {
   };
 
   render(props) {
-    // const { type } = this.props.type;
     state = { modalStatus: false };
 
     return (
@@ -95,27 +95,59 @@ export default class SellingItem extends React.Component {
           </View>
         </TouchableOpacity>
         <Modal
-          animationType={"slide"}
+          animationType={"fade"}
           transparent={false}
           visible={this.state.modalStatus}
           onRequestClose={() => {
             console.log("closed");
           }}
         >
-          <View style={styles.modal}>
-            <TouchableOpacity
-              style={styles.closeStyle}
-              onPress={this.toggleModal}
-            >
-              <Ionicons
-                style={styles.button}
-                color={"#F1F1F2"}
-                name="md-close-circle"
-                size={30}
-              />
-            </TouchableOpacity>
+          <LinearGradient
+            colors={["#3D88A7", "#3972A0", "#355F9A"]}
+            start={{ x: 0.0, y: 0.25 }}
+            end={{ x: 0.5, y: 0.3 }}
+            style={[
+              styles.modal
+              // {
+              //   height: props.height,
+              //   width: deviceWidth - props.width,
+              //   borderRadius: props.borderRadius
+              // }
+            ]}
+            // locations={[0, 0.25, 0.50]}
+          >
+            <View style={[CommonStyles.row]}>
+              <View>
+                <TouchableOpacity
+                  style={styles.closeStyle}
+                  onPress={this.toggleModal}
+                >
+                  <Ionicons
+                    style={styles.button}
+                    color={"#FFF"}
+                    name="md-arrow-back"
+                    size={30}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={[CommonStyles.paddingTenLeftRight]}>
+                <Text
+                  style={[
+                    {
+                      alignSelf: "center",
+                      justifyContent: "center",
+                      color: "#FFFFFF",
+                      fontSize: 18,
+                      fontFamily: "Poppins-SemiBold"
+                    }
+                  ]}
+                >
+                  {"Chats"}
+                </Text>
+              </View>
+            </View>
             <Chat />
-          </View>
+          </LinearGradient>
         </Modal>
       </View>
     );
@@ -148,11 +180,12 @@ const styles = StyleSheet.create({
   },
   modal: {
     flex: 1,
-    paddingTop: 10,
-    backgroundColor: "#2D4262"
+    paddingTop: 10
+    //paddingBottom: 10
   },
   closeStyle: {
-    alignItems: "flex-end",
-    marginBottom: 1
+    alignItems: "flex-start",
+    marginBottom: 1,
+    paddingLeft: 10
   }
 });
