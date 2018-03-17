@@ -120,22 +120,38 @@ export default class App extends Component {
             <View style={styles.socialIconContainer}>
               <View style={CommonStyles.row}>
                 <View>
-                  <SocialIcon type="facebook" />
+                  <SocialIcon
+                    button
+                    style={styles.socialIconStyle}
+                    type="facebook"
+                  />
                 </View>
                 <View>
-                  <SocialIcon type="google-plus-official" />
+                  <SocialIcon
+                    button
+                    style={styles.socialIconStyle}
+                    type="google-plus-official"
+                  />
                 </View>
                 <View>
-                  <SocialIcon type="instagram" />
+                  <SocialIcon
+                    button
+                    style={styles.socialIconStyle}
+                    type="instagram"
+                  />
                 </View>
                 <View>
-                  <SocialIcon type="twitter" />
+                  <SocialIcon
+                    button
+                    style={styles.socialIconStyle}
+                    type="twitter"
+                  />
                 </View>
               </View>
-              <View>
-                {/* <TouchableOpacity style={styles.reportButtonStyle}>
-            <Text style={styles.reportButtonTextStyle} >{"Report"}</Text>
-          </TouchableOpacity> */}
+              <View style={CommonStyles.paddingTenLeftRight}>
+                <TouchableOpacity style={styles.reportButtonStyle}>
+                  <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -158,7 +174,7 @@ export default class App extends Component {
             />
             <View>
               <TouchableOpacity style={styles.offerButtonStyle}>
-                <Text style={styles.reportButtonTextStyle}>{"Make Offer"}</Text>
+                <Text style={styles.offerButtonTextStyle}>{"Make Offer"}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -184,7 +200,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   socialIconContainer: {
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignSelf: "flex-start",
+    padding: 0
   },
   productNameContainer: {
     padding: 10,
@@ -196,13 +215,24 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 30
   },
-  messageButtonStyle: {
-    width: deviceWidth - 195,
-    backgroundColor: "#36629B",
-    height: 60,
-    borderRadius: 30
+  reportButtonStyle: {
+    width: deviceWidth - 210,
+    backgroundColor: "white",
+    height: 45,
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#7A7A7A"
   },
   reportButtonTextStyle: {
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    color: "#7A7A7A",
+    fontSize: 16,
+    fontFamily: "Poppins-SemiBold",
+    paddingTop: 10
+  },
+  offerButtonTextStyle: {
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
@@ -210,5 +240,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Poppins-SemiBold",
     paddingTop: 15
+  },
+  socialIconStyle: {
+    height: 40,
+    width: 40,
+    borderRadius: 60,
+    margin:3,
+    padding:0
   }
 });

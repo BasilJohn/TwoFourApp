@@ -60,7 +60,7 @@ export default class CustomTabBar extends Component {
         }}
         tabBtn3={{
           activeBtn: require("../../assets/img/notificationActive.png"),
-          inactiveBtn: require("../../assets/img/notification.png"),
+          inactiveBtn: require("../../assets/img/notificationBell.png"),
           width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Notification")

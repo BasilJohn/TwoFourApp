@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   },
   followButtonStyle: {
-    width: "100%",
+    width: "80%",
     backgroundColor: "#7B7B7B",
     height: 45,
     borderRadius: 40,
