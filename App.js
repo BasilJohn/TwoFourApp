@@ -17,6 +17,7 @@ import UserProfileSettingScreen from "./src/components/screens/profile/userprofi
 import { noNavTabbarNavigation } from "./src/styles/navigatorstyle";
 import NotificationScreen from "./src/components/screens/notify/notification";
 import ChatScreen from "./src/components/common/chatui";
+import UserRatingScreen from "./src/components/screens/rating/userrating";
 
 Navigation.registerComponent("TwoFourApp.Home", () => HomeScreen);
 Navigation.registerComponent("TwoFourApp.PostAd", () => PostAdScreen);
@@ -35,6 +36,7 @@ Navigation.registerComponent("TwoFourApp.UserProfile", () => UserProfileScreen);
 Navigation.registerComponent("TwoFourApp.UserProfileSetting",() => UserProfileSettingScreen);
 Navigation.registerComponent("TwoFourApp.Notification",() => NotificationScreen);
 Navigation.registerComponent("TwoFourApp.Chat", () => ChatScreen);
+Navigation.registerComponent("TwoFourApp.UserRating", () => UserRatingScreen);
 
 Navigation.startSingleScreenApp({
   screen: {

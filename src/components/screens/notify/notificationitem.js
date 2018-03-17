@@ -5,42 +5,54 @@ import {
   View,
   Image,
   Dimensions,
-  TouchableHighlight,
+  TouchableOpacity,
   Alert
 } from "react-native";
 export const deviceWidth = Dimensions.get("window").width;
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class NotificationItem extends React.Component {
+  _openNotificationDetail() {
+    this.props.navigatorProps.push({
+      screen: "TwoFourApp.UserRating",
+      title:"Rate"
+    });
+
+    console.log(this.props)
+  }
+
   render(props) {
-   
     return (
-      <View style={styles.containerStyle}>
-        <View style={[CommonStyles.itemWhiteBox]}>
-          <View>
-            <Text
-              style={[
-                CommonStyles.itemHeaderText,
-                CommonStyles.blackColor,
-                CommonStyles.regularBold,
-                { marginBottom: 6 }
-              ]}
-            >
-              {this.props.details.msg}
-            </Text>
+      <View>
+        <TouchableOpacity onPress={this._openNotificationDetail.bind(this)}>
+          <View style={styles.containerStyle}>
+            <View style={[CommonStyles.itemWhiteBox]}>
+              <View>
+                <Text
+                  style={[
+                    CommonStyles.itemHeaderText,
+                    CommonStyles.blackColor,
+                    CommonStyles.regularBold,
+                    { marginBottom: 6 }
+                  ]}
+                >
+                  {this.props.details.msg}
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={[
+                    CommonStyles.smallText,
+                    CommonStyles.lightgreyColor,
+                    CommonStyles.regularBold
+                  ]}
+                >
+                  45 mins ago
+                </Text>
+              </View>
+            </View>
           </View>
-          <View>
-            <Text
-              style={[
-                CommonStyles.smallText,
-                CommonStyles.lightgreyColor,
-                CommonStyles.regularBold
-              ]}
-            >
-              45 mins ago
-            </Text>
-          </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

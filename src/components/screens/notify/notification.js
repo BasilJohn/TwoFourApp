@@ -39,7 +39,12 @@ export default class Notification extends React.Component {
         <FlatList
           data={this.state.favouriteList}
           keyExtractor={(x, i) => i}
-          renderItem={({ item }) => <NotificationItem details={item} />}
+          renderItem={({ item }) => (
+            <NotificationItem
+              navigatorProps={this.props.navigator}
+              details={item}
+            />
+          )}
         />
       </View>
     );
