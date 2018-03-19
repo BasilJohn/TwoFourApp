@@ -10,7 +10,10 @@ import {
   ScrollView,
   Button
 } from "react-native";
-import { Footer, SlidingMenu, CustomTabBar, HomeSearchBar } from "../common";
+import { Footer,  CustomTabBar, HomeSearchBar } from "../common";
+
+import SlidingMenu from "../common/slidingmenu";
+
 import CommonStyles, {
   deviceWidth,
   deviceHeight,

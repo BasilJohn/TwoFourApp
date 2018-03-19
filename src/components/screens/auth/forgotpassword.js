@@ -92,6 +92,7 @@ export default class ForgotPasswordScreen extends Component {
                 height={60}
                 width={20}
                 borderRadius={60}
+                textColor={'#FFFF'}
                 onPress={this._handleResetPassword.bind(this)}
               />
             </View>

@@ -129,6 +129,7 @@ export default class ChatItem extends React.Component {
               width={260}
               borderRadius={60}
               textPaddingTop={15}
+              textColor={'#FFFF'}
               onPress={this.handlePress.bind(this)}
             />
           )}

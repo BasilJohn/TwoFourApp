@@ -1,4 +1,8 @@
 import { Navigation } from "react-native-navigation";
+import { noNavTabbarNavigation } from "./src/styles/navigatorstyle";
+import { Provider } from "react-redux";
+const store = configureStore();
+
 import HomeScreen from "./src/components/screens/home";
 import PostAdScreen from "./src/components/screens/postad";
 import PostAdOneScreen from "./src/components/screens/postadone";
@@ -14,29 +18,125 @@ import SignUpScreen from "./src/components/screens/auth/signup";
 import ForgotPasswordScreen from "./src/components/screens/auth/forgotpassword";
 import UserProfileScreen from "./src/components/screens/profile/userprofile";
 import UserProfileSettingScreen from "./src/components/screens/profile/userprofilesettings";
-import { noNavTabbarNavigation } from "./src/styles/navigatorstyle";
 import NotificationScreen from "./src/components/screens/notify/notification";
 import ChatScreen from "./src/components/common/chatui";
 import UserRatingScreen from "./src/components/screens/rating/userrating";
+import ReportUserScreen from "./src/components/screens/rating/reportuser";
 
-Navigation.registerComponent("TwoFourApp.Home", () => HomeScreen);
-Navigation.registerComponent("TwoFourApp.PostAd", () => PostAdScreen);
-Navigation.registerComponent("TwoFourApp.PostAdOne", () => PostAdOneScreen);
-Navigation.registerComponent("TwoFourApp.PostAdTwo", () => PostAdTwoScreen);
-Navigation.registerComponent("TwoFourApp.AdDetails", () => AdDetailsScreen);
-Navigation.registerComponent("TwoFourApp.Chats", () => ChatsScreen);
-Navigation.registerComponent("TwoFourApp.SortFilter", () => SortFilterScreen);
-Navigation.registerComponent("TwoFourApp.RealEstateFilter",() => RealEstateFilterScreen);
-Navigation.registerComponent("TwoFourApp.AutoMobileFilter",() => AutoMobileFilterScreen);
-Navigation.registerComponent("TwoFourApp.NavBar", () => NavBar);
-Navigation.registerComponent("TwoFourApp.SignIn", () => SignInScreen);
-Navigation.registerComponent("TwoFourApp.SignUp", () => SignUpScreen);
-Navigation.registerComponent("TwoFourApp.ForgotPassword",() => ForgotPasswordScreen);
-Navigation.registerComponent("TwoFourApp.UserProfile", () => UserProfileScreen);
-Navigation.registerComponent("TwoFourApp.UserProfileSetting",() => UserProfileSettingScreen);
-Navigation.registerComponent("TwoFourApp.Notification",() => NotificationScreen);
-Navigation.registerComponent("TwoFourApp.Chat", () => ChatScreen);
-Navigation.registerComponent("TwoFourApp.UserRating", () => UserRatingScreen);
+Navigation.registerComponent(
+  "TwoFourApp.Home",
+  () => HomeScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.PostAd",
+  () => PostAdScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.PostAdOne",
+  () => PostAdOneScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.PostAdTwo",
+  () => PostAdTwoScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.AdDetails",
+  () => AdDetailsScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.Chats",
+  () => ChatsScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.SortFilter",
+  () => SortFilterScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.RealEstateFilter",
+  () => RealEstateFilterScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.AutoMobileFilter",
+  () => AutoMobileFilterScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.NavBar",
+  () => NavBar,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.SignIn",
+  () => SignInScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.SignUp",
+  () => SignUpScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.ForgotPassword",
+  () => ForgotPasswordScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.UserProfile",
+  () => UserProfileScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.UserProfileSetting",
+  () => UserProfileSettingScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.Notification",
+  () => NotificationScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.Chat",
+  () => ChatScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.UserRating",
+  () => UserRatingScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+  "TwoFourApp.ReportUser",
+  () => ReportUserScreen,
+  store,
+  Provider
+);
 
 Navigation.startSingleScreenApp({
   screen: {

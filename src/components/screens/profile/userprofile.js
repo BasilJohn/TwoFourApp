@@ -68,6 +68,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
+                        textColor={'#FFFFFF'}
                         onPress={this.handlePress.bind(this)}
                       />
                     );
@@ -103,6 +104,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
+                        textColor={'#FFFFFF'}
                         onPress={this.handlePress.bind(this)}
                       />
                     );
@@ -140,6 +142,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
+                        textColor={'#FFFFFF'}
                         onPress={this.handlePress.bind(this)}
                       />
                     );

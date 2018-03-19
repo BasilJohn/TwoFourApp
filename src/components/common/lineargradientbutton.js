@@ -34,7 +34,7 @@ const LinearGradientButton = props => {
           }
         ]}
       >
-        <Text style={[styles.textStyle, { paddingTop: props.textPaddingTop }]}>
+        <Text style={[styles.textStyle, { paddingTop: props.textPaddingTop,color:props.textColor }]}>
           {props.buttonText}
         </Text>
       </TouchableOpacity>

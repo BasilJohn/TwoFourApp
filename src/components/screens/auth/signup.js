@@ -130,6 +130,7 @@ export default class SignUpScreen extends Component {
                 width={20}
                 borderRadius={60}
                 textPaddingTop={20}
+                textColor={'#FFFF'}
                 onPress={this._signInButtonPress.bind(this)}
               />
             </View>
@@ -161,6 +162,7 @@ export default class SignUpScreen extends Component {
                   width={200}
                   borderRadius={60}
                   textPaddingTop={20}
+                  textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
@@ -174,6 +176,7 @@ export default class SignUpScreen extends Component {
                   width={200}
                   borderRadius={60}
                   textPaddingTop={20}
+                  textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>

@@ -149,6 +149,7 @@ export default class PostAd extends Component {
               width={20}
               borderRadius={60}
               textPaddingTop={20}
+              textColor={'#FFFFFF'}
               onPress={this._handleClickSignUpButton.bind(this)}
             />
           </View>

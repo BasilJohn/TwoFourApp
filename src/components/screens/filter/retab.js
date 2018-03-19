@@ -258,6 +258,7 @@ export default class RETab extends React.Component {
             width={20}
             borderRadius={60}
             textPaddingTop={20}
+            textColor={'#FFFF'}
             onPress={this._handleClickSignUpButton.bind(this)}
           />
         </View>

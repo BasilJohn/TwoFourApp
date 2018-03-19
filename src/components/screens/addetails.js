@@ -31,7 +31,12 @@ export default class App extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
   handlePress = () => {};
-
+  _reportUserButtonPress() {
+    this.props.navigator.push({
+      screen: "TwoFourApp.ReportUser",
+      title: "Rate"
+    });
+  }
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -149,7 +154,10 @@ export default class App extends Component {
                 </View>
               </View>
               <View style={CommonStyles.paddingTenLeftRight}>
-                <TouchableOpacity style={styles.reportButtonStyle}>
+                <TouchableOpacity
+                  onPress={this._reportUserButtonPress.bind(this)}
+                  style={styles.reportButtonStyle}
+                >
                   <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
                 </TouchableOpacity>
               </View>
@@ -170,6 +178,7 @@ export default class App extends Component {
               width={195}
               borderRadius={60}
               textPaddingTop={15}
+              textColor={'#FFFF'}
               onPress={this.handlePress.bind(this)}
             />
             <View>
@@ -245,7 +254,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 60,
-    margin:3,
-    padding:0
+    margin: 3,
+    padding: 0
   }
 });

@@ -8,11 +8,14 @@ import {
   Dimensions
 } from "react-native";
 import CommonStyles from "../../styles/commonStyles";
+import { loadCategories } from "../../store/actions/home";
+import { connect } from "react-redux";
+import { _ } from "lodash";
 
-export default class SlidingMenu extends React.Component {
+class SlidingMenu extends React.Component {
   state = { categoryList: [] };
 
-  _keyExtractor = (item, index) => item.categoryId;
+  _keyExtractor = (item, index) => index;
 
   renderRowItem = itemData => {
     return (
@@ -39,21 +42,8 @@ export default class SlidingMenu extends React.Component {
     );
   };
   componentWillMount() {
-    {
-      this.getMoviesFromApiAsync();
-    }
+    this.props.loadCategories();
   }
-  getMoviesFromApiAsync = () => {
-    return fetch("http://68.66.233.230:8080/api/v1/getCategories")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState({ categoryList: responseJson });
-        return responseJson;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
 
   render() {
     return (
@@ -61,7 +51,7 @@ export default class SlidingMenu extends React.Component {
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={this.state.categoryList}
+          data={this.props.categories}
           keyExtractor={this._keyExtractor}
           renderItem={this.renderRowItem}
         />
@@ -91,4 +81,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export { SlidingMenu };
+const mapStateToProps = ({ home }, ownProps) => {
+  const { navigator } = ownProps;
+  const categories = _.map(home.categoryList, (val, uid) => {
+    return { ...val, uid };
+  });
+
+  return {
+    navigator,
+    categories
+  };
+};
+
+export default connect(mapStateToProps, { loadCategories })(SlidingMenu);

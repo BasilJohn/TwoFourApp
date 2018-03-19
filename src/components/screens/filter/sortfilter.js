@@ -67,6 +67,7 @@ export default class SortFilter extends React.Component {
                     width={250}
                     borderRadius={10}
                     textPaddingTop={10}
+                    textColor={'#FFFFFF'}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
@@ -80,6 +81,7 @@ export default class SortFilter extends React.Component {
                     width={250}
                     borderRadius={10}
                     textPaddingTop={10}
+                    textColor={'#FFFFFF'}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
@@ -93,6 +95,7 @@ export default class SortFilter extends React.Component {
                     width={250}
                     borderRadius={10}
                     textPaddingTop={10}
+                    textColor={'#FFFFFF'}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
@@ -167,6 +170,7 @@ export default class SortFilter extends React.Component {
                       width={195}
                       borderRadius={60}
                       textPaddingTop={10}
+                      textColor={'#FFFFFF'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
@@ -195,6 +199,7 @@ export default class SortFilter extends React.Component {
                       width={250}
                       borderRadius={10}
                       textPaddingTop={10}
+                      textColor={'#FFFFFF'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
@@ -208,6 +213,7 @@ export default class SortFilter extends React.Component {
                       width={250}
                       borderRadius={10}
                       textPaddingTop={10}
+                      textColor={'#FFFFFF'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
@@ -221,6 +227,7 @@ export default class SortFilter extends React.Component {
                       width={250}
                       borderRadius={10}
                       textPaddingTop={10}
+                      textColor={'#FFFFFF'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
@@ -238,6 +245,7 @@ export default class SortFilter extends React.Component {
               width={20}
               borderRadius={60}
               textPaddingTop={20}
+              textColor={'#FFFFFF'}
               onPress={this._handleClickSignUpButton.bind(this)}
             />
           </View>
