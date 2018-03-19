@@ -1,6 +1,7 @@
 import { Navigation } from "react-native-navigation";
 import { noNavTabbarNavigation } from "./src/styles/navigatorstyle";
 import { Provider } from "react-redux";
+import configureStore from "./src/store/configurestore";
 const store = configureStore();
 
 import HomeScreen from "./src/components/screens/home";
