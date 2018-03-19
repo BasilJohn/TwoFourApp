@@ -44,7 +44,7 @@ export default class CustomTabBar extends Component {
         }}
         tabBtn1={{
           activeBtn: require("../../assets/img/homeActive.png"),
-          inactiveBtn: require("../../assets/img/home.png"),
+          inactiveBtn: require("../../assets/img/home-page.png"),
           width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Home")
@@ -52,7 +52,7 @@ export default class CustomTabBar extends Component {
         }}
         tabBtn2={{
           activeBtn: require("../../assets/img/chatActive.png"),
-          inactiveBtn: require("../../assets/img/chat.png"),
+          inactiveBtn: require("../../assets/img/speech-bubble-outline.png"),
           width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Chats")
@@ -60,7 +60,7 @@ export default class CustomTabBar extends Component {
         }}
         tabBtn3={{
           activeBtn: require("../../assets/img/notificationActive.png"),
-          inactiveBtn: require("../../assets/img/notificationBell.png"),
+          inactiveBtn: require("../../assets/img/notifications-bell-button.png"),
           width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Notification")
