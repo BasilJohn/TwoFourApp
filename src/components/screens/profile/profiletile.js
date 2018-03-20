@@ -64,7 +64,7 @@ export default class ProfileTile extends React.Component {
                 resizeMode="cover"
                 style={styles.socialStyle}
                 borderRadius={5}
-                source={require("../../../assets/img/like.png")}
+                source={require("../../../assets/img/thumbs-up.png")}
               />
             </View>
             <View>
@@ -85,7 +85,7 @@ export default class ProfileTile extends React.Component {
                 resizeMode="cover"
                 style={styles.socialStyle}
                 borderRadius={5}
-                source={require("../../../assets/img/dislike.png")}
+                source={require("../../../assets/img/thumb-down.png")}
               />
             </View>
             <View>
@@ -106,7 +106,7 @@ export default class ProfileTile extends React.Component {
                 resizeMode="cover"
                 style={styles.socialStyle}
                 borderRadius={5}
-                source={require("../../../assets/img/user.png")}
+                source={require("../../../assets/img/follower.png")}
               />
             </View>
             <View>
