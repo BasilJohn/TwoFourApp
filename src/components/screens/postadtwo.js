@@ -21,23 +21,39 @@ import CommonStyles, {
 } from "../../styles/commonStyles";
 import { SearchBar } from "react-native-elements";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
+import {
+  priceChanged,
+  isNegotiableChanged,
+  isFreeChanged,
+  descriptionChanged
+} from "../../store/actions/ad";
+import { connect } from "react-redux";
 
-export default class PostAd extends Component {
+class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
   constructor() {
     super();
-    this.state = {
-      isOpen: false
-    };
-    this.onControlChange = this.onControlChange.bind(this);
+    this.onIsNegotiableChange = this.onIsNegotiableChange.bind(this);
+    this.onIsFreeChange = this.onIsFreeChange.bind(this);
   }
 
-  onControlChange(value) {
-    return this.setState({
-      isOpen: !this.state.isOpen
-    });
+  onPriceChanged(text) {
+    this.props.priceChanged(text);
   }
+
+  onIsNegotiableChange(value) {
+    this.props.isNegotiableChanged(value);
+  }
+
+  onIsFreeChange(value) {
+    this.props.isFreeChanged(value);
+  }
+
+  onDescriptionChange(text) {
+    this.props.descriptionChanged(text);
+  }
+
   _handleClickSignUpButton() {}
   render() {
     return (
@@ -82,6 +98,7 @@ export default class PostAd extends Component {
                     style={CommonStyles.textInputNoLeftImage}
                     placeholder="Price"
                     underlineColorAndroid="transparent"
+                    onChangeText={this.onPriceChanged.bind(this)}
                   />
                 </View>
               </View>
@@ -96,8 +113,8 @@ export default class PostAd extends Component {
                   Negotiable
                 </Text>
                 <Switch
-                  onValueChange={this.onControlChange}
-                  value={this.state.isOpen}
+                  onValueChange={this.onIsNegotiableChange}
+                  value={this.props.isNegotiable}
                 />
               </View>
               <View style={CommonStyles.switchBoxStyle}>
@@ -111,8 +128,8 @@ export default class PostAd extends Component {
                   Free
                 </Text>
                 <Switch
-                  onValueChange={this.onControlChange}
-                  value={this.state.isOpen}
+                  onValueChange={this.onIsFreeChange}
+                  value={this.props.isFree}
                 />
               </View>
               <View>
@@ -134,6 +151,7 @@ export default class PostAd extends Component {
                     underlineColorAndroid="transparent"
                     multiline={true}
                     numberOfLines={5}
+                    onChangeText={this.onDescriptionChange.bind(this)}
                   />
                 </View>
               </View>
@@ -149,7 +167,7 @@ export default class PostAd extends Component {
               width={20}
               borderRadius={60}
               textPaddingTop={20}
-              textColor={'#FFFFFF'}
+              textColor={"#FFFFFF"}
               onPress={this._handleClickSignUpButton.bind(this)}
             />
           </View>
@@ -167,3 +185,15 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+const mapStateToProps = ({ ad }) => {
+  const { price, isNegotiable, isFree, description } = ad;
+  return { price, isNegotiable, isFree, description };
+};
+
+export default connect(mapStateToProps, {
+  priceChanged,
+  isNegotiableChanged,
+  isFreeChanged,
+  descriptionChanged
+})(PostAd);

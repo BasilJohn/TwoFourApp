@@ -17,13 +17,21 @@ import CommonStyles, {
 } from "../../styles/commonStyles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
+import { titleChanged } from "../../store/actions/ad";
+import { connect } from "react-redux";
+import { _ } from "lodash";
+
 
 const window = Dimensions.get("window");
 
 export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width / 7;
-export default class PostAd extends Component {
+class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
+
+  onTitleChanged(text){
+    this.props.titleChanged(text);
+  }
 
   render() {
     return (
@@ -82,6 +90,7 @@ export default class PostAd extends Component {
                   style={[CommonStyles.textInputNoLeftImage]}
                   placeholder="Sell somethings"
                   underlineColorAndroid="transparent"
+                  onChangeText={this.onTitleChanged.bind(this)}
                 />
               </View>
             </View>
@@ -123,3 +132,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   }
 });
+
+
+const mapStateToProps = ({ ad }) => {
+  const { title } = ad;
+  return { title };
+}
+
+export default connect(mapStateToProps, { titleChanged })(PostAd)

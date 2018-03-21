@@ -12,6 +12,9 @@ import CommonStyles from "../../styles/commonStyles";
 import { SearchBar } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
+import { categorySelected } from "../../store/actions/ad";
+import { connect } from "react-redux";
+import { _ } from "lodash";
 
 var data = [
   { id: 1, Category: "Cars & Vehicles", Image: "ios-car-outline" },
@@ -23,8 +26,12 @@ var data = [
   { id: 7, Category: "Job Openings", Image: "ios-briefcase-outline" }
 ];
 
-export default class PostAd extends Component {
+class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
+
+  onCategorySelectetd(categoryId,id){
+        this.props.categorySelected(categoryId);
+  }
 
   state = { categoryList: [] };
 
@@ -32,7 +39,7 @@ export default class PostAd extends Component {
 
   renderRowItem = itemData => {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.onCategorySelectetd.bind(this,itemData.item.id)} >
         <View style={styles.categoryItem}>
           <Ionicons
             style={styles.categoryItemAvatarStyle}
@@ -182,3 +189,10 @@ const styles = StyleSheet.create({
     height: 25
   }
 });
+
+const mapStateToProps = ({ ad }) => {
+  const { categoryId } = ad;
+  return { categoryId };
+}
+
+export default connect(mapStateToProps, { categorySelected })(PostAd)

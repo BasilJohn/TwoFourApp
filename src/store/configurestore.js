@@ -1,9 +1,12 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import HomeReducer from './reducers/homereducer';
+import AdReducer from './reducers/adreducer';
+
 import ReduxThunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-    home: HomeReducer
+    home: HomeReducer,
+    ad:AdReducer
 });
 
 let composeEnhancers = compose;
