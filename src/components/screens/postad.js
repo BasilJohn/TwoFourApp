@@ -7,7 +7,8 @@ import {
   KeyboardAvoidingView,
   Dimensions,
   ScrollView,
-  Image
+  Image,
+  TouchableHighlight
 } from "react-native";
 import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles, {
@@ -20,7 +21,7 @@ import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { titleChanged } from "../../store/actions/ad";
 import { connect } from "react-redux";
 import { _ } from "lodash";
-
+import ImagePicker from 'react-native-image-crop-picker';
 
 const window = Dimensions.get("window");
 
@@ -31,6 +32,17 @@ class PostAd extends Component {
 
   onTitleChanged(text){
     this.props.titleChanged(text);
+  }
+
+  openCamera(){
+
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: false
+    }).then(image => {
+      console.log(image);
+    });
   }
 
   render() {
@@ -55,10 +67,12 @@ class PostAd extends Component {
           >
             <View>
               <View style={CommonStyles.addImageContainer}>
+              <TouchableHighlight onPress={this.openCamera.bind(this)} >
                 <Image
                   source={require("../../assets/img/photo-camera.png")}
                   style={{ width: 100, height: 100 }}
                 />
+                </TouchableHighlight>
                 <View style={CommonStyles.addedImageContainer}>
                   <Image
                     source={require("../../assets/img/photo.png")}
