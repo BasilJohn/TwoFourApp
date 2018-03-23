@@ -8,7 +8,7 @@ import {
   Dimensions,
   ScrollView,
   Image,
-  TouchableHighlight
+  TouchableWithoutFeedback
 } from "react-native";
 import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles, {
@@ -21,7 +21,7 @@ import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { titleChanged } from "../../store/actions/ad";
 import { connect } from "react-redux";
 import { _ } from "lodash";
-import ImagePicker from 'react-native-image-crop-picker';
+import ImagePicker from "react-native-image-crop-picker";
 
 const window = Dimensions.get("window");
 
@@ -30,18 +30,32 @@ export const IMAGE_HEIGHT_SMALL = window.width / 7;
 class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
-  onTitleChanged(text){
+  onTitleChanged(text) {
     this.props.titleChanged(text);
   }
 
-  openCamera(){
-
+  openCamera() {
     ImagePicker.openCamera({
       width: 300,
       height: 400,
-      cropping: false
+      cropping: false,
+      includeBase64: true,
+      writeTempFile:false
     }).then(image => {
       console.log(image);
+    });
+  }
+
+  openPicker() {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: false,
+      includeBase64: true,
+      multiple:true,
+      writeTempFile:false
+    }).then(images => {
+      console.log(images);
     });
   }
 
@@ -67,24 +81,38 @@ class PostAd extends Component {
           >
             <View>
               <View style={CommonStyles.addImageContainer}>
-              <TouchableHighlight onPress={this.openCamera.bind(this)} >
-                <Image
-                  source={require("../../assets/img/photo-camera.png")}
-                  style={{ width: 100, height: 100 }}
-                />
-                </TouchableHighlight>
+                <View style={[CommonStyles.row]}>
+                  <View >
+                    <TouchableWithoutFeedback onPress={this.openCamera.bind(this)}>
+                      <Image
+                        source={require("../../assets/img/postAdCamera.png")}
+                        style={{ width: 50, height: 50 }}
+                        resizeMode="cover"
+                      />
+                    </TouchableWithoutFeedback>
+                  </View>
+                  <View style={{paddingLeft:30}}>
+                    <TouchableWithoutFeedback onPress={this.openPicker.bind(this)}>
+                      <Image
+                        source={require("../../assets/img/postAdGallery.png")}
+                        style={{ width: 50, height: 50 }}
+                        resizeMode="cover"
+                      />
+                    </TouchableWithoutFeedback>
+                  </View>
+                </View>
                 <View style={CommonStyles.addedImageContainer}>
                   <Image
                     source={require("../../assets/img/photo.png")}
-                    style={{ width: 50, height: 50 }}
+                    style={{ width: 40, height: 40 }}
                   />
                   <Image
                     source={require("../../assets/img/photo.png")}
-                    style={{ width: 50, height: 50 }}
+                    style={{ width: 40, height: 40 }}
                   />
                   <Image
                     source={require("../../assets/img/photo.png")}
-                    style={{ width: 50, height: 50 }}
+                    style={{ width: 40, height: 40 }}
                   />
                 </View>
               </View>
@@ -147,10 +175,9 @@ const styles = StyleSheet.create({
   }
 });
 
-
 const mapStateToProps = ({ ad }) => {
   const { title } = ad;
   return { title };
-}
+};
 
-export default connect(mapStateToProps, { titleChanged })(PostAd)
+export default connect(mapStateToProps, { titleChanged })(PostAd);

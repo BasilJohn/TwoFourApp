@@ -10,7 +10,8 @@ import {
 
 const INITIAL_STATE = {
   title: "",
-  imageArray: [],
+  imagePickerArray: [],
+  cameraImage:null,
   categoryId: null,
   price: null,
   isNegotiable: false,
