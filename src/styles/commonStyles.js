@@ -272,6 +272,9 @@ export default (CommonStyles = StyleSheet.create({
   paddingTenTop: {
     paddingTop: 10
   },
+  paddingTenBottom: {
+    paddingBottom: 10
+  },
   //Button Styles
   //Small button style
   smallButtonStyle: {

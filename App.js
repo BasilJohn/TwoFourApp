@@ -23,6 +23,8 @@ import NotificationScreen from "./src/components/screens/notify/notification";
 import ChatScreen from "./src/components/common/chatui";
 import UserRatingScreen from "./src/components/screens/rating/userrating";
 import ReportUserScreen from "./src/components/screens/rating/reportuser";
+import SellingItemScreen from "./src/components/screens/userItems/sellingitems";
+
 
 Navigation.registerComponent(
   "TwoFourApp.Home",
@@ -139,6 +141,14 @@ Navigation.registerComponent(
   Provider
 );
 
+Navigation.registerComponent(
+  "TwoFourApp.SellingItem",
+  () => SellingItemScreen,
+  store,
+  Provider
+);
+
+
 Navigation.startSingleScreenApp({
   screen: {
     screen: "TwoFourApp.SignIn",
@@ -153,6 +163,7 @@ Navigation.startSingleScreenApp({
   animated: true,
   animationType: "fade"
 });
+
 
 // Navigation.startTabBasedApp({
 //   tabs: createTabs(),

@@ -172,7 +172,7 @@ export default class UserProfile extends React.Component {
             { height: deviceHeight - 100 }
           ]}
         >
-          <UserItemList />
+          <UserItemList  controlProps={this.props}/>
         </View>
       </View>
     );
