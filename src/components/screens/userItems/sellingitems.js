@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  TouchableHighlight
+} from "react-native";
 import { LinearGradientButton, GradientNavigationBar } from "../../common";
 import CommonStyles, {
   deviceHeight,
@@ -8,6 +15,7 @@ import CommonStyles, {
 } from "../../../styles/commonStyles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
+import ChatItemList from "../userItems/chatitemlist";
 
 export default class SellingItem extends React.Component {
   static navigatorStyle = noNavTabbarNavigation;
@@ -16,7 +24,17 @@ export default class SellingItem extends React.Component {
     super(props);
   }
 
-  handlePress = () => {};
+  handlePress = () => {
+    this.props.navigator.push({
+      screen: "TwoFourApp.AdDetails"
+    });
+  };
+
+  _openAdEditScreen = () => {
+    this.props.navigator.push({
+      screen: "TwoFourApp.AdDetails"
+    });
+  };
 
   render(props) {
     return (
@@ -26,14 +44,14 @@ export default class SellingItem extends React.Component {
           titleText="Selling Item"
         />
         <View style={styles.containerStyle}>
-          <View style={CommonStyles.row}>
-          <View stlyle={[CommonStyles.paddingTenTop]}>
-            <Image
-              style={styles.productStyle}
-              borderRadius={50}
-              source={{ uri: "http://lorempixel.com/400/200/" }}
-              resizeMode="cover"
-            />
+          <View style={[CommonStyles.row, CommonStyles.paddingTen]}>
+            <View stlyle={[CommonStyles.paddingTenTop]}>
+              <Image
+                style={styles.productStyle}
+                borderRadius={50}
+                source={{ uri: "http://lorempixel.com/400/200/" }}
+                resizeMode="cover"
+              />
             </View>
             <View
               style={{
@@ -54,7 +72,7 @@ export default class SellingItem extends React.Component {
                   Macbook Pro Retina
                 </Text>
               </View>
-              <View style={[CommonStyles.row,CommonStyles.paddingTenBottom]}>
+              <View style={[CommonStyles.row, CommonStyles.paddingTenBottom]}>
                 <View>
                   <Text
                     style={[
@@ -94,16 +112,24 @@ export default class SellingItem extends React.Component {
                   />
                 </View>
                 <View style={{ paddingLeft: 20 }}>
-                  <Image
-                    resizeMode="cover"
-                    style={styles.socialStyle}
-                    borderRadius={5}
-                    source={require("../../../assets/img/pencil.png")}
-                  />
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
+                    onPress={this._openAdEditScreen.bind(this)}
+                  >
+                    <Image
+                      resizeMode="cover"
+                      style={styles.socialStyle}
+                      borderRadius={5}
+                      source={require("../../../assets/img/pencil.png")}
+                    />
+                  </TouchableHighlight>
                 </View>
               </View>
             </View>
           </View>
+        </View>
+        <View>
+          <ChatItemList />
         </View>
       </View>
     );
@@ -112,12 +138,7 @@ export default class SellingItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 5,
-    marginRight: 5,
-    borderRadius: 8,
-   flex: 0.2,
+    //flex: 0.5,
     backgroundColor: "#FFFFFF",
     elevation: 6
   },
@@ -132,5 +153,5 @@ const styles = StyleSheet.create({
   socialStyle: {
     height: 40,
     width: 40
-  },
+  }
 });
