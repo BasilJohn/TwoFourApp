@@ -5,7 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  Alert
 } from "react-native";
 import { LinearGradientButton, GradientNavigationBar } from "../../common";
 import CommonStyles, {
@@ -25,9 +26,19 @@ export default class SellingItem extends React.Component {
   }
 
   handlePress = () => {
-    this.props.navigator.push({
-      screen: "TwoFourApp.AdDetails"
-    });
+    Alert.alert(
+      "Mark as sold",
+      "This item cant be undone once marked as sold.Confirm?",
+      [
+        {
+          text: "Yes",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "No", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: true }
+    );
   };
 
   _openAdEditScreen = () => {
@@ -129,7 +140,7 @@ export default class SellingItem extends React.Component {
           </View>
         </View>
         <View>
-          <ChatItemList />
+          <ChatItemList navigatorProps={this.props.navigator} />
         </View>
       </View>
     );
