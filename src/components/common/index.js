@@ -11,3 +11,4 @@ export * from "./lineargradientbutton";
 export * from "./gradientnavbar";
 export * from "./footertab";
 export * from "./homesearchbar";
+export * from "./whitebutton";
