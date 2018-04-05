@@ -13,12 +13,15 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class NotificationItem extends React.Component {
   _openNotificationDetail() {
-    this.props.navigatorProps.push({
-      screen: "TwoFourApp.UserRating",
+    // this.props.navigatorProps.push({
+    //   screen: "TwoFourApp.UserRating",
+    //   title:"Rate"
+    // });
+
+     this.props.navigatorProps.push({
+      screen: "TwoFourApp.FinalRating",
       title:"Rate"
     });
-
-    console.log(this.props)
   }
 
   render(props) {

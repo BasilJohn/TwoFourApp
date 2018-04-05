@@ -17,11 +17,16 @@ import Chat from "../../common/chatui";
 import LinearGradient from "react-native-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default class ChatItem extends React.Component {
+export default class ChatUserItem extends React.Component {
   state = { modalStatus: false };
 
   _openChatScreen() {
-    this.setState({ modalStatus: true });
+      console.log(this.props.navigatorProps)
+    //this.setState({ modalStatus: true });
+    this.props.navigatorProps.navigatorProps.push({
+      screen: "TwoFourApp.UserRating",
+      title: "Rate"
+    });
   }
   toggleModal = () => {
     this.setState({ modalStatus: false });
@@ -34,35 +39,31 @@ export default class ChatItem extends React.Component {
           underlayColor={"transparent"}
           onPress={this._openChatScreen.bind(this)}
         >
-          <View style={[styles.containerStyle]}>
+          <View style={[styles.containerStyle, CommonStyles.row]}>
             <View
               style={[
-                CommonStyles.row,
-                CommonStyles.paddingTen,
-                CommonStyles.spaceBetween
+                { justifyContent: "center", flex: 0.15 },
+                CommonStyles.paddingTen
               ]}
             >
-              <View stlyle={[CommonStyles.paddingTenTop]}>
-                <Image
-                  style={styles.productStyle}
-                  borderRadius={50}
-                  source={{ uri: "http://lorempixel.com/400/200/" }}
-                  resizeMode="cover"
-                />
-              </View>
-              <View>
+              <Image
+                style={[styles.productStyle]}
+                borderRadius={50}
+                source={{ uri: "http://lorempixel.com/400/200/" }}
+                resizeMode="cover"
+              />
+            </View>
+            <View style={styles.centreStyle}>
+              <View style={[styles.chatDescriptionStyle]}>
                 <Text
                   style={[
                     CommonStyles.headerText,
-                    CommonStyles.blackColor,
-                    CommonStyles.extraBold,
-                    { marginLeft: -60, marginTop: -6 }
+                    CommonStyles.greyColor,
+                    CommonStyles.extraBold
                   ]}
                 >
                   John Mike
                 </Text>
-              </View>
-              <View>
                 <Text
                   style={[
                     CommonStyles.normalText,
@@ -70,20 +71,17 @@ export default class ChatItem extends React.Component {
                     CommonStyles.regularBold
                   ]}
                 >
-                  30 mins ago
+                  Choosing the best audio players software for your computer
                 </Text>
               </View>
             </View>
-            <View style={[styles.chatDescriptionStyle]}>
-              <Text
-                style={[
-                  CommonStyles.normalText,
-                  CommonStyles.greyColor,
-                  CommonStyles.regularBold
-                ]}
-              >
-                Choosing the best audio players software for your computer
-              </Text>
+            <View style={styles.arrowStyle}>
+              <Ionicons
+                style={styles.button}
+                color={"#7B7B7B"}
+                name="ios-arrow-forward-outline"
+                size={30}
+              />
             </View>
           </View>
         </TouchableHighlight>
@@ -111,7 +109,8 @@ export default class ChatItem extends React.Component {
           >
             <View style={[CommonStyles.row]}>
               <View>
-                <TouchableHighlight underlayColor={'transparent'}
+                <TouchableHighlight
+                  underlayColor={"transparent"}
                   style={styles.closeStyle}
                   onPress={this.toggleModal}
                 >
@@ -160,30 +159,33 @@ export default class ChatItem extends React.Component {
 const styles = StyleSheet.create({
   containerStyle: {
     height: 100,
+    flexDirection: "column",
     borderBottomWidth: 0.5,
     borderBottomColor: "#7B7B7B",
     backgroundColor: "#FFFFFF",
     elevation: 6
   },
-  imageStyle: {
-    height: 70,
-    width: 70
-  },
   productStyle: {
     height: 50,
     width: 50
   },
-  socialStyle: {
-    height: 40,
-    width: 40
+  arrowStyle: {
+    justifyContent: "center",
+    flex: 0.1,
+    alignSelf: "center"
+  },
+  centreStyle: {
+    justifyContent: "center",
+    flexDirection: "column",
+    flex: 0.75
   },
   chatDescriptionStyle: {
-    flexDirection: "row",
-    flex: 1,
-    flexWrap: "wrap",
-    position: "absolute",
-    marginLeft: 85,
-    marginTop: 40
+    //flexDirection: "row",
+    //flex: 1,
+    //flexWrap: "wrap"
+    //position: "absolute",
+    //marginLeft: 85,
+    //marginTop: 40
   },
   modal: {
     flex: 1

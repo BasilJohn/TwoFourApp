@@ -67,6 +67,9 @@ export default (CommonStyles = StyleSheet.create({
   lightgreyColor: {
     color: "rgb(150,150,150)"
   },
+  mediumGreyColor:{
+   color:'#878787'
+  },
   blackColor: {
     color: "rgb(19,19,19)"
   },

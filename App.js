@@ -24,6 +24,7 @@ import ChatScreen from "./src/components/common/chatui";
 import UserRatingScreen from "./src/components/screens/rating/userrating";
 import ReportUserScreen from "./src/components/screens/rating/reportuser";
 import SellingItemScreen from "./src/components/screens/userItems/sellingitems";
+import FinalRatingScreen from "./src/components/screens/rating/finalrating";
 
 
 Navigation.registerComponent(
@@ -144,6 +145,13 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   "TwoFourApp.SellingItem",
   () => SellingItemScreen,
+  store,
+  Provider
+);
+
+Navigation.registerComponent(
+  "TwoFourApp.FinalRating",
+  () => FinalRatingScreen,
   store,
   Provider
 );
