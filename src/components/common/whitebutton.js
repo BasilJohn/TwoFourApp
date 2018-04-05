@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     width: deviceWidth/2.2,
     backgroundColor: "#FFF",
     height: 50,
-    borderRadius: 10,
+    borderRadius: 5,
     borderWidth:1,
     borderColor: "rgb(150,150,150)",
     padding: 10
