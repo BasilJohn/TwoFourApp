@@ -151,7 +151,11 @@ const styles = StyleSheet.create({
   containerStyle: {
     //flex: 0.5,
     backgroundColor: "#FFFFFF",
-    elevation: 6
+    //elevation: 6
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
   },
   imageStyle: {
     height: 70,

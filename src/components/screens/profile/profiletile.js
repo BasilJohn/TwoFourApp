@@ -22,7 +22,7 @@ export default class ProfileTile extends React.Component {
             <Image
               resizeMode="cover"
               style={styles.profileImageStyle}
-              borderRadius={50}
+              borderRadius={40}
               source={require("../../../assets/img/profileimage.jpg")}
             />
             <View style={styles.nameContainer}>
@@ -134,7 +134,11 @@ const styles = StyleSheet.create({
     marginTop: 2,
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
-    elevation: 6,
+    //elevation: 6,
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
     padding: 5
   },
   containerStyle: {
@@ -142,8 +146,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   profileImageStyle: {
-    height: 70,
-    width: 70
+    height: 80,
+    width: 80
   },
   imageContainer: {
     flex: 1,

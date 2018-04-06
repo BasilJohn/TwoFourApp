@@ -89,9 +89,10 @@ export default class ForgotPasswordScreen extends Component {
                 colorTwo={"#3972A0"}
                 colorThree={"#355F9A"}
                 buttonText={"SEND EMAIL"}
-                height={60}
+                height={50}
                 width={20}
                 borderRadius={60}
+                textPaddingTop={15}
                 textColor={'#FFFF'}
                 onPress={this._handleResetPassword.bind(this)}
               />

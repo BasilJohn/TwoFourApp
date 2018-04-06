@@ -153,7 +153,11 @@ const styles = StyleSheet.create({
   searchBarInputStyle: {
     backgroundColor: "#FFF",
     borderRadius: 50,
-    elevation: 6
+    //elevation: 6
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3
   },
   categoryItem: {
     flex: 1,

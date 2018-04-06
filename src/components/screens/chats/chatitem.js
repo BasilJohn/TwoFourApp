@@ -149,7 +149,11 @@ const styles = StyleSheet.create({
     marginRight: 5,
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
-    elevation: 6,
+    //elevation: 6,
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
     alignItems: "center",
     justifyContent: "space-between"
   },

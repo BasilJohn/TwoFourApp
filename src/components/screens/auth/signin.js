@@ -128,10 +128,10 @@ export default class SignInScreen extends Component {
                 colorTwo={"#3972A0"}
                 colorThree={"#355F9A"}
                 buttonText={"SIGN IN"}
-                height={60}
+                height={50}
                 width={20}
                 borderRadius={60}
-                textPaddingTop={20}
+                textPaddingTop={15}
                 textColor={'#FFFF'}
                 onPress={this._signInButtonPress.bind(this)}
               />
@@ -151,7 +151,7 @@ export default class SignInScreen extends Component {
               style={[
                 CommonStyles.buttonBox,
                 CommonStyles.row,
-                CommonStyles.spaceBetween
+                CommonStyles.spaceAround
               ]}
             >
               <View>
@@ -160,10 +160,10 @@ export default class SignInScreen extends Component {
                   colorTwo={"#4A90E2"}
                   colorThree={"#4A90E2"}
                   buttonText={"FACEBOOK"}
-                  height={60}
-                  width={200}
+                  height={50}
+                  width={210}
                   borderRadius={60}
-                  textPaddingTop={20}
+                  textPaddingTop={15}
                   textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
@@ -174,10 +174,10 @@ export default class SignInScreen extends Component {
                   colorTwo={"#D77056"}
                   colorThree={"#D77056"}
                   buttonText={"GOOGLE"}
-                  height={60}
-                  width={200}
+                  height={50}
+                  width={210}
                   borderRadius={60}
-                  textPaddingTop={20}
+                  textPaddingTop={15}
                   textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />

@@ -45,7 +45,7 @@ export default class UserProfile extends React.Component {
           ]}
         />
 
-        <View style={[{ alignItems: "center" }]}>
+        <View style={[{ alignItems: "center" ,padding:5}]}>
           <ProfileTile />
         </View>
         <View style={CommonStyles.noTabScrollView}>
@@ -169,10 +169,10 @@ export default class UserProfile extends React.Component {
         <View
           style={[
             CommonStyles.paddingTenLeftRight,
-            { height: deviceHeight - 100 }
+            { height: deviceHeight /2 }
           ]}
         >
-          <UserItemList />
+          <UserItemList  controlProps={this.props}/>
         </View>
       </View>
     );
@@ -207,7 +207,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-    elevation: 8
+    //elevation: 8
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3
   },
   btnText: {
     color: "rgb(150,150,150)",

@@ -38,7 +38,11 @@ export default class UserRating extends React.Component {
                 marginRight: 5,
                 borderRadius: 8,
                 backgroundColor: "#FFFFFF",
-                elevation: 6
+                //elevation: 6
+                shadowOffset: {width: 0, height: 0},
+                shadowColor: '#000000', 
+                 shadowOpacity: 0.4, 
+                shadowRadius: 3,
               }
             ]}
           >
@@ -76,7 +80,11 @@ export default class UserRating extends React.Component {
                 marginRight: 5,
                 borderRadius: 8,
                 backgroundColor: "#FFFFFF",
-                elevation: 6
+                //elevation: 6
+                shadowOffset: {width: 0, height: 0},
+                shadowColor: '#000000', 
+                shadowOpacity: 0.4, 
+                shadowRadius: 3,
               }
             ]}
           >
@@ -125,10 +133,10 @@ export default class UserRating extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"PUBLISH REVIEW"}
-              height={60}
+              height={50}
               width={20}
               borderRadius={60}
-              textPaddingTop={20}
+              textPaddingTop={15}
               textColor={'#FFFFFF'}
               onPress={this._publishReviewButtonPress.bind(this)}
             />

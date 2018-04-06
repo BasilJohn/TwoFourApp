@@ -64,7 +64,7 @@ export default class SortFilter extends React.Component {
                     colorThree={"#355F9A"}
                     buttonText={"Newest"}
                     height={50}
-                    width={250}
+                    width={260}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -78,7 +78,7 @@ export default class SortFilter extends React.Component {
                     colorThree={"#355F9A"}
                     buttonText={"Low to High"}
                     height={50}
-                    width={250}
+                    width={260}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -92,7 +92,7 @@ export default class SortFilter extends React.Component {
                     colorThree={"#355F9A"}
                     buttonText={"High to Low"}
                     height={50}
-                    width={250}
+                    width={260}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -196,7 +196,7 @@ export default class SortFilter extends React.Component {
                       colorThree={"#355F9A"}
                       buttonText={"24 Hrs"}
                       height={50}
-                      width={250}
+                      width={260}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -210,7 +210,7 @@ export default class SortFilter extends React.Component {
                       colorThree={"#355F9A"}
                       buttonText={"7 Days"}
                       height={50}
-                      width={250}
+                      width={260}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -224,7 +224,7 @@ export default class SortFilter extends React.Component {
                       colorThree={"#355F9A"}
                       buttonText={"30 Days"}
                       height={50}
-                      width={250}
+                      width={260}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -241,10 +241,10 @@ export default class SortFilter extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Apply"}
-              height={60}
+              height={50}
               width={20}
               borderRadius={60}
-              textPaddingTop={20}
+              textPaddingTop={15}
               textColor={'#FFFFFF'}
               onPress={this._handleClickSignUpButton.bind(this)}
             />

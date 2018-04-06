@@ -91,7 +91,7 @@ export default class ReportUser extends React.Component {
               <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
                 <View  style={[CommonStyles.paddingTenBottom]}>
                   <WhiteButton
-                    buttonText={"Offensive behaviour"}
+                    buttonText={"Offensive "}
                     onPress={this._reportUserButtonPress.bind(this)}
                   />
                 </View>
@@ -110,10 +110,10 @@ export default class ReportUser extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"REPORT"}
-              height={60}
+              height={50}
               width={20}
               borderRadius={60}
-              textPaddingTop={20}
+              textPaddingTop={15}
               textColor={"#FFFFFF"}
               onPress={this._reportUserButtonPress.bind(this)}
             />

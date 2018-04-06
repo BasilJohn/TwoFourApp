@@ -68,7 +68,7 @@ export default class SellinngItem extends React.Component {
                     CommonStyles.itemHeaderText,
                     CommonStyles.blackColor,
                     CommonStyles.mediumBold,
-                    { marginTop: -6 }
+                    { marginTop: 0}
                   ]}
                 >
                   Macbook Pro Retina
@@ -140,7 +140,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     flex: 0.3,
     backgroundColor: "#FFFFFF",
-    elevation: 6
+    //elevation: 6
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
   },
   imageStyle: {
     height: 70,

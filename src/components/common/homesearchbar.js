@@ -58,7 +58,7 @@ export default class HomeSearchBar extends Component {
             {(() => {
               if (!this.props.isBack) {
                 return (
-                  <TouchableHighlight
+                  <TouchableHighlight underlayColor={'transparent'}
                     onPress={this._onClickMenuButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -71,7 +71,7 @@ export default class HomeSearchBar extends Component {
                 );
               } else {
                 return (
-                  <TouchableHighlight
+                  <TouchableHighlight underlayColor={'transparent'}
                     onPress={this._onClickBackButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -85,6 +85,7 @@ export default class HomeSearchBar extends Component {
                           marginLeft: 3,
                           width: 5.5,
                           height: 2.5,
+                          top:-1.5,
                           backgroundColor: this.props.backIconStyle.color
                         }}
                       />
@@ -132,7 +133,7 @@ export default class HomeSearchBar extends Component {
             {this.props.rightButtons != null &&
               this.props.rightButtons.map(button => (
                 <View key={button.key}>
-                  <TouchableHighlight onPress={button.buttonAction}>
+                  <TouchableHighlight underlayColor={'transparent'} onPress={button.buttonAction}>
                     <View
                       style={{
                         flexDirection: "row",

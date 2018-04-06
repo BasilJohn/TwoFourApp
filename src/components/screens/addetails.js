@@ -154,37 +154,40 @@ export default class App extends Component {
                 </View>
               </View>
               <View style={CommonStyles.paddingTenLeftRight}>
-                <TouchableOpacity
+                <TouchableHighlight underlayColor={'transparent'}
                   onPress={this._reportUserButtonPress.bind(this)}
                   style={styles.reportButtonStyle}
                 >
                   <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
-                </TouchableOpacity>
+                </TouchableHighlight>
               </View>
             </View>
           </View>
           <View
             style={[
               CommonStyles.row,
-              { justifyContent: "space-between", padding: 10 }
+              { justifyContent: "space-between", padding: 10 },
+              CommonStyles.spaceAround
             ]}
           >
+          <View>
             <LinearGradientButton
               colorOne={"#3D88A7"}
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Message"}
               height={50}
-              width={195}
+              width={210}
               borderRadius={60}
               textPaddingTop={15}
               textColor={'#FFFF'}
               onPress={this.handlePress.bind(this)}
             />
-            <View>
-              <TouchableOpacity style={styles.offerButtonStyle}>
+            </View>
+             <View style={styles.offerButtonStyle}>
+              <TouchableHighlight underlayColor={'transparent'} >
                 <Text style={styles.offerButtonTextStyle}>{"Make Offer"}</Text>
-              </TouchableOpacity>
+              </TouchableHighlight>
             </View>
           </View>
         </ScrollView>
@@ -201,7 +204,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderBottomWidth: 1,
     borderColor: "#E9E9E9",
-    elevation: 3
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 5,
+    //elevation: 16
+
   },
   headerContainer: {
     alignSelf: "flex-start",
@@ -226,7 +233,7 @@ const styles = StyleSheet.create({
   },
   reportButtonStyle: {
     width: deviceWidth - 210,
-    backgroundColor: "white",
+    //backgroundColor: "white",
     height: 45,
     borderRadius: 30,
     borderWidth: 2,

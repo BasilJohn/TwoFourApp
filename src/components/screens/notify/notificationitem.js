@@ -14,7 +14,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 export default class NotificationItem extends React.Component {
   _openNotificationDetail() {
     this.props.navigatorProps.push({
-      screen: "TwoFourApp.UserRating",
+      screen: "TwoFourApp.FinalRating",
       title:"Rate"
     });
 
@@ -67,7 +67,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     flex: 0.3,
     backgroundColor: "#FFFFFF",
-    elevation: 6
+    //elevation: 6
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3
   },
   itemBox: {
     flexDirection: "row",

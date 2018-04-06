@@ -55,7 +55,8 @@ export default (CommonStyles = StyleSheet.create({
     marginBottom: 10
   },
   noTabScrollView: {
-    marginTop: 10
+    marginTop: 10,
+    
   },
   // Color
   whiteColor: {
@@ -302,7 +303,11 @@ export default (CommonStyles = StyleSheet.create({
   },
   tabBarStyle: {
     backgroundColor: "#FFFFFF",
-    paddingBottom: 2
+    paddingBottom: 2,
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
   },
   tabBarLabelStyle: {
     color: "#6F6F6F",

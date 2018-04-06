@@ -163,10 +163,10 @@ class PostAd extends Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"POST AD"}
-              height={60}
+              height={50}
               width={20}
               borderRadius={60}
-              textPaddingTop={20}
+              textPaddingTop={15}
               textColor={"#FFFFFF"}
               onPress={this._handleClickSignUpButton.bind(this)}
             />

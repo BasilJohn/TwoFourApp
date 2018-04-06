@@ -254,10 +254,10 @@ export default class RETab extends React.Component {
             colorTwo={"#3972A0"}
             colorThree={"#355F9A"}
             buttonText={"Search"}
-            height={60}
+            height={50}
             width={20}
             borderRadius={60}
-            textPaddingTop={20}
+            textPaddingTop={15}
             textColor={'#FFFF'}
             onPress={this._handleClickSignUpButton.bind(this)}
           />
