@@ -45,7 +45,7 @@ export default class UserRating extends React.Component {
             <View>
               <Text
                 style={[
-                  CommonStyles.headerText,
+                  CommonStyles.mediumText,
                   CommonStyles.blackColor,
                   CommonStyles.regularBold
                 ]}
@@ -83,7 +83,7 @@ export default class UserRating extends React.Component {
             <View>
               <Text
                 style={[
-                  CommonStyles.headerText,
+                  CommonStyles.mediumText,
                   CommonStyles.blackColor,
                   CommonStyles.regularBold
                 ]}

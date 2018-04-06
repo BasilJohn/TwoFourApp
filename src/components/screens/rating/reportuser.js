@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import {
   LinearGradientButton,
   GradientNavigationBar,
-  Button
+  WhiteButton
 } from "../../common";
 import CommonStyles, {
   deviceHeight,
@@ -23,17 +23,17 @@ export default class ReportUser extends React.Component {
 
   render(props) {
     return (
-      <View style={CommonStyles.normalPage}>
+      <View style={[CommonStyles.normalPage]}>
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Rate"
         />
-        <View>
-          <View>
+        <View >
+          <View >
             <UserImageTile />
           </View>
-          <View style={[styles.titleBox]}>
-            <View style={{ alignSelf: "flex-start" }}>
+          <View >
+            <View>
               <Text
                 style={[
                   CommonStyles.headerText,
@@ -45,45 +45,66 @@ export default class ReportUser extends React.Component {
                 What you want to report
               </Text>
             </View>
-            <View style={[CommonStyles.row, CommonStyles.spaceBetween]}>
-              <View>
-                <LinearGradientButton
-                  colorOne={"#FFFF"}
-                  colorTwo={"#FFFF"}
-                  colorThree={"#FFFF"}
-                  buttonText={"Scammer"}
-                  height={50}
-                  width={250}
-                  borderRadius={10}
-                  textPaddingTop={10}
-                  textColor={'#A5A5A5'}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                />
+            <View>
+              <View style={[CommonStyles.row,CommonStyles.spaceAround]}>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Scammer"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Stolen"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
               </View>
-              <View>
-                <LinearGradientButton
-                  colorOne={"#FFFF"}
-                  colorTwo={"#FFFF"}
-                  colorThree={"#FFFF"}
-                  buttonText={"Stolen"}
-                  height={50}
-                  width={250}
-                  borderRadius={10}
-                  textPaddingTop={10}
-                  textColor={'#A5A5A5'}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                />
+              <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Counterfiet"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Inactive"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+              </View>
+              <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Suspicious"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Spammer"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+              </View>
+              <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                <View  style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Offensive behaviour"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
+                <View style={[CommonStyles.paddingTenBottom]}>
+                  <WhiteButton
+                    buttonText={"Other"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                  />
+                </View>
               </View>
             </View>
           </View>
-          <View
-            style={[
-              CommonStyles.buttonBox,
-              {
-                bottom: 0
-              }
-            ]}
-          >
+          <View style={[CommonStyles.buttonBox,{bottom:0}]}>
             <LinearGradientButton
               colorOne={"#3D88A7"}
               colorTwo={"#3972A0"}
@@ -93,7 +114,7 @@ export default class ReportUser extends React.Component {
               width={20}
               borderRadius={60}
               textPaddingTop={20}
-              textColor={'#FFFFFF'}
+              textColor={"#FFFFFF"}
               onPress={this._reportUserButtonPress.bind(this)}
             />
           </View>
