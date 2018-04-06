@@ -127,6 +127,7 @@ export default class ChatItem extends React.Component {
                         marginLeft: 3,
                         width: 5.5,
                         height: 2.5,
+                        top:-1.5,
                         backgroundColor: "white"
                       }}
                     />
@@ -139,7 +140,8 @@ export default class ChatItem extends React.Component {
                     {
                       alignSelf: "center",
                       justifyContent: "center",
-                      color: "#FFFFFF",
+                      backgroundColor: "transparent",
+                      color:'#FFF',
                       fontSize: 18,
                       fontFamily: "Poppins-SemiBold"
                     }
