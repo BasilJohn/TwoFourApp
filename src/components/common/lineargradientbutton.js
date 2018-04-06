@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
+import { TouchableHighlight, Text, StyleSheet, Dimensions } from "react-native";
 import CommonStyles, {
   deviceHeight,
   deviceWidth
@@ -10,9 +10,9 @@ import LinearGradient from "react-native-linear-gradient";
 const LinearGradientButton = props => {
   return (
     <LinearGradient
-      colors={[props.colorOne, props.colorTwo, props.colorThree]}
-      start={{ x: 0.0, y: 0.25 }}
-      end={{ x: 0.5, y: 1.0 }}
+      colors={[props.colorOne, props.colorTwo]}
+      start={{ x: 1 ,y: 1.0 }}
+      end={{ x: 1.0, y: 1.0 }}
       style={[
         styles.LinearGradientStyle,
         {
@@ -21,10 +21,11 @@ const LinearGradientButton = props => {
           borderRadius: props.borderRadius
         }
       ]}
-      locations={[0, 0.5, 1]}
+      locations={[0, 0.5]}
     >
-      <TouchableOpacity
+      <TouchableHighlight
         onPress={props.onPress}
+        underlayColor={'transparent'}
         style={[
           styles.buttonStyle,
           {
@@ -37,7 +38,7 @@ const LinearGradientButton = props => {
         <Text style={[styles.textStyle, { paddingTop: props.textPaddingTop,color:props.textColor }]}>
           {props.buttonText}
         </Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
     </LinearGradient>
   );
 };
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-SemiBold"
   },
   LinearGradientStyle: {
-    backgroundColor: "#7B7B7B"
+    //backgroundColor: "#7B7B7B"
   }
 });
 

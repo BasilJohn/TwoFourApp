@@ -5,7 +5,7 @@ import {
   View,
   Image,
   Platform,
-  TouchableOpacity
+  TouchableHighlight
 } from "react-native";
 import { Navigation } from "react-native-navigation";
 import LinearGradient from "react-native-linear-gradient";
@@ -58,7 +58,7 @@ export default class HomeSearchBar extends Component {
             {(() => {
               if (!this.props.isBack) {
                 return (
-                  <TouchableOpacity
+                  <TouchableHighlight
                     onPress={this._onClickMenuButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -67,11 +67,11 @@ export default class HomeSearchBar extends Component {
                           style={{width: 26, height: 17}}
                         /> */}
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 );
               } else {
                 return (
-                  <TouchableOpacity
+                  <TouchableHighlight
                     onPress={this._onClickBackButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -89,7 +89,7 @@ export default class HomeSearchBar extends Component {
                         }}
                       />
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 );
               }
             })()}
@@ -132,7 +132,7 @@ export default class HomeSearchBar extends Component {
             {this.props.rightButtons != null &&
               this.props.rightButtons.map(button => (
                 <View key={button.key}>
-                  <TouchableOpacity onPress={button.buttonAction}>
+                  <TouchableHighlight onPress={button.buttonAction}>
                     <View
                       style={{
                         flexDirection: "row",
@@ -150,7 +150,7 @@ export default class HomeSearchBar extends Component {
                         }}
                       />
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 </View>
               ))}
           </View>

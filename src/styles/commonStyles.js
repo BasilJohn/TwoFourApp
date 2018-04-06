@@ -93,7 +93,7 @@ export default (CommonStyles = StyleSheet.create({
   extraLargeText: {
     height: 52,
     fontSize: 32,
-    fontFamily: "Poppins-Bold"
+    fontFamily: "Poppins"
   },
   titleText: {
     fontSize: 30,

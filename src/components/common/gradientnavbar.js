@@ -5,7 +5,7 @@ import {
   View,
   Image,
   Platform,
-  TouchableOpacity
+  TouchableHighlight
 } from "react-native";
 import { Navigation } from "react-native-navigation";
 import LinearGradient from "react-native-linear-gradient";
@@ -56,7 +56,7 @@ export default class GradientNavigationBar extends Component {
             {(() => {
               if (!this.props.isBack) {
                 return (
-                  <TouchableOpacity
+                  <TouchableHighlight>
                     onPress={this._onClickMenuButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -65,12 +65,13 @@ export default class GradientNavigationBar extends Component {
                           style={{width: 26, height: 17}}
                         /> */}
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 );
               } else {
                 return (
-                  <TouchableOpacity
+                  <TouchableHighlight
                     onPress={this._onClickBackButton.bind(this)}
+                    underlayColor={'transparent'}
                   >
                     <View style={styles.leftButton}>
                       <Icon
@@ -87,7 +88,7 @@ export default class GradientNavigationBar extends Component {
                         }}
                       />
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 );
               }
             })()}
@@ -117,7 +118,7 @@ export default class GradientNavigationBar extends Component {
             {this.props.rightButtons != null &&
               this.props.rightButtons.map(button => (
                 <View key={button.key}>
-                  <TouchableOpacity onPress={button.buttonAction}>
+                  <TouchableHighlight onPress={button.buttonAction}>
                     <View
                       style={{
                         flexDirection: "row",
@@ -135,7 +136,7 @@ export default class GradientNavigationBar extends Component {
                         }}
                       />
                     </View>
-                  </TouchableOpacity>
+                  </TouchableHighlight>
                 </View>
               ))}
           </View>
@@ -180,7 +181,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    width: deviceWidth * 3 / 5
+    width: deviceWidth * 3 / 5,
+    backgroundColor:'transparent'
   },
   rightCol: {
     width: deviceWidth * 1 / 5 - 15,

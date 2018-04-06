@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexDirection: "row",
     width: deviceWidth,
-    height: 50,
+    height: 45,
     backgroundColor: "rgb(243,246,254)",
     borderTopWidth: 1,
     borderStyle: "solid",

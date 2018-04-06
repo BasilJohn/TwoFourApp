@@ -67,10 +67,10 @@ export default class CustomTabBar extends Component {
           //buttonAction: this._onNotificationIconClick.bind(this),
         }}
         tabBtn4={{
-          activeBtn: require("../../assets/img/profileActive.png"),
-          inactiveBtn: require("../../assets/img/profile.png"),
+          activeBtn: require("../../assets/img/profile_m.png"),
+          inactiveBtn: require("../../assets/img/profile_m.png"),
           width: 21,
-          height: 25,
+          height: 30,
           buttonAction: this.handlePress.bind(this, "UserProfile")
           //buttonAction: this._onProfileIconClick.bind(this),
         }}
@@ -82,7 +82,7 @@ export default class CustomTabBar extends Component {
   _onHomeIconClick() {
     this.props.navigator.popToRoot({
       animated: true
-    });
+    })
     this.props.navigator.switchToTab({
       tabIndex: 0
     });
