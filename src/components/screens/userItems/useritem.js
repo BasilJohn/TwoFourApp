@@ -13,6 +13,19 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Swipeout from "react-native-swipeout";
 
 export default class SellinngItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+   
+  }
+
+  openSellingItem(){
+    this.props.controlProps.controlProps.navigator.push({
+      screen: "TwoFourApp.SellingItem"
+    });
+      
+  }
+
   render(props) {
     let swipeBtns = [
       {
@@ -26,12 +39,14 @@ export default class SellinngItem extends React.Component {
       }
     ];
 
+    
     return (
-      <Swipeout
-        autoClose={true}
-        right={swipeBtns}
-        backgroundColor="transparent"
-      >
+      // <Swipeout
+      //   autoClose={true}
+      //   right={swipeBtns}
+      //   backgroundColor="transparent"
+      // >
+      <TouchableHighlight underlayColor={'transparent'} onPress={this.openSellingItem.bind(this)}>
         <View style={styles.containerStyle}>
           <View style={CommonStyles.row}>
             <Image
@@ -93,7 +108,8 @@ export default class SellinngItem extends React.Component {
             </View>
           </View>
         </View>
-      </Swipeout>
+        {/* </Swipeout> */}
+      </TouchableHighlight>
     );
   }
   _alertDeleteItem() {

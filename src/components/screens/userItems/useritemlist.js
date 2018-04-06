@@ -22,11 +22,12 @@ export default class Selling extends React.Component {
   }
 
   render(props) {
+    
     return (
       <FlatList
         data={this.state.favouriteList}
         keyExtractor={(x, i) => i}
-        renderItem={({ item }) => <UserItem type={"selling"} details={item} />}
+        renderItem={({ item }) => <UserItem controlProps={this.props} type={"selling"} details={item} />}
       />
     );
   }
