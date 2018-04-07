@@ -50,7 +50,7 @@ export default class UserProfileSetting extends React.Component {
           <View style={[styles.titleBox, { flex: 0.5 }]}>
             <Text
               style={[
-                CommonStyles.titleText,
+                CommonStyles.headerText,
                 CommonStyles.greyColor,
                 CommonStyles.semiBold,
                 CommonStyles.paddingTen,
@@ -138,7 +138,7 @@ export default class UserProfileSetting extends React.Component {
           <View style={styles.titleBox}>
             <Text
               style={[
-                CommonStyles.titleText,
+                CommonStyles.headerText,
                 CommonStyles.greyColor,
                 CommonStyles.semiBold,
                 CommonStyles.paddingTen,
@@ -210,10 +210,10 @@ export default class UserProfileSetting extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"SIGN OUT"}
-              height={50}
-              width={20}
+              height={48}
+              width={55}
               borderRadius={60}
-              textPaddingTop={15}
+              textPaddingTop={13}
               textColor={'#FFFFFF'}
               onPress={this._signOutButtonPress.bind(this)}
             />

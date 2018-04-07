@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import CommonStyles from "../../../styles/commonStyles";
 import { Rating } from "react-native-elements";
+import { deviceWidth } from "../notify/notificationitem";
 const RATING_IMAGE = require("../../../assets/img/star.svg");
 
 export default class ProfileTile extends React.Component {
@@ -22,7 +23,7 @@ export default class ProfileTile extends React.Component {
             <Image
               resizeMode="cover"
               style={styles.profileImageStyle}
-              borderRadius={40}
+              borderRadius={30}
               source={require("../../../assets/img/profileimage.jpg")}
             />
             <View style={styles.nameContainer}>
@@ -45,7 +46,7 @@ export default class ProfileTile extends React.Component {
                   ratingBackgroundColor="white"
                   readonly={true}
                   ratingCount={5}
-                  imageSize={20}
+                  imageSize={15}
                   startingValue={2.5}
                 />
               </View>
@@ -146,8 +147,10 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   profileImageStyle: {
-    height: 80,
-    width: 80
+    marginLeft:10,
+    marginTop:10,
+    height: 60,
+    width: 60
   },
   imageContainer: {
     flex: 1,
@@ -163,13 +166,15 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   followButtonContainer: {
+    marginTop:15,
+    marginRight:10,
     flex: 0.7,
     alignItems: "flex-end"
   },
   followButtonStyle: {
-    width: "80%",
+    width: deviceWidth-280,
     backgroundColor: "#7B7B7B",
-    height: 45,
+    height: 32,
     borderRadius: 40,
     padding: 0
   },
@@ -178,7 +183,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#F1F1F2",
     fontSize: 15,
-    paddingTop: 10,
+    paddingTop: 5,
     fontFamily: "Poppins-SemiBold"
   },
   profileWeightStyle: {

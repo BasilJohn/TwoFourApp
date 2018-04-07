@@ -176,10 +176,10 @@ export default class App extends Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Message"}
-              height={50}
+              height={42}
               width={210}
               borderRadius={60}
-              textPaddingTop={15}
+              textPaddingTop={7}
               textColor={'#FFFF'}
               onPress={this.handlePress.bind(this)}
             />
@@ -226,17 +226,17 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
   offerButtonStyle: {
-    width: deviceWidth - 195,
+    width: deviceWidth - 210,
     backgroundColor: "#7B7B7B",
-    height: 50,
+    height: 42,
     borderRadius: 30
   },
   reportButtonStyle: {
-    width: deviceWidth - 210,
+    width: deviceWidth-280,
     //backgroundColor: "white",
-    height: 45,
+    height: 32,
     borderRadius: 30,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "#7A7A7A"
   },
   reportButtonTextStyle: {
@@ -245,8 +245,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#7A7A7A",
     fontSize: 16,
-    fontFamily: "Poppins-SemiBold",
-    paddingTop: 10
+    fontFamily: "Poppins-Regular",
+    paddingTop:3
   },
   offerButtonTextStyle: {
     justifyContent: "center",
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     color: "#F1F1F2",
     fontSize: 16,
     fontFamily: "Poppins-SemiBold",
-    paddingTop: 15
+    paddingTop: 10
   },
   socialIconStyle: {
     height: 40,

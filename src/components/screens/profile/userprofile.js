@@ -45,7 +45,7 @@ export default class UserProfile extends React.Component {
           ]}
         />
 
-        <View style={[{ alignItems: "center" ,padding:5}]}>
+        <View style={[{ alignItems: "center" ,padding:5,paddingTop:20}]}>
           <ProfileTile />
         </View>
         <View style={CommonStyles.noTabScrollView}>

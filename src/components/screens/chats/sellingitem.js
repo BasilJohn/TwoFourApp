@@ -31,7 +31,7 @@ export default class SellingItem extends React.Component {
     state = { modalStatus: false };
 
     return (
-      <View>
+      <View style={{justifyContent:'center',alignSelf:'center'}}>
         <TouchableHighlight underlayColor={'transparent'} onPress={this._openChatWindow.bind(this)}>
           <View style={styles.containerStyle}>
             <View style={CommonStyles.row}>
@@ -168,7 +168,9 @@ export default class SellingItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flex: 0.3,
+    //flex: 0.3,
+    width:deviceWidth-30,
+    height:100,
     flexDirection: "row",
     marginTop: 10,
     marginBottom: 10,

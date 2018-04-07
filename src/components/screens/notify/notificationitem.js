@@ -67,11 +67,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     flex: 0.3,
     backgroundColor: "#FFFFFF",
+    borderBottomWidth:0.5,
+    borderBottomColor:'#7B7B7B'
     //elevation: 6
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
-    shadowRadius: 3
+    // shadowOffset: {width: 0, height: 0},
+    // shadowColor: '#000000', 
+    // shadowOpacity: 0.4, 
+    // shadowRadius: 3
   },
   itemBox: {
     flexDirection: "row",

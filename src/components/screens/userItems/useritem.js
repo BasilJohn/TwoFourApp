@@ -58,7 +58,7 @@ export default class SellinngItem extends React.Component {
             <View
               style={{
                 flexDirection: "column",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 paddingLeft: 20
               }}
             >
@@ -85,7 +85,7 @@ export default class SellinngItem extends React.Component {
                   30 views
                 </Text>
               </View>
-              <View style={[CommonStyles.row]}>
+              {/* <View style={[CommonStyles.row]}>
                 <View style={{ paddingRight: 5 }}>
                   <Ionicons
                     name={"ios-timer-outline"}
@@ -104,7 +104,7 @@ export default class SellinngItem extends React.Component {
                     3 hours ago
                   </Text>
                 </View>
-              </View>
+              </View> */}
             </View>
           </View>
         </View>
@@ -133,18 +133,23 @@ export default class SellinngItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    marginTop: 10,
-    marginBottom: 10,
+    //marginTop: 10,
+    //marginBottom: 10,
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 8,
-    flex: 0.3,
+    //flex: 0.3,
+    height:75,
     backgroundColor: "#FFFFFF",
+    borderBottomWidth:0.3,
+    borderBottomColor:'#7B7B7B',
+    //borderTopWidth:0.3,
+    borderTopColor:'#7B7B7B'
     //elevation: 6
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
-    shadowRadius: 3,
+    // shadowOffset: {width: 0, height: 0},
+    // shadowColor: '#000000', 
+    // shadowOpacity: 0.4, 
+    // shadowRadius: 3,
   },
   imageStyle: {
     height: 70,
