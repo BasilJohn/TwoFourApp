@@ -171,7 +171,7 @@ export default class HomeSearchBar extends Component {
   _onClickBackButton() {
     if (this.props.isModal == true) {
       this.props.navigator.dismissAllModals({
-        animationType: "slide-down"
+        animationType: "fade"
       });
     } else {
       this.props.navigator.pop({});
