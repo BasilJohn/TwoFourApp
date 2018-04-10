@@ -38,7 +38,7 @@ export default class UserProfileSetting extends React.Component {
           ]}
         />
         <ScrollView>
-          <View style={{ alignItems: "center", marginTop: 50 }}>
+          <View style={{ alignItems: "center", marginTop: 20 }}>
             <View>
               <Image
                 source={require("../../../assets/img/photo-camera.png")}
@@ -47,7 +47,7 @@ export default class UserProfileSetting extends React.Component {
             </View>
           </View>
 
-          <View style={[styles.titleBox, { flex: 0.5 }]}>
+          <View style={[styles.titleBox, { flex: 0.2 }]}>
             <Text
               style={[
                 CommonStyles.headerText,
@@ -62,7 +62,7 @@ export default class UserProfileSetting extends React.Component {
           </View>
           <KeyboardAvoidingView>
             <View style={[styles.formBox, CommonStyles.spaceAround]}>
-              <View style={[CommonStyles.signInTextInputField]}>
+              <View style={[CommonStyles.squareTextInputField]}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   style={{
@@ -79,7 +79,7 @@ export default class UserProfileSetting extends React.Component {
                   underlineColorAndroid="transparent"
                 />
               </View>
-              <View style={CommonStyles.signInTextInputField}>
+              <View style={CommonStyles.squareTextInputField}>
                 <Image
                   source={require("../../../assets/img/envelope.png")}
                   resizeMode="contain"
@@ -97,7 +97,7 @@ export default class UserProfileSetting extends React.Component {
                   underlineColorAndroid="transparent"
                 />
               </View>
-              <View style={CommonStyles.signInTextInputField}>
+              <View style={CommonStyles.squareTextInputField}>
                 <Image
                   resizeMode="contain"
                   source={require("../../../assets/img/padlock.png")}
@@ -115,7 +115,7 @@ export default class UserProfileSetting extends React.Component {
                   underlineColorAndroid="transparent"
                 />
               </View>
-              <View style={CommonStyles.signInTextInputField}>
+              <View style={CommonStyles.squareTextInputField}>
                 <Image
                   resizeMode="contain"
                   source={require("../../../assets/img/phone-call.png")}
@@ -150,7 +150,7 @@ export default class UserProfileSetting extends React.Component {
           </View>
           <KeyboardAvoidingView>
             <View style={[styles.formBox, CommonStyles.spaceAround]}>
-              <View style={[CommonStyles.signInTextInputField]}>
+              <View style={[CommonStyles.squareTextInputField]}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   style={{
@@ -162,12 +162,23 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
+                  editable={false}
                   placeholder="Help"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
                 />
+                <Image
+                  source={require("../../../assets/img/nextIcon.png")}
+                  style={{
+                    position: "absolute",
+                    bottom: 12,
+                    right: 20,
+                    width: 19,
+                    height: 22
+                  }}
+                />
               </View>
-              <View style={CommonStyles.signInTextInputField}>
+              <View style={CommonStyles.squareTextInputField}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   resizeMode="contain"
@@ -180,12 +191,23 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
+                  editable={false}
                   placeholder="Terms and Conditions"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
                 />
+                <Image
+                  source={require("../../../assets/img/nextIcon.png")}
+                  style={{
+                    position: "absolute",
+                    bottom: 12,
+                    right: 20,
+                    width: 19,
+                    height: 22
+                  }}
+                />
               </View>
-              <View style={CommonStyles.signInTextInputField}>
+              <View style={CommonStyles.squareTextInputField}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   style={{
@@ -197,28 +219,39 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
+                  editable={false}
                   placeholder="Privacy Policy"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
                 />
+                <Image
+                  source={require("../../../assets/img/nextIcon.png")}
+                  style={{
+                    position: "absolute",
+                    bottom: 12,
+                    right: 20,
+                    width: 19,
+                    height: 22
+                  }}
+                />
               </View>
             </View>
           </KeyboardAvoidingView>
-          <View style={[CommonStyles.buttonBox]}>
-            <LinearGradientButton
-              colorOne={"#3D88A7"}
-              colorTwo={"#3972A0"}
-              colorThree={"#355F9A"}
-              buttonText={"SIGN OUT"}
-              height={48}
-              width={55}
-              borderRadius={60}
-              textPaddingTop={13}
-              textColor={'#FFFFFF'}
-              onPress={this._signOutButtonPress.bind(this)}
-            />
-          </View>
         </ScrollView>
+        <View style={[CommonStyles.buttonBox]}>
+          <LinearGradientButton
+            colorOne={"#3D88A7"}
+            colorTwo={"#3972A0"}
+            colorThree={"#355F9A"}
+            buttonText={"SIGN OUT"}
+            height={48}
+            width={55}
+            borderRadius={60}
+            textPaddingTop={13}
+            textColor={"#FFFFFF"}
+            onPress={this._signOutButtonPress.bind(this)}
+          />
+        </View>
       </View>
     );
   }
@@ -228,8 +261,8 @@ const spaceHeight = deviceHeight - ELEMENT_HEIGHT;
 
 const styles = StyleSheet.create({
   titleBox: {
-    height: 52,
-    marginTop: spaceHeight * 0.1,
+    height: 30,
+    marginTop: 5,
     justifyContent: "center",
     alignItems: "center"
   },

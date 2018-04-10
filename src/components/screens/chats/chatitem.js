@@ -19,7 +19,12 @@ export default class ChatItem extends React.Component {
     // const { type } = this.props.type;
     return (
       <View style={{justifyContent:'center',alignSelf:'center'}}>
-      <View style={styles.containerStyle}>
+     <View
+        style={[
+          this.props.type !== "block" && styles.containerStyle,
+          this.props.type === "block" && styles.blockedcontainerStyle
+        ]}
+      >
         <View style={CommonStyles.row}>
           <Image
             style={styles.imageStyle}
@@ -161,8 +166,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between"
   },
-  blockedUsercontainerStyle: {
-    // flex: 0.3,
+  blockedcontainerStyle: {
      height:100,
      width:deviceWidth-30,
      flexDirection: "row",
@@ -172,11 +176,8 @@ const styles = StyleSheet.create({
      marginRight: 5,
      borderRadius: 8,
      backgroundColor: "#FFFFFF",
-     //elevation: 6,
-    //  shadowOffset: {width: 0, height: 0},
-    //  shadowColor: '#000000', 
-    //  shadowOpacity: 0.4, 
-    //  shadowRadius: 3,
+     borderBottomWidth:0.3,
+     borderBottomColor:'#7B7B7B',
      alignItems: "center",
      justifyContent: "space-between"
    },
