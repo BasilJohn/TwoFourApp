@@ -33,7 +33,8 @@ export default class PrimeTabBar extends Component {
                 {(() => {
                   if (this.props.isActive == "tab1") {
                     return (
-                      <Image
+                      <Image 
+                      resizeMode={'cover'}
                         source={this.props.tabBtn1.activeBtn}
                         style={{
                           width: this.props.tabBtn1.width,
@@ -44,6 +45,7 @@ export default class PrimeTabBar extends Component {
                   } else {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn1.inactiveBtn}
                         style={{
                           width: this.props.tabBtn1.width,
@@ -61,6 +63,7 @@ export default class PrimeTabBar extends Component {
                   if (this.props.isActive == "tab2") {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn2.activeBtn}
                         style={{
                           width: this.props.tabBtn2.width,
@@ -71,6 +74,7 @@ export default class PrimeTabBar extends Component {
                   } else {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn2.inactiveBtn}
                         style={{
                           width: this.props.tabBtn2.width,
@@ -89,6 +93,7 @@ export default class PrimeTabBar extends Component {
                   if (this.props.isActive == "tab3") {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn3.activeBtn}
                         style={{
                           width: this.props.tabBtn3.width,
@@ -99,6 +104,7 @@ export default class PrimeTabBar extends Component {
                   } else {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn3.inactiveBtn}
                         style={{
                           width: this.props.tabBtn3.width,
@@ -116,6 +122,7 @@ export default class PrimeTabBar extends Component {
                   if (this.props.isActive == "tab4") {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn4.activeBtn}
                         style={{
                           width: this.props.tabBtn4.width,
@@ -126,6 +133,7 @@ export default class PrimeTabBar extends Component {
                   } else {
                     return (
                       <Image
+                      resizeMode={'cover'}
                         source={this.props.tabBtn4.inactiveBtn}
                         style={{
                           width: this.props.tabBtn4.width,
@@ -160,6 +168,7 @@ export default class PrimeTabBar extends Component {
                   }}
                 >
                   <Image
+                  resizeMode={'cover'}
                     source={this.props.tabBtn0.activeBtn}
                     style={{
                       width: this.props.tabBtn0.width,
@@ -187,6 +196,7 @@ export default class PrimeTabBar extends Component {
                   }}
                 >
                   <Image
+                  resizeMode={'cover'}
                     source={this.props.tabBtn0.inactiveBtn}
                     style={{
                       width: this.props.tabBtn0.width,

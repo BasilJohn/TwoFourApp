@@ -35,33 +35,33 @@ export default class CustomTabBar extends Component {
         navigator={this.props.navigator}
         isActive={this.props.isActive}
         tabBtn0={{
-          activeBtn: require("../../assets/img/cameraActive.png"),
-          inactiveBtn: require("../../assets/img/camera.png"),
+          activeBtn: require("../../assets/img/Camera_M.png"),
+          inactiveBtn: require("../../assets/img/Camera_M.png"),
           width: 30,
-          height: 30,
+          height: 25,
           onPressButton: this.handlePress.bind(this, "PostAd")
           //onPressButton: this._onPostAdIconClick.bind(this),
         }}
         tabBtn1={{
-          activeBtn: require("../../assets/img/homeActive.png"),
-          inactiveBtn: require("../../assets/img/home-page.png"),
+          activeBtn: require("../../assets/img/Home_M.png"),
+          inactiveBtn: require("../../assets/img/Home_M.png"),
           width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Home")
           //buttonAction: this._onHomeIconClick.bind(this),
         }}
         tabBtn2={{
-          activeBtn: require("../../assets/img/chatActive.png"),
-          inactiveBtn: require("../../assets/img/speech-bubble-outline.png"),
+          activeBtn: require("../../assets/img/Chat_M.png"),
+          inactiveBtn: require("../../assets/img/Chat_M.png"),
           width: 30,
-          height: 30,
+          height: 32,
           buttonAction: this.handlePress.bind(this, "Chats")
           //buttonAction: this._onChatsIconClick.bind(this),
         }}
         tabBtn3={{
-          activeBtn: require("../../assets/img/notificationActive.png"),
-          inactiveBtn: require("../../assets/img/notifications-bell-button.png"),
-          width: 30,
+          activeBtn: require("../../assets/img/Notification_M.png"),
+          inactiveBtn: require("../../assets/img/Notification_M.png"),
+          width: 25,
           height: 30,
           buttonAction: this.handlePress.bind(this, "Notification")
           //buttonAction: this._onNotificationIconClick.bind(this),
@@ -70,7 +70,7 @@ export default class CustomTabBar extends Component {
           activeBtn: require("../../assets/img/profile_m.png"),
           inactiveBtn: require("../../assets/img/profile_m.png"),
           width: 21,
-          height: 30,
+          height: 32,
           buttonAction: this.handlePress.bind(this, "UserProfile")
           //buttonAction: this._onProfileIconClick.bind(this),
         }}
