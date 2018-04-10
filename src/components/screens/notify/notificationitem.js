@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     flex: 0.3,
     backgroundColor: "#FFFFFF",
-    elevation: 6
+    borderBottomWidth:0.5,
+    borderBottomColor:'#7B7B7B'
   },
   itemBox: {
     flexDirection: "row",
