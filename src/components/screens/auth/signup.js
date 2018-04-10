@@ -126,10 +126,10 @@ export default class SignUpScreen extends Component {
                 colorTwo={"#3972A0"}
                 colorThree={"#355F9A"}
                 buttonText={"SIGN UP"}
-                height={60}
-                width={20}
+                height={48}
+                width={55}
                 borderRadius={60}
-                textPaddingTop={20}
+                textPaddingTop={13}
                 textColor={'#FFFF'}
                 onPress={this._signInButtonPress.bind(this)}
               />
@@ -158,10 +158,10 @@ export default class SignUpScreen extends Component {
                   colorTwo={"#4A90E2"}
                   colorThree={"#4A90E2"}
                   buttonText={"FACEBOOK"}
-                  height={60}
-                  width={200}
-                  borderRadius={60}
-                  textPaddingTop={20}
+                  height={43}
+                  width={210}
+                  borderRadius={50}
+                  textPaddingTop={10}
                   textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
@@ -172,10 +172,10 @@ export default class SignUpScreen extends Component {
                   colorTwo={"#D77056"}
                   colorThree={"#D77056"}
                   buttonText={"GOOGLE"}
-                  height={60}
-                  width={200}
-                  borderRadius={60}
-                  textPaddingTop={20}
+                  height={43}
+                  width={210}
+                  borderRadius={50}
+                  textPaddingTop={10}
                   textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
@@ -191,7 +191,7 @@ export default class SignUpScreen extends Component {
               CommonStyles.lightgreyColor
             ]}
           >
-            Don't have an account?
+            Already have an account?
           </Text>
           <TouchableWithoutFeedback onPress={() => this._goToSignUpScreen()}>
             <View style={{ marginLeft: 5 }}>
@@ -202,7 +202,7 @@ export default class SignUpScreen extends Component {
                   CommonStyles.softBlueColor
                 ]}
               >
-                SIGN UP
+                SIGN IN
               </Text>
             </View>
           </TouchableWithoutFeedback>
@@ -213,7 +213,7 @@ export default class SignUpScreen extends Component {
 
   _goToSignUpScreen() {
     this.props.navigator.push({
-      screen: "TwoFourApp.SignUp"
+      screen: "TwoFourApp.SignIn"
     });
   }
 
