@@ -8,7 +8,7 @@ import BlockedUsers from "../chats/blockedusers";
 import { deviceWidth } from "../../common/index";
 import CommonStyles from "../../../styles/commonStyles";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
-import { GradientNavigationBar } from "../../common";
+import { GradientNavigationBar,CustomTabBar } from "../../common";
 
 const initialLayout = {
   height: 0,
@@ -69,7 +69,7 @@ export default class Chats extends React.Component {
 
   render() {
     return (
-      <View style={CommonStyles.normalPage}>
+      <View style={[CommonStyles.normalPage,styles.container]}>
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Chats"
@@ -83,6 +83,9 @@ export default class Chats extends React.Component {
           initialLayout={initialLayout}
           useNativeDriver
         />
+        <View>
+          <CustomTabBar navigator={this.props.navigator} isActive="tab2" />
+        </View>
       </View>
     );
   }

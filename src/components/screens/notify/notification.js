@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import NotificationItem from "../../screens/notify/notificationitem";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
-import { GradientNavigationBar } from "../../common";
+import { GradientNavigationBar, CustomTabBar } from "../../common";
 
 const fav = [
   {
@@ -29,9 +29,8 @@ export default class Notification extends React.Component {
   }
 
   render(props) {
-    console.log(this.state.favouriteList);
     return (
-      <View style={CommonStyles.normalPage}>
+      <View style={[CommonStyles.normalPage, styles.container]}>
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Notification"
@@ -46,7 +45,16 @@ export default class Notification extends React.Component {
             />
           )}
         />
+        <View>
+          <CustomTabBar navigator={this.props.navigator} isActive="tab3" />
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});

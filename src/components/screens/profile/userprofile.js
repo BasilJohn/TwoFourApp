@@ -1,7 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import ProfileTile from "../profile/profiletile";
-import { LinearGradientButton, GradientNavigationBar } from "../../common";
+import {
+  LinearGradientButton,
+  GradientNavigationBar,
+  CustomTabBar
+} from "../../common";
 import CommonStyles, {
   deviceHeight,
   shadowOpt,
@@ -30,7 +34,7 @@ export default class UserProfile extends React.Component {
     let priceType = this.state.priceType.type;
 
     return (
-      <View style={CommonStyles.normalPage}>
+      <View style={[CommonStyles.normalPage, styles.mainContainer]}>
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="User Profile"
@@ -45,7 +49,7 @@ export default class UserProfile extends React.Component {
           ]}
         />
 
-        <View style={[{ alignItems: "center" ,padding:5,paddingTop:20}]}>
+        <View style={[{ alignItems: "center" }]}>
           <ProfileTile />
         </View>
         <View style={CommonStyles.noTabScrollView}>
@@ -68,7 +72,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
-                        textColor={'#FFFFFF'}
+                        textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
                     );
@@ -104,7 +108,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
-                        textColor={'#FFFFFF'}
+                        textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
                     );
@@ -142,7 +146,7 @@ export default class UserProfile extends React.Component {
                         width={250}
                         borderRadius={60}
                         textPaddingTop={10}
-                        textColor={'#FFFFFF'}
+                        textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
                     );
@@ -166,13 +170,17 @@ export default class UserProfile extends React.Component {
             </View>
           </View>
         </View>
+
         <View
           style={[
             CommonStyles.paddingTenLeftRight,
-            { height: deviceHeight /2 }
+            { flex:  1 }
           ]}
         >
-          <UserItemList  controlProps={this.props}/>
+          <UserItemList controlProps={this.props} />
+        </View>
+        <View>
+          <CustomTabBar navigator={this.props.navigator} isActive="tab4" />
         </View>
       </View>
     );
@@ -207,11 +215,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-    //elevation: 8
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
-    shadowRadius: 3
+    elevation: 8
   },
   btnText: {
     color: "rgb(150,150,150)",
@@ -227,5 +231,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 77.5,
     bottom: spaceHeight - 45
+  },
+  mainContainer: {
+    flex: 1
   }
 });
