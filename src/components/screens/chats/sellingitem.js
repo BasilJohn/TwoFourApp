@@ -5,7 +5,7 @@ import {
   View,
   Image,
   Dimensions,
-  TouchableOpacity,
+  TouchableHighlight,
   Modal
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -31,8 +31,8 @@ export default class SellingItem extends React.Component {
     state = { modalStatus: false };
 
     return (
-      <View>
-        <TouchableOpacity onPress={this._openChatWindow.bind(this)}>
+      <View style={{justifyContent:'center',alignSelf:'center'}}>
+        <TouchableHighlight underlayColor={'transparent'} onPress={this._openChatWindow.bind(this)}>
           <View style={styles.containerStyle}>
             <View style={CommonStyles.row}>
               <Image
@@ -93,7 +93,7 @@ export default class SellingItem extends React.Component {
               </View>
             </View>
           </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
         <Modal
           animationType={"fade"}
           transparent={false}
@@ -118,7 +118,7 @@ export default class SellingItem extends React.Component {
           >
             <View style={[CommonStyles.row]}>
               <View>
-                <TouchableOpacity
+                <TouchableHighlight underlayColor={'transparent'}
                   style={styles.closeStyle}
                   onPress={this.toggleModal}
                 >
@@ -134,11 +134,12 @@ export default class SellingItem extends React.Component {
                         marginLeft: 3,
                         width: 5.5,
                         height: 2.5,
+                        top:-1.5,
                         backgroundColor: "white"
                       }}
                     />
                   </View>
-                </TouchableOpacity>
+                </TouchableHighlight>
               </View>
               <View style={[CommonStyles.paddingTenLeftRight]}>
                 <Text
@@ -146,7 +147,8 @@ export default class SellingItem extends React.Component {
                     {
                       alignSelf: "center",
                       justifyContent: "center",
-                      color: "#FFFFFF",
+                      backgroundColor: "transparent",
+                      color:'#FFF',
                       fontSize: 18,
                       fontFamily: "Poppins-SemiBold"
                     }
@@ -166,7 +168,9 @@ export default class SellingItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flex: 0.3,
+    //flex: 0.3,
+    width:deviceWidth-30,
+    height:100,
     flexDirection: "row",
     marginTop: 10,
     marginBottom: 10,
@@ -175,6 +179,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
     elevation: 6,
+    // shadowOffset: {width: 0, height: 0},
+    // shadowColor: '#000000', 
+    // shadowOpacity: 0.4, 
+    // shadowRadius: 3,
     alignItems: "center",
     justifyContent: "space-between",
     borderBottomWidth: 2,

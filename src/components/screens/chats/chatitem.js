@@ -9,7 +9,7 @@ import {
 } from "react-native";
 export const deviceWidth = Dimensions.get("window").width;
 import Ionicons from "react-native-vector-icons/Ionicons";
-import CommonStyles from "../../../styles/commonStyles";
+import CommonStyles, { deviceHeight } from "../../../styles/commonStyles";
 import { LinearGradientButton } from "../../common";
 
 export default class ChatItem extends React.Component {
@@ -18,7 +18,13 @@ export default class ChatItem extends React.Component {
   render(props) {
     // const { type } = this.props.type;
     return (
-      <View style={styles.containerStyle}>
+      <View style={{justifyContent:'center',alignSelf:'center'}}>
+     <View
+        style={[
+          this.props.type !== "block" && styles.containerStyle,
+          this.props.type === "block" && styles.blockedcontainerStyle
+        ]}
+      >
         <View style={CommonStyles.row}>
           <Image
             style={styles.imageStyle}
@@ -125,15 +131,16 @@ export default class ChatItem extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Unblock"}
-              height={50}
-              width={260}
+              height={32}
+              width={280}
               borderRadius={60}
-              textPaddingTop={15}
+              textPaddingTop={5}
               textColor={'#FFFF'}
               onPress={this.handlePress.bind(this)}
             />
           )}
         </View>
+      </View>
       </View>
     );
   }
@@ -141,7 +148,9 @@ export default class ChatItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flex: 0.3,
+   // flex: 0.3,
+    height:100,
+    width:deviceWidth-30,
     flexDirection: "row",
     marginTop: 10,
     marginBottom: 10,
@@ -150,9 +159,28 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
     elevation: 6,
+    // shadowOffset: {width: 0, height: 0},
+    // shadowColor: '#000000', 
+    // shadowOpacity: 0.4, 
+    // shadowRadius: 3,
     alignItems: "center",
     justifyContent: "space-between"
   },
+  blockedcontainerStyle: {
+     height:100,
+     width:deviceWidth-30,
+     flexDirection: "row",
+     marginTop: 10,
+     marginBottom: 10,
+     marginLeft: 5,
+     marginRight: 5,
+     borderRadius: 8,
+     backgroundColor: "#FFFFFF",
+     borderBottomWidth:0.3,
+     borderBottomColor:'#7B7B7B',
+     alignItems: "center",
+     justifyContent: "space-between"
+   },
   imageStyle: {
     height: 70,
     width: 70

@@ -67,8 +67,8 @@ export default (CommonStyles = StyleSheet.create({
   lightgreyColor: {
     color: "rgb(150,150,150)"
   },
-  mediumGreyColor:{
-   color:'#878787'
+  mediumGreyColor: {
+    color: "#878787"
   },
   blackColor: {
     color: "rgb(19,19,19)"
@@ -164,6 +164,17 @@ export default (CommonStyles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: "solid",
     borderRadius: 60,
+    backgroundColor: "#FFFFFF"
+  },
+  squareTextInputField: {
+    flexDirection: "row",
+    width: deviceWidth - 15,
+    height: 45,
+    //marginBottom: 25,
+    borderColor: "rgb(229,229,229)",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 5,
     backgroundColor: "#FFFFFF"
   },
   textInput: {
