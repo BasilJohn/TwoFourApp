@@ -13,17 +13,14 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Swipeout from "react-native-swipeout";
 
 export default class SellinngItem extends React.Component {
-
   constructor(props) {
     super(props);
-   
   }
 
-  openSellingItem(){
+  openSellingItem() {
     this.props.controlProps.controlProps.navigator.push({
       screen: "TwoFourApp.SellingItem"
     });
-      
   }
 
   render(props) {
@@ -39,15 +36,17 @@ export default class SellinngItem extends React.Component {
       }
     ];
 
-    
     return (
       // <Swipeout
       //   autoClose={true}
       //   right={swipeBtns}
       //   backgroundColor="transparent"
       // >
-      <TouchableHighlight underlayColor={'transparent'} onPress={this.openSellingItem.bind(this)}>
-        <View style={styles.containerStyle}>
+      <TouchableHighlight
+        underlayColor={"transparent"}
+        onPress={this.openSellingItem.bind(this)}
+      >
+        <View style={[styles.containerStyle]}>
           <View style={CommonStyles.row}>
             <Image
               style={styles.productStyle}
@@ -74,26 +73,19 @@ export default class SellinngItem extends React.Component {
                   Macbook Pro Retina
                 </Text>
               </View>
-              <View>
-                <Text
-                  style={[
-                    CommonStyles.normalText,
-                    CommonStyles.greyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
-                  30 views
-                </Text>
-              </View>
               <View style={[CommonStyles.row]}>
-                <View style={{ paddingRight: 5 }}>
-                  <Ionicons
-                    name={"ios-timer-outline"}
-                    color={"#696969"}
-                    size={25}
-                  />
-                </View>
                 <View>
+                  <Text
+                    style={[
+                      CommonStyles.headerText,
+                      CommonStyles.darkSkyBlueColor,
+                      CommonStyles.semiBold
+                    ]}
+                  >
+                    {"$ 999.00"}
+                  </Text>
+                </View>
+                <View style={{ paddingLeft: 30, top: 5 }}>
                   <Text
                     style={[
                       CommonStyles.normalText,
@@ -101,7 +93,7 @@ export default class SellinngItem extends React.Component {
                       CommonStyles.regularBold
                     ]}
                   >
-                    3 hours ago
+                    30 views
                   </Text>
                 </View>
               </View>
