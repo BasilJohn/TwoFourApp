@@ -159,6 +159,17 @@ export default class App extends Component {
                   onPress={this._reportUserButtonPress.bind(this)}
                   style={styles.reportButtonStyle}
                 >
+                  <Image
+                    resizeMode={"cover"}
+                    source={require("../../assets/img/danger.png")}
+                    style={{
+                      position: "absolute",
+                      top: 13,
+                      left: 15,
+                      width: 20,
+                      height: 17
+                    }}
+                  />
                   <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
                 </TouchableHighlight>
               </View>
