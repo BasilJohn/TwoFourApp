@@ -158,36 +158,46 @@ export default class App extends Component {
                   onPress={this._reportUserButtonPress.bind(this)}
                   style={styles.reportButtonStyle}
                 >
+                  <Image resizeMode={'cover'}
+                    source={require("../../assets/img/danger.png")}
+                    style={{
+                      position: "absolute",
+                      top: 13,
+                      left: 15,
+                      width: 20,
+                      height: 17
+                    }}
+                  />
                   <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
-          <View
-            style={[
-              CommonStyles.row,
-              { justifyContent: "space-between", padding: 10 }
-            ]}
-          >
-            <LinearGradientButton
-              colorOne={"#3D88A7"}
-              colorTwo={"#3972A0"}
-              colorThree={"#355F9A"}
-              buttonText={"Message"}
-              height={50}
-              width={195}
-              borderRadius={60}
-              textPaddingTop={15}
-              textColor={'#FFFF'}
-              onPress={this.handlePress.bind(this)}
-            />
-            <View>
-              <TouchableOpacity style={styles.offerButtonStyle}>
-                <Text style={styles.offerButtonTextStyle}>{"Make Offer"}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
         </ScrollView>
+        <View
+          style={[
+            CommonStyles.row,
+            { justifyContent: "space-between", padding: 10 }
+          ]}
+        >
+          <LinearGradientButton
+            colorOne={"#3D88A7"}
+            colorTwo={"#3972A0"}
+            colorThree={"#355F9A"}
+            buttonText={"Message"}
+            height={50}
+            width={195}
+            borderRadius={60}
+            textPaddingTop={15}
+            textColor={"#FFFF"}
+            onPress={this.handlePress.bind(this)}
+          />
+          <View>
+            <TouchableOpacity style={styles.offerButtonStyle}>
+              <Text style={styles.offerButtonTextStyle}>{"Make Offer"}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }
