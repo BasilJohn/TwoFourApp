@@ -159,10 +159,10 @@ export default class App extends Component {
                     source={require("../../assets/img/Danger.png")}
                     style={{
                       position: "absolute",
-                      top: 8,
-                      left: 15,
-                      width: 20,
-                      height: 17
+                      top: 10,
+                      left: 20,
+                      width: 15,
+                      height: 12
                     }}
                   />
                 <TouchableHighlight
