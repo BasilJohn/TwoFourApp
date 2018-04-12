@@ -8,13 +8,25 @@ import CommonStyles, {
   deviceWidth
 } from "../../styles/commonStyles";
 import { View } from "react-native";
+//window.navigator.userAgent = "react-native";
+var io = require("socket.io-client/dist/socket.io");
+
 export default class Chat extends React.Component {
+  constructor(props) {
+    super(props);
+   
+    //this.socket.on("userId", this.getUserId);
+  }
   static navigatorStyle = noNavTabbarNavigation;
 
   state = {
     messages: []
   };
 
+  componentDidMount(){
+    this.socket = io.connect("http://68.66.233.230:3000/");
+    this.socket.on("chat message", this.onReceivedMessage.bind(this));
+  }
   componentWillMount() {
     this.setState({
       messages: [
@@ -31,11 +43,39 @@ export default class Chat extends React.Component {
       ]
     });
   }
+  onReceivedMessage(mes) {
+   
+    const arrMes = [{ ...mes.messages }];
+    //console.log(mes)
+    // newMessage: [
+    //   {
+    //     _id: 1,
+    //     text:arrMes.text,
+    //     createdAt: arrMes.createdAt,
+    //     user: {
+    //       _id: 2,
+    //       name: "React Native",
+    //       avatar: "https://facebook.github.io/react/img/logo_og.png"
+    //     }
+    //   }
+    // ]
+    messages:[]
+    this.setState(previousState => ({
+      //console.log('s');
+      messages: GiftedChat.append(previousState.messages, mes)
+    }));
+  }
 
   onSend(messages = []) {
+    const mes = messages[0];
+    // const { username } = this.state;
+    // mes['username'] = username;
+    //this.socket.emit("messages", mes);
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages)
     }));
+
+    this.socket.emit("chat message", mes);
   }
 
   render() {
