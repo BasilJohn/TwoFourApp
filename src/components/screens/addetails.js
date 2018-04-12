@@ -154,23 +154,23 @@ export default class App extends Component {
                 </View>
               </View>
               <View style={CommonStyles.paddingTenLeftRight}>
-                <TouchableHighlight
-                  underlayColor={"transparent"}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                  style={styles.reportButtonStyle}
-                >
-                  <Image
+               <Image
                     resizeMode={"cover"}
-                    source={require("../../assets/img/danger.png")}
+                    source={require("../../assets/img/Danger.png")}
                     style={{
                       position: "absolute",
-                      top: 13,
+                      top: 8,
                       left: 15,
                       width: 20,
                       height: 17
                     }}
                   />
-                  <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
+                <TouchableHighlight
+                  underlayColor={"transparent"}
+                  onPress={this._reportUserButtonPress.bind(this)}
+                  style={styles.reportButtonStyle}
+                >
+                <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
                 </TouchableHighlight>
               </View>
             </View>
@@ -253,11 +253,12 @@ const styles = StyleSheet.create({
   reportButtonTextStyle: {
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
+    textAlign: "right",
     color: "#7A7A7A",
     fontSize: 16,
     fontFamily: "Poppins-Regular",
-    paddingTop: 3
+    paddingTop: 3,
+    right:10
   },
   offerButtonTextStyle: {
     justifyContent: "center",
