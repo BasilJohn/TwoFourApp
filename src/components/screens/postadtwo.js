@@ -85,15 +85,15 @@ class PostAd extends Component {
                 <View style={[CommonStyles.paddingTen]}>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
-                      CommonStyles.semiBold
+                      CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
+                    CommonStyles.semiBold
                     ]}
                   >
                     Price USD
                   </Text>
                 </View>
-                <View style={[CommonStyles.textInputField]}>
+                <View style={[CommonStyles.squareTextInputField,CommonStyles.alignCenter]}>
                   <TextInput
                     style={CommonStyles.textInputNoLeftImage}
                     placeholder="Price"
@@ -105,8 +105,8 @@ class PostAd extends Component {
               <View style={CommonStyles.switchBoxStyle}>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.blackColor,
+                    CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
                     CommonStyles.semiBold
                   ]}
                 >
@@ -120,8 +120,8 @@ class PostAd extends Component {
               <View style={CommonStyles.switchBoxStyle}>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.blackColor,
+                    CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
                     CommonStyles.semiBold
                   ]}
                 >
@@ -136,8 +136,8 @@ class PostAd extends Component {
                 <View style={[CommonStyles.paddingTen]}>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
+                      CommonStyles.mediumText,
+                      CommonStyles.postAdTitleColor,
                       CommonStyles.semiBold
                     ]}
                   >

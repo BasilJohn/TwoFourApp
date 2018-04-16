@@ -58,13 +58,15 @@ export default class SellinngItem extends React.Component {
               style={{
                 flexDirection: "column",
                 justifyContent: "center",
-                paddingLeft: 20
+                alignSelf:'center',
+                paddingLeft: 20,
+                marginBottom:15
               }}
             >
               <View>
                 <Text
                   style={[
-                    CommonStyles.itemHeaderText,
+                    CommonStyles.mediumText,
                     CommonStyles.blackColor,
                     CommonStyles.mediumBold,
                     { marginTop: 0 }
@@ -77,15 +79,15 @@ export default class SellinngItem extends React.Component {
                 <View>
                   <Text
                     style={[
-                      CommonStyles.headerText,
+                      CommonStyles.normalText,
                       CommonStyles.darkSkyBlueColor,
-                      CommonStyles.semiBold
+                      CommonStyles.regularBold
                     ]}
                   >
                     {"$ 999.00"}
                   </Text>
                 </View>
-                <View style={{ paddingLeft: 30, top: 5 }}>
+                <View style={{ paddingLeft: 30 }}>
                   <Text
                     style={[
                       CommonStyles.normalText,

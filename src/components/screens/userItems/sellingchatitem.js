@@ -53,10 +53,10 @@ export default class ChatItem extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.headerText,
+                    CommonStyles.mediumText,
                     CommonStyles.blackColor,
-                    CommonStyles.extraBold,
-                    { marginLeft: -60, marginTop: -6 }
+                    CommonStyles.regularBold,
+                    { marginLeft: -85, marginTop: -6 }
                   ]}
                 >
                   John Mike
@@ -65,7 +65,7 @@ export default class ChatItem extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.normalText,
+                    CommonStyles.smallText,
                     CommonStyles.lightgreyColor,
                     CommonStyles.regularBold
                   ]}
@@ -77,7 +77,7 @@ export default class ChatItem extends React.Component {
             <View style={[styles.chatDescriptionStyle]}>
               <Text
                 style={[
-                  CommonStyles.normalText,
+                  CommonStyles.smallText,
                   CommonStyles.greyColor,
                   CommonStyles.regularBold
                 ]}

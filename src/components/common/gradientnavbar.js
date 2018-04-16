@@ -252,8 +252,8 @@ GradientNavigationBar.defaultProps = {
   },
   titleTextStyle: {
     color: "#FFFFFF",
-    fontSize: 18,
-    fontFamily: "Poppins-SemiBold"
+    fontSize: 16,
+    fontFamily: "Poppins-Medium"
   },
   titleImgStyle: {},
   backIconStyle: {

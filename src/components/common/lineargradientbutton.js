@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     color: "#FFFFFF",
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "Poppins-SemiBold"
   },
   LinearGradientStyle: {

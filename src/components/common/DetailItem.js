@@ -20,8 +20,8 @@ export default class DetailItem extends Component {
         <View style={styles.headerContainer}>
           <Text
             style={[
-              CommonStyles.headerText,
-              CommonStyles.blackColor,
+              CommonStyles.mediumText,
+              CommonStyles.titleGreyColor,
               CommonStyles.semiBold,
               { marginBottom: 6 }
             ]}
@@ -32,7 +32,7 @@ export default class DetailItem extends Component {
         <View>
           <Text
             style={[
-              CommonStyles.normalText,
+              CommonStyles.appText,
               CommonStyles.greyColor,
               CommonStyles.regularBold
             ]}

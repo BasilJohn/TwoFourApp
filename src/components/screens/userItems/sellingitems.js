@@ -74,7 +74,7 @@ export default class SellingItem extends React.Component {
               <View style={[CommonStyles.paddingTenBottom]}>
                 <Text
                   style={[
-                    CommonStyles.itemHeaderText,
+                    CommonStyles.mediumText,
                     CommonStyles.blackColor,
                     CommonStyles.mediumBold,
                     { marginTop: -6 }
@@ -83,16 +83,16 @@ export default class SellingItem extends React.Component {
                   Macbook Pro Retina
                 </Text>
               </View>
-              <View style={[CommonStyles.row, CommonStyles.paddingTenBottom]}>
+              <View style={[CommonStyles.row, CommonStyles.spaceBetween,{marginTop:5}]}>
                 <View>
                   <Text
                     style={[
                       CommonStyles.normalText,
                       CommonStyles.darkSkyBlueColor,
-                      CommonStyles.semiBold
+                      CommonStyles.regularBold
                     ]}
                   >
-                    {"$ 999.00"}
+                    {"$ 9999999.00"}
                   </Text>
                 </View>
                 <View style={[CommonStyles.paddingTenLeft]}>
@@ -108,21 +108,21 @@ export default class SellingItem extends React.Component {
                 </View>
               </View>
               <View style={[CommonStyles.row]}>
-                <View>
+                <View style={{marginTop:10}}>
                   <LinearGradientButton
                     colorOne={"#3D88A7"}
                     colorTwo={"#3972A0"}
                     colorThree={"#355F9A"}
                     buttonText={"Mark As Sold"}
-                    height={40}
-                    width={195}
+                    height={32}
+                    width={250}
                     borderRadius={60}
-                    textPaddingTop={10}
+                    textPaddingTop={5}
                     textColor={"#FFFF"}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
-                <View style={{ paddingLeft: 20 }}>
+                <View style={{ paddingLeft: 20 ,marginTop:10}}>
                   <TouchableHighlight
                     underlayColor={"transparent"}
                     onPress={this._openAdEditScreen.bind(this)}
@@ -139,7 +139,7 @@ export default class SellingItem extends React.Component {
             </View>
           </View>
         </View>
-        <View>
+        <View style={{marginTop:10}}>
           <ChatItemList navigatorProps={this.props.navigator} />
         </View>
       </View>
@@ -149,13 +149,17 @@ export default class SellingItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    //flex: 0.5,
+    //marginTop: 2,
+    borderRadius: 5,
     backgroundColor: "#FFFFFF",
-    //elevation: 6
+    //elevation: 6,
     shadowOffset: {width: 0, height: 0},
     shadowColor: '#000000', 
     shadowOpacity: 0.4, 
     shadowRadius: 3,
+    padding: 5,
+    height:120
+    //padding: 5
   },
   imageStyle: {
     height: 70,
@@ -166,7 +170,7 @@ const styles = StyleSheet.create({
     width: 90
   },
   socialStyle: {
-    height: 40,
-    width: 40
+    height: 30,
+    width: 30
   }
 });

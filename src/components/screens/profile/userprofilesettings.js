@@ -50,9 +50,9 @@ export default class UserProfileSetting extends React.Component {
           <View style={[styles.titleBox, { flex: 0.2 }]}>
             <Text
               style={[
-                CommonStyles.headerText,
+                CommonStyles.mediumText,
                 CommonStyles.greyColor,
-                CommonStyles.semiBold,
+                CommonStyles.mediumBold,
                 CommonStyles.paddingTen,
                 { alignSelf: "flex-start" }
               ]}
@@ -138,9 +138,9 @@ export default class UserProfileSetting extends React.Component {
           <View style={styles.titleBox}>
             <Text
               style={[
-                CommonStyles.headerText,
+                CommonStyles.mediumText,
                 CommonStyles.greyColor,
-                CommonStyles.semiBold,
+                CommonStyles.mediumBold,
                 CommonStyles.paddingTen,
                 { alignSelf: "flex-start" }
               ]}

@@ -61,9 +61,10 @@ export default class App extends Component {
             <View style={{ flex: 0.8 }}>
               <Text
                 style={[
-                  CommonStyles.headerText,
+                  CommonStyles.appText,
                   CommonStyles.darkSkyBlueColor,
                   CommonStyles.semiBold
+
                 ]}
               >
                 {"$ 999.00"}
@@ -74,14 +75,14 @@ export default class App extends Component {
                 <Text
                   style={[
                     CommonStyles.headerText,
-                    CommonStyles.blackColor,
-                    CommonStyles.semiBold
+                    CommonStyles.titleGreyColor,
+                    CommonStyles.mediumBold
                   ]}
                 >
                   {"Samsung Galaxy S8-256GB"}
                 </Text>
               </View>
-              <View style={{ flex: 0.2 }}>
+              <View style={{ flex: 0.3,marginBottom:5 }}>
                 <Ionicons
                   style={CommonStyles.horizontalRight}
                   name={"md-heart-outline"}
@@ -90,12 +91,12 @@ export default class App extends Component {
                 />
               </View>
             </View>
-            <View>
+            <View style={{ marginTop: -15 }}>
               <Text
                 style={[
-                  CommonStyles.normalText,
+                  CommonStyles.appText,
                   CommonStyles.greyColor,
-                  CommonStyles.light
+                  CommonStyles.regularBold
                 ]}
               >
                 {"Posted 2 hours ago"}
@@ -113,8 +114,8 @@ export default class App extends Component {
             <View style={styles.headerContainer}>
               <Text
                 style={[
-                  CommonStyles.headerText,
-                  CommonStyles.blackColor,
+                  CommonStyles.mediumText,
+                  CommonStyles.titleGreyColor,
                   CommonStyles.semiBold,
                   { marginBottom: 2, alignSelf: "flex-start" }
                 ]}
@@ -192,7 +193,7 @@ export default class App extends Component {
               height={42}
               width={210}
               borderRadius={60}
-              textPaddingTop={7}
+              textPaddingTop={9}
               textColor={"#FFFF"}
               onPress={this.handlePress.bind(this)}
             />
@@ -265,13 +266,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
     color: "#F1F1F2",
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "Poppins-SemiBold",
     paddingTop: 10
   },
   socialIconStyle: {
-    height: 40,
-    width: 40,
+    height: 32,
+    width: 32,
     borderRadius: 60,
     margin: 3,
     padding: 0

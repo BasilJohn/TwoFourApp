@@ -119,15 +119,15 @@ class PostAd extends Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.blackColor,
+                    CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
                     CommonStyles.semiBold
                   ]}
                 >
                   TITLE
                 </Text>
               </View>
-              <View style={[CommonStyles.textInputField]}>
+              <View style={[CommonStyles.squareTextInputField,CommonStyles.alignCenter]}>
                 <TextInput
                   style={[CommonStyles.textInputNoLeftImage]}
                   placeholder="Sell somethings"

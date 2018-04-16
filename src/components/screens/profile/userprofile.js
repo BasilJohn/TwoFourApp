@@ -49,7 +49,7 @@ export default class UserProfile extends React.Component {
           ]}
         />
 
-        <View style={[{ alignItems: "center" }]}>
+        <View style={[{ alignItems: "center" ,marginTop:15}]}>
           <ProfileTile />
         </View>
         <View style={CommonStyles.noTabScrollView}>
@@ -81,7 +81,7 @@ export default class UserProfile extends React.Component {
                       <View style={styles.childCircle}>
                         <Text
                           style={[
-                            CommonStyles.mediumText,
+                            CommonStyles.normalText,
                             CommonStyles.greyColor,
                             CommonStyles.semiBold
                           ]}
@@ -117,7 +117,7 @@ export default class UserProfile extends React.Component {
                       <View style={styles.childCircle}>
                         <Text
                           style={[
-                            CommonStyles.mediumText,
+                            CommonStyles.normalText,
                             CommonStyles.greyColor,
                             CommonStyles.semiBold
                           ]}
@@ -155,7 +155,7 @@ export default class UserProfile extends React.Component {
                       <View style={styles.childCircle}>
                         <Text
                           style={[
-                            CommonStyles.mediumText,
+                            CommonStyles.normalText,
                             CommonStyles.greyColor,
                             CommonStyles.semiBold
                           ]}
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
   parentCircle: {
     flexDirection: "row",
     alignItems: "center",
-    height: 49,
+    height: 48,
     padding: 5,
     marginLeft: 10,
     marginRight: 10,

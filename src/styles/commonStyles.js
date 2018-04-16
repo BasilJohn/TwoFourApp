@@ -80,6 +80,13 @@ export default (CommonStyles = StyleSheet.create({
   periBlueColor: {
     color: "rgb(79,109,230)"
   },
+  titleGreyColor: {
+  color: "#4A4A4A"
+    //color:'red'
+  },
+  postAdTitleColor:{
+    color: "#696969"
+  },
   // Item box
   itemWhiteBox: {
     marginTop: 2,
@@ -115,9 +122,13 @@ export default (CommonStyles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 23
   },
+  appText: {
+    fontSize: 14,
+    //lineHeight: 23
+  },
   smallText: {
     fontSize: 13,
-    lineHeight: 30
+    //lineHeight: 30
   },
   shortSmallText: {
     fontSize: 13,
@@ -152,6 +163,17 @@ export default (CommonStyles = StyleSheet.create({
     borderStyle: "solid",
     borderRadius: 10,
     backgroundColor: "#FFFFFF"
+  },//Form Styles
+  titleTextInputField: {
+    flexDirection: "row",
+    width: deviceWidth - 50,
+    height: 40,
+    //marginBottom: 25,
+    borderColor: "rgb(229,229,229)",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 10,
+    backgroundColor: "#FFFFFF"
   },
   signInTextInputField: {
     flexDirection: "row",
@@ -166,18 +188,18 @@ export default (CommonStyles = StyleSheet.create({
   },
   squareTextInputField: {
     flexDirection: "row",
-    width: deviceWidth - 15,
+    width: deviceWidth - 50,
     height: 45,
     //marginBottom: 25,
     borderColor: "rgb(229,229,229)",
     borderWidth: 1,
     borderStyle: "solid",
-    borderRadius: 5,
+    borderRadius: 60,
     backgroundColor: "#FFFFFF"
   },
   textInput: {
-    width: deviceWidth,
-    height: 45,
+    width: deviceWidth-100,
+    height: 48,
     paddingLeft: 50,
     color: "rgb(150,150,150)",
     fontSize: 16,
@@ -186,7 +208,7 @@ export default (CommonStyles = StyleSheet.create({
   textInputNoLeftImage: {
     width: deviceWidth,
     height: 45,
-    paddingLeft: 10,
+    paddingLeft: 50,
     color: "rgb(150,150,150)",
     fontSize: 16,
     fontFamily: "Poppins-Regular"

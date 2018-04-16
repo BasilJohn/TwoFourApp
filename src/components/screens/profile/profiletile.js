@@ -71,9 +71,9 @@ export default class ProfileTile extends React.Component {
             <View>
               <Text
                 style={[
-                  CommonStyles.normalText,
+                  CommonStyles.appText,
                   CommonStyles.blackColor,
-                  CommonStyles.mediumBold
+                  CommonStyles.regularBold
                 ]}
               >
                 298 Like
@@ -92,9 +92,9 @@ export default class ProfileTile extends React.Component {
             <View>
               <Text
                 style={[
-                  CommonStyles.normalText,
+                  CommonStyles.appText,
                   CommonStyles.blackColor,
-                  CommonStyles.mediumBold
+                  CommonStyles.regularBold
                 ]}
               >
                 196 Dislike
@@ -113,9 +113,9 @@ export default class ProfileTile extends React.Component {
             <View>
               <Text
                 style={[
-                  CommonStyles.normalText,
+                  CommonStyles.appText,
                   CommonStyles.blackColor,
-                  CommonStyles.mediumBold
+                  CommonStyles.regularBold
                 ]}
               >
                 97 Followers
@@ -130,7 +130,7 @@ export default class ProfileTile extends React.Component {
 
 const styles = StyleSheet.create({
   mainStyle: {
-    width: "97%",
+    width: "95%",
     height: 150,
     marginTop: 2,
     borderRadius: 8,
