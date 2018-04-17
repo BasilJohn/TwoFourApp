@@ -93,7 +93,7 @@ class PostAd extends Component {
                     Price USD
                   </Text>
                 </View>
-                <View style={[CommonStyles.squareTextInputField,CommonStyles.alignCenter]}>
+                <View style={[CommonStyles.postAddPriceextInputField,CommonStyles.alignCenter]}>
                   <TextInput
                     style={CommonStyles.textInputNoLeftImage}
                     placeholder="Price"
@@ -102,7 +102,8 @@ class PostAd extends Component {
                   />
                 </View>
               </View>
-              <View style={CommonStyles.switchBoxStyle}>
+              <View style={[CommonStyles.switchBoxStyle,{marginTop:-50}]}>
+               <View style={{marginRight:30}}>
                 <Text
                   style={[
                     CommonStyles.mediumText,
@@ -112,12 +113,16 @@ class PostAd extends Component {
                 >
                   Negotiable
                 </Text>
+                </View>
+                <View>
                 <Switch
                   onValueChange={this.onIsNegotiableChange}
                   value={this.props.isNegotiable}
                 />
+                </View>
               </View>
-              <View style={CommonStyles.switchBoxStyle}>
+              <View style={[CommonStyles.switchBoxStyle,{marginTop:-70}]}>
+              <View style={{marginRight:85}}>
                 <Text
                   style={[
                     CommonStyles.mediumText,
@@ -127,12 +132,15 @@ class PostAd extends Component {
                 >
                   Free
                 </Text>
+                </View>
+                <View>
                 <Switch
                   onValueChange={this.onIsFreeChange}
                   value={this.props.isFree}
                 />
+                </View>
               </View>
-              <View>
+              <View style={{marginTop:-70}}>
                 <View style={[CommonStyles.paddingTen]}>
                   <Text
                     style={[

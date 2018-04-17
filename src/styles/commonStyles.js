@@ -197,6 +197,17 @@ export default (CommonStyles = StyleSheet.create({
     borderRadius: 60,
     backgroundColor: "#FFFFFF"
   },
+  postAddPriceextInputField: {
+    flexDirection: "row",
+    width: deviceWidth - 150,
+    height: 45,
+    //marginBottom: 25,
+    borderColor: "rgb(229,229,229)",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 60,
+    backgroundColor: "#FFFFFF"
+  },
   textInput: {
     width: deviceWidth-100,
     height: 48,
@@ -208,7 +219,7 @@ export default (CommonStyles = StyleSheet.create({
   textInputNoLeftImage: {
     width: deviceWidth,
     height: 45,
-    paddingLeft: 50,
+    paddingLeft: 100,
     color: "rgb(150,150,150)",
     fontSize: 16,
     fontFamily: "Poppins-Regular"
@@ -263,7 +274,7 @@ export default (CommonStyles = StyleSheet.create({
   switchBoxStyle: {
     padding: 10,
     flexDirection: "row",
-    justifyContent: "space-between"
+    //justifyContent: "space-between"
   },
   priceButtonContainer: {
     position: "absolute",

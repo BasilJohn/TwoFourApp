@@ -45,26 +45,26 @@ export default class SortFilter extends React.Component {
             style={CommonStyles.keyboardAvoidingViewContainer}
           >
             <View style={[CommonStyles.spaceAround, { flex: 1 }]}>
-              <View style={CommonStyles.paddingTen}>
+              <View style={{padding:2}}>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.blackColor,
+                    CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
                     CommonStyles.semiBold
                   ]}
                 >
                   Sort By
                 </Text>
               </View>
-              <View style={[CommonStyles.row, CommonStyles.spaceBetween]}>
+              <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
                 <View>
                   <LinearGradientButton
                     colorOne={"#3D88A7"}
                     colorTwo={"#3972A0"}
                     colorThree={"#355F9A"}
                     buttonText={"Newest"}
-                    height={50}
-                    width={260}
+                    height={46}
+                    width={270}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -77,8 +77,8 @@ export default class SortFilter extends React.Component {
                     colorTwo={"#3972A0"}
                     colorThree={"#355F9A"}
                     buttonText={"Low to High"}
-                    height={50}
-                    width={260}
+                    height={46}
+                    width={270}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -91,8 +91,8 @@ export default class SortFilter extends React.Component {
                     colorTwo={"#3972A0"}
                     colorThree={"#355F9A"}
                     buttonText={"High to Low"}
-                    height={50}
-                    width={260}
+                    height={46}
+                    width={270}
                     borderRadius={10}
                     textPaddingTop={10}
                     textColor={'#FFFFFF'}
@@ -104,8 +104,8 @@ export default class SortFilter extends React.Component {
                 <View style={CommonStyles.paddingTen}>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
+                      CommonStyles.mediumText,
+                      CommonStyles.postAdTitleColor,
                       CommonStyles.semiBold
                     ]}
                   >
@@ -118,7 +118,7 @@ export default class SortFilter extends React.Component {
                     {
                       flex: 1,
                       paddingTop: 20,
-                      alignItems: "stretch",
+                      alignItems: "center",
                       justifyContent: "center"
                     }
                   ]}
@@ -128,7 +128,7 @@ export default class SortFilter extends React.Component {
                       this.state.multiSliderValue[0],
                       this.state.multiSliderValue[1]
                     ]}
-                    sliderLength={deviceWidth - 30}
+                    sliderLength={deviceWidth - 50}
                     onValuesChange={this.multiSliderValuesChange}
                     min={0}
                     max={10}
@@ -140,36 +140,36 @@ export default class SortFilter extends React.Component {
                   />
                 </View>
               </View>
-              <View>
+              <View style={{marginTop:-50}}>
                 <View style={CommonStyles.paddingTen}>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
+                      CommonStyles.mediumText,
+                      CommonStyles.postAdTitleColor,
                       CommonStyles.semiBold
                     ]}
                   >
                     Location
                   </Text>
                 </View>
-                <View style={[CommonStyles.row, CommonStyles.spaceBetween]}>
-                  <View style={[CommonStyles.textInputField, { flex: 0.8 }]}>
+                <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                  <View style={[styles.textInputField, { flex: 0.7 }]}>
                     <TextInput
-                      style={CommonStyles.textInputNoLeftImage}
-                      placeholder="Location to set"
+                      style={styles.textInputNoLeftImage}
+                      placeholder=""
                       underlineColorAndroid="transparent"
                     />
                   </View>
-                  <View>
+                  <View style={{alignSelf:'center'}}>
                     <LinearGradientButton
                       colorOne={"#3D88A7"}
                       colorTwo={"#3972A0"}
                       colorThree={"#355F9A"}
                       buttonText={"Set"}
-                      height={50}
-                      width={195}
+                      height={32}
+                      width={240}
                       borderRadius={60}
-                      textPaddingTop={10}
+                      textPaddingTop={5}
                       textColor={'#FFFFFF'}
                       onPress={this.handlePress.bind(this)}
                     />
@@ -180,23 +180,23 @@ export default class SortFilter extends React.Component {
                 <View style={CommonStyles.paddingTen}>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
-                      CommonStyles.semiBold
+                      CommonStyles.mediumText,
+                    CommonStyles.postAdTitleColor,
+                    CommonStyles.semiBold
                     ]}
                   >
                     Posted Within
                   </Text>
                 </View>
-                <View style={[CommonStyles.row, CommonStyles.spaceBetween]}>
+                <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
                   <View>
                     <LinearGradientButton
                       colorOne={"#3D88A7"}
                       colorTwo={"#3972A0"}
                       colorThree={"#355F9A"}
                       buttonText={"24 Hrs"}
-                      height={50}
-                      width={260}
+                      height={46}
+                      width={270}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -209,8 +209,8 @@ export default class SortFilter extends React.Component {
                       colorTwo={"#3972A0"}
                       colorThree={"#355F9A"}
                       buttonText={"7 Days"}
-                      height={50}
-                      width={260}
+                      height={46}
+                      width={270}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -223,8 +223,8 @@ export default class SortFilter extends React.Component {
                       colorTwo={"#3972A0"}
                       colorThree={"#355F9A"}
                       buttonText={"30 Days"}
-                      height={50}
-                      width={260}
+                      height={46}
+                      width={270}
                       borderRadius={10}
                       textPaddingTop={10}
                       textColor={'#FFFFFF'}
@@ -241,8 +241,8 @@ export default class SortFilter extends React.Component {
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Apply"}
-              height={50}
-              width={20}
+              height={48}
+              width={50}
               borderRadius={60}
               textPaddingTop={15}
               textColor={'#FFFFFF'}
@@ -273,5 +273,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     paddingTop: 20
+  },
+  textInputNoLeftImage: {
+    width: deviceWidth,
+    height: 45,
+    paddingLeft: 0,
+    color: "rgb(150,150,150)",
+    fontSize: 16,
+    fontFamily: "Poppins-Regular"
+  },
+  textInputField: {
+    flexDirection: "row",
+    width: deviceWidth - 15,
+    height: 46,
+    //marginBottom: 25,
+    borderColor: "rgb(229,229,229)",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 10,
+    backgroundColor: "#FFFFFF"
   }
 });
