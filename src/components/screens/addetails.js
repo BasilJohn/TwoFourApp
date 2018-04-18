@@ -53,7 +53,7 @@ export default class App extends Component {
             }
           ]}
         />
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <ScrollView  contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.container}>
             <ImageSlider />
           </View>
@@ -111,7 +111,8 @@ export default class App extends Component {
                 detailText="Apple iPhone 6 used phone recently bought 32 gb internal condition urgent sale low price are not be entertained please!"
               />
             </View>
-            <View style={styles.headerContainer}>
+            <View style={[styles.headerContainer,CommonStyles.row]}>
+            <View style={{ flex: 0.7 }}>
               <Text
                 style={[
                   CommonStyles.mediumText,
@@ -122,8 +123,29 @@ export default class App extends Component {
               >
                 {"Share Ad"}
               </Text>
+              </View>
+              <View style={{ flex: 0.3 }}>
+              <Image
+                    resizeMode={"cover"}
+                    source={require("../../assets/img/Danger.png")}
+                    style={{
+                      position: "absolute",
+                      top: 10,
+                      left: 15,
+                      width: 15,
+                      height: 12
+                    }}
+                  />
+                <TouchableHighlight
+                  underlayColor={"transparent"}
+                  onPress={this._reportUserButtonPress.bind(this)}
+                  style={styles.reportButtonStyle}
+                >
+                <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
+                </TouchableHighlight>
+                </View>
             </View>
-            <View style={styles.socialIconContainer}>
+            <View style={[styles.socialIconContainer,CommonStyles.paddingTenLeft]}>
               <View style={CommonStyles.row}>
                 <View>
                   <SocialIcon
@@ -154,25 +176,8 @@ export default class App extends Component {
                   />
                 </View>
               </View>
-              <View style={CommonStyles.paddingTenLeftRight}>
-               <Image
-                    resizeMode={"cover"}
-                    source={require("../../assets/img/Danger.png")}
-                    style={{
-                      position: "absolute",
-                      top: 10,
-                      left: 20,
-                      width: 15,
-                      height: 12
-                    }}
-                  />
-                <TouchableHighlight
-                  underlayColor={"transparent"}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                  style={styles.reportButtonStyle}
-                >
-                <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
-                </TouchableHighlight>
+              <View style={[CommonStyles.paddingTenLeftRight,styles.reportView]}>
+               
               </View>
             </View>
           </View>
@@ -222,10 +227,15 @@ const styles = StyleSheet.create({
     shadowRadius: 5
     //elevation: 16
   },
+  reportView:{
+    marginLeft:deviceWidth-300
+     //justifyContent:'flex-end'
+  },
   headerContainer: {
     alignSelf: "flex-start",
     marginBottom: 2,
-    paddingLeft: 10
+    paddingLeft: 10,
+    //justifyContent:'flex-start'
   },
   socialIconContainer: {
     flexDirection: "row",
