@@ -17,20 +17,48 @@ import { connect } from "react-redux";
 import { _ } from "lodash";
 
 var data = [
-  { id: 1, Category: "Cars & Vehicles", Image: "ios-car-outline" },
-  { id: 2, Category: "Electronics & Gadgets", Image: "ios-cash-outline" },
-  { id: 3, Category: "Real Estate", Image: "ios-home-outline" },
-  { id: 4, Category: "Sports", Image: "ios-football-outline" },
-  { id: 5, Category: "Fashion & Beauty", Image: "ios-basket-outline" },
-  { id: 6, Category: "Pets & Animals", Image: "ios-paw-outline" },
-  { id: 7, Category: "Job Openings", Image: "ios-briefcase-outline" }
+  {
+    id: 1,
+    Category: "Cars & Vehicles",
+    Image: require("../../assets/img/cars.png")
+  },
+  {
+    id: 2,
+    Category: "Electronics & Gadgets",
+    Image: require("../../assets/img/electronics.png")
+  },
+  {
+    id: 3,
+    Category: "Real Estate",
+    Image: require("../../assets/img/real.png")
+  },
+  {
+    id: 4,
+    Category: "Sports",
+    Image: require("../../assets/img/sports.png")
+  },
+  {
+    id: 5,
+    Category: "Fashion & Beauty",
+    Image: require("../../assets/img/fashion.png")
+  },
+  {
+    id: 6,
+    Category: "Pets & Animals",
+    Image: require("../../assets/img/pets.png")
+  },
+  {
+    id: 7,
+    Category: "Job Openings",
+    Image: require("../../assets/img/job.png")
+  }
 ];
 
 class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
-  onCategorySelectetd(categoryId,id){
-        this.props.categorySelected(categoryId);
+  onCategorySelectetd(categoryId, id) {
+    this.props.categorySelected(categoryId);
   }
 
   state = { categoryList: [] };
@@ -38,15 +66,27 @@ class PostAd extends Component {
   _keyExtractor = (item, index) => item.id;
 
   renderRowItem = itemData => {
+    console.log(itemData);
     return (
-      <TouchableOpacity onPress={this.onCategorySelectetd.bind(this,itemData.item.id)} >
+      <TouchableOpacity
+        onPress={this.onCategorySelectetd.bind(this, itemData.item.id)}
+      >
         <View style={styles.categoryItem}>
-          <Ionicons
+          {/* <Ionicons
             style={styles.categoryItemAvatarStyle}
             name={itemData.item.Image}
             color={"#696969"}
             size={25}
+          /> */}
+          <View>
+          <Image
+            style={styles.categoryItemAvatarStyle}
+            //resizeMode="contain"
+            source={itemData.item.Image}
+            resizeMode="contain"
           />
+          </View>
+          <View style={{flex: 1}}>
           <Text
             style={[
               CommonStyles.greyColor,
@@ -57,6 +97,7 @@ class PostAd extends Component {
           >
             {itemData.item.Category}
           </Text>
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -154,9 +195,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     borderRadius: 50,
     //elevation: 6
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
+    shadowOffset: { width: 0, height: 0 },
+    shadowColor: "#000000",
+    shadowOpacity: 0.4,
     shadowRadius: 3
   },
   categoryItem: {
@@ -180,23 +221,24 @@ const styles = StyleSheet.create({
     padding: 10
   },
   categoryTextStyle: {
-    paddingLeft: 50
+    paddingLeft: 50,
+    textAlign:'left'
     // fontWeight:"bold",
     // color: '#696969',
     // fontColor:'#696969'
   },
   categoryItemAvatarStyle: {
-    position: "absolute",
-    bottom: 18,
+    //position: "absolute",
+    //bottom: 18,
     left: 5,
-    width: 25,
-    height: 25
+    width:70,
+    height: 35
   }
 });
 
 const mapStateToProps = ({ ad }) => {
   const { categoryId } = ad;
   return { categoryId };
-}
+};
 
-export default connect(mapStateToProps, { categorySelected })(PostAd)
+export default connect(mapStateToProps, { categorySelected })(PostAd);
