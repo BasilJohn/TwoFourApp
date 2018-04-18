@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { GiftedChat } from "react-native-gifted-chat";
+import {
+  GiftedChat,
+  Actions,
+  Bubble,
+  SystemMessage
+} from "react-native-gifted-chat";
+import CustomActions from "../common/chat/customchatactions";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { GradientNavigationBar } from "../common";
 import CommonStyles, {
@@ -7,23 +13,28 @@ import CommonStyles, {
   shadowOpt,
   deviceWidth
 } from "../../styles/commonStyles";
-import { View } from "react-native";
+import { View,StyleSheet,Text,Platform } from "react-native";
 //window.navigator.userAgent = "react-native";
 var io = require("socket.io-client/dist/socket.io");
 
 export default class Chat extends React.Component {
   constructor(props) {
     super(props);
-   
+
+    this.renderCustomActions = this.renderCustomActions.bind(this);
+    this.renderFooter = this.renderFooter.bind(this);
     //this.socket.on("userId", this.getUserId);
   }
   static navigatorStyle = noNavTabbarNavigation;
 
   state = {
-    messages: []
+    messages: [],
+    loadEarlier: true,
+    typingText: null,
+    isLoadingEarlier: false
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.socket = io.connect("http://68.66.233.230:3000/");
     this.socket.on("chat message", this.onReceivedMessage.bind(this));
   }
@@ -44,7 +55,6 @@ export default class Chat extends React.Component {
     });
   }
   onReceivedMessage(mes) {
-   
     const arrMes = [{ ...mes.messages }];
     //console.log(mes)
     // newMessage: [
@@ -59,11 +69,38 @@ export default class Chat extends React.Component {
     //     }
     //   }
     // ]
-    messages:[]
+    messages: [];
     this.setState(previousState => ({
       //console.log('s');
       messages: GiftedChat.append(previousState.messages, mes)
     }));
+  }
+
+  renderCustomActions(props) {
+    if (Platform.OS === "ios") {
+      return <CustomActions {...props} />;
+    }
+    const options = {
+      "Action 1": props => {
+        alert("option 1");
+      },
+      "Action 2": props => {
+        alert("option 2");
+      },
+      Cancel: () => {}
+    };
+    return <Actions {...props} options={options} />;
+  }
+
+  renderFooter(props) {
+    if (this.state.typingText) {
+      return (
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>{this.state.typingText}</Text>
+        </View>
+      );
+    }
+    return null;
   }
 
   onSend(messages = []) {
@@ -91,8 +128,23 @@ export default class Chat extends React.Component {
           user={{
             _id: 1
           }}
+          renderActions={this.renderCustomActions}
+          renderFooter={this.renderFooter}
         />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  footerContainer: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10
+  },
+  footerText: {
+    fontSize: 14,
+    color: "#aaa"
+  }
+});
