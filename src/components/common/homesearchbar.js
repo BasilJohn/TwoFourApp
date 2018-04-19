@@ -75,7 +75,7 @@ export default class HomeSearchBar extends Component {
                     onPress={this._onClickBackButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
-                      <Icon
+                      {/* <Icon
                         name="md-arrow-back"
                         size={this.props.backIconStyle.size}
                         color={this.props.backIconStyle.color}
@@ -86,6 +86,14 @@ export default class HomeSearchBar extends Component {
                           width: 5.5,
                           height: 2.5,
                           backgroundColor: this.props.backIconStyle.color
+                        }}
+                      /> */}
+                      <Image
+                        resizeMode={"cover"}
+                        source={require("../../assets/img/Menu_M.png")}
+                        style={{
+                          width: 30,
+                          height: 20
                         }}
                       />
                     </View>
