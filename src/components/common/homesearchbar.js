@@ -58,7 +58,8 @@ export default class HomeSearchBar extends Component {
             {(() => {
               if (!this.props.isBack) {
                 return (
-                  <TouchableHighlight underlayColor={'transparent'}
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
                     onPress={this._onClickMenuButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
@@ -71,11 +72,12 @@ export default class HomeSearchBar extends Component {
                 );
               } else {
                 return (
-                  <TouchableHighlight underlayColor={'transparent'}
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
                     onPress={this._onClickBackButton.bind(this)}
                   >
                     <View style={styles.leftButton}>
-                      <Icon
+                      {/* <Icon
                         name="md-arrow-back"
                         size={this.props.backIconStyle.size}
                         color={this.props.backIconStyle.color}
@@ -87,6 +89,14 @@ export default class HomeSearchBar extends Component {
                           height: 2.5,
                           top:-1.5,
                           backgroundColor: this.props.backIconStyle.color
+                        }}
+                      /> */}
+                      <Image
+                        resizeMode={"cover"}
+                        source={require("../../assets/img/Menu_M.png")}
+                        style={{
+                          width: 30,
+                          height: 20
                         }}
                       />
                     </View>
@@ -133,7 +143,10 @@ export default class HomeSearchBar extends Component {
             {this.props.rightButtons != null &&
               this.props.rightButtons.map(button => (
                 <View key={button.key}>
-                  <TouchableHighlight underlayColor={'transparent'} onPress={button.buttonAction}>
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
+                    onPress={button.buttonAction}
+                  >
                     <View
                       style={{
                         flexDirection: "row",
