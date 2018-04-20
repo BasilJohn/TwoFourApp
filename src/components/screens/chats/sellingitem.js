@@ -37,8 +37,9 @@ export default class SellingItem extends React.Component {
             <View style={CommonStyles.row}>
               <Image
                 style={styles.productStyle}
-                borderRadius={50}
-                source={{ uri: "http://lorempixel.com/400/200/" }}
+                borderRadius={45}
+                //source={{ uri: "http://lorempixel.com/400/200/" }}
+                source={require('../../../assets/img/profileimage.jpg')}
                 resizeMode="cover"
               />
               <View
@@ -178,15 +179,11 @@ const styles = StyleSheet.create({
     marginRight: 5,
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
-    //elevation: 6,
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
-    shadowRadius: 3,
+    borderBottomWidth:0.3,
+    borderBottomColor:'#7B7B7B',
     alignItems: "center",
-    justifyContent: "space-between",
-    borderBottomWidth: 2,
-    borderColor: "#EDEDED"
+    justifyContent: "space-between"
+    
   },
   imageStyle: {
     height: 70,
@@ -194,7 +191,8 @@ const styles = StyleSheet.create({
   },
   productStyle: {
     height: 90,
-    width: 90
+    width: 90,
+    borderRadius:50
   },
   modal: {
     flex: 1

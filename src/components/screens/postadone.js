@@ -8,7 +8,7 @@ import {
   Image
 } from "react-native";
 import { ImageButton, GradientNavigationBar } from "../common";
-import CommonStyles from "../../styles/commonStyles";
+import CommonStyles, { deviceWidth } from "../../styles/commonStyles";
 import { SearchBar } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
@@ -131,10 +131,12 @@ class PostAd extends Component {
           <View>
             <SearchBar
               round
-              clearIcon
+              noIcon
+              lightTheme
               containerStyle={styles.searchBarContainerStyle}
               inputStyle={styles.searchBarInputStyle}
               placeholder="Search Category"
+              placeholderTextColor={'#969696'}
             />
           </View>
           <View style={styles.middleControlStyle}>
@@ -189,16 +191,25 @@ class PostAd extends Component {
 
 const styles = StyleSheet.create({
   searchBarContainerStyle: {
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.4, 
+    shadowRadius: 3,
+    //width:deviceWidth-20,
+    borderBottomWidth:0
+  
   },
   searchBarInputStyle: {
     backgroundColor: "#FFF",
     borderRadius: 50,
-    //elevation: 6
-    shadowOffset: { width: 0, height: 0 },
-    shadowColor: "#000000",
-    shadowOpacity: 0.4,
-    shadowRadius: 3
+    borderColor:'#696969',
+    height:40,
+    fontFamily: "Poppins-Regular",
+    fontSize:14,
+    alignSelf:'center',
+    width:deviceWidth-40
+    
   },
   categoryItem: {
     flex: 1,
@@ -207,8 +218,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     height: 60,
-    borderBottomWidth: 0.4,
-    borderColor: "rgb(105,105,105)"
+    borderBottomWidth: 0.3,
+    borderColor: "#696969"
   },
   footerControlStyle: {
     flex: 0.5,

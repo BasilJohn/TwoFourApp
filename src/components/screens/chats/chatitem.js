@@ -21,8 +21,7 @@ export default class ChatItem extends React.Component {
       <View style={{justifyContent:'center',alignSelf:'center'}}>
      <View
         style={[
-          this.props.type !== "block" && styles.containerStyle,
-          this.props.type === "block" && styles.blockedcontainerStyle
+          styles.blockedcontainerStyle
         ]}
       >
         <View style={CommonStyles.row}>

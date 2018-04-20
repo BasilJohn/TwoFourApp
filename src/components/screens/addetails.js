@@ -53,7 +53,7 @@ export default class App extends Component {
             }
           ]}
         />
-        <ScrollView  contentContainerStyle={{ flexGrow: 1 }}>
+        <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.container}>
             <ImageSlider />
           </View>

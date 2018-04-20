@@ -97,7 +97,7 @@ export default class Home extends Component {
           rightButtons={[
             {
               key: 1,
-              buttonIcon: require("../../assets/img/Menu_M.png"),
+              buttonIcon: require("../../assets/img/settings.png"),
               buttonAction: this._onFilterSettingsClick.bind(this),
               buttonWidth: 22,
               buttonHeight: 22
