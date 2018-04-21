@@ -13,7 +13,7 @@ import CommonStyles, {
   shadowOpt,
   deviceWidth
 } from "../../../styles/commonStyles";
-import { LinearGradientButton, GradientNavigationBar } from "../../common";
+import { FilterButton, GradientNavigationBar,LinearGradientButton } from "../../common";
 import { Slider } from "react-native-elements";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
@@ -40,39 +40,40 @@ export default class SortFilter extends React.Component {
           navigator={this.props.navigator}
           titleText="Sort and Filter"
         />
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
           <KeyboardAvoidingView
             style={CommonStyles.keyboardAvoidingViewContainer}
           >
-            <View style={[CommonStyles.spaceAround, { flex: 1 }]}>
-              <View style={{padding:2}}>
-                <Text
-                  style={[
-                    CommonStyles.mediumText,
-                    CommonStyles.postAdTitleColor,
+            <View style={[ { flex: 1 }]}>
+              <View style={[ { height: 95 },CommonStyles.paddingTenTop]}>
+              <View style={[CommonStyles.paddingTenLeftRight]}>
+              <Text
+                    style={[
+                      CommonStyles.mediumText,
+                    CommonStyles.appFontColor,
                     CommonStyles.semiBold
-                  ]}
-                >
+                    ]}
+                  >
                   Sort By
                 </Text>
-              </View>
-              <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                </View>
+                <View style={[CommonStyles.row, CommonStyles.paddingTen,CommonStyles.spaceBetween,]}>
                 <View>
-                  <LinearGradientButton
-                    colorOne={"#3D88A7"}
-                    colorTwo={"#3972A0"}
-                    colorThree={"#355F9A"}
+                  <FilterButton
+                    colorOne={"#FFFFFF"}
+                    colorTwo={"#FFFFFF"}
+                    colorThree={"#FFFFFF"}
                     buttonText={"Newest"}
                     height={46}
                     width={270}
                     borderRadius={10}
                     textPaddingTop={10}
-                    textColor={'#FFFFFF'}
+                    textColor={'#2C272D'}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
                 <View>
-                  <LinearGradientButton
+                  <FilterButton
                     colorOne={"#3D88A7"}
                     colorTwo={"#3972A0"}
                     colorThree={"#355F9A"}
@@ -86,27 +87,29 @@ export default class SortFilter extends React.Component {
                   />
                 </View>
                 <View>
-                  <LinearGradientButton
-                    colorOne={"#3D88A7"}
-                    colorTwo={"#3972A0"}
-                    colorThree={"#355F9A"}
+                  <FilterButton
+                    colorOne={"#FFFFFF"}
+                    colorTwo={"#FFFFFF"}
+                    colorThree={"#FFFFFF"}
                     buttonText={"High to Low"}
                     height={46}
                     width={270}
                     borderRadius={10}
                     textPaddingTop={10}
-                    textColor={'#FFFFFF'}
+                    textColor={'#2C272D'}
                     onPress={this.handlePress.bind(this)}
                   />
                 </View>
               </View>
-              <View>
-                <View style={CommonStyles.paddingTen}>
-                  <Text
+              </View>
+             
+              <View style={[ styles.filterBlockStyle,CommonStyles.paddingTenLeftRight]}>
+                <View >
+                <Text
                     style={[
                       CommonStyles.mediumText,
-                      CommonStyles.postAdTitleColor,
-                      CommonStyles.semiBold
+                    CommonStyles.appFontColor,
+                    CommonStyles.semiBold
                     ]}
                   >
                     Distance
@@ -114,15 +117,34 @@ export default class SortFilter extends React.Component {
                 </View>
                 <View
                   style={[
-                    CommonStyles.paddingTen,
                     {
-                      flex: 1,
+                      //flex: 1,
                       paddingTop: 20,
                       alignItems: "center",
                       justifyContent: "center"
                     }
                   ]}
                 >
+                <View style={[CommonStyles.row,{position:'absolute',top:35,left:0,width:'100%'}]}>
+                  <View >
+                  <Text
+                style={[
+                  CommonStyles.appText,
+                  CommonStyles.smallTextGreyColor,
+                  CommonStyles.regularBold
+                ]}
+              >120 km</Text>
+                    </View>
+                    <View style={{position:'absolute',right:0}}>
+                    <Text
+                style={[
+                  CommonStyles.appText,
+                  CommonStyles.smallTextGreyColor,
+                  CommonStyles.regularBold
+                ]}
+              >1200 km</Text>
+                    </View>
+                  </View>
                   <MultiSlider
                     values={[
                       this.state.multiSliderValue[0],
@@ -133,29 +155,30 @@ export default class SortFilter extends React.Component {
                     min={0}
                     max={10}
                     step={1}
-                    trackStyle={{ backgroundColor: "#345A99", height: 3 }}
+                    trackStyle={{ backgroundColor: "#345A99", height: 5 }}
                     selectedStyle={{ backgroundColor: "#345A99" }}
                     markerStyle={CommonStyles.markerStyle}
                     //markerContainerStyle={[CommonStyles.markerContainerStyle]}
                   />
+                  
                 </View>
               </View>
-              <View style={{marginTop:-50}}>
-                <View style={CommonStyles.paddingTen}>
-                  <Text
+              <View style={[ styles.filterBlockStyle,CommonStyles.paddingTenLeftRight]}>
+                <View >
+                <Text
                     style={[
                       CommonStyles.mediumText,
-                      CommonStyles.postAdTitleColor,
-                      CommonStyles.semiBold
+                    CommonStyles.appFontColor,
+                    CommonStyles.semiBold
                     ]}
                   >
                     Location
                   </Text>
                 </View>
-                <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
-                  <View style={[styles.textInputField, { flex: 0.7 }]}>
+                <View style={[CommonStyles.row, CommonStyles.spaceAround,{paddingTop:10}]}>
+                  <View style={[{height:48,width:156,borderWidth:0.3,borderColor:'#696969',borderRadius:10,margin:0,padding:0}]}>
                     <TextInput
-                      style={styles.textInputNoLeftImage}
+                      //style={styles.textInputNoLeftImage}
                       placeholder=""
                       underlineColorAndroid="transparent"
                     />
@@ -176,49 +199,49 @@ export default class SortFilter extends React.Component {
                   </View>
                 </View>
               </View>
-              <View>
-                <View style={CommonStyles.paddingTen}>
+              <View style={[ styles.filterBlockStyle,CommonStyles.paddingTenLeftRight]}>
+                <View >
                   <Text
                     style={[
                       CommonStyles.mediumText,
-                    CommonStyles.postAdTitleColor,
+                    CommonStyles.appFontColor,
                     CommonStyles.semiBold
                     ]}
                   >
                     Posted Within
                   </Text>
                 </View>
-                <View style={[CommonStyles.row, CommonStyles.spaceAround]}>
+                <View style={[CommonStyles.row, CommonStyles.spaceAround,{paddingTop:10}]}>
                   <View>
-                    <LinearGradientButton
-                      colorOne={"#3D88A7"}
-                      colorTwo={"#3972A0"}
-                      colorThree={"#355F9A"}
+                    <FilterButton
+                      colorOne={"#FFFFFF"}
+                      colorTwo={"#FFFFFF"}
+                      colorThree={"#FFFFFF"}
                       buttonText={"24 Hrs"}
                       height={46}
                       width={270}
                       borderRadius={10}
                       textPaddingTop={10}
-                      textColor={'#FFFFFF'}
+                      textColor={'#2C272D'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
                   <View>
-                    <LinearGradientButton
-                      colorOne={"#3D88A7"}
-                      colorTwo={"#3972A0"}
-                      colorThree={"#355F9A"}
+                    <FilterButton
+                      colorOne={"#FFFFFF"}
+                      colorTwo={"#FFFFFF"}
+                      colorThree={"#FFFFFF"}
                       buttonText={"7 Days"}
                       height={46}
                       width={270}
                       borderRadius={10}
                       textPaddingTop={10}
-                      textColor={'#FFFFFF'}
+                      textColor={'#2C272D'}
                       onPress={this.handlePress.bind(this)}
                     />
                   </View>
                   <View>
-                    <LinearGradientButton
+                    <FilterButton
                       colorOne={"#3D88A7"}
                       colorTwo={"#3972A0"}
                       colorThree={"#355F9A"}
@@ -292,5 +315,11 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderRadius: 10,
     backgroundColor: "#FFFFFF"
+  },
+  filterBlockStyle:{
+     height: 95,
+     marginTop:20,
+     //borderWidth:1,
+     borderColor:'red'
   }
 });

@@ -31,8 +31,8 @@ class SlidingMenu extends React.Component {
           <Text
             style={[
               CommonStyles.greyColor,
-              CommonStyles.mediumBold,
-              CommonStyles.mediumText
+              CommonStyles.regularBold,
+              CommonStyles.mediumText,{textAlign:'center'}
             ]}
           >
             {itemData.item.categoryName}

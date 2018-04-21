@@ -152,6 +152,9 @@ export default (CommonStyles = StyleSheet.create({
   appFontColor: {
     color: "#696969"
   },
+  smallTextGreyColor:{
+     color:'#9B9B9B'
+  },
   //Form Styles
   textInputField: {
     flexDirection: "row",
@@ -228,7 +231,11 @@ export default (CommonStyles = StyleSheet.create({
     borderColor: "rgb(229,229,229)",
     borderWidth: 1,
     borderStyle: "solid",
-    borderRadius: 10
+    borderRadius: 20,
+    height:160,
+    marginLeft:10,
+    marginRight:10
+
   },
   multiLinetextInput: {
     width: deviceWidth - 55,
@@ -236,7 +243,8 @@ export default (CommonStyles = StyleSheet.create({
     color: "rgb(150,150,150)",
     fontSize: 16,
     fontFamily: "Poppins-Regular",
-    textAlignVertical: "top"
+    textAlignVertical: "top",
+    height:155
   },
   buttonBox: {
     padding: 10,

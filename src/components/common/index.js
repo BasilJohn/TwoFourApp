@@ -8,6 +8,7 @@ export * from "./DetailItem";
 export * from "./primebutton";
 export * from "./imageslider";
 export * from "./lineargradientbutton";
+export * from "./filterscreenbutton";
 export * from "./gradientnavbar";
 export * from "./footertab";
 export * from "./homesearchbar";

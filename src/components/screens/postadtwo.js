@@ -102,7 +102,7 @@ class PostAd extends Component {
                   />
                 </View>
               </View>
-              <View style={[CommonStyles.switchBoxStyle,{marginTop:-50}]}>
+              <View style={[CommonStyles.switchBoxStyle]}>
                <View style={{marginRight:30}}>
                 <Text
                   style={[
@@ -121,7 +121,7 @@ class PostAd extends Component {
                 />
                 </View>
               </View>
-              <View style={[CommonStyles.switchBoxStyle,{marginTop:-70}]}>
+              <View style={[CommonStyles.switchBoxStyle]}>
               <View style={{marginRight:85}}>
                 <Text
                   style={[
@@ -140,7 +140,7 @@ class PostAd extends Component {
                 />
                 </View>
               </View>
-              <View style={{marginTop:-70}}>
+              <View >
                 <View style={[CommonStyles.paddingTen]}>
                   <Text
                     style={[

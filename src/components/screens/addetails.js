@@ -58,7 +58,7 @@ export default class App extends Component {
             <ImageSlider />
           </View>
           <View style={styles.productNameContainer}>
-            <View style={{ flex: 0.8 }}>
+            {/* <View style={{ flex: 0.8 }}>
               <Text
                 style={[
                   CommonStyles.appText,
@@ -69,7 +69,7 @@ export default class App extends Component {
               >
                 {"$ 999.00"}
               </Text>
-            </View>
+            </View> */}
             <View style={[CommonStyles.row]}>
               <View style={{ flex: 0.8 }}>
                 <Text
@@ -82,25 +82,38 @@ export default class App extends Component {
                   {"Samsung Galaxy S8-256GB"}
                 </Text>
               </View>
-              <View style={{ flex: 0.3,marginBottom:5 }}>
+              <View style={{ flex: 0.3 }}>
                 <Ionicons
-                  style={CommonStyles.horizontalRight}
+                  style={[CommonStyles.horizontalRight]}
                   name={"md-heart-outline"}
-                  color={"black"}
-                  size={40}
+                  color={"#6D6C6C"}
+                  size={25}
                 />
               </View>
             </View>
-            <View style={{ marginTop: -15 }}>
+            <View style={[CommonStyles.row]}>
+              <View>
               <Text
                 style={[
                   CommonStyles.appText,
-                  CommonStyles.greyColor,
+                  CommonStyles.smallTextGreyColor,
                   CommonStyles.regularBold
                 ]}
               >
                 {"Posted 2 hours ago"}
               </Text>
+              </View>
+              <View style={{paddingLeft:20}}>
+              <Text
+                style={[
+                  CommonStyles.appText,
+                  CommonStyles.smallTextGreyColor,
+                  CommonStyles.regularBold
+                ]}
+              >
+                {"60 Views"}
+              </Text>
+             </View>
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
