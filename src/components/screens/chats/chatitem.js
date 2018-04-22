@@ -18,19 +18,22 @@ export default class ChatItem extends React.Component {
   render(props) {
     // const { type } = this.props.type;
     return (
-      <View style={{justifyContent:'center',alignSelf:'center'}}>
+      <View >
      <View
         style={[
           styles.blockedcontainerStyle
         ]}
       >
         <View style={CommonStyles.row}>
+        <View >
           <Image
             style={styles.imageStyle}
-            borderRadius={50}
-            source={{ uri: "http://lorempixel.com/400/200/" }}
+            borderRadius={24}
+            //source={{ uri: "http://lorempixel.com/400/200/" }}
+            source={require('../../../assets/img/profileimage.jpg')}
             resizeMode="cover"
           />
+          </View>
           <View
             style={{
               flexDirection: "column",
@@ -39,25 +42,25 @@ export default class ChatItem extends React.Component {
             }}
           >
             <View>
-              <Text
-                style={[
-                  CommonStyles.headerText,
-                  CommonStyles.blackColor,
-                  CommonStyles.mediumBold
-                ]}
-              >
+               <Text
+                    style={[
+                      CommonStyles.mediumText,
+                      CommonStyles.titleGreyColor,
+                      CommonStyles.mediumBold
+                    ]}
+                  >
                 Nora Brady
               </Text>
             </View>
             <View>
               {this.props.type === "favourites" && (
-                <Text
-                  style={[
-                    CommonStyles.normalText,
-                    CommonStyles.greyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
+               <Text
+               style={[
+                 CommonStyles.extraSmallText,
+                 CommonStyles.smallTextGreyColor,
+                 CommonStyles.regularBold
+               ]}
+             >
                   IPhone 7 Plus
                 </Text>
               )}
@@ -65,12 +68,12 @@ export default class ChatItem extends React.Component {
             <View>
               {this.props.type === "buying" && (
                 <Text
-                  style={[
-                    CommonStyles.normalText,
-                    CommonStyles.greyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
+                style={[
+                  CommonStyles.extraSmallText,
+                  CommonStyles.smallTextGreyColor,
+                  CommonStyles.regularBold
+                ]}
+              >
                   IPhone 7 Plus
                 </Text>
               )}
@@ -82,14 +85,14 @@ export default class ChatItem extends React.Component {
                     <Ionicons
                       name={"ios-timer-outline"}
                       color={"#696969"}
-                      size={25}
+                      size={18}
                     />
                   </View>
                   <View>
-                    <Text
+                  <Text
                       style={[
-                        CommonStyles.normalText,
-                        CommonStyles.greyColor,
+                        CommonStyles.smallText,
+                        CommonStyles.postAdTitleColor,
                         CommonStyles.regularBold
                       ]}
                     >
@@ -101,13 +104,13 @@ export default class ChatItem extends React.Component {
             </View>
             <View>
               {this.props.type === "block" && (
-                <Text
-                  style={[
-                    CommonStyles.normalText,
-                    CommonStyles.greyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
+                 <Text
+                 style={[
+                   CommonStyles.extraSmallText,
+                   CommonStyles.smallTextGreyColor,
+                   CommonStyles.regularBold
+                 ]}
+               >
                   Block at 20 Jul 2018
                 </Text>
               )}
@@ -117,12 +120,15 @@ export default class ChatItem extends React.Component {
 
         <View>
           {this.props.type != "block" && (
+            <View style={{top:-10}}>
             <Image
               style={styles.productStyle}
-              borderRadius={50}
-              source={{ uri: "http://lorempixel.com/400/200/" }}
+              borderRadius={24}
+              //source={{ uri: "http://lorempixel.com/400/200/" }}
+              source={require('../../../assets/img/d2.jpg')}
               resizeMode="cover"
             />
+            </View>
           )}
           {this.props.type === "block" && (
             <LinearGradientButton
@@ -148,11 +154,11 @@ export default class ChatItem extends React.Component {
 const styles = StyleSheet.create({
   containerStyle: {
    // flex: 0.3,
-    height:100,
+    height:73,
     width:deviceWidth-30,
     flexDirection: "row",
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 8,
@@ -166,11 +172,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   blockedcontainerStyle: {
-     height:100,
+     height:73,
      width:deviceWidth-30,
      flexDirection: "row",
-     marginTop: 10,
-     marginBottom: 10,
+     marginTop: 5,
+     marginBottom: 5,
      marginLeft: 5,
      marginRight: 5,
      borderRadius: 8,
@@ -181,11 +187,11 @@ const styles = StyleSheet.create({
      justifyContent: "space-between"
    },
   imageStyle: {
-    height: 70,
-    width: 70
+    height: 48,
+    width: 48
   },
   productStyle: {
-    height: 90,
-    width: 90
+    height: 48,
+    width: 48
   }
 });
