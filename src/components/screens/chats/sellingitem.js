@@ -151,7 +151,7 @@ export default class SellingItem extends React.Component {
                   </View>
                 </TouchableHighlight>
               </View>
-              <View style={[CommonStyles.paddingTenLeftRight]}>
+              <View style={[CommonStyles.paddingTen,CommonStyles.alignCenter]}>
                 <Text
                   style={[
                     {
@@ -159,12 +159,12 @@ export default class SellingItem extends React.Component {
                       justifyContent: "center",
                       backgroundColor: "transparent",
                       color:'#FFF',
-                      fontSize: 18,
-                      fontFamily: "Poppins-SemiBold"
+                      fontSize: 16,
+                      fontFamily: "Poppins-Medium"
                     }
                   ]}
                 >
-                  {"Chats"}
+                  {"Selling Items"}
                 </Text>
               </View>
             </View>

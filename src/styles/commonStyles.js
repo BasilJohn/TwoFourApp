@@ -87,6 +87,9 @@ export default (CommonStyles = StyleSheet.create({
   postAdTitleColor:{
     color: "#696969"
   },
+  priceTextColor:{
+    color: "#345A99"
+  },
   // Item box
   itemWhiteBox: {
     marginTop: 2,

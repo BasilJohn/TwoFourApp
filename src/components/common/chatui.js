@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { GiftedChat } from "react-native-gifted-chat";
+import { GiftedChat,Actions,Bubble,SystemMessage } from "react-native-gifted-chat";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { GradientNavigationBar } from "../common";
 import CommonStyles, {
@@ -7,7 +7,10 @@ import CommonStyles, {
   shadowOpt,
   deviceWidth
 } from "../../styles/commonStyles";
-import { View } from "react-native";
+import CustomActions from '../chatcomponents/customactions';
+import CustomView  from '../chatcomponents/customview'
+
+import { View,Text,Image,StyleSheet,Platform,TouchableOpacity } from "react-native";
 //window.navigator.userAgent = "react-native";
 var io = require("socket.io-client/dist/socket.io");
 
@@ -15,15 +18,23 @@ export default class Chat extends React.Component {
   constructor(props) {
     super(props);
    
-    //this.socket.on("userId", this.getUserId);
+    this.state = {
+      messages: [],
+      loadEarlier: true,
+      typingText: null,
+      isLoadingEarlier: false,
+    };
+   
+    this.renderCustomActions = this.renderCustomActions.bind(this);
+    this.renderFooter = this.renderFooter.bind(this);
+    this.renderSystemMessage = this.renderSystemMessage.bind(this);
+    this.renderBubble = this.renderBubble.bind(this);
+    this.renderSend=this.renderSend.bind(this);
+
   }
   static navigatorStyle = noNavTabbarNavigation;
 
-  state = {
-    messages: []
-  };
-
-  componentDidMount(){
+    componentDidMount(){
     this.socket = io.connect("http://68.66.233.230:3000/");
     this.socket.on("chat message", this.onReceivedMessage.bind(this));
   }
@@ -78,6 +89,97 @@ export default class Chat extends React.Component {
     this.socket.emit("chat message", mes);
   }
 
+  renderCustomView(props) {
+    return (
+      <CustomView
+        {...props}
+      />
+    );
+  }
+
+  renderCustomActions(props) {
+    if (Platform.OS === 'ios') {
+      return (
+        <CustomActions
+          {...props}
+        />
+      );
+    }
+    const options = {
+      'Action 1': (props) => {
+        alert('option 1');
+      },
+      'Action 2': (props) => {
+        alert('option 2');
+      },
+      'Cancel': () => {},
+    };
+    return (
+      <Actions
+        {...props}
+        options={options}
+      />
+    );
+  }
+
+  renderFooter(props) {
+    if (this.state.typingText) {
+      return (
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>
+            {this.state.typingText}
+          </Text>
+        </View>
+      );
+    }
+    return null;
+  }
+  renderSystemMessage(props) {
+    return (
+      <SystemMessage
+        {...props}
+        containerStyle={{
+          marginBottom: 15,
+        }}
+        textStyle={{
+          fontSize: 14,
+        }}
+      />
+    );
+  }
+  renderBubble(props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          left: {
+            backgroundColor: '#f0f0f0',
+          }
+        }}
+      />
+    );
+  }
+  renderSend (sendProps){
+    return(
+      <View style={[CommonStyles.alignCenter,{marginRight:10}]}>
+      <View style={[CommonStyles.row,CommonStyles.alignCenter]}>
+      {/* <View style={{alignSelf:'center'}}>
+    <TouchableOpacity>
+    <Image resizeMode={'cover'} style={{height:50,width:50}} source={require('../../assets/img/locate.png')} />
+      
+    </TouchableOpacity>
+    </View> */}
+    <View style={{alignSelf:'center'}}>
+    <TouchableOpacity>
+    
+      <Image resizeMode={'cover'} style={{height:19,width:22}} source={require('../../assets/img/chatsend.png')} />
+    </TouchableOpacity>
+    </View>
+    </View>
+    </View>
+  );
+}
+  
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -85,9 +187,50 @@ export default class Chat extends React.Component {
           navigator={this.props.navigator}
           titleText="Chats"
         /> */}
+        <View style={styles.itemContainerStyle}>
+        <View style={{marginLeft:10}}>
+              <Image
+                style={styles.productStyle}
+                //borderRadius={24}
+                //source={{ uri: "http://lorempixel.com/400/200/" }}
+                source={require('../../assets/img/d2.jpg')}
+                resizeMode="cover"
+              />
+              </View>
+              <View style={{marginLeft:40}}>
+                <View>
+              <Text
+                style={[
+                  CommonStyles.mediumText,
+                  CommonStyles.titleGreyColor,
+                  CommonStyles.mediumBold
+                ]}
+              >
+                  Touch Mobile for Sale
+                </Text>
+                </View>
+                <View>
+                <Text
+                style={[
+                  CommonStyles.appText,
+                  CommonStyles.priceTextColor,
+                  CommonStyles.regularBold
+                ]}
+              >
+                  $1149
+                </Text>
+                  </View>
+                </View>
+         </View>
         <GiftedChat
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
+          //renderActions={this.renderCustomActions}
+          renderCustomView={this.renderCustomView}
+          renderFooter={this.renderFooter}
+          renderSystemMessage={this.renderSystemMessage}
+          renderBubble={this.renderBubble}
+          renderSend={this.renderSend}
           user={{
             _id: 1
           }}
@@ -96,3 +239,34 @@ export default class Chat extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+   itemContainerStyle:{
+    height:81,
+    //width:deviceWidth-30,
+    flexDirection: "row",
+    marginTop: 5,
+    marginBottom: 5,
+    marginLeft: 5,
+    marginRight: 5,
+    borderBottomWidth:0.3,
+    borderBottomColor:'#7B7B7B',
+    alignItems:'center'
+   },
+   productStyle: {
+     height: 52,
+     width: 56,
+     //borderRadius:30
+   }, footerContainer: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+  footerText: {
+    fontSize: 14,
+    color: '#aaa',
+  },
+});
+
