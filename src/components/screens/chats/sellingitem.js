@@ -37,7 +37,7 @@ export default class SellingItem extends React.Component {
             <View style={CommonStyles.row}>
               <Image
                 style={styles.productStyle}
-                borderRadius={45}
+                borderRadius={24}
                 //source={{ uri: "http://lorempixel.com/400/200/" }}
                 source={require('../../../assets/img/profileimage.jpg')}
                 resizeMode="cover"
@@ -52,23 +52,23 @@ export default class SellingItem extends React.Component {
                 <View>
                   <Text
                     style={[
-                      CommonStyles.headerText,
-                      CommonStyles.blackColor,
+                      CommonStyles.mediumText,
+                      CommonStyles.titleGreyColor,
                       CommonStyles.mediumBold
                     ]}
                   >
-                    Macbook Pro Retina
+                    Kate Diaz
                   </Text>
                 </View>
                 <View>
                   <Text
                     style={[
-                      CommonStyles.normalText,
-                      CommonStyles.greyColor,
+                      CommonStyles.extraSmallText,
+                      CommonStyles.smallTextGreyColor,
                       CommonStyles.regularBold
                     ]}
                   >
-                    30 views
+                    I Phone 8 Plus 64 GB Unlocked
                   </Text>
                 </View>
                 <View style={[CommonStyles.row]}>
@@ -76,14 +76,14 @@ export default class SellingItem extends React.Component {
                     <Ionicons
                       name={"ios-timer-outline"}
                       color={"#696969"}
-                      size={25}
+                      size={18}
                     />
                   </View>
                   <View>
                     <Text
                       style={[
-                        CommonStyles.normalText,
-                        CommonStyles.greyColor,
+                        CommonStyles.smallText,
+                        CommonStyles.postAdTitleColor,
                         CommonStyles.regularBold
                       ]}
                     >
@@ -91,6 +91,15 @@ export default class SellingItem extends React.Component {
                     </Text>
                   </View>
                 </View>
+              </View>
+              <View style={{left:(deviceWidth/10)}}>
+              <Image
+                style={styles.productStyle}
+                borderRadius={24}
+                //source={{ uri: "http://lorempixel.com/400/200/" }}
+                source={require('../../../assets/img/d2.jpg')}
+                resizeMode="cover"
+              />
               </View>
             </View>
           </View>
@@ -171,10 +180,10 @@ const styles = StyleSheet.create({
   containerStyle: {
     //flex: 0.3,
     width:deviceWidth-30,
-    height:100,
+    height:73,
     flexDirection: "row",
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 8,
@@ -186,13 +195,13 @@ const styles = StyleSheet.create({
     
   },
   imageStyle: {
-    height: 70,
-    width: 70
+    height: 48,
+    width: 48
   },
   productStyle: {
-    height: 90,
-    width: 90,
-    borderRadius:50
+    height: 48,
+    width: 48,
+    //borderRadius:30
   },
   modal: {
     flex: 1

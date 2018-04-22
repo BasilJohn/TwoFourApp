@@ -130,6 +130,10 @@ export default (CommonStyles = StyleSheet.create({
     fontSize: 13,
     //lineHeight: 30
   },
+  extraSmallText: {
+    fontSize: 12,
+    //lineHeight: 30
+  },
   shortSmallText: {
     fontSize: 13,
     lineHeight: 23
@@ -345,7 +349,7 @@ export default (CommonStyles = StyleSheet.create({
   //chatsPage
   chatTabStyle: {
     justifyContent: "space-between",
-    height: 60,
+    height: 48,
     borderWidth: 0,
     padding: 0,
     backgroundColor: "#FFFFFF"
@@ -362,9 +366,10 @@ export default (CommonStyles = StyleSheet.create({
     shadowRadius: 3,
   },
   tabBarLabelStyle: {
-    color: "#6F6F6F",
+    color: "#9B9B9B",
     paddingTop: 10,
-    fontFamily: "Poppins-SemiBold"
+    fontFamily: "Poppins-Regular",
+    fontSize:14
   },
   //Mutislider
   markerStyle: {
