@@ -9,6 +9,7 @@ import CommonStyles, {
 } from "../../styles/commonStyles";
 import CustomActions from '../chatcomponents/customactions';
 import CustomView  from '../chatcomponents/customview'
+import DefaultMessageList from '../chatcomponents/defaultmessagelist';
 
 import { View,Text,Image,StyleSheet,Platform,TouchableOpacity } from "react-native";
 //window.navigator.userAgent = "react-native";
@@ -199,11 +200,7 @@ export default class Chat extends React.Component {
 }
 renderChatFooter(){
   return(
-   <View stye={styles.defaultMessageContainerStyle}>
-    <TouchableOpacity style={styles.defaultMessageButton}>
-   <Text style={styles.defaultMessageTextStyle}>Item Still available?</Text>   
-   </TouchableOpacity>
-    </View>
+    <DefaultMessageList/>
   );
 }
   
@@ -296,30 +293,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#aaa',
   },
-  defaultMessageButton:{
-    height:32,
-    backgroundColor:'#5B6473',
-    borderRadius:50,
-    width:180,
-    //flex:1,
-    margin:10,
-
-  },
-  defaultMessageTextStyle:{
-    fontFamily:"Poppins-Regular",
-    alignSelf: "center",
-    textAlign: "center",
-    color: "#F1F1F2",
-    fontSize: 15,
-    paddingTop: 5,
-    //fontFamily: "Poppins-SemiBold"
-    //textAlign:'center'
-  },
-  defaultMessageContainerStyle:{
-   // flex:1,
-    alignSelf: 'flex-start'
-    //height:200
-    
-  }
+  
 });
 

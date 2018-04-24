@@ -66,7 +66,7 @@ class PostAd extends Component {
   _keyExtractor = (item, index) => item.id;
 
   renderRowItem = itemData => {
-    console.log(itemData);
+    //console.log(itemData);
     return (
       <TouchableOpacity
         onPress={this.onCategorySelectetd.bind(this, itemData.item.id)}
@@ -110,6 +110,7 @@ class PostAd extends Component {
 
   getCategoryList = () => {
     this.setState({ categoryList: data });
+    console.log(this.state.categoryList)
   };
   render() {
     return (
