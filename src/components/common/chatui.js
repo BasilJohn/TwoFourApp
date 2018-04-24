@@ -30,6 +30,7 @@ export default class Chat extends React.Component {
     this.renderSystemMessage = this.renderSystemMessage.bind(this);
     this.renderBubble = this.renderBubble.bind(this);
     this.renderSend=this.renderSend.bind(this);
+    this.renderChatFooter=this.renderChatFooter.bind(this)
 
   }
   static navigatorStyle = noNavTabbarNavigation;
@@ -48,7 +49,7 @@ export default class Chat extends React.Component {
           user: {
             _id: 2,
             name: "React Native",
-            avatar: "https://facebook.github.io/react/img/logo_og.png"
+            avatar: "https://picsum.photos/200/300"
           }
         }
       ]
@@ -154,8 +155,25 @@ export default class Chat extends React.Component {
         wrapperStyle={{
           left: {
             backgroundColor: '#f0f0f0',
+            // shadowOffset: {width: 0, height: 0},
+            // shadowColor: '#000000', 
+            // shadowOpacity: 0.2, 
+            // shadowRadius: 3,
+            borderRadius:10,
+            borderTopLeftRadius:0,
+            borderBottomRightRadius:10
+          },
+          right:{
+            borderRadius:10,
+            borderTopRightRadius:0,
+            borderBottomRightRadius:10
           }
+
         }}
+        containerStyle={{
+          
+        }}
+        //style={{marginBottom:20}}
       />
     );
   }
@@ -176,6 +194,15 @@ export default class Chat extends React.Component {
     </TouchableOpacity>
     </View>
     </View>
+    </View>
+  );
+}
+renderChatFooter(){
+  return(
+   <View stye={styles.defaultMessageContainerStyle}>
+    <TouchableOpacity style={styles.defaultMessageButton}>
+   <Text style={styles.defaultMessageTextStyle}>Item Still available?</Text>   
+   </TouchableOpacity>
     </View>
   );
 }
@@ -231,6 +258,7 @@ export default class Chat extends React.Component {
           renderSystemMessage={this.renderSystemMessage}
           renderBubble={this.renderBubble}
           renderSend={this.renderSend}
+          renderChatFooter={this.renderChatFooter}
           user={{
             _id: 1
           }}
@@ -268,5 +296,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#aaa',
   },
+  defaultMessageButton:{
+    height:32,
+    backgroundColor:'#5B6473',
+    borderRadius:50,
+    width:180,
+    //flex:1,
+    margin:10,
+
+  },
+  defaultMessageTextStyle:{
+    fontFamily:"Poppins-Regular",
+    alignSelf: "center",
+    textAlign: "center",
+    color: "#F1F1F2",
+    fontSize: 15,
+    paddingTop: 5,
+    //fontFamily: "Poppins-SemiBold"
+    //textAlign:'center'
+  },
+  defaultMessageContainerStyle:{
+   // flex:1,
+    alignSelf: 'flex-start'
+    //height:200
+    
+  }
 });
 
