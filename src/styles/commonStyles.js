@@ -37,14 +37,17 @@ export default (CommonStyles = StyleSheet.create({
     padding: 5
   },
   addImageContainer: {
-    height: 200,
+    height: 300,
     alignItems: "center",
     justifyContent: "flex-start"
   },
   addedImageContainer: {
     flex: 1,
     flexDirection: "row",
-    padding: 10
+    padding: 10,
+    marginTop:20,
+    alignSelf:'center',
+    justifyContent:'center'
   },
   normalSinglePage: {
     backgroundColor: "#fff",
@@ -331,6 +334,9 @@ export default (CommonStyles = StyleSheet.create({
   },
   paddingTenTop: {
     paddingTop: 10
+  },
+  paddingTenRight: {
+    paddingRight: 10
   },
   //Button Styles
   //Small button style

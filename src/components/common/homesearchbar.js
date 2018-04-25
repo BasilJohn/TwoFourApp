@@ -95,8 +95,9 @@ export default class HomeSearchBar extends Component {
                         resizeMode={"cover"}
                         source={require("../../assets/img/Menu_M.png")}
                         style={{
-                          width: 30,
-                          height: 20
+                          width: 25,
+                          height: 15,
+                          right:5
                         }}
                       />
                     </View>
@@ -130,7 +131,8 @@ export default class HomeSearchBar extends Component {
                       containerStyle={styles.searchBarContainerStyle}
                       inputStyle={[
                         styles.searchBarInputStyle,
-                        CommonStyles.regularBold
+                        CommonStyles.regularBold,
+                        CommonStyles.smallText
                       ]}
                       placeholder="Search"
                     />

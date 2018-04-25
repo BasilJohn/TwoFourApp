@@ -75,9 +75,10 @@ class PostAd extends Component {
             }
           ]}
         />
-        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingTop: 50 }}>
+        <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
           <KeyboardAvoidingView
-            style={CommonStyles.keyboardAvoidingViewContainer}
+            style={[CommonStyles.keyboardAvoidingViewContainer,
+              CommonStyles.spaceAround]}
           >
             <View>
               <View style={CommonStyles.addImageContainer}>
@@ -85,8 +86,8 @@ class PostAd extends Component {
                   <View >
                     <TouchableWithoutFeedback onPress={this.openCamera.bind(this)}>
                       <Image
-                        source={require("../../assets/img/postAdCamera.png")}
-                        style={{ width: 50, height: 50 }}
+                        source={require("../../assets/img/dottedcamera.png")}
+                        style={{ width: 120, height: 120 }}
                         resizeMode="cover"
                       />
                     </TouchableWithoutFeedback>
@@ -94,29 +95,37 @@ class PostAd extends Component {
                   <View style={{paddingLeft:30}}>
                     <TouchableWithoutFeedback onPress={this.openPicker.bind(this)}>
                       <Image
-                        source={require("../../assets/img/postAdGallery.png")}
-                        style={{ width: 50, height: 50 }}
+                        source={require("../../assets/img/dottedgallery.png")}
+                        style={{ width: 120, height: 120 }}
                         resizeMode="cover"
                       />
                     </TouchableWithoutFeedback>
                   </View>
                 </View>
-                <View style={CommonStyles.addedImageContainer}>
+                <View style={[CommonStyles.addedImageContainer]}>
+                <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={require("../../assets/img/photo.png")}
-                    style={{ width: 40, height: 40 }}
+                    source={require("../../assets/img/addgallery.png")}
+                    style={{ width: 57, height: 52 }}
                   />
+                  </View>
+                  <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={require("../../assets/img/photo.png")}
-                    style={{ width: 40, height: 40 }}
+                    source={require("../../assets/img/addgallery.png")}
+                    style={{ width: 57, height: 52 }}
                   />
+                  </View>
+                  <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={require("../../assets/img/photo.png")}
-                    style={{ width: 40, height: 40 }}
+                    source={require("../../assets/img/addgallery.png")}
+                    style={{ width: 57, height: 52 }}
                   />
+                  </View>
+                 
                 </View>
               </View>
-              <View>
+              <View style={{height:86}}>
+              <View style={[CommonStyles.paddingTenLeftRight]}>
                 <Text
                   style={[
                     CommonStyles.mediumText,
@@ -127,13 +136,14 @@ class PostAd extends Component {
                   TITLE
                 </Text>
               </View>
-              <View style={[CommonStyles.squareTextInputField,CommonStyles.alignCenter]}>
+              <View style={[styles.inputContainer]}>
                 <TextInput
                   style={[CommonStyles.textInputNoLeftImage]}
                   placeholder="Sell somethings"
                   underlineColorAndroid="transparent"
                   onChangeText={this.onTitleChanged.bind(this)}
                 />
+              </View>
               </View>
             </View>
           </KeyboardAvoidingView>
@@ -172,6 +182,17 @@ const styles = StyleSheet.create({
   },
   footerControl: {
     alignItems: "flex-end"
+  },
+  inputContainer:{
+    
+    margin:10,
+    height: 40,
+    //borderColor: "rgb(229,229,229)",
+    borderColor:'#696969',
+    borderWidth: 0.3,
+    borderStyle: "solid",
+    borderRadius: 60,
+    backgroundColor: "#FFFFFF"
   }
 });
 
