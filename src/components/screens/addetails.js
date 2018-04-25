@@ -58,18 +58,27 @@ export default class App extends Component {
             <ImageSlider />
           </View>
           <View style={styles.productNameContainer}>
-            {/* <View style={{ flex: 0.8 }}>
+            <View style={{position:'absolute',left:10,top:-15}}>
+            <View style={{height:32,width:80,backgroundColor:'#355F9A',borderRadius:0}}>
               <Text
                 style={[
                   CommonStyles.appText,
-                  CommonStyles.darkSkyBlueColor,
-                  CommonStyles.semiBold
+                  CommonStyles.whiteColor,
+                  CommonStyles.semiBold,{textAlign:'center',paddingTop:5}
 
                 ]}
               >
                 {"$ 999.00"}
               </Text>
-            </View> */}
+              </View>
+               {/* <TouchableHighlight
+                  underlayColor={"transparent"}
+                  onPress={this._reportUserButtonPress.bind(this)}
+                  style={styles.priceButtonStyle}
+                >
+                <Text ></Text>
+                </TouchableHighlight> */}
+            </View>
             <View style={[CommonStyles.row]}>
               <View style={{ flex: 0.8 }}>
                 <Text
@@ -143,10 +152,10 @@ export default class App extends Component {
                     source={require("../../assets/img/danger.png")}
                     style={{
                       position: "absolute",
-                      top: 10,
-                      left: 15,
-                      width: 15,
-                      height: 12
+                      top: 8,
+                      left: 8,
+                      width: 25,
+                      height: 20
                     }}
                   />
                 <TouchableHighlight
@@ -265,6 +274,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#7B7B7B",
     height: 42,
     borderRadius: 30
+  },
+  priceButtonStyle: {
+  
+    height:20,
+        backgroundColor:'#355F9A',
+        borderRadius:30,
+        width:180,
+        //flex:1,
+        margin:5,
   },
   reportButtonStyle: {
     width: deviceWidth - 280,
