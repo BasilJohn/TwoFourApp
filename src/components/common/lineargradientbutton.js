@@ -10,9 +10,8 @@ import LinearGradient from "react-native-linear-gradient";
 const LinearGradientButton = props => {
   return (
     <LinearGradient
-      colors={[props.colorOne, props.colorTwo]}
-      start={{ x: 1 ,y: 1.0 }}
-      end={{ x: 1.0, y: 1.0 }}
+      colors={[props.colorOne, props.colorTwo,props.colorThree]}
+      start={{x: 0.1, y: 0.1}} end={{x: 1.0, y: 1.0}}
       style={[
         styles.LinearGradientStyle,
         {
@@ -21,7 +20,7 @@ const LinearGradientButton = props => {
           borderRadius: props.borderRadius
         }
       ]}
-      locations={[0, 0.5]}
+      //locations={[0,0.75,1]}
     >
       <TouchableHighlight
         onPress={props.onPress}

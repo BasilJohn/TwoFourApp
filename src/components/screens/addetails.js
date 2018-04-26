@@ -22,6 +22,7 @@ import {
 import { SocialIcon } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
+import LinearGradient from "react-native-linear-gradient";
 
 const deviceWidth = Dimensions.get("window").width;
 const FIXED_BAR_WIDTH = 280;
@@ -58,27 +59,22 @@ export default class App extends Component {
             <ImageSlider />
           </View>
           <View style={styles.productNameContainer}>
-            <View style={{position:'absolute',left:10,top:-15}}>
-            <View style={{height:32,width:80,backgroundColor:'#355F9A',borderRadius:0}}>
+          <LinearGradient
+          start={{x: 0.2, y: 0.4}} end={{x: 1.0, y: 1.0}}
+          colors={['#3D88A7', '#3972A0','#355F9A']}
+          style={{position:'absolute',left:10,top:-15,height:32,width:80,
+          borderWidth:0,borderColor:'black',borderRadius:20}}>
               <Text
                 style={[
                   CommonStyles.appText,
                   CommonStyles.whiteColor,
-                  CommonStyles.semiBold,{textAlign:'center',paddingTop:5}
+                  CommonStyles.semiBold,{textAlign:'center',paddingTop:5,backgroundColor:'transparent'}
 
                 ]}
               >
                 {"$ 999.00"}
               </Text>
-              </View>
-               {/* <TouchableHighlight
-                  underlayColor={"transparent"}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                  style={styles.priceButtonStyle}
-                >
-                <Text ></Text>
-                </TouchableHighlight> */}
-            </View>
+            </LinearGradient>
             <View style={[CommonStyles.row]}>
               <View style={{ flex: 0.8 }}>
                 <Text
