@@ -20,7 +20,7 @@ var data = [
   {
     id: 1,
     Category: "Cars & Vehicles",
-    Image: require("../../assets/img/cars.png")
+    Image: require("../../assets/img/car_s.png")
   },
   {
     id: 2,
@@ -110,7 +110,7 @@ class PostAd extends Component {
 
   getCategoryList = () => {
     this.setState({ categoryList: data });
-    console.log(this.state.categoryList)
+    //console.log(this.state.categoryList)
   };
   render() {
     return (
@@ -202,14 +202,23 @@ const styles = StyleSheet.create({
   
   },
   searchBarInputStyle: {
-    backgroundColor: "#FFF",
+    // backgroundColor: "#FFF",
+    // borderRadius: 50,
+    // borderColor:'#696969',
+    // height:40,
+    // fontFamily: "Poppins-Regular",
+    // fontSize:14,
+    // alignSelf:'center',
+    // width:deviceWidth-40
+    marginTop: 20,
     borderRadius: 50,
-    borderColor:'#696969',
-    height:40,
+    backgroundColor: "#FFF",
     fontFamily: "Poppins-Regular",
     fontSize:14,
     alignSelf:'center',
-    width:deviceWidth-40
+    width:deviceWidth-40,
+    height:40,
+    paddingLeft:20
     
   },
   categoryItem: {
@@ -233,7 +242,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   categoryTextStyle: {
-    paddingLeft: 50,
+    paddingLeft: 30,
     textAlign:'left'
     // fontWeight:"bold",
     // color: '#696969',
@@ -243,8 +252,8 @@ const styles = StyleSheet.create({
     //position: "absolute",
     //bottom: 18,
     left: 5,
-    width:70,
-    height: 35
+    width:100,
+    height: 30
   }
 });
 

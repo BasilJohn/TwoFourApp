@@ -62,7 +62,7 @@ export default class App extends Component {
           <LinearGradient
           start={{x: 0.2, y: 0.4}} end={{x: 1.0, y: 1.0}}
           colors={['#3D88A7', '#3972A0','#355F9A']}
-          style={{position:'absolute',left:10,top:-15,height:32,width:80,
+          style={{position:'absolute',left:10,top:-15,height:32,width:100,
           borderWidth:0,borderColor:'black',borderRadius:20}}>
               <Text
                 style={[
@@ -72,7 +72,7 @@ export default class App extends Component {
 
                 ]}
               >
-                {"$ 999.00"}
+                {"$ 9999999.00"}
               </Text>
             </LinearGradient>
             <View style={[CommonStyles.row]}>
