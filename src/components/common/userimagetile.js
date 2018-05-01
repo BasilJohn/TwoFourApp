@@ -22,7 +22,7 @@ export default class UserImageTile extends React.Component {
           <Image
             resizeMode="cover"
             style={styles.profileImageStyle}
-            borderRadius={50}
+            borderRadius={32}
             source={require("../../assets/img/profileimage.jpg")}
           />
         </View>
@@ -31,7 +31,7 @@ export default class UserImageTile extends React.Component {
             style={[
               CommonStyles.headerText,
               CommonStyles.blackColor,
-              CommonStyles.semiBold
+              CommonStyles.mediumBold
             ]}
           >
             Tony Stark
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   profileImageStyle: {
-    height: 100,
-    width: 100
+    height: 64,
+    width: 64
   }
 });

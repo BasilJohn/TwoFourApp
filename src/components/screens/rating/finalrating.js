@@ -65,9 +65,9 @@ export default class FinalRating extends React.Component {
           <View>
             <Text
               style={[
-                CommonStyles.normalText,
+                CommonStyles.extraSmallText,
                 CommonStyles.softBlueColor,
-                CommonStyles.semiBold
+                CommonStyles.regularBold
               ]}
             >
               {"Show More"}
@@ -78,9 +78,9 @@ export default class FinalRating extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.greyColor,
-                    CommonStyles.extraBold
+                    CommonStyles.mediumText,
+                    CommonStyles.titleGreyColor,
+                    CommonStyles.mediumBold
                   ]}
                 >
                   Sold it somewhere else
@@ -89,8 +89,8 @@ export default class FinalRating extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.normalText,
-                    CommonStyles.lightgreyColor,
+                    CommonStyles.extraSmallText,
+                    CommonStyles.smallTextGreyColor,
                     CommonStyles.regularBold
                   ]}
                 >
@@ -112,9 +112,9 @@ export default class FinalRating extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.greyColor,
-                    CommonStyles.extraBold
+                    CommonStyles.mediumText,
+                    CommonStyles.titleGreyColor,
+                    CommonStyles.mediumBold
                   ]}
                 >
                   I'll do this later
@@ -123,8 +123,8 @@ export default class FinalRating extends React.Component {
               <View>
                 <Text
                   style={[
-                    CommonStyles.normalText,
-                    CommonStyles.lightgreyColor,
+                    CommonStyles.extraSmallText,
+                    CommonStyles.smallTextGreyColor,
                     CommonStyles.regularBold
                   ]}
                 >

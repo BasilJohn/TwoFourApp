@@ -13,21 +13,35 @@ import { deviceWidth } from "../notify/notificationitem";
 const RATING_IMAGE = require("../../../assets/img/star.svg");
 
 export default class ProfileTile extends React.Component {
+
+  _profileTileIconOress() {
+    console.log(this.props.mainPageProps.navigator)
+    this.props.mainPageProps.navigator.push({
+      screen: "TwoFourApp.UserProfile",
+      title: "User Profile"
+    });
+  } 
+
   state = { profileImage: "." };
 
   render() {
+
+  
     return (
       <View style={styles.mainStyle}>
         <View style={styles.containerStyle}>
           <View style={styles.imageContainer}>
+          <TouchableOpacity onPress={this._profileTileIconOress.bind(this)} >
             <Image
               resizeMode="cover"
               style={styles.profileImageStyle}
               borderRadius={30}
               source={require("../../../assets/img/profileimage.jpg")}
             />
+             </TouchableOpacity>
             <View style={styles.nameContainer}>
               <View style={{ paddingBottom: 10 }}>
+              <TouchableOpacity onPress={this._profileTileIconOress.bind(this)} >
                 <Text
                   style={[
                     CommonStyles.headerText,
@@ -37,6 +51,7 @@ export default class ProfileTile extends React.Component {
                 >
                   Tony Stark
                 </Text>
+                </TouchableOpacity>
               </View>
               <View>
                 <Rating
@@ -51,6 +66,7 @@ export default class ProfileTile extends React.Component {
                 />
               </View>
             </View>
+           
           </View>
           <View style={styles.followButtonContainer}>
             <TouchableOpacity style={styles.followButtonStyle}>

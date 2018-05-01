@@ -34,15 +34,16 @@ export default class UserRating extends React.Component {
               {
                 marginTop: 10,
                 marginBottom: 10,
-                marginLeft: 5,
-                marginRight: 5,
+                marginLeft: 10,
+                marginRight: 10,
                 borderRadius: 8,
                 backgroundColor: "#FFFFFF",
                 //elevation: 6
                 shadowOffset: {width: 0, height: 0},
                 shadowColor: '#000000', 
                  shadowOpacity: 0.4, 
-                shadowRadius: 3,
+                shadowRadius: 1,
+                height:140
               }
             ]}
           >
@@ -51,7 +52,8 @@ export default class UserRating extends React.Component {
                 style={[
                   CommonStyles.mediumText,
                   CommonStyles.blackColor,
-                  CommonStyles.regularBold
+                  CommonStyles.regularBold,
+                  {textAlign:'center'}
                 ]}
               >
                 Please rate your experience with Tony Stark
@@ -65,7 +67,8 @@ export default class UserRating extends React.Component {
                 readonly={false}
                 ratingCount={5}
                 imageSize={30}
-                startingValue={2.5}
+                startingValue={2}
+                fractions={1}
               />
             </View>
           </View>
@@ -76,15 +79,16 @@ export default class UserRating extends React.Component {
               {
                 marginTop: 10,
                 marginBottom: 10,
-                marginLeft: 5,
-                marginRight: 5,
+                marginLeft: 10,
+                marginRight: 10,
                 borderRadius: 8,
                 backgroundColor: "#FFFFFF",
                 //elevation: 6
                 shadowOffset: {width: 0, height: 0},
                 shadowColor: '#000000', 
                 shadowOpacity: 0.4, 
-                shadowRadius: 3,
+                shadowRadius: 1,
+                height:140
               }
             ]}
           >
@@ -93,7 +97,8 @@ export default class UserRating extends React.Component {
                 style={[
                   CommonStyles.mediumText,
                   CommonStyles.blackColor,
-                  CommonStyles.regularBold
+                  CommonStyles.regularBold,
+                  {textAlign:'center'}
                 ]}
               >
                 Please rate your experience with Tony Stark
@@ -134,7 +139,7 @@ export default class UserRating extends React.Component {
               colorThree={"#355F9A"}
               buttonText={"PUBLISH REVIEW"}
               height={50}
-              width={20}
+              width={50}
               borderRadius={60}
               textPaddingTop={15}
               textColor={'#FFFFFF'}

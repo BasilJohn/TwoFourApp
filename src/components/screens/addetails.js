@@ -38,6 +38,7 @@ export default class App extends Component {
       title: "Rate"
     });
   }
+  
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -47,7 +48,7 @@ export default class App extends Component {
           rightButtons={[
             {
               key: 1,
-              //buttonIcon: require("../../assets/img/settings.png"),
+              buttonIcon: require("../../assets/img/share1.png"),
               //buttonAction: this._handleClickSettingsButton.bind(this),
               buttonWidth: 22,
               buttonHeight: 22
@@ -122,7 +123,9 @@ export default class App extends Component {
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
-            <ProfileTile />
+          
+          <ProfileTile mainPageProps={this.props}/>
+            
             <View style={CommonStyles.wrapperBox}>
               <DetailItem
                 headerText="Description"

@@ -50,7 +50,7 @@ export default class UserProfile extends React.Component {
         />
 
         <View style={[{ alignItems: "center" ,marginTop:15}]}>
-          <ProfileTile />
+          <ProfileTile mainPageProps={this.props}/>
         </View>
         <View style={CommonStyles.noTabScrollView}>
           <View style={CommonStyles.wrapperBox}>

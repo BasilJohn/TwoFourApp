@@ -21,7 +21,7 @@ export default class ChatUserItem extends React.Component {
   state = { modalStatus: false };
 
   _openChatScreen() {
-      console.log(this.props.navigatorProps)
+     // console.log(this.props.navigatorProps)
     //this.setState({ modalStatus: true });
     this.props.navigatorProps.navigatorProps.push({
       screen: "TwoFourApp.UserRating",
@@ -48,8 +48,9 @@ export default class ChatUserItem extends React.Component {
             >
               <Image
                 style={[styles.productStyle]}
-                borderRadius={50}
-                source={{ uri: "http://lorempixel.com/400/200/" }}
+                borderRadius={24}
+                //source={{ uri: "http://lorempixel.com/400/200/" }}
+                source={require('../../../assets/img/profileimage.jpg')}
                 resizeMode="cover"
               />
             </View>
@@ -57,22 +58,22 @@ export default class ChatUserItem extends React.Component {
               <View style={[styles.chatDescriptionStyle]}>
                 <Text
                   style={[
-                    CommonStyles.headerText,
-                    CommonStyles.greyColor,
-                    CommonStyles.extraBold
+                    CommonStyles.mediumText,
+                    CommonStyles.titleGreyColor,
+                    CommonStyles.mediumBold
                   ]}
                 >
                   John Mike
                 </Text>
-                <Text
+                {/* <Text
                   style={[
-                    CommonStyles.normalText,
-                    CommonStyles.lightgreyColor,
+                    CommonStyles.extraSmallText,
+                    CommonStyles.smallTextGreyColor,
                     CommonStyles.regularBold
                   ]}
                 >
                   Choosing the best audio players software for your computer
-                </Text>
+                </Text> */}
               </View>
             </View>
             <View style={styles.arrowStyle}>
@@ -170,8 +171,8 @@ const styles = StyleSheet.create({
     // shadowRadius: 3
   },
   productStyle: {
-    height: 50,
-    width: 50
+    height: 48,
+    width: 48
   },
   arrowStyle: {
     justifyContent: "center",
@@ -181,7 +182,8 @@ const styles = StyleSheet.create({
   centreStyle: {
     justifyContent: "center",
     flexDirection: "column",
-    flex: 0.75
+    flex: 0.75,
+    height:73
   },
   chatDescriptionStyle: {
     //flexDirection: "row",
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     //marginLeft: 85,
     //marginTop: 40
+    //height:73
   },
   modal: {
     flex: 1
