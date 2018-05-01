@@ -55,7 +55,7 @@ export default class ChatUserItem extends React.Component {
               />
             </View>
             <View style={styles.centreStyle}>
-              <View style={[styles.chatDescriptionStyle]}>
+              {/* <View style={[styles.chatDescriptionStyle]}> */}
                 <Text
                   style={[
                     CommonStyles.mediumText,
@@ -74,7 +74,7 @@ export default class ChatUserItem extends React.Component {
                 >
                   Choosing the best audio players software for your computer
                 </Text> */}
-              </View>
+              {/* </View> */}
             </View>
             <View style={styles.arrowStyle}>
               <Ionicons
@@ -159,7 +159,7 @@ export default class ChatUserItem extends React.Component {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    height: 100,
+    height: 73,
     flexDirection: "column",
     borderBottomWidth: 0.5,
     borderBottomColor: "#7B7B7B",

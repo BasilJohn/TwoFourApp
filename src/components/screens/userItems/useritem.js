@@ -23,6 +23,14 @@ export default class SellinngItem extends React.Component {
     });
   }
 
+  openUserRatingScreen(){
+    console.log('text')
+    this.props.controlProps.controlProps.navigator.push({
+      screen: "TwoFourApp.FinalRating",
+      title:"Rate"
+    });
+  }
+
   render(props) {
     let swipeBtns = [
       {
@@ -118,7 +126,7 @@ export default class SellinngItem extends React.Component {
             color: "#000"
           }
         },
-        { text: "YES", onPress: () => console.log("OK Pressed") }
+        { text: "YES", onPress:openUserRatingScreen()}
       ],
       { cancelable: false }
     );

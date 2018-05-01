@@ -25,6 +25,14 @@ export default class SellingItem extends React.Component {
     super(props);
   }
 
+  openUserRatingScreen(){
+   // console.log('text')
+    this.props.navigator.push({
+      screen: "TwoFourApp.FinalRating",
+      title:"Rate"
+    });
+  }
+
   handlePress = () => {
     Alert.alert(
       "Mark as sold",
@@ -32,7 +40,7 @@ export default class SellingItem extends React.Component {
       [
         {
           text: "Yes",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: this.openUserRatingScreen.bind(this),
           style: "cancel"
         },
         { text: "No", onPress: () => console.log("OK Pressed") }
@@ -41,9 +49,11 @@ export default class SellingItem extends React.Component {
     );
   };
 
+  
+
   _openAdEditScreen = () => {
     this.props.navigator.push({
-      screen: "TwoFourApp.AdDetails"
+      screen: "TwoFourApp.PostAdScreen"
     });
   };
 

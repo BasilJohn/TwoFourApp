@@ -71,7 +71,8 @@ class PostAd extends Component {
               buttonIcon: require("../../assets/img/settings.png"),
               buttonAction: this._handleClickNextButton.bind(this),
               buttonWidth: 22,
-              buttonHeight: 22
+              buttonHeight: 22,
+              //textButton:'Cancel'
             }
           ]}
         />

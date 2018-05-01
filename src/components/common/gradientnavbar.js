@@ -137,6 +137,11 @@ export default class GradientNavigationBar extends Component {
                           height: button.buttonHeight
                         }}
                       />
+                    {/* <View style={{width:100}}>
+                    <Text style={privateStyles.titleText}>
+                    {button.textButton}
+                  </Text> 
+                  </View>          */}
                     </View>
                   </TouchableHighlight>
                 </View>

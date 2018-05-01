@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import ChatUserItem from "../rating/chatuseritem";
 
 const fav = [{ name: "Nora Brady", profileImage: "", productImage: "" },
+                { name: "Nora Brady", profileImage: "", productImage: "" },
                 { name: "Nora Brady", profileImage: "", productImage: "" }];
 
 export default class ChatUserList extends React.PureComponent {

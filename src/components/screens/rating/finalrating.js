@@ -27,7 +27,7 @@ export default class FinalRating extends React.Component {
         <View style={styles.clapContainerStyle}>
           <View style={[CommonStyles.paddingTen, CommonStyles.alignCenter]}>
             <Image
-              resizeMode="cover"
+              resizeMode="contain"
               style={styles.imageStyle}
               borderRadius={50}
               source={require("../../../assets/img/clap.png")}
@@ -150,7 +150,7 @@ export default class FinalRating extends React.Component {
 const styles = StyleSheet.create({
   imageStyle: {
     height: 90,
-    width: 90
+    width: 150
   },
   clapContainerStyle: {
     backgroundColor: "#FFFFFF",
