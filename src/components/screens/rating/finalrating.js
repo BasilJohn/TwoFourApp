@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet,Alert } from "react-native";
 import { LinearGradientButton, GradientNavigationBar } from "../../common";
 import CommonStyles, {
   deviceHeight,
@@ -17,12 +17,46 @@ export default class FinalRating extends React.Component {
     super(props);
   }
 
+  _handleCancelButton = () => {
+    Alert.alert(
+  "Skip",
+  "Are you sure you want to cancel?",
+  [
+    {
+      text: "Yes",
+      onPress: this.openHomeScreen.bind(this),
+      style: "cancel"
+    },
+    { text: "No", onPress: () => console.log("OK Pressed") }
+  ],
+  { cancelable: true }
+);
+
+}
+
+openHomeScreen(){
+this.props.navigator.push({
+  screen: "TwoFourApp.Home"
+});
+
+}
+
   render(props) {
     return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Rate"
+          rightButtons={[
+            {
+              key: 1,
+              //buttonIcon: require("../../assets/img/settings.png"),
+              buttonAction: this._handleCancelButton.bind(this),
+              //buttonWidth: 22,
+              buttonHeight: 22,
+              textButton:'Skip'
+            }
+          ]}
         />
         <View style={styles.clapContainerStyle}>
           <View style={[CommonStyles.paddingTen, CommonStyles.alignCenter]}>
@@ -167,8 +201,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF"
   },
   arrowStyle: {
-    justifyContent: "center",
+    justifyContent: "flex-end",
     flex: 0.1,
-    alignSelf: "center"
+    alignSelf: "flex-end"
   },
 });

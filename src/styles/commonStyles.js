@@ -280,7 +280,8 @@ export default (CommonStyles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     width: 41,
-    height: 41
+    height: 41,
+    //paddingBottom:20
   },
   nextButton: {
     flex: 1,

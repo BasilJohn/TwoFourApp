@@ -29,7 +29,7 @@ export default class Chats extends React.Component {
       { key: "selling", title: "Selling" },
       { key: "buying", title: "Buying" },
       { key: "favourites", title: "Liked" },
-      { key: "blockedusers", title: "Blocked" }
+      { key: "friends", title: "Friends" }
     ]
   };
 
@@ -60,7 +60,7 @@ export default class Chats extends React.Component {
         return <Buying />;
       case "favourites":
         return <Favourites />;
-      case "blockedusers":
+      case "friends":
         return <BlockedUsers />;
       default:
         return null;
@@ -73,6 +73,7 @@ export default class Chats extends React.Component {
         <GradientNavigationBar
           navigator={this.props.navigator}
           titleText="Chats"
+
         />
         <TabViewAnimated
           style={styles.container}

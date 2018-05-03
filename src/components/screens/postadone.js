@@ -5,7 +5,8 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image
+  Image,
+  Alert
 } from "react-native";
 import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles, { deviceWidth } from "../../styles/commonStyles";
@@ -108,6 +109,30 @@ class PostAd extends Component {
     }
   }
 
+  _handleCancelButton = () => {
+        Alert.alert(
+      "Cancel",
+      "Are you sure you want to cancel?",
+      [
+        {
+          text: "Yes",
+          onPress: this.openHomeScreen.bind(this),
+          style: "cancel"
+        },
+        { text: "No", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: true }
+    );
+    
+  }
+
+  openHomeScreen(){
+    this.props.navigator.push({
+      screen: "TwoFourApp.Home"
+    });
+
+  }
+
   getCategoryList = () => {
     this.setState({ categoryList: data });
     //console.log(this.state.categoryList)
@@ -121,10 +146,11 @@ class PostAd extends Component {
           rightButtons={[
             {
               key: 1,
-              buttonIcon: require("../../assets/img/settings.png"),
-              buttonAction: this._handleClickNextButton.bind(this),
-              buttonWidth: 22,
-              buttonHeight: 22
+              //buttonIcon: require("../../assets/img/settings.png"),
+              buttonAction: this._handleCancelButton.bind(this),
+              //buttonWidth: 22,
+              buttonHeight: 22,
+              textButton:'Cancel'
             }
           ]}
         />
@@ -148,24 +174,24 @@ class PostAd extends Component {
             />
           </View>
           <View style={[CommonStyles.introPageButtonBox, styles.footerControl]}>
-            <View style={CommonStyles.introPageButton}>
+          <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
               <ImageButton
                 style={CommonStyles.backButton}
                 styleImage={CommonStyles.backButton}
                 appearance={{
-                  normal: require("../../assets/img/esclipCopy2.png"),
-                  highlight: require("../../assets/img/esclipCopy2.png")
+                  normal: require("../../assets/img/postadbackward.png"),
+                  highlight: require("../../assets/img/postadbackward.png")
                 }}
                 onPress={this._prevScreenApp.bind(this)}
               />
             </View>
-            <View style={CommonStyles.introPageButton}>
+            <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
               <ImageButton
-                style={CommonStyles.nextButton}
-                styleImage={CommonStyles.nextButton}
+                style={CommonStyles.backButton}
+                styleImage={CommonStyles.backButton}
                 appearance={{
-                  normal: require("../../assets/img/next.png"),
-                  highlight: require("../../assets/img/next.png")
+                  normal: require("../../assets/img/postadforward.png"),
+                  highlight: require("../../assets/img/postadforward.png")
                 }}
                 onPress={this._handleClickNextButton.bind(this)}
               />

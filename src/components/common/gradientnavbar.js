@@ -127,9 +127,13 @@ export default class GradientNavigationBar extends Component {
                         justifyContent: "flex-end",
                         alignItems: "center",
                         height: NAV_HEIGHT,
-                        width: button.buttonWidth + 15
+                        width: button.buttonWidth + 15,
+                        
                       }}
                     >
+                    <Text style={[privateStyles.titleText,{textAlign:'center'}]}>
+                    {button.textButton}
+                  </Text> 
                       <Image
                         source={button.buttonIcon}
                         style={{

@@ -8,7 +8,8 @@ import {
   Dimensions,
   ScrollView,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Alert
 } from "react-native";
 import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles, {
@@ -29,6 +30,18 @@ export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width / 7;
 class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
+
+
+  openHomeScreen(){
+    this.props.navigator.push({
+      screen: "TwoFourApp.Home"
+    });
+
+  }
+
+  
+
+  
 
   onTitleChanged(text) {
     this.props.titleChanged(text);
@@ -68,11 +81,11 @@ class PostAd extends Component {
           rightButtons={[
             {
               key: 1,
-              buttonIcon: require("../../assets/img/settings.png"),
-              buttonAction: this._handleClickNextButton.bind(this),
-              buttonWidth: 22,
+              //buttonIcon: require("../../assets/img/settings.png"),
+              buttonAction: this._handleCancelButton.bind(this),
+              //buttonWidth: 45,
               buttonHeight: 22,
-              //textButton:'Cancel'
+              textButton:'Cancel'
             }
           ]}
         />
@@ -150,13 +163,13 @@ class PostAd extends Component {
           </KeyboardAvoidingView>
           <View style={[styles.footerControl, CommonStyles.introPageButtonBox]}>
             <View style={CommonStyles.introPageButton} />
-            <View style={CommonStyles.introPageButton}>
+            <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
               <ImageButton
-                style={[CommonStyles.nextButton]}
-                styleImage={CommonStyles.nextButton}
+                style={[CommonStyles.backButton]}
+                styleImage={CommonStyles.backButton}
                 appearance={{
-                  normal: require("../../assets/img/next.png"),
-                  highlight: require("../../assets/img/next.png")
+                  normal: require("../../assets/img/postadforward.png"),
+                  highlight: require("../../assets/img/postadforward.png")
                 }}
                 onPress={this._handleClickNextButton.bind(this)}
               />
@@ -167,12 +180,32 @@ class PostAd extends Component {
     );
   }
 
-  _handleClickNextButton() {
+  _handleCancelButton = () => {
+        Alert.alert(
+      "Cancel",
+      "Are you sure you want to cancel?",
+      [
+        {
+          text: "Yes",
+          onPress: this.openHomeScreen.bind(this),
+          style: "cancel"
+        },
+        { text: "No", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: true }
+    );
+    
+  }
+
+  _handleClickNextButton(){
     this.props.navigator.push({
       screen: "TwoFourApp.PostAdOne"
     });
   }
+  
 }
+
+
 
 const ELEMENT_HEIGHT = 377;
 const spaceHeight = deviceHeight - ELEMENT_HEIGHT;

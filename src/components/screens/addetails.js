@@ -207,7 +207,7 @@ export default class App extends Component {
           style={[
             CommonStyles.row,
             { justifyContent: "space-between", padding: 10 },
-            CommonStyles.spaceAround
+            CommonStyles.spaceAround,styles.footerElevation
           ]}
         >
           <View>
@@ -237,6 +237,15 @@ export default class App extends Component {
 const spaceHeight = 70;
 
 const styles = StyleSheet.create({
+  footerElevation:{
+    shadowOffset: {width: 0, height: 0},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.5, 
+    shadowRadius: 3,
+    //borderWidth:0.5,
+    borderColor:'#4A4A4A'
+
+  },
   container: {
     height: deviceHeight / 2.2,
     alignItems: "center",

@@ -70,7 +70,7 @@ export default class ProfileTile extends React.Component {
           </View>
           <View style={styles.followButtonContainer}>
             <TouchableOpacity style={styles.followButtonStyle}>
-              <Text style={styles.followButtonTextStyle}>{"Follow"}</Text>
+              <Text style={styles.followButtonTextStyle}>{"Friend"}</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -6,7 +6,8 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Switch,
-  ScrollView
+  ScrollView,
+  Alert
 } from "react-native";
 import {
   ImageButton,
@@ -55,6 +56,31 @@ class PostAd extends Component {
   }
 
   _handleClickSignUpButton() {}
+
+  _handleCancelButton = () => {
+    Alert.alert(
+  "Cancel",
+  "Are you sure you want to cancel?",
+  [
+    {
+      text: "Yes",
+      onPress: this.openHomeScreen.bind(this),
+      style: "cancel"
+    },
+    { text: "No", onPress: () => console.log("OK Pressed") }
+  ],
+  { cancelable: true }
+);
+
+}
+
+openHomeScreen(){
+this.props.navigator.push({
+  screen: "TwoFourApp.Home"
+});
+
+}
+
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -65,9 +91,10 @@ class PostAd extends Component {
             {
               key: 1,
               //buttonIcon: require("../../assets/img/settings.png"),
-              //buttonAction: this._handleClickSettingsButton.bind(this),
-              buttonWidth: 22,
-              buttonHeight: 22
+              buttonAction: this._handleCancelButton.bind(this),
+              //buttonWidth: 22,
+              buttonHeight: 22,
+              textButton:'Cancel'
             }
           ]}
         />
