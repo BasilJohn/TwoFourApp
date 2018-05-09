@@ -135,7 +135,7 @@ export default class UserProfileSetting extends React.Component {
               </View>
             </View>
           </KeyboardAvoidingView>
-          <View style={styles.titleBox}>
+          <View style={[styles.titleBox,{marginBottom:10}]}>
             <Text
               style={[
                 CommonStyles.mediumText,
@@ -149,8 +149,8 @@ export default class UserProfileSetting extends React.Component {
             </Text>
           </View>
           <KeyboardAvoidingView>
-            <View style={[styles.formBox, CommonStyles.spaceAround]}>
-              <View style={[CommonStyles.squareTextInputField]}>
+            <View style={[styles.formBox]}>
+              <View style={[CommonStyles.squareTextInputField,{marginBottom:20}]}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   style={{
@@ -178,7 +178,7 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
               </View>
-              <View style={CommonStyles.squareTextInputField}>
+              <View style={[CommonStyles.squareTextInputField,{marginBottom:20}]}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   resizeMode="contain"
@@ -207,7 +207,7 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
               </View>
-              <View style={CommonStyles.squareTextInputField}>
+              <View style={[CommonStyles.squareTextInputField,{marginBottom:20}]}>
                 <Image
                   source={require("../../../assets/img/avatar.png")}
                   style={{

@@ -91,7 +91,7 @@ export default class App extends Component {
               </Text>
             </LinearGradient>
             <View style={[CommonStyles.row]}>
-              <View style={{ flex: 0.8 }}>
+              <View style={{ flex: 0.9 }}>
                 <Text
                   style={[
                     CommonStyles.headerText,
@@ -102,7 +102,7 @@ export default class App extends Component {
                   {"Samsung Galaxy S8-256GB"}
                 </Text>
               </View>
-              <View style={{ flex: 0.3 }}>
+              <View style={{ flex: 0.1 }}>
                 <Ionicons
                   style={[CommonStyles.horizontalRight]}
                   name={"md-heart-outline"}
@@ -134,6 +134,30 @@ export default class App extends Component {
                   {"60 Views"}
                 </Text>
               </View>
+            </View>
+            <View style={[CommonStyles.row]}>
+              <View>
+                <Text
+                  style={[
+                    CommonStyles.appText,
+                    CommonStyles.smallTextGreyColor,
+                    CommonStyles.regularBold
+                  ]}
+                >
+                  {"K K Nagar"}
+                </Text>
+              </View>
+              {/* <View style={{ paddingLeft: 20 }}>
+                <Text
+                  style={[
+                    CommonStyles.appText,
+                    CommonStyles.smallTextGreyColor,
+                    CommonStyles.regularBold
+                  ]}
+                >
+                  {"60 Views"}
+                </Text>
+              </View> */}
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
