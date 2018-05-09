@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
   clapContainerStyle: {
     backgroundColor: "#FFFFFF",
-    //elevation: 5
+    elevation: 5,
     borderBottomWidth:0.3,
     shadowOffset: {width: 0, height: 0},
     shadowColor: '#000000', 

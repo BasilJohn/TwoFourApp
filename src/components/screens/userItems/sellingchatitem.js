@@ -29,7 +29,7 @@ export default class ChatItem extends React.Component {
   render(props) {
     state = { modalStatus: false };
     return (
-      <View>
+      <View >
         <TouchableHighlight
           underlayColor={"transparent"}
           onPress={this._openChatScreen.bind(this)}
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: "#7B7B7B",
     backgroundColor: "#FFFFFF",
-    //elevation: 6
+    elevation: 6,
     shadowOffset: {width: 0, height: 0},
     shadowColor: '#000000', 
     shadowOpacity: 0.4, 

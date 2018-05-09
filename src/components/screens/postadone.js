@@ -224,7 +224,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4, 
     shadowRadius: 3,
     //width:deviceWidth-20,
-    borderBottomWidth:0
+    borderBottomWidth:0,
+    
   
   },
   searchBarInputStyle: {
@@ -244,7 +245,8 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     width:deviceWidth-40,
     height:40,
-    paddingLeft:20
+    paddingLeft:20,
+    elevation:6
     
   },
   categoryItem: {

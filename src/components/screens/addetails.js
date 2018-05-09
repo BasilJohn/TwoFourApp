@@ -38,7 +38,7 @@ export default class App extends Component {
       title: "Rate"
     });
   }
-  
+
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -60,17 +60,31 @@ export default class App extends Component {
             <ImageSlider />
           </View>
           <View style={styles.productNameContainer}>
-          <LinearGradient
-          start={{x: 0.2, y: 0.4}} end={{x: 1.0, y: 1.0}}
-          colors={['#3D88A7', '#3972A0','#355F9A']}
-          style={{position:'absolute',left:10,top:-15,height:32,width:100,
-          borderWidth:0,borderColor:'black',borderRadius:20}}>
+            <LinearGradient
+              start={{ x: 0.2, y: 0.4 }}
+              end={{ x: 1.0, y: 1.0 }}
+              colors={["#3D88A7", "#3972A0", "#355F9A"]}
+              style={{
+                position: "absolute",
+                left: 10,
+                top: -15,
+                height: 32,
+                width: 100,
+                borderWidth: 0,
+                borderColor: "black",
+                borderRadius: 20
+              }}
+            >
               <Text
                 style={[
                   CommonStyles.appText,
                   CommonStyles.whiteColor,
-                  CommonStyles.semiBold,{textAlign:'center',paddingTop:5,backgroundColor:'transparent'}
-
+                  CommonStyles.semiBold,
+                  {
+                    textAlign: "center",
+                    paddingTop: 5,
+                    backgroundColor: "transparent"
+                  }
                 ]}
               >
                 {"$ 9999999.00"}
@@ -99,74 +113,75 @@ export default class App extends Component {
             </View>
             <View style={[CommonStyles.row]}>
               <View>
-              <Text
-                style={[
-                  CommonStyles.appText,
-                  CommonStyles.smallTextGreyColor,
-                  CommonStyles.regularBold
-                ]}
-              >
-                {"Posted 2 hours ago"}
-              </Text>
+                <Text
+                  style={[
+                    CommonStyles.appText,
+                    CommonStyles.smallTextGreyColor,
+                    CommonStyles.regularBold
+                  ]}
+                >
+                  {"Posted 2 hours ago"}
+                </Text>
               </View>
-              <View style={{paddingLeft:20}}>
-              <Text
-                style={[
-                  CommonStyles.appText,
-                  CommonStyles.smallTextGreyColor,
-                  CommonStyles.regularBold
-                ]}
-              >
-                {"60 Views"}
-              </Text>
-             </View>
+              <View style={{ paddingLeft: 20 }}>
+                <Text
+                  style={[
+                    CommonStyles.appText,
+                    CommonStyles.smallTextGreyColor,
+                    CommonStyles.regularBold
+                  ]}
+                >
+                  {"60 Views"}
+                </Text>
+              </View>
             </View>
           </View>
           <View style={{ alignItems: "center" }}>
-          
-          <ProfileTile mainPageProps={this.props}/>
-            
+            <ProfileTile mainPageProps={this.props} />
+
             <View style={CommonStyles.wrapperBox}>
               <DetailItem
                 headerText="Description"
                 detailText="Apple iPhone 6 used phone recently bought 32 gb internal condition urgent sale low price are not be entertained please!"
               />
             </View>
-            <View style={[styles.headerContainer,CommonStyles.row]}>
-            <View style={{ flex: 0.7 }}>
-              <Text
-                style={[
-                  CommonStyles.mediumText,
-                  CommonStyles.titleGreyColor,
-                  CommonStyles.semiBold,
-                  { marginBottom: 2, alignSelf: "flex-start" }
-                ]}
-              >
-                {"Share Ad"}
-              </Text>
+            <View style={[styles.headerContainer, CommonStyles.row]}>
+              <View style={{ flex: 0.7 }}>
+                <Text
+                  style={[
+                    CommonStyles.mediumText,
+                    CommonStyles.titleGreyColor,
+                    CommonStyles.semiBold,
+                    { marginBottom: 2, alignSelf: "flex-start" }
+                  ]}
+                >
+                  {"Share Ad"}
+                </Text>
               </View>
               <View style={{ flex: 0.3 }}>
-              <Image
-                    resizeMode={"cover"}
-                    source={require("../../assets/img/danger.png")}
-                    style={{
-                      position: "absolute",
-                      top: 8,
-                      left: 8,
-                      width: 25,
-                      height: 20
-                    }}
-                  />
+                <Image
+                  resizeMode={"cover"}
+                  source={require("../../assets/img/danger.png")}
+                  style={{
+                    position: "absolute",
+                    top: 8,
+                    left: 8,
+                    width: 25,
+                    height: 20
+                  }}
+                />
                 <TouchableHighlight
                   underlayColor={"transparent"}
                   onPress={this._reportUserButtonPress.bind(this)}
                   style={styles.reportButtonStyle}
                 >
-                <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
+                  <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
                 </TouchableHighlight>
-                </View>
+              </View>
             </View>
-            <View style={[styles.socialIconContainer,CommonStyles.paddingTenLeft]}>
+            <View
+              style={[styles.socialIconContainer, CommonStyles.paddingTenLeft]}
+            >
               <View style={CommonStyles.row}>
                 <View>
                   <SocialIcon
@@ -197,17 +212,18 @@ export default class App extends Component {
                   />
                 </View>
               </View>
-              <View style={[CommonStyles.paddingTenLeftRight,styles.reportView]}>
-               
-              </View>
+              <View
+                style={[CommonStyles.paddingTenLeftRight, styles.reportView]}
+              />
             </View>
           </View>
         </ScrollView>
         <View
           style={[
+            styles.footerElevation,
+            CommonStyles.spaceAround,
             CommonStyles.row,
-            { justifyContent: "space-between", padding: 10 },
-            CommonStyles.spaceAround,styles.footerElevation
+            { justifyContent: "space-between", padding: 10 }
           ]}
         >
           <View>
@@ -237,14 +253,14 @@ export default class App extends Component {
 const spaceHeight = 70;
 
 const styles = StyleSheet.create({
-  footerElevation:{
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.5, 
+  footerElevation: {
+    shadowOffset: { width: 0, height: 0 },
+    shadowColor: "#000000",
+    shadowOpacity: 0.5,
     shadowRadius: 3,
     //borderWidth:0.5,
-    borderColor:'#4A4A4A'
-
+    //borderColor:'#4A4A4A',
+    elevation: 5
   },
   container: {
     height: deviceHeight / 2.2,
@@ -257,14 +273,14 @@ const styles = StyleSheet.create({
     shadowRadius: 5
     //elevation: 16
   },
-  reportView:{
-    marginLeft:deviceWidth-300
-     //justifyContent:'flex-end'
+  reportView: {
+    marginLeft: deviceWidth - 300
+    //justifyContent:'flex-end'
   },
   headerContainer: {
     alignSelf: "flex-start",
     marginBottom: 2,
-    paddingLeft: 10,
+    paddingLeft: 10
     //justifyContent:'flex-start'
   },
   socialIconContainer: {
@@ -284,13 +300,12 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   priceButtonStyle: {
-  
-    height:20,
-        backgroundColor:'#355F9A',
-        borderRadius:30,
-        width:180,
-        //flex:1,
-        margin:5,
+    height: 20,
+    backgroundColor: "#355F9A",
+    borderRadius: 30,
+    width: 180,
+    //flex:1,
+    margin: 5
   },
   reportButtonStyle: {
     width: deviceWidth - 280,
@@ -308,7 +323,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Poppins-Regular",
     paddingTop: 3,
-    right:10
+    right: 10
   },
   offerButtonTextStyle: {
     justifyContent: "center",

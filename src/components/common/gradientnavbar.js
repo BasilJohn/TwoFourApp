@@ -85,7 +85,7 @@ export default class GradientNavigationBar extends Component {
                           marginLeft: 3,
                           width: 5.5,
                           height: 2.5,
-                          top:-1.5,
+                          top:Platform.OS==='ios'? -1.5 :0,
                           backgroundColor: this.props.backIconStyle.color
                         }}
                       />
