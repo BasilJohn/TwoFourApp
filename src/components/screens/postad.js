@@ -83,7 +83,7 @@ class PostAd extends Component {
               key: 1,
               //buttonIcon: require("../../assets/img/settings.png"),
               buttonAction: this._handleCancelButton.bind(this),
-              //buttonWidth: 45,
+              buttonWidth: 22,
               buttonHeight: 22,
               textButton:'Cancel'
             }

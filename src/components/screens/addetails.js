@@ -8,7 +8,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  TouchableHighlight
+  TouchableHighlight,Platform
 } from "react-native";
 import ProfileTile from "./profile/profiletile";
 import CommonStyles, { deviceHeight } from "../../styles/commonStyles";
@@ -189,7 +189,7 @@ export default class App extends Component {
                   style={{
                     position: "absolute",
                     top: 8,
-                    left: 8,
+                    left: Platform.OS==='ios'? 8:0,
                     width: 25,
                     height: 20
                   }}
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   reportButtonStyle: {
-    width: deviceWidth - 280,
+    width:90,
     //backgroundColor: "white",
     height: 32,
     borderRadius: 30,
