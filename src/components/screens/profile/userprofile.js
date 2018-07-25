@@ -63,18 +63,20 @@ export default class UserProfile extends React.Component {
                 {(() => {
                   if (priceType == "selling") {
                     return (
+                      <View style={{width:(deviceWidth/3)-5}}>
                       <LinearGradientButton
                         colorOne={"#3D88A7"}
                         colorTwo={"#3972A0"}
                         colorThree={"#355F9A"}
                         buttonText={"Selling"}
                         height={40}
-                        width={250}
+                        //width={250}
                         borderRadius={60}
                         textPaddingTop={10}
                         textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
+                      </View>
                     );
                   } else {
                     return (
@@ -99,18 +101,20 @@ export default class UserProfile extends React.Component {
                 {(() => {
                   if (priceType == "sold") {
                     return (
+                      <View style={{width:(deviceWidth/3)-5}}>
                       <LinearGradientButton
                         colorOne={"#3D88A7"}
                         colorTwo={"#3972A0"}
                         colorThree={"#355F9A"}
                         buttonText={"Sold"}
                         height={40}
-                        width={250}
+                        //width={250}
                         borderRadius={60}
                         textPaddingTop={10}
                         textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
+                      </View>
                     );
                   } else {
                     return (
@@ -137,18 +141,20 @@ export default class UserProfile extends React.Component {
                 {(() => {
                   if (priceType == "favourites") {
                     return (
+                      <View style={{width:(deviceWidth/3)-5}}>
                       <LinearGradientButton
                         colorOne={"#3D88A7"}
                         colorTwo={"#3972A0"}
                         colorThree={"#355F9A"}
                         buttonText={"Favourites"}
                         height={40}
-                        width={250}
+                        //width={250}
                         borderRadius={60}
                         textPaddingTop={10}
                         textColor={"#FFFFFF"}
                         onPress={this.handlePress.bind(this)}
                       />
+                      </View>
                     );
                   } else {
                     return (
