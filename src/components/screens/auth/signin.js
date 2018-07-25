@@ -154,28 +154,26 @@ export default class SignInScreen extends Component {
                 CommonStyles.spaceAround
               ]}
             >
-              <View>
+              <View style={{width:(deviceWidth/2-20)}}>
                 <LinearGradientButton
                   colorOne={"#4A90E2"}
                   colorTwo={"#4A90E2"}
                   colorThree={"#4A90E2"}
                   buttonText={"FACEBOOK"}
                   height={43}
-                  width={210}
                   borderRadius={60}
                   textPaddingTop={10}
                   textColor={'#FFFF'}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
-              <View>
+              <View style={{width:(deviceWidth/2-20)}}>
                 <LinearGradientButton
                   colorOne={"#D77056"}
                   colorTwo={"#D77056"}
                   colorThree={"#D77056"}
                   buttonText={"GOOGLE"}
                   height={43}
-                  width={210}
                   borderRadius={60}
                   textPaddingTop={10}
                   textColor={'#FFFF'}

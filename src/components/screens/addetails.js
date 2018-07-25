@@ -185,7 +185,7 @@ export default class App extends Component {
               <View style={{ flex: 0.3 }}>
                 <Image
                   resizeMode={"cover"}
-                  source={require("../../assets/img/danger.png")}
+                  source={require("../../assets/img/Danger.png")}
                   style={{
                     position: "absolute",
                     top: 8,
