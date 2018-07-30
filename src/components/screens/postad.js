@@ -32,18 +32,12 @@ class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
   state = { selectedImageArray: [], imageSelected: false };
 
-
-
-  openHomeScreen(){
+ openHomeScreen(){
     this.props.navigator.push({
       screen: "TwoFourApp.Home"
     });
 
   }
-
-  
-
-  
 
   onTitleChanged(text) {
     this.props.titleChanged(text);
@@ -58,8 +52,9 @@ class PostAd extends Component {
       writeTempFile:false
     }).then(image => {
       //es6 add captured image to selectedImageArray array.
-      this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] })
+      this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] });
       this.setState({imageSelected:true});
+      this.setSelectedImage(this.state.selectedImageArray);
     });
   }
 
@@ -72,11 +67,16 @@ class PostAd extends Component {
       multiple:true,
       writeTempFile:false
     }).then(images => {
-      console.log(images)
       //es6 add captured image to selectedImageArray array.
       this.setState({ selectedImageArray: [...this.state.selectedImageArray, images] });
       this.setState({imageSelected:true});
+      this.setSelectedImage(this.state.selectedImageArray);
     });
+  }
+
+  setSelectedImage(imageArray){
+
+    console.log(imageArray);
   }
 
   render() {
@@ -124,25 +124,16 @@ class PostAd extends Component {
                   </View>
                 </View>
                 <View style={[CommonStyles.addedImageContainer]}>
-                <View style={[CommonStyles.paddingTenRight]}>
+                
+                {this.state.selectedImageArray.map((image, i) => (
+                  <View key={i} style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={require("../../assets/img/addgallery.png")}
+                    key={i}
+                    source={{uri: `data:image/jpeg;base64,${image.data}`}}
                     style={{ width: 57, height: 52 }}
                   />
                   </View>
-                  <View style={[CommonStyles.paddingTenRight]}>
-                  <Image
-                    source={require("../../assets/img/addgallery.png")}
-                    style={{ width: 57, height: 52 }}
-                  />
-                  </View>
-                  <View style={[CommonStyles.paddingTenRight]}>
-                  <Image
-                    source={require("../../assets/img/addgallery.png")}
-                    style={{ width: 57, height: 52 }}
-                  />
-                  </View>
-                 
+               ))}
                 </View>
               </View>
               <View style={{height:86}}>
