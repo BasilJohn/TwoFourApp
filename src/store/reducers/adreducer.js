@@ -5,7 +5,8 @@ import {
   PRICE_CHANGED,
   IS_NEGOTAIBLE_CHANGED,
   IS_FREE_CHANGED,
-  DESCRIPTION_CHANGED
+  DESCRIPTION_CHANGED,
+  POST_AD_SUCCESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -16,13 +17,14 @@ const INITIAL_STATE = {
   price: null,
   isNegotiable: false,
   isFree: false,
-  description: ""
+  description: "",
+  isPostAdSuccess:false
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case POST_AD:
-      return { ...state, categoryList: action.payload };
+      return { ...state, isPostAdSuccess: action.payload };
     case TITLE_CHANGED:
       return { ...state, title: action.payload };
     case CATEGORY_SELECTED:
@@ -35,6 +37,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, isFree: action.payload };
     case DESCRIPTION_CHANGED:
       return { ...state, description: action.payload };
+    case POST_AD_SUCCESS:
+      return { ...state, isPostAdSuccess: action.payload };
     default:
       return state;
   }

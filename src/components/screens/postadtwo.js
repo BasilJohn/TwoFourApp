@@ -26,7 +26,8 @@ import {
   priceChanged,
   isNegotiableChanged,
   isFreeChanged,
-  descriptionChanged
+  descriptionChanged,
+  postAd
 } from "../../store/actions/ad";
 import { connect } from "react-redux";
 
@@ -55,7 +56,9 @@ class PostAd extends Component {
     this.props.descriptionChanged(text);
   }
 
-  _handleClickSignUpButton() {}
+  _handleClickPostAdButton() {
+    this.props.postAd(this.props);
+  }
 
   _handleCancelButton = () => {
     Alert.alert(
@@ -203,7 +206,7 @@ this.props.navigator.push({
               borderRadius={60}
               textPaddingTop={15}
               textColor={"#FFFFFF"}
-              onPress={this._handleClickSignUpButton.bind(this)}
+              onPress={this._handleClickPostAdButton.bind(this)}
             />
           </View>
         </ScrollView>
@@ -222,13 +225,14 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ ad }) => {
-  const { price, isNegotiable, isFree, description } = ad;
-  return { price, isNegotiable, isFree, description };
+  const { price, isNegotiable, isFree, description,title,categoryId } = ad;
+  return { price, isNegotiable, isFree, description,title,categoryId };
 };
 
 export default connect(mapStateToProps, {
   priceChanged,
   isNegotiableChanged,
   isFreeChanged,
-  descriptionChanged
+  descriptionChanged,
+  postAd
 })(PostAd);

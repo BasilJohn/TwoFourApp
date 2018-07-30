@@ -30,6 +30,8 @@ export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width / 7;
 class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
+  state = { selectedImageArray: [], imageSelected: false };
+
 
 
   openHomeScreen(){
@@ -55,7 +57,9 @@ class PostAd extends Component {
       includeBase64: true,
       writeTempFile:false
     }).then(image => {
-      console.log(image);
+      //es6 add captured image to selectedImageArray array.
+      this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] })
+      this.setState({imageSelected:true});
     });
   }
 
@@ -68,7 +72,10 @@ class PostAd extends Component {
       multiple:true,
       writeTempFile:false
     }).then(images => {
-      console.log(images);
+      console.log(images)
+      //es6 add captured image to selectedImageArray array.
+      this.setState({ selectedImageArray: [...this.state.selectedImageArray, images] });
+      this.setState({imageSelected:true});
     });
   }
 
