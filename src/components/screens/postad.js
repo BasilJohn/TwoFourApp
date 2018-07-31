@@ -28,10 +28,21 @@ const window = Dimensions.get("window");
 
 export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width / 7;
-class PostAd extends Component {
-  static navigatorStyle = noNavTabbarNavigation;
-  state = { selectedImageArray: [], imageSelected: false };
 
+const IMAGE_FOLDERICON_DEFAULT = require("../../assets/img/addgallery.png");
+
+class PostAd extends Component {
+  
+  static navigatorStyle = noNavTabbarNavigation;
+  state = { 
+    selectedImageArray: [],
+     imageSelected: false, 
+     defaultImage:require("../../assets/img/addgallery.png"),
+     imageOne:require("../../assets/img/addgallery.png"),
+     imageTwo:require("../../assets/img/addgallery.png"),
+     imageThree:require("../../assets/img/addgallery.png")
+      };
+ 
  openHomeScreen(){
     this.props.navigator.push({
       screen: "TwoFourApp.Home"
@@ -76,11 +87,35 @@ class PostAd extends Component {
 
   setSelectedImage(imageArray){
 
-    console.log(imageArray);
+    // if(imageArray){
+    //   imageArray.map((image,i) => (
+    //     //console.log(image.data)
+        
+    //     //this.setState({imageOne:require('image.path')})
+       
+    //   ));
+    // }
+    
+   // console.log(imageArray)
+
+    imageArray ? this.setState({imageOne:{uri:'data:image/jpeg;base64,${'+imageArray[0].data+'}'}}) : this.setState({imageOne:IMAGE_FOLDERICON_DEFAULT});
+      imageArray ? this.setState({imageTwo:{uri:'data:image/jpeg;base64,${'+imageArray[1].data+'}'}}) :this.setState({imageTwo:IMAGE_FOLDERICON_DEFAULT});
+      imageArray ? this.setState({imageThree:{uri:'data:image/jpeg;base64,${'+imageArray[2].data+'}'}}) :this.setState({imageThree:IMAGE_FOLDERICON_DEFAULT});
+    
+  //  imageArray ? this.setState({imageOne:{uri:'data:image/jpeg;base64,${'+imageArray[0].path+'}'}}) :this.setState({imageOne:IMAGE_FOLDERICON_DEFAULT})
+  //  imageArray ? this.setState({imageTwo:{uri:'data:image/jpeg;base64,${'+imageArray[1].path+'}'}}) :this.setState({imageTwo:IMAGE_FOLDERICON_DEFAULT});
+  //  imageArray ? this.setState({imageThree:{uri:'data:image/jpeg;base64,${'+imageArray[2].path+'}'}}) :this.setState({imageThree:IMAGE_FOLDERICON_DEFAULT});
   }
 
+   componentDidMount(){
+
+    this.setSelectedImage(this.props.selectedImageArray);
+     
+   }
   render() {
-    return (
+
+    console.log(this.state.imageOne)
+  return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar
           navigator={this.props.navigator}
@@ -124,16 +159,26 @@ class PostAd extends Component {
                   </View>
                 </View>
                 <View style={[CommonStyles.addedImageContainer]}>
-                
-                {this.state.selectedImageArray.map((image, i) => (
-                  <View key={i} style={[CommonStyles.paddingTenRight]}>
+             
+                <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    key={i}
-                    source={{uri: `data:image/jpeg;base64,${image.data}`}}
+                    source= {this.state.imageOne}
                     style={{ width: 57, height: 52 }}
                   />
                   </View>
-               ))}
+                  <View style={[CommonStyles.paddingTenRight]}>
+                  <Image
+                    source={this.state.imageOne}
+                    style={{ width: 57, height: 52 }}
+                  />
+                  </View>
+                  <View style={[CommonStyles.paddingTenRight]}>
+                  <Image
+                    source={this.state.imageOne}
+                    style={{ width: 57, height: 52 }}
+                  />
+                  </View>
+                 
                 </View>
               </View>
               <View style={{height:86}}>
