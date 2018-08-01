@@ -38,12 +38,19 @@ class PostAd extends Component {
     selectedImageArray: [],
      imageSelected: false, 
      defaultImage:require("../../assets/img/addgallery.png"),
-     imageOne:require("../../assets/img/addgallery.png"),
-     imageTwo:require("../../assets/img/addgallery.png"),
-     imageThree:require("../../assets/img/addgallery.png")
+     image0:require("../../assets/img/addgallery.png"),
+     image1:require("../../assets/img/addgallery.png"),
+     image2:require("../../assets/img/addgallery.png")
       };
  
  openHomeScreen(){
+
+  ImagePicker.clean().then(() => {
+    console.log('removed all tmp images from tmp directory');
+  }).catch(e => {
+    alert(e);
+  });
+
     this.props.navigator.push({
       screen: "TwoFourApp.Home"
     });
@@ -62,7 +69,7 @@ class PostAd extends Component {
       includeBase64: true,
       writeTempFile:false
     }).then(image => {
-      //es6 add captured image to selectedImageArray array.
+      //es6 rest operator add captured image to selectedImageArray array.
       this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] });
       this.setState({imageSelected:true});
       this.setSelectedImage(this.state.selectedImageArray);
@@ -76,10 +83,12 @@ class PostAd extends Component {
       cropping: false,
       includeBase64: true,
       multiple:true,
-      writeTempFile:false
+      writeTempFile:true
     }).then(images => {
-      //es6 add captured image to selectedImageArray array.
-      this.setState({ selectedImageArray: [...this.state.selectedImageArray, images] });
+      //es6 rest operator add captured image to selectedImageArray array.
+      images.map((image,i) => (
+        this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] })
+      ));
       this.setState({imageSelected:true});
       this.setSelectedImage(this.state.selectedImageArray);
     });
@@ -87,24 +96,19 @@ class PostAd extends Component {
 
   setSelectedImage(imageArray){
 
-    // if(imageArray){
-    //   imageArray.map((image,i) => (
-    //     //console.log(image.data)
-        
-    //     //this.setState({imageOne:require('image.path')})
-       
-    //   ));
-    // }
-    
-   // console.log(imageArray)
+     if(imageArray) {
+     imageArray.map((image,i) => (
+     this.state["image"+i]== IMAGE_FOLDERICON_DEFAULT?this.setState({["image"+i]: {uri: image.path}}):IMAGE_FOLDERICON_DEFAULT
+     ));
+      
+     }
+     else{
+      this.setState({image0:IMAGE_FOLDERICON_DEFAULT})
+      this.setState({image1:IMAGE_FOLDERICON_DEFAULT})
+      this.setState({image2:IMAGE_FOLDERICON_DEFAULT}) 
+     }
 
-    imageArray ? this.setState({imageOne:{uri:'data:image/jpeg;base64,${'+imageArray[0].data+'}'}}) : this.setState({imageOne:IMAGE_FOLDERICON_DEFAULT});
-      imageArray ? this.setState({imageTwo:{uri:'data:image/jpeg;base64,${'+imageArray[1].data+'}'}}) :this.setState({imageTwo:IMAGE_FOLDERICON_DEFAULT});
-      imageArray ? this.setState({imageThree:{uri:'data:image/jpeg;base64,${'+imageArray[2].data+'}'}}) :this.setState({imageThree:IMAGE_FOLDERICON_DEFAULT});
     
-  //  imageArray ? this.setState({imageOne:{uri:'data:image/jpeg;base64,${'+imageArray[0].path+'}'}}) :this.setState({imageOne:IMAGE_FOLDERICON_DEFAULT})
-  //  imageArray ? this.setState({imageTwo:{uri:'data:image/jpeg;base64,${'+imageArray[1].path+'}'}}) :this.setState({imageTwo:IMAGE_FOLDERICON_DEFAULT});
-  //  imageArray ? this.setState({imageThree:{uri:'data:image/jpeg;base64,${'+imageArray[2].path+'}'}}) :this.setState({imageThree:IMAGE_FOLDERICON_DEFAULT});
   }
 
    componentDidMount(){
@@ -162,19 +166,19 @@ class PostAd extends Component {
              
                 <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source= {this.state.imageOne}
+                    source= {this.state.image0}
                     style={{ width: 57, height: 52 }}
                   />
                   </View>
                   <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={this.state.imageOne}
+                    source={this.state.image1}
                     style={{ width: 57, height: 52 }}
                   />
                   </View>
                   <View style={[CommonStyles.paddingTenRight]}>
                   <Image
-                    source={this.state.imageOne}
+                    source={this.state.image2}
                     style={{ width: 57, height: 52 }}
                   />
                   </View>
