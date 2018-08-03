@@ -34,15 +34,17 @@ const IMAGE_FOLDERICON_DEFAULT = require("../../assets/img/addgallery.png");
 
 class PostAd extends Component {
   
+  constructor(props) {
+    super(props);
+    //this.setDefaultImage=this.setDefaultImage.bind(this);
+    
+  }
   static navigatorStyle = noNavTabbarNavigation;
   state = { 
-     selectedImageArray: [],
-     imageSelected: false, 
-     defaultImage:require("../../assets/img/addgallery.png"),
-     image0:require("../../assets/img/addgallery.png"),
-     image1:require("../../assets/img/addgallery.png"),
-     image2:require("../../assets/img/addgallery.png")
-      };
+    selectedImageArray: [],
+    imageSelected: false, 
+    defaultImage:require("../../assets/img/addgallery.png"),
+    }; 
  
  openHomeScreen(){
 
@@ -73,22 +75,22 @@ class PostAd extends Component {
       //es6 rest operator add captured image to selectedImageArray array.
       this.setState({ selectedImageArray: [...this.state.selectedImageArray, image] });
       this.setState({imageSelected:true});
-      this.setSelectedImage(this.state.selectedImageArray);
+      this.setSelectedImage();
     });
   }
-  deleteImage(value){
-    const arr = value.split("image")
-    this.setState({ selectedImageArray: this.state.selectedImageArray.splice(arr[1],1) });
-    this.setState({[value]:IMAGE_FOLDERICON_DEFAULT});
-    this.setSelectedImage(this.state.selectedImageArray,"delete");
+   deleteImage=value=>{
+    this.state.selectedImageArray.splice(0,1);
+    this.setState({ selectedImageArray: this.state.selectedImageArray});
+    this.setSelectedImage();
    
   }
-  setDefaultImage(imageSelected){
+  setDefaultImage=imageSelected=>{
       
-    this.setState({defaultImage: imageSelected})
+     
+    this.setState({defaultImage: {uri: imageSelected.path}});
     
   }
-  openPicker() {
+  openPicker(){
     ImagePicker.openPicker({
       width: 300,
       height: 400,
@@ -108,48 +110,37 @@ class PostAd extends Component {
       
       this.setState({imageSelected:true});
       
-      this.setSelectedImage(this.state.selectedImageArray);
+      this.setSelectedImage();
       
     });
   }
 
-  setSelectedImage(imageArray,action){
+  setSelectedImage=()=>{
     
-   
-    if(imageArray && action=="delete") {
+   if(this.state.selectedImageArray.length>0) {
     
-      
-      imageArray.map((image,i) => (
-       this.setState({["image"+i]: {uri: image.path}})
-    ));
-    if(imageArray.length<3){
-     
-      this.setState({image2: IMAGE_FOLDERICON_DEFAULT})
-    }
-    }
-
-
-     if(imageArray && action==undefined) {
-     
-     imageArray.map((image,i) => (
-         this.state["image"+i]== IMAGE_FOLDERICON_DEFAULT?this.setState({["image"+i]: {uri: image.path}}):IMAGE_FOLDERICON_DEFAULT
-     ));
-     this.setState({defaultImage: "image0"})
+    this.setState({defaultImage: {uri: this.state.selectedImageArray[0].path}})
     
-     }
-     else if(action==undefined){
-      this.setState({image0:IMAGE_FOLDERICON_DEFAULT})
-      this.setState({image1:IMAGE_FOLDERICON_DEFAULT})
-      this.setState({image2:IMAGE_FOLDERICON_DEFAULT}) 
      }
   }
 
    componentDidMount(){
 
-    this.setSelectedImage(this.props.selectedImageArray);
+    this.setSelectedImage();
      
    }
   render() {
+
+    var imageList= this.state.selectedImageArray.map(function(image, index){
+      return <View key={index} style={[CommonStyles.paddingTenRight]}>
+      <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,image)}>
+        <Image
+          source= {{uri:image.path}}
+          style={{ width: 57, height: 52 }}
+        />
+        </TouchableWithoutFeedback>
+        </View>
+    },this);
 
      return (
       <View style={CommonStyles.normalPage}>
@@ -174,7 +165,7 @@ class PostAd extends Component {
           >
             <View>
               <View style={CommonStyles.addImageContainer}>
-              {renderIf( this.state.selectedImageArray.length<3,<View style={[CommonStyles.row]}>
+              {renderIf( this.state.selectedImageArray.length<1,<View style={[CommonStyles.row]}>
                  <View >
                     <TouchableWithoutFeedback onPress={this.openCamera.bind(this)}>
                       <Image
@@ -195,13 +186,13 @@ class PostAd extends Component {
                   </View>
                 </View>
               )}
-              {renderIf(this.state.selectedImageArray.length>2,<View style={[CommonStyles.row]}>
+              {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.row]}>
                 
                 <View style={{borderWidth: 1,borderColor: "black",borderStyle: "dotted" }}>
                     <View>
                     <TouchableWithoutFeedback >
                       <Image
-                        source={this.state[this.state.defaultImage]}
+                        source={this.state.defaultImage}
                         style={{ width: 120, height: 120 }}
                         resizeMode="cover"
                       />
@@ -220,32 +211,15 @@ class PostAd extends Component {
                </View>
             )}
                 <View style={[CommonStyles.addedImageContainer]}>
-             
-                <View style={[CommonStyles.paddingTenRight]}>
-                <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,"image0")}>
-                  <Image
-                    source= {this.state.image0}
-                    style={{ width: 57, height: 52 }}
-                  />
-                  </TouchableWithoutFeedback>
-                  </View>
-                  <View style={[CommonStyles.paddingTenRight]}>
-                  <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,"image1")}>
-                  <Image
-                    source={this.state.image1}
-                    style={{ width: 57, height: 52 }}
-                  />
-                  </TouchableWithoutFeedback>
-                  </View>
-                  <View style={[CommonStyles.paddingTenRight]}>
-                  <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,"image2")}>
-                  <Image
-                    source={this.state.image2}
-                    style={{ width: 57, height: 52 }}
-                  />
-                  </TouchableWithoutFeedback>
-                  </View>
-                 
+                {imageList}
+                {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.paddingTenRight]}>
+                  <TouchableWithoutFeedback >
+                    <Image
+                      source= {IMAGE_FOLDERICON_DEFAULT}
+                      style={{ width: 57, height: 52 }}
+                    />
+                    </TouchableWithoutFeedback>
+                    </View>)}
                 </View>
               </View>
               <View style={{height:86}}>
