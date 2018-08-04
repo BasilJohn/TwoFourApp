@@ -48,7 +48,8 @@ class PostAd extends Component {
     imageSelected: true, 
     defaultImage:require("../../assets/img/addgallery.png"),
     imageData:[],
-    modalVisible: false
+    modalVisible: false,
+    defaultImageIndex:0
     }; 
  
  openHomeScreen(){
@@ -90,14 +91,16 @@ class PostAd extends Component {
     });
   }
    deleteImage=value=>{
-     console.log(value)
-    this.state.selectedImageArray.splice(0,1);
+     
+    this.state.selectedImageArray.splice(this.state.defaultImageIndex,1);
     this.setState({ selectedImageArray: this.state.selectedImageArray});
     this.setSelectedImage();
    
   }
-  setDefaultImage=imageSelected=>{
-        this.setState({defaultImage: {uri: imageSelected.path}});
+  setDefaultImage=(imageSelected,index)=>{
+      
+        this.setState({defaultImage: {uri:imageSelected.path}});
+        this.setState({defaultImageIndex:index});
   }
   openPicker(){
     this.setState({modalVisible: false});
@@ -152,7 +155,7 @@ class PostAd extends Component {
 
     var imageList= this.state.selectedImageArray.map(function(image, index){
       return <View key={index} style={[CommonStyles.paddingTenRight]}>
-      <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,image)}>
+      <TouchableWithoutFeedback onPress={this.setDefaultImage.bind(this,image,index)}>
         <Image
           source= {{uri:image.path}}
           style={{ width: 57, height: 52 }}
@@ -237,7 +240,8 @@ class PostAd extends Component {
                 <View style={[CommonStyles.addedImageContainer]}>
                 
                 {imageList}
-                {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.paddingTenRight]}>
+                {renderIf(this.state.selectedImageArray.length>=1 &&
+                  this.state.selectedImageArray.length<=4,<View style={[CommonStyles.paddingTenRight]}>
                   <TouchableWithoutFeedback onPress={this.setModalVisible.bind(this,true)}>
                     <Image
                       source= {IMAGE_FOLDERICON_DEFAULT}
