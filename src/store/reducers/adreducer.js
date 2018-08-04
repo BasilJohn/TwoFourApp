@@ -6,12 +6,13 @@ import {
   IS_NEGOTAIBLE_CHANGED,
   IS_FREE_CHANGED,
   DESCRIPTION_CHANGED,
-  POST_AD_SUCCESS
+  POST_AD_SUCCESS,
+  IMAGE_SELECTED
 } from "../actions/types";
 
 const INITIAL_STATE = {
   title: "",
-  imagePickerArray: [],
+  selectedImageArray: [],
   cameraImage:null,
   categoryId: null,
   price: null,
@@ -39,6 +40,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, description: action.payload };
     case POST_AD_SUCCESS:
       return { ...state, isPostAdSuccess: action.payload };
+    case IMAGE_SELECTED:
+      return { ...state, selectedImageArray: action.payload };
     default:
       return state;
   }

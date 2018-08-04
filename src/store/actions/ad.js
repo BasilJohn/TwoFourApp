@@ -6,7 +6,8 @@ import {
   IS_NEGOTAIBLE_CHANGED,
   IS_FREE_CHANGED,
   DESCRIPTION_CHANGED,
-  POST_AD_SUCCESS
+  POST_AD_SUCCESS,
+  IMAGE_SELECTED
 } from "./types";
 
 export const titleChanged = text => {
@@ -51,37 +52,47 @@ export const descriptionChanged = text => {
   };
 };
 
+export const imageArraySelected = image => {
+  return {
+    type: IMAGE_SELECTED,
+    payload: image
+  };
+};
+
 export const postAd = (postAdProps) => {
   
-   return dispatch => {
-    //dispatch(itemsIsLoading(true));
-     fetch("http://68.66.233.230:8081/api/v1/postAd",{
-      method: 'POST',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        supplierId: 1,
-        category: 1,
-        productName: postAdProps.title,
-        condition: 'this.state.password',
-        description:postAd.description,
-        pictures:[],
-        price:postAd.price
-      })
-     })
-       .then(response => {
-         if (!response.ok) {
-           throw Error(response.statusText);
-         }
-         //dispatch(itemsIsLoading(false));
-         return response;
+  console.log(postAdProps);
+    return dispatch => {
+     //dispatch(itemsIsLoading(true));
+      fetch("http://68.66.233.230:8081/api/v1/postAd",{
+       method: 'POST',
+       headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+         supplierId: 1,
+         category: 1,
+         productName: postAdProps.title,
+         condition: 'this.state.password',
+         description:postAdProps.description,
+         pictures:postAdProps.imageData,
+         price:postAdProps.price
        })
-       .then(response => response.json())
-       .then(categories =>
-         dispatch({ type: POST_AD_SUCCESS, payload: true })
-       )
-       .catch();
-   };
+      })
+        .then(response => {
+          if (!response.ok) {
+           // throw Error(response.statusText);
+           console.log(response)
+          }
+          //dispatch(itemsIsLoading(false));
+          return response;
+        })
+        .then(response => response.json())
+        .then(categories =>
+          console.log("response.statusText")
+          //dispatch({ type: POST_AD_SUCCESS, payload: true })
+        )
+        .catch();
+    };
 };

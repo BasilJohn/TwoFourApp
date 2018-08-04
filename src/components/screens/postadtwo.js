@@ -27,7 +27,8 @@ import {
   isNegotiableChanged,
   isFreeChanged,
   descriptionChanged,
-  postAd
+  postAd,
+  selectedImageArray
 } from "../../store/actions/ad";
 import { connect } from "react-redux";
 
@@ -225,8 +226,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ ad }) => {
-  const { price, isNegotiable, isFree, description,title,categoryId } = ad;
-  return { price, isNegotiable, isFree, description,title,categoryId };
+  const { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray } = ad;
+  return { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray };
 };
 
 export default connect(mapStateToProps, {

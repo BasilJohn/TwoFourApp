@@ -19,7 +19,7 @@ import CommonStyles, {
 } from "../../styles/commonStyles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
-import { titleChanged } from "../../store/actions/ad";
+import { titleChanged,imageArraySelected } from "../../store/actions/ad";
 import { connect } from "react-redux";
 import { _ } from "lodash";
 import renderIf from '../../common/renderif';
@@ -44,6 +44,7 @@ class PostAd extends Component {
     selectedImageArray: [],
     imageSelected: false, 
     defaultImage:require("../../assets/img/addgallery.png"),
+    imageData:[]
     }; 
  
  openHomeScreen(){
@@ -85,10 +86,7 @@ class PostAd extends Component {
    
   }
   setDefaultImage=imageSelected=>{
-      
-     
-    this.setState({defaultImage: {uri: imageSelected.path}});
-    
+        this.setState({defaultImage: {uri: imageSelected.path}});
   }
   openPicker(){
     ImagePicker.openPicker({
@@ -115,13 +113,22 @@ class PostAd extends Component {
     });
   }
 
-  setSelectedImage=()=>{
+  setSelectedImage(){
     
    if(this.state.selectedImageArray.length>0) {
     
+    
+     this.state.selectedImageArray.map((image,index)=>{
+
+      this.setState(prevState => ({
+        imageData: [...prevState.imageData, image.data]
+    }))
+     });  
+     
     this.setState({defaultImage: {uri: this.state.selectedImageArray[0].path}})
     
-     }
+    }
+   this.props.imageArraySelected(this.state.imageData);
   }
 
    componentDidMount(){
@@ -324,4 +331,4 @@ const mapStateToProps = ({ ad }) => {
   return { title };
 };
 
-export default connect(mapStateToProps, { titleChanged })(PostAd);
+export default connect(mapStateToProps, { titleChanged,imageArraySelected })(PostAd);
