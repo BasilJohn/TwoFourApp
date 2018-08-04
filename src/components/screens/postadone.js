@@ -11,68 +11,81 @@ import {
 import { ImageButton, GradientNavigationBar } from "../common";
 import CommonStyles, { deviceWidth } from "../../styles/commonStyles";
 import { SearchBar } from "react-native-elements";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { categorySelected } from "../../store/actions/ad";
 import { connect } from "react-redux";
-import { _ } from "lodash";
 
 var data = [
   {
     id: 1,
     Category: "Cars & Vehicles",
-    Image: require("../../assets/img/car_s.png")
+    Image: require("../../assets/img/car_s.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 2,
     Category: "Electronics & Gadgets",
-    Image: require("../../assets/img/electronics.png")
+    Image: require("../../assets/img/electronics.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 3,
     Category: "Real Estate",
-    Image: require("../../assets/img/real.png")
+    Image: require("../../assets/img/real.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 4,
     Category: "Sports",
-    Image: require("../../assets/img/sports.png")
+    Image: require("../../assets/img/sports.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 5,
     Category: "Fashion & Beauty",
-    Image: require("../../assets/img/fashion.png")
+    Image: require("../../assets/img/fashion.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 6,
     Category: "Pets & Animals",
-    Image: require("../../assets/img/pets.png")
+    Image: require("../../assets/img/pets.png"),
+    style:"styles.categoryItem"
   },
   {
     id: 7,
     Category: "Job Openings",
-    Image: require("../../assets/img/job.png")
+    Image: require("../../assets/img/job.png"),
+    style:"styles.categoryItem"
   }
 ];
 
-class PostAd extends Component {
+class PostAd extends React.PureComponent {
   static navigatorStyle = noNavTabbarNavigation;
+  state = { categoryList: [],selected:""};
 
-  onCategorySelectetd(categoryId, id) {
+  onCategorySelectetd(categoryId, selectedItem) {
+    // this.setState((state) => {
+    //   // copy the map rather than modifying state.
+    //   const selected = new Map(state.selected);
+    //   this.state.selected.has(categoryId) ? selected.delete(categoryId, !selected.get(categoryId)) : selected.set(categoryId, !selected.get(categoryId));
+    //   return {selected};
+    // });
+    this.setState({selected:categoryId});
     this.props.categorySelected(categoryId);
   }
 
-  state = { categoryList: [] };
 
   _keyExtractor = (item, index) => item.id;
 
   renderRowItem = itemData => {
-    //console.log(itemData);
-    return (
+    
+     const selectedRow=this.state.selected ===itemData.item.id;
+     return (
       <TouchableOpacity
-        onPress={this.onCategorySelectetd.bind(this, itemData.item.id)}
+        onPress={this.onCategorySelectetd.bind(this, itemData.item.id,itemData)}
       >
-        <View style={styles.categoryItem}>
+        <View style={selectedRow?styles.categoryItemSelected:styles.categoryItem}>
           {/* <Ionicons
             style={styles.categoryItemAvatarStyle}
             name={itemData.item.Image}
@@ -169,6 +182,7 @@ class PostAd extends Component {
           <View style={styles.middleControlStyle}>
             <FlatList
               data={this.state.categoryList}
+              extraData={this.state}
               keyExtractor={this._keyExtractor}
               renderItem={this.renderRowItem}
             />
@@ -258,6 +272,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderBottomWidth: 0.3,
     borderColor: "#696969"
+  },
+  categoryItemSelected: {
+    flex: 1,
+    flexDirection: "row",
+    padding: 5,
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 60,
+    borderBottomWidth: 0.3,
+    borderColor: "#696969",
+    backgroundColor:'#343638',
+    
   },
   footerControlStyle: {
     flex: 0.5,

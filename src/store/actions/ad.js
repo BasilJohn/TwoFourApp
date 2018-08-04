@@ -72,7 +72,7 @@ export const postAd = (postAdProps) => {
        },
        body: JSON.stringify({
          supplierId: 1,
-         category: 1,
+         category: postAdProps.categoryId,
          productName: postAdProps.title,
          condition: 'this.state.password',
          description:postAdProps.description,
