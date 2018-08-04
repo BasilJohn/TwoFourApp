@@ -14,7 +14,7 @@ import { SearchBar } from "react-native-elements";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { categorySelected } from "../../store/actions/ad";
 import { connect } from "react-redux";
-
+import { _ } from 'lodash';
 var data = [
   {
     id: 1,
@@ -62,19 +62,22 @@ var data = [
 
 class PostAd extends React.PureComponent {
   static navigatorStyle = noNavTabbarNavigation;
-  state = { categoryList: [],selected:""};
+  state = { categoryList: [],selected:"",fullData:[]};
 
   onCategorySelectetd(categoryId, selectedItem) {
-    // this.setState((state) => {
-    //   // copy the map rather than modifying state.
-    //   const selected = new Map(state.selected);
-    //   this.state.selected.has(categoryId) ? selected.delete(categoryId, !selected.get(categoryId)) : selected.set(categoryId, !selected.get(categoryId));
-    //   return {selected};
-    // });
+  
     this.setState({selected:categoryId});
     this.props.categorySelected(categoryId);
   }
 
+  filterCategory=(text)=>{
+    
+    const categoryList=_.filter(this.state.fullData,item=>{
+           return item.Category.toString().toLowerCase().includes(text.toLowerCase())
+    });
+    this.setState({selected:'',categoryList})
+    
+  }
 
   _keyExtractor = (item, index) => item.id;
 
@@ -148,7 +151,8 @@ class PostAd extends React.PureComponent {
 
   getCategoryList = () => {
     this.setState({ categoryList: data });
-    //console.log(this.state.categoryList)
+    this.setState({ fullData: data });
+    
   };
   render() {
     return (
@@ -177,6 +181,8 @@ class PostAd extends React.PureComponent {
               inputStyle={styles.searchBarInputStyle}
               placeholder="Search Category"
               placeholderTextColor={'#969696'}
+              value={this.state.searchText}          
+              onChangeText={this.filterCategory.bind(this)}
             />
           </View>
           <View style={styles.middleControlStyle}>
@@ -187,29 +193,30 @@ class PostAd extends React.PureComponent {
               renderItem={this.renderRowItem}
             />
           </View>
-          <View style={[CommonStyles.introPageButtonBox, styles.footerControl]}>
+         
+        </View>
+        <View style={[CommonStyles.introPageButtonBox, styles.footerControl]}>
+        <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
+            <ImageButton
+              style={CommonStyles.backButton}
+              styleImage={CommonStyles.backButton}
+              appearance={{
+                normal: require("../../assets/img/postadbackward.png"),
+                highlight: require("../../assets/img/postadbackward.png")
+              }}
+              onPress={this._prevScreenApp.bind(this)}
+            />
+          </View>
           <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
-              <ImageButton
-                style={CommonStyles.backButton}
-                styleImage={CommonStyles.backButton}
-                appearance={{
-                  normal: require("../../assets/img/postadbackward.png"),
-                  highlight: require("../../assets/img/postadbackward.png")
-                }}
-                onPress={this._prevScreenApp.bind(this)}
-              />
-            </View>
-            <View style={[CommonStyles.introPageButton,{paddingBottom:10}]}>
-              <ImageButton
-                style={CommonStyles.backButton}
-                styleImage={CommonStyles.backButton}
-                appearance={{
-                  normal: require("../../assets/img/postadforward.png"),
-                  highlight: require("../../assets/img/postadforward.png")
-                }}
-                onPress={this._handleClickNextButton.bind(this)}
-              />
-            </View>
+            <ImageButton
+              style={CommonStyles.backButton}
+              styleImage={CommonStyles.backButton}
+              appearance={{
+                normal: require("../../assets/img/postadforward.png"),
+                highlight: require("../../assets/img/postadforward.png")
+              }}
+              onPress={this._handleClickNextButton.bind(this)}
+            />
           </View>
         </View>
       </View>

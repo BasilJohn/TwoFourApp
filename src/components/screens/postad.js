@@ -24,7 +24,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { titleChanged,imageArraySelected } from "../../store/actions/ad";
 import { connect } from "react-redux";
-import { _ } from "lodash";
 import renderIf from '../../common/renderif';
 import ImagePicker from "react-native-image-crop-picker";
 
@@ -55,7 +54,7 @@ class PostAd extends Component {
  openHomeScreen(){
 
   ImagePicker.clean().then(() => {
-    console.log('removed all tmp images from tmp directory');
+    
   }).catch(e => {
     alert(e);
   });

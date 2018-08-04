@@ -56,7 +56,7 @@ class SlidingMenu extends React.Component {
   _keyExtractor = (item, index) => index;
 
   renderRowItem = itemData => {
-    console.log(itemData)
+    
     return (
       <View style={styles.imageContainerStyle}>
         <View style={[{ paddingLeft: 5, paddingBottom: 10},CommonStyles.alignCenter]}>
