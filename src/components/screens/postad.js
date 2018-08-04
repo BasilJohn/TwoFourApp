@@ -14,7 +14,7 @@ import {
   TouchableHighlight,
 
 } from "react-native";
-import { ImageButton, GradientNavigationBar,LinearGradientButton } from "../common";
+import { ImageButton, GradientNavigationBar,LinearGradientButton,Spinner } from "../common";
 import CommonStyles, {
   deviceHeight,
   shadowOpt,
@@ -45,7 +45,7 @@ class PostAd extends Component {
   static navigatorStyle = noNavTabbarNavigation;
   state = { 
     selectedImageArray: [],
-    imageSelected: false, 
+    imageSelected: true, 
     defaultImage:require("../../assets/img/addgallery.png"),
     imageData:[],
     modalVisible: false
@@ -75,6 +75,7 @@ class PostAd extends Component {
 
   openCamera() {
     this.setState({modalVisible: false});
+    this.setState({imageSelected: false});
     ImagePicker.openCamera({
       width: 300,
       height: 400,
@@ -89,6 +90,7 @@ class PostAd extends Component {
     });
   }
    deleteImage=value=>{
+     console.log(value)
     this.state.selectedImageArray.splice(0,1);
     this.setState({ selectedImageArray: this.state.selectedImageArray});
     this.setSelectedImage();
@@ -99,6 +101,7 @@ class PostAd extends Component {
   }
   openPicker(){
     this.setState({modalVisible: false});
+    this.setState({imageSelected: false});
     ImagePicker.openPicker({
       width: 300,
       height: 400,
@@ -180,6 +183,7 @@ class PostAd extends Component {
               CommonStyles.spaceAround]}
           >
             <View>
+            
               <View style={CommonStyles.addImageContainer}>
               {renderIf( this.state.selectedImageArray.length<1,<View style={[CommonStyles.row]}>
                  <View >
@@ -202,6 +206,10 @@ class PostAd extends Component {
                   </View>
                 </View>
               )}
+             
+             {renderIf(!this.state.imageSelected && this.state.selectedImageArray.length<1,<View  style={styles.spinnerView}>
+                <Spinner/>
+              </View>) }
               {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.row]}>
                 
                 <View style={{borderWidth: 1,borderColor: "black",borderStyle: "dotted" }}>
@@ -227,6 +235,7 @@ class PostAd extends Component {
                </View>
             )}
                 <View style={[CommonStyles.addedImageContainer]}>
+                
                 {imageList}
                 {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.paddingTenRight]}>
                   <TouchableWithoutFeedback onPress={this.setModalVisible.bind(this,true)}>
@@ -236,6 +245,7 @@ class PostAd extends Component {
                     />
                     </TouchableWithoutFeedback>
                     </View>)}
+                    
                 </View>
               </View>
               <View style={{height:86}}>
@@ -393,6 +403,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#00000080',
     opacity:50
+  },
+  spinnerView:{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

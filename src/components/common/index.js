@@ -13,3 +13,4 @@ export * from "./gradientnavbar";
 export * from "./footertab";
 export * from "./homesearchbar";
 export * from "./whitebutton";
+export * from "./Spinner";
