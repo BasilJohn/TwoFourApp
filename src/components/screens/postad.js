@@ -9,9 +9,12 @@ import {
   ScrollView,
   Image,
   TouchableWithoutFeedback,
-  Alert
+  Alert,
+  Modal,
+  TouchableHighlight,
+
 } from "react-native";
-import { ImageButton, GradientNavigationBar } from "../common";
+import { ImageButton, GradientNavigationBar,LinearGradientButton } from "../common";
 import CommonStyles, {
   deviceHeight,
   shadowOpt,
@@ -44,7 +47,8 @@ class PostAd extends Component {
     selectedImageArray: [],
     imageSelected: false, 
     defaultImage:require("../../assets/img/addgallery.png"),
-    imageData:[]
+    imageData:[],
+    modalVisible: false
     }; 
  
  openHomeScreen(){
@@ -61,11 +65,16 @@ class PostAd extends Component {
 
   }
 
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
   onTitleChanged(text) {
     this.props.titleChanged(text);
   }
 
   openCamera() {
+    this.setState({modalVisible: false});
     ImagePicker.openCamera({
       width: 300,
       height: 400,
@@ -89,6 +98,7 @@ class PostAd extends Component {
         this.setState({defaultImage: {uri: imageSelected.path}});
   }
   openPicker(){
+    this.setState({modalVisible: false});
     ImagePicker.openPicker({
       width: 300,
       height: 400,
@@ -107,7 +117,6 @@ class PostAd extends Component {
       ));
       
       this.setState({imageSelected:true});
-      
       this.setSelectedImage();
       
     });
@@ -220,7 +229,7 @@ class PostAd extends Component {
                 <View style={[CommonStyles.addedImageContainer]}>
                 {imageList}
                 {renderIf(this.state.selectedImageArray.length>=1,<View style={[CommonStyles.paddingTenRight]}>
-                  <TouchableWithoutFeedback >
+                  <TouchableWithoutFeedback onPress={this.setModalVisible.bind(this,true)}>
                     <Image
                       source= {IMAGE_FOLDERICON_DEFAULT}
                       style={{ width: 57, height: 52 }}
@@ -266,6 +275,59 @@ class PostAd extends Component {
               />
             </View>
           </View>
+          <Modal
+          animationType="fade"
+          transparent={true}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={styles.modal}>
+            <View  style={{
+              width: 300,
+              height: 250,backgroundColor: '#fff', padding: 20}}>
+              <View style={CommonStyles.addImageContainer}>
+              <View style={[CommonStyles.row]}>
+                 <View >
+                    <TouchableWithoutFeedback onPress={this.openCamera.bind(this)}>
+                      <Image
+                        source={require("../../assets/img/dottedcamera.png")}
+                        style={{ width: 120, height: 120 }}
+                        resizeMode="cover"
+                      />
+                    </TouchableWithoutFeedback>
+                  </View>
+                  <View style={{paddingLeft:30}}>
+                    <TouchableWithoutFeedback onPress={this.openPicker.bind(this)}>
+                      <Image
+                        source={require("../../assets/img/dottedgallery.png")}
+                        style={{ width: 120, height: 120 }}
+                        resizeMode="cover"
+                      />
+                    </TouchableWithoutFeedback>
+                  </View>
+                </View>
+                <View style={[CommonStyles.buttonBox,{paddingTop:40}]}>
+                <LinearGradientButton
+                  colorOne={"#3D88A7"}
+                  colorTwo={"#3972A0"}
+                  colorThree={"#355F9A"}
+                  buttonText={"Cancel"}
+                  height={50}
+                  width={80}
+                  borderRadius={60}
+                  textPaddingTop={15}
+                  textColor={"#FFFFFF"}
+                  onPress={() => {
+                    this.setModalVisible(false);
+                  }}
+                />
+              </View>
+                </View>
+               
+            </View>
+          </View>
+        </Modal>
         </ScrollView>
       </View>
     );
@@ -323,6 +385,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 110,
     top: -15,
+  },
+  modal:{
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00000080',
+    opacity:50
   }
 });
 
