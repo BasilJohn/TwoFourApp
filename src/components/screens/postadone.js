@@ -64,10 +64,10 @@ class PostAd extends React.PureComponent {
   static navigatorStyle = noNavTabbarNavigation;
   state = { categoryList: [],selected:"",fullData:[]};
 
-  onCategorySelectetd(categoryId, selectedItem) {
+  onCategorySelectetd(categoryId, categoryName) {
   
     this.setState({selected:categoryId});
-    this.props.categorySelected(categoryId);
+    this.props.categorySelected(categoryName);
   }
 
   filterCategory=(text)=>{
@@ -86,7 +86,7 @@ class PostAd extends React.PureComponent {
      const selectedRow=this.state.selected ===itemData.item.id;
      return (
       <TouchableOpacity
-        onPress={this.onCategorySelectetd.bind(this, itemData.item.id,itemData)}
+        onPress={this.onCategorySelectetd.bind(this, itemData.item.id,itemData.item.Category)}
       >
         <View style={selectedRow?styles.categoryItemSelected:styles.categoryItem}>
           {/* <Ionicons

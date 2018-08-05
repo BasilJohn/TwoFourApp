@@ -61,10 +61,10 @@ export const imageArraySelected = image => {
 
 export const postAd = (postAdProps) => {
   
-  console.log(postAdProps);
+  //console.log(postAdProps);
     return dispatch => {
      //dispatch(itemsIsLoading(true));
-      fetch("http://68.66.233.230:8081/api/v1/postAd",{
+      fetch("http://68.66.233.230:8082/api/v1/postProduct",{
        method: 'POST',
        headers: {
            'Accept': 'application/json',
@@ -72,27 +72,27 @@ export const postAd = (postAdProps) => {
        },
        body: JSON.stringify({
          supplierId: 1,
-         category: postAdProps.categoryId,
+         categoryName: postAdProps.categoryId,
          productName: postAdProps.title,
-         condition: 'this.state.password',
+         condition: 'New',
          description:postAdProps.description,
-         pictures:postAdProps.imageData,
-         price:postAdProps.price
+         productImages:postAdProps.selectedImageArray,
+         price:postAdProps.price,
+         isNegotiable:postAdProps.isNegotiable,
+         isFree:postAdProps.isFree 
        })
       })
         .then(response => {
           if (!response.ok) {
            // throw Error(response.statusText);
-           console.log(response)
+          
+          }
+          else{
+            
           }
           //dispatch(itemsIsLoading(false));
           return response;
-        })
-        .then(response => response.json())
-        .then(categories =>
-          console.log("response.statusText")
-          //dispatch({ type: POST_AD_SUCCESS, payload: true })
-        )
+        })                   
         .catch();
     };
 };
