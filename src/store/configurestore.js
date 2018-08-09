@@ -1,12 +1,14 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import HomeReducer from './reducers/homereducer';
 import AdReducer from './reducers/adreducer';
+import AuthReducer from './reducers/authreducer';
 
 import ReduxThunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     home: HomeReducer,
-    ad:AdReducer
+    ad:AdReducer,
+    auth:AuthReducer
 });
 
 let composeEnhancers = compose;

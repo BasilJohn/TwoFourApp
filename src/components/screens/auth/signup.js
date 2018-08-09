@@ -20,14 +20,38 @@ import CommonStyles, {
   shadowOpt,
   deviceWidth
 } from "../../../styles/commonStyles";
+import { connect } from "react-redux";
 
-export default class SignUpScreen extends Component {
+import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,signUpUser } from "../../../store/actions/auth";
+ class SignUpScreen extends Component {
+
+  userNameChanged(value) {
+    this.props.userNameChanged(value);
+  }
+  passwordChanged(value) {
+    this.props.passwordChanged(value);
+  }
+  confirmPasswordChanged(value) {
+    this.props.confirmPasswordChanged(value);
+  }
+  emailChanged(value) {
+    this.props.emailChanged(value);
+  }
+
+  _signUpButtonPress() {
+
+    this.props.signUpUser(this.props);
+   
+    this.props.navigator.push({
+       screen: "TwoFourApp.Home"
+     });
+  }
   doSomething(value) {
     // this.setState({
     //   //
     // })
   }
-  handlePress = () => {};
+  handlePress = () => { };
   constructor(props) {
     super(props);
   }
@@ -65,6 +89,7 @@ export default class SignUpScreen extends Component {
                   placeholder="Username"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  onChangeText={this.userNameChanged.bind(this)}
                 />
               </View>
               <View style={CommonStyles.signInTextInputField}>
@@ -82,6 +107,8 @@ export default class SignUpScreen extends Component {
                   placeholder="Password"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  onChangeText={this.passwordChanged.bind(this)}
+                  
                 />
               </View>
               <View style={CommonStyles.signInTextInputField}>
@@ -99,6 +126,7 @@ export default class SignUpScreen extends Component {
                   placeholder="Confirm Password"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  onChangeText={this.confirmPasswordChanged.bind(this)}
                 />
               </View>
               <View style={CommonStyles.signInTextInputField}>
@@ -117,6 +145,7 @@ export default class SignUpScreen extends Component {
                   placeholder="Email Id"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  onChangeText={this.emailChanged.bind(this)}
                 />
               </View>
             </View>
@@ -131,7 +160,7 @@ export default class SignUpScreen extends Component {
                 borderRadius={60}
                 textPaddingTop={13}
                 textColor={'#FFFF'}
-                onPress={this._signInButtonPress.bind(this)}
+                onPress={this._signUpButtonPress.bind(this)}
               />
             </View>
             <View style={[CommonStyles.alignCenter]}>
@@ -217,11 +246,7 @@ export default class SignUpScreen extends Component {
     });
   }
 
-  _signInButtonPress() {
-    this.props.navigator.push({
-      screen: "TwoFourApp.Home"
-    });
-  }
+  
   _handleClickFortgotPass() {
     this.props.navigator.push({
       // screen: "Healer.ForgotPasswordScreen"
@@ -259,3 +284,16 @@ const styles = StyleSheet.create({
     marginBottom: 15
   }
 });
+
+const mapStateToProps = ({ auth }) => {
+  const { userName,password,confirmPassword,emailId } = auth;
+  return { userName,password,confirmPassword,emailId };
+};
+
+export default connect(mapStateToProps, {
+  userNameChanged,
+  passwordChanged,
+  confirmPasswordChanged,
+  emailChanged,
+  signUpUser
+})(SignUpScreen);

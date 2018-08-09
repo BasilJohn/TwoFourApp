@@ -11,6 +11,11 @@ export const IS_FREE_CHANGED ='is_free_changed';
 export const DESCRIPTION_CHANGED ='description_changed';
 export const POST_AD_SUCCESS ='post_ad_success';
 export const IMAGE_SELECTED ='image_selected';
+//AUTH TYPES
+export const USER_NAME_CHANGED='user_name_changed';
+export const PASSWORD_CHANGED='password_changed';
+export const CONFIRM_PASSWORD_CHANGED='confirm_password_changed';
+export const EMAIL_CHANGED='email_changed';
 
 
 
