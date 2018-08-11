@@ -3,7 +3,8 @@ import {
   PASSWORD_CHANGED,
   CONFIRM_PASSWORD_CHANGED,
   EMAIL_CHANGED,
-  GET_DEVICE_INFO
+  GET_DEVICE_INFO,
+  IS_USER_LOGGED_IN
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -12,7 +13,8 @@ const INITIAL_STATE = {
   confirmPassword: "",
   emailId: "",
   deviceInfo: {
-  }
+  },
+  isUserAlreadyLoggedIn:false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -27,6 +29,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, emailId: action.payload };
     case GET_DEVICE_INFO:
       return { ...state, deviceInfo: action.payload };
+    case IS_USER_LOGGED_IN:
+      return { ...state, isUserAlreadyLoggedIn: action.payload };
     default:
       return state;
   }

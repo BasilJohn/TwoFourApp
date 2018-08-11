@@ -11,15 +11,10 @@ import {
   TouchableWithoutFeedback,
   Alert,
   Modal,
-  TouchableHighlight,
 
 } from "react-native";
 import { ImageButton, GradientNavigationBar,LinearGradientButton,Spinner } from "../common";
-import CommonStyles, {
-  deviceHeight,
-  shadowOpt,
-  deviceWidth
-} from "../../styles/commonStyles";
+import CommonStyles from "../../styles/commonStyles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import { titleChanged,imageArraySelected } from "../../store/actions/ad";
@@ -89,13 +84,11 @@ class PostAd extends Component {
       this.setSelectedImage();
     });
   }
-   deleteImage=value=>{
-     
-    this.state.selectedImageArray.splice(this.state.defaultImageIndex,1);
-    this.setState({ selectedImageArray: this.state.selectedImageArray});
-    this.setSelectedImage();
-   
-  }
+   deleteImage=() => {
+     this.state.selectedImageArray.splice(this.state.defaultImageIndex, 1);
+     this.setState({ selectedImageArray: this.state.selectedImageArray });
+     this.setSelectedImage();
+   }
   setDefaultImage=(imageSelected,index)=>{
       
         this.setState({defaultImage: {uri:imageSelected.path}});
@@ -114,7 +107,7 @@ class PostAd extends Component {
     }).then(images => {
      
       //es6 rest operator add captured image to selectedImageArray array.
-       images.map((image,i) => (
+       images.map((image) => (
         
         this.setState(prevState => ({
           selectedImageArray: [...prevState.selectedImageArray, image]
@@ -132,7 +125,7 @@ class PostAd extends Component {
    if(this.state.selectedImageArray.length>0) {
     
     
-     this.state.selectedImageArray.map((image,index)=>{
+     this.state.selectedImageArray.map((image)=>{
 
       this.setState(prevState => ({
         imageData: [...prevState.imageData, image.data]
@@ -373,8 +366,6 @@ class PostAd extends Component {
 
 
 
-const ELEMENT_HEIGHT = 377;
-const spaceHeight = deviceHeight - ELEMENT_HEIGHT;
 
 const styles = StyleSheet.create({
   middleControl: {

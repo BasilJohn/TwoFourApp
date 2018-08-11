@@ -4,7 +4,8 @@ import {
     , CONFIRM_PASSWORD_CHANGED
     , EMAIL_CHANGED
     ,SIGN_UP_SUCCESS
-    ,GET_DEVICE_INFO
+    ,GET_DEVICE_INFO,
+    IS_USER_LOGGED_IN
 } from "./types"
 
 export const userNameChanged = text => {
@@ -80,3 +81,11 @@ export const signUpUser = signUpProps => {
        .catch();
    };
 };
+
+export const checkIsUserLoggedIn = deviceInfo => {
+
+    return {
+        type: IS_USER_LOGGED_IN,
+        payload: true
+    };
+  };

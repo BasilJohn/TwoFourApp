@@ -1,26 +1,23 @@
 import React, { Component } from "react";
 import {
-  Button,
   Text,
   TextInput,
   View,
   StyleSheet,
   Image,
-  Platform,
   TouchableWithoutFeedback,
   TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView
 } from "react-native";
-import { Navigation } from "react-native-navigation";
 import RadioButton from "react-native-radio-button";
-import { LinearGradientButton } from "../../common";
+import { LinearGradientButton, Spinner } from "../../common";
 import CommonStyles, {
   deviceHeight,
-  shadowOpt,
   deviceWidth
 } from "../../../styles/commonStyles";
-import { getDeviceInfo } from "../../../store/actions/auth";
+import renderIf from '../../../common/renderif';
+import { getDeviceInfo, checkIsUserLoggedIn } from "../../../store/actions/auth";
 import DeviceInfo from "react-native-device-info";
 import { connect } from "react-redux";
 
@@ -30,10 +27,10 @@ class SignInScreen extends Component {
     macAddress: "",
     phoneNumber: "",
     ipv6: "",
+    isUserPreValidated: false
   };
 
   componentDidMount() {
-
     this.setState({ deviceId: DeviceInfo.getDeviceId() });
     this.setState({ phoneNumber: DeviceInfo.getPhoneNumber() });
 
@@ -48,13 +45,13 @@ class SignInScreen extends Component {
         phoneNumber: this.state.phoneNumber,
         macAddress: this.state.macAddress,
         ipv6: this.state.ipv6
-      }
+      };
       //set value in props in the last promise.
       this.props.getDeviceInfo(deviceInfo);
+      this.props.checkIsUserLoggedIn(deviceInfo);
     });
-
   }
-  doSomething(value) { }
+  doSomething() { }
   handlePress = () => { };
   constructor(props) {
     super(props);
@@ -63,178 +60,191 @@ class SignInScreen extends Component {
     navBarHidden: true // make the nav bar hidden
   };
 
-  render() {
-    return (
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <KeyboardAvoidingView
-          style={CommonStyles.keyboardAvoidingViewContainer}
-        >
-          <View style={CommonStyles.normalSinglePage}>
-            <View style={styles.titleBox}>
-              <Text
-                style={[CommonStyles.extraLargeText, CommonStyles.blackColor]}
-              >
-                SIGN IN
-              </Text>
-            </View>
-            <View style={[styles.formBox, CommonStyles.spaceAround]}>
-              <View style={[CommonStyles.signInTextInputField]}>
-                <Image
-                  source={require("../../../assets/img/avatar.png")}
-                  style={{
-                    position: "absolute",
-                    bottom: 12,
-                    left: 20,
-                    width: 19,
-                    height: 22
-                  }}
-                />
-                <TextInput
-                  placeholder="Username"
-                  style={CommonStyles.textInput}
-                  underlineColorAndroid="transparent"
-                />
-              </View>
-              <View style={CommonStyles.signInTextInputField}>
-                <Image
-                  source={require("../../../assets/img/padlock.png")}
-                  style={{
-                    position: "absolute",
-                    bottom: 12,
-                    left: 20,
-                    width: 17,
-                    height: 22
-                  }}
-                />
-                <TextInput
-                  placeholder="Password"
-                  style={CommonStyles.textInput}
-                  underlineColorAndroid="transparent"
-                />
-              </View>
-              <View
-                style={[
-                  CommonStyles.row,
-                  CommonStyles.paddingTenLeft,
-                  { justifyContent: "flex-start", alignSelf: "flex-start" }
-                ]}
-              >
-                <View>
-                  <RadioButton
-                    animation={"bounceIn"}
-                    isSelected={true}
-                    onPress={() => this.doSomething("hello")}
-                  />
-                </View>
-                <View style={[CommonStyles.paddingTenLeftRight]}>
+  renderContent() {
+   
+    switch (this.props.isUserAlreadyLoggedIn) {
+      case false:
+        return <Spinner />;
+      case true:
+        return (
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <KeyboardAvoidingView
+              style={CommonStyles.keyboardAvoidingViewContainer}
+            >
+              <View style={CommonStyles.normalSinglePage}>
+                <View style={styles.titleBox}>
                   <Text
+                    style={[CommonStyles.extraLargeText, CommonStyles.blackColor]}
+                  >
+                    SIGN IN
+              </Text>
+                </View>
+                <View style={[styles.formBox, CommonStyles.spaceAround]}>
+                  <View style={[CommonStyles.signInTextInputField]}>
+                    <Image
+                      source={require("../../../assets/img/avatar.png")}
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        left: 20,
+                        width: 19,
+                        height: 22
+                      }}
+                    />
+                    <TextInput
+                      placeholder="Username"
+                      style={CommonStyles.textInput}
+                      underlineColorAndroid="transparent"
+                    />
+                  </View>
+                  <View style={CommonStyles.signInTextInputField}>
+                    <Image
+                      source={require("../../../assets/img/padlock.png")}
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        left: 20,
+                        width: 17,
+                        height: 22
+                      }}
+                    />
+                    <TextInput
+                      placeholder="Password"
+                      style={CommonStyles.textInput}
+                      underlineColorAndroid="transparent"
+                    />
+                  </View>
+                  <View
                     style={[
-                      CommonStyles.regularBold,
-                      CommonStyles.greyColor,
-                      CommonStyles.mediumText
+                      CommonStyles.row,
+                      CommonStyles.paddingTenLeft,
+                      { justifyContent: "flex-start", alignSelf: "flex-start" }
                     ]}
                   >
-                    Remember Me
+                    <View>
+                      <RadioButton
+                        animation={"bounceIn"}
+                        isSelected={true}
+                        onPress={() => this.doSomething("hello")}
+                      />
+                    </View>
+                    <View style={[CommonStyles.paddingTenLeftRight]}>
+                      <Text
+                        style={[
+                          CommonStyles.regularBold,
+                          CommonStyles.greyColor,
+                          CommonStyles.mediumText
+                        ]}
+                      >
+                        Remember Me
+                  </Text>
+                    </View>
+                    <View>
+                      <TouchableOpacity
+                        onPress={() => this._handleClickFortgotPass()}
+                      >
+                        <Image
+                          source={require("../../../assets/img/icForgotPass.png")}
+                          style={{ width: 40, height: 40 }}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+                <View style={[CommonStyles.buttonBox]}>
+                  <LinearGradientButton
+                    colorOne={"#3D88A7"}
+                    colorTwo={"#3972A0"}
+                    colorThree={"#355F9A"}
+                    buttonText={"SIGN IN"}
+                    height={48}
+                    width={55}
+                    borderRadius={60}
+                    textPaddingTop={13}
+                    textColor={"#FFFF"}
+                    onPress={this._signInButtonPress.bind(this)}
+                  />
+                </View>
+                <View style={[CommonStyles.alignCenter]}>
+                  <Text
+                    style={[
+                      CommonStyles.headerText,
+                      CommonStyles.greyColor,
+                      CommonStyles.semiBold
+                    ]}
+                  >
+                    {"Or Social Login"}
                   </Text>
                 </View>
-                <View>
-                  <TouchableOpacity
-                    onPress={() => this._handleClickFortgotPass()}
-                  >
-                    <Image
-                      source={require("../../../assets/img/icForgotPass.png")}
-                      style={{ width: 40, height: 40 }}
+                <View
+                  style={[
+                    CommonStyles.buttonBox,
+                    CommonStyles.row,
+                    CommonStyles.spaceAround
+                  ]}
+                >
+                  <View style={{ width: deviceWidth / 2 - 20 }}>
+                    <LinearGradientButton
+                      colorOne={"#4A90E2"}
+                      colorTwo={"#4A90E2"}
+                      colorThree={"#4A90E2"}
+                      buttonText={"FACEBOOK"}
+                      height={43}
+                      borderRadius={60}
+                      textPaddingTop={10}
+                      textColor={"#FFFF"}
+                      onPress={this.handlePress.bind(this)}
                     />
-                  </TouchableOpacity>
+                  </View>
+                  <View style={{ width: deviceWidth / 2 - 20 }}>
+                    <LinearGradientButton
+                      colorOne={"#D77056"}
+                      colorTwo={"#D77056"}
+                      colorThree={"#D77056"}
+                      buttonText={"GOOGLE"}
+                      height={43}
+                      borderRadius={60}
+                      textPaddingTop={10}
+                      textColor={"#FFFF"}
+                      onPress={this.handlePress.bind(this)}
+                    />
+                  </View>
                 </View>
               </View>
-            </View>
-            <View style={[CommonStyles.buttonBox]}>
-              <LinearGradientButton
-                colorOne={"#3D88A7"}
-                colorTwo={"#3972A0"}
-                colorThree={"#355F9A"}
-                buttonText={"SIGN IN"}
-                height={48}
-                width={55}
-                borderRadius={60}
-                textPaddingTop={13}
-                textColor={"#FFFF"}
-                onPress={this._signInButtonPress.bind(this)}
-              />
-            </View>
-            <View style={[CommonStyles.alignCenter]}>
-              <Text
-                style={[
-                  CommonStyles.headerText,
-                  CommonStyles.greyColor,
-                  CommonStyles.semiBold
-                ]}
-              >
-                {"Or Social Login"}
-              </Text>
-            </View>
-            <View
-              style={[
-                CommonStyles.buttonBox,
-                CommonStyles.row,
-                CommonStyles.spaceAround
-              ]}
-            >
-              <View style={{ width: deviceWidth / 2 - 20 }}>
-                <LinearGradientButton
-                  colorOne={"#4A90E2"}
-                  colorTwo={"#4A90E2"}
-                  colorThree={"#4A90E2"}
-                  buttonText={"FACEBOOK"}
-                  height={43}
-                  borderRadius={60}
-                  textPaddingTop={10}
-                  textColor={"#FFFF"}
-                  onPress={this.handlePress.bind(this)}
-                />
-              </View>
-              <View style={{ width: deviceWidth / 2 - 20 }}>
-                <LinearGradientButton
-                  colorOne={"#D77056"}
-                  colorTwo={"#D77056"}
-                  colorThree={"#D77056"}
-                  buttonText={"GOOGLE"}
-                  height={43}
-                  borderRadius={60}
-                  textPaddingTop={10}
-                  textColor={"#FFFF"}
-                  onPress={this.handlePress.bind(this)}
-                />
-              </View>
-            </View>
-          </View>
-        </KeyboardAvoidingView>
-        <View style={styles.noteBox}>
-          <Text
-            style={[
-              CommonStyles.regularBold,
-              CommonStyles.normalText,
-              CommonStyles.lightgreyColor
-            ]}
-          >
-            Don't have an account?
-          </Text>
-          <TouchableWithoutFeedback onPress={() => this._goToSignUpScreen()}>
-            <View style={{ marginLeft: 5 }}>
+            </KeyboardAvoidingView>
+            <View style={styles.noteBox}>
               <Text
                 style={[
                   CommonStyles.regularBold,
                   CommonStyles.normalText,
-                  CommonStyles.softBlueColor
+                  CommonStyles.lightgreyColor
                 ]}
               >
-                SIGN UP
+                Don't have an account?
+          </Text>
+              <TouchableWithoutFeedback onPress={() => this._goToSignUpScreen()}>
+                <View style={{ marginLeft: 5 }}>
+                  <Text
+                    style={[
+                      CommonStyles.regularBold,
+                      CommonStyles.normalText,
+                      CommonStyles.softBlueColor
+                    ]}
+                  >
+                    SIGN UP
               </Text>
+                </View>
+              </TouchableWithoutFeedback>
             </View>
-          </TouchableWithoutFeedback>
-        </View>
-      </ScrollView>
+          </ScrollView>
+        );
+      default:
+        return <Spinner />;
+    }
+  }
+  render() {
+    return (
+      this.renderContent()
     );
   }
 
@@ -326,13 +336,13 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ auth }) => {
-  const { deviceInfo } = auth;
-  return { deviceInfo };
+  const { deviceInfo, isUserAlreadyLoggedIn } = auth;
+  return { deviceInfo, isUserAlreadyLoggedIn };
 };
 
 export default connect(
   mapStateToProps,
   {
-    getDeviceInfo
+    getDeviceInfo, checkIsUserLoggedIn
   }
 )(SignInScreen);
