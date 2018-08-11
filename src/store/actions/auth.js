@@ -4,6 +4,7 @@ import {
     , CONFIRM_PASSWORD_CHANGED
     , EMAIL_CHANGED
     ,SIGN_UP_SUCCESS
+    ,GET_DEVICE_INFO
 } from "./types"
 
 export const userNameChanged = text => {
@@ -34,7 +35,15 @@ export const emailChanged = text => {
     };
 };
 
+export const getDeviceInfo = deviceInfo => {
+    return {
+        type: GET_DEVICE_INFO,
+        payload: deviceInfo
+    };
+};
+
 export const signUpUser = signUpProps => {
+
   return dispatch => {
     //dispatch(itemsIsLoading(true));
      fetch("http://68.66.233.230:8083/api/v1/SignUp",{
@@ -50,10 +59,10 @@ export const signUpUser = signUpProps => {
         lastName:"",
         email: signUpProps.emailId,
         avatar: 'New',
-        deviceId:"",
-        mobileNumnber:"postAdProps.selectedImageArray",
-        ipv6:"postAdProps.price",
-        macAddress:"postAdProps.isNegotiable"
+        deviceId:signUpProps.deviceInfo.deviceId,
+        mobileNumnber:signUpProps.deviceInfo.phoneNumber,
+        ipv6:signUpProps.deviceInfo.ipv6,
+        macAddress:signUpProps.deviceInfo.macAddress
       })
      })
        .then(response => {

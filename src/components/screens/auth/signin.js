@@ -20,15 +20,42 @@ import CommonStyles, {
   shadowOpt,
   deviceWidth
 } from "../../../styles/commonStyles";
-import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
+import { getDeviceInfo } from "../../../store/actions/auth";
+import DeviceInfo from "react-native-device-info";
+import { connect } from "react-redux";
 
-export default class SignInScreen extends Component {
-  doSomething(value) {
-    // this.setState({
-    //   //
-    // })
+class SignInScreen extends Component {
+  state = {
+    deviceId: "",
+    macAddress: "",
+    phoneNumber: "",
+    ipv6: "",
+  };
+
+  componentDidMount() {
+
+    this.setState({ deviceId: DeviceInfo.getDeviceId() });
+    this.setState({ phoneNumber: DeviceInfo.getPhoneNumber() });
+
+    DeviceInfo.getMACAddress().then(mac => {
+      this.setState({ macAddress: mac });
+    });
+
+    DeviceInfo.getIPAddress().then(ip => {
+      this.setState({ ipv6: ip });
+      let deviceInfo = {
+        deviceId: this.state.deviceId,
+        phoneNumber: this.state.phoneNumber,
+        macAddress: this.state.macAddress,
+        ipv6: this.state.ipv6
+      }
+      //set value in props in the last promise.
+      this.props.getDeviceInfo(deviceInfo);
+    });
+
   }
-  handlePress = () => {};
+  doSomething(value) { }
+  handlePress = () => { };
   constructor(props) {
     super(props);
   }
@@ -132,7 +159,7 @@ export default class SignInScreen extends Component {
                 width={55}
                 borderRadius={60}
                 textPaddingTop={13}
-                textColor={'#FFFF'}
+                textColor={"#FFFF"}
                 onPress={this._signInButtonPress.bind(this)}
               />
             </View>
@@ -154,7 +181,7 @@ export default class SignInScreen extends Component {
                 CommonStyles.spaceAround
               ]}
             >
-              <View style={{width:(deviceWidth/2-20)}}>
+              <View style={{ width: deviceWidth / 2 - 20 }}>
                 <LinearGradientButton
                   colorOne={"#4A90E2"}
                   colorTwo={"#4A90E2"}
@@ -163,11 +190,11 @@ export default class SignInScreen extends Component {
                   height={43}
                   borderRadius={60}
                   textPaddingTop={10}
-                  textColor={'#FFFF'}
+                  textColor={"#FFFF"}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
-              <View style={{width:(deviceWidth/2-20)}}>
+              <View style={{ width: deviceWidth / 2 - 20 }}>
                 <LinearGradientButton
                   colorOne={"#D77056"}
                   colorTwo={"#D77056"}
@@ -176,7 +203,7 @@ export default class SignInScreen extends Component {
                   height={43}
                   borderRadius={60}
                   textPaddingTop={10}
-                  textColor={'#FFFF'}
+                  textColor={"#FFFF"}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
@@ -297,3 +324,15 @@ const styles = StyleSheet.create({
     marginBottom: 15
   }
 });
+
+const mapStateToProps = ({ auth }) => {
+  const { deviceInfo } = auth;
+  return { deviceInfo };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getDeviceInfo
+  }
+)(SignInScreen);

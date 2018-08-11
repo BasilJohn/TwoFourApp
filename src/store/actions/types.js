@@ -16,6 +16,8 @@ export const USER_NAME_CHANGED='user_name_changed';
 export const PASSWORD_CHANGED='password_changed';
 export const CONFIRM_PASSWORD_CHANGED='confirm_password_changed';
 export const EMAIL_CHANGED='email_changed';
+export const GET_DEVICE_INFO='get_device_info';
+
 
 
 

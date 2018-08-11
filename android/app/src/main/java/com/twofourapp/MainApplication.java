@@ -3,6 +3,7 @@ package com.twofourapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.horcrux.svg.SvgPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends NavigationApplication {
          return Arrays.<ReactPackage>asList(
               new SvgPackage(),
               new PickerPackage(),
+              new RNDeviceInfo(),
                new VectorIconsPackage(),
               new LinearGradientPackage()
             

@@ -10,7 +10,7 @@ import {
   ScrollView,
   Button
 } from "react-native";
-import { Footer,  CustomTabBar, HomeSearchBar } from "../common";
+import { Footer, CustomTabBar, HomeSearchBar } from "../common";
 
 import SlidingMenu from "../common/slidingmenu";
 
@@ -56,12 +56,14 @@ export default class Home extends Component {
   };
 
   componentWillMount() {
+
+  }
+
+  componentDidMount() {
     {
       this.getMoviesFromApiAsync();
     }
   }
-
-  componentDidMount() {}
 
   getMoviesFromApiAsync = () => {
     return fetch(

@@ -1,30 +1,30 @@
 import React, { Component } from "react";
 import {
-  Button,
   Text,
   TextInput,
   View,
   StyleSheet,
   Image,
-  Platform,
   TouchableWithoutFeedback,
-  TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView
 } from "react-native";
-import { Navigation } from "react-native-navigation";
-import RadioButton from "react-native-radio-button";
+import DeviceInfo from "react-native-device-info";
 import { LinearGradientButton } from "../../common";
 import CommonStyles, {
   deviceHeight,
-  shadowOpt,
   deviceWidth
 } from "../../../styles/commonStyles";
 import { connect } from "react-redux";
 
-import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,signUpUser } from "../../../store/actions/auth";
- class SignUpScreen extends Component {
-
+import {
+  userNameChanged,
+  passwordChanged,
+  confirmPasswordChanged,
+  emailChanged,
+  signUpUser
+  } from "../../../store/actions/auth";
+class SignUpScreen extends Component {
   userNameChanged(value) {
     this.props.userNameChanged(value);
   }
@@ -39,14 +39,14 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
   }
 
   _signUpButtonPress() {
-
+        
     this.props.signUpUser(this.props);
-   
+
     this.props.navigator.push({
-       screen: "TwoFourApp.Home"
-     });
+      screen: "TwoFourApp.Home"
+    });
   }
-  doSomething(value) {
+  doSomething() {
     // this.setState({
     //   //
     // })
@@ -59,6 +59,7 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
     navBarHidden: true // make the nav bar hidden
   };
 
+   
   render() {
     return (
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -108,7 +109,6 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
                   onChangeText={this.passwordChanged.bind(this)}
-                  
                 />
               </View>
               <View style={CommonStyles.signInTextInputField}>
@@ -159,7 +159,7 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
                 width={55}
                 borderRadius={60}
                 textPaddingTop={13}
-                textColor={'#FFFF'}
+                textColor={"#FFFF"}
                 onPress={this._signUpButtonPress.bind(this)}
               />
             </View>
@@ -191,7 +191,7 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
                   width={210}
                   borderRadius={50}
                   textPaddingTop={10}
-                  textColor={'#FFFF'}
+                  textColor={"#FFFF"}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
@@ -205,7 +205,7 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
                   width={210}
                   borderRadius={50}
                   textPaddingTop={10}
-                  textColor={'#FFFF'}
+                  textColor={"#FFFF"}
                   onPress={this.handlePress.bind(this)}
                 />
               </View>
@@ -246,7 +246,6 @@ import { userNameChanged, passwordChanged, confirmPasswordChanged, emailChanged,
     });
   }
 
-  
   _handleClickFortgotPass() {
     this.props.navigator.push({
       // screen: "Healer.ForgotPasswordScreen"
@@ -286,14 +285,17 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ auth }) => {
-  const { userName,password,confirmPassword,emailId } = auth;
-  return { userName,password,confirmPassword,emailId };
+  const { userName, password, confirmPassword, emailId, deviceInfo } = auth;
+  return { userName, password, confirmPassword, emailId, deviceInfo };
 };
 
-export default connect(mapStateToProps, {
-  userNameChanged,
-  passwordChanged,
-  confirmPasswordChanged,
-  emailChanged,
-  signUpUser
-})(SignUpScreen);
+export default connect(
+  mapStateToProps,
+  {
+    userNameChanged,
+    passwordChanged,
+    confirmPasswordChanged,
+    emailChanged,
+    signUpUser
+  }
+)(SignUpScreen);
