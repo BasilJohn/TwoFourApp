@@ -47,7 +47,7 @@ export const signUpUser = signUpProps => {
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-     fetch("http://68.66.233.230:8083/api/v1/SignUp",{
+     fetch("http://159.65.66.113:8081/api/v1/signUp",{
       method: 'POST',
       headers: {
           'Accept': 'application/json',
@@ -56,24 +56,24 @@ export const signUpUser = signUpProps => {
       body: JSON.stringify({
         userName: signUpProps.userName,
         password: signUpProps.password,
-        firstName:"",
-        lastName:"",
+        firstName:"firstName",
+        lastName:"lastName",
         email: signUpProps.emailId,
         avatar: 'New',
         deviceId:signUpProps.deviceInfo.deviceId,
-        mobileNumnber:signUpProps.deviceInfo.phoneNumber,
+        mobileNumber:"1",
         ipv6:signUpProps.deviceInfo.ipv6,
         macAddress:signUpProps.deviceInfo.macAddress
       })
      })
        .then(response => {
          if (!response.ok) {
-             //console.log(response);
+           
           // throw Error(response.statusText);
          
          }
          else{
-           // console.log(response);
+            
          }
          //dispatch(itemsIsLoading(false));
          return response;
