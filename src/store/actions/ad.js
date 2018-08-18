@@ -61,10 +61,9 @@ export const imageArraySelected = image => {
 
 export const postAd = (postAdProps) => {
   
-  //console.log(postAdProps);
-    return dispatch => {
+  return dispatch => {
      //dispatch(itemsIsLoading(true));
-      fetch("http://68.66.233.230:8082/api/v1/postProduct",{
+      fetch("http://159.65.66.113:8081/api/v1/postProduct",{
        method: 'POST',
        headers: {
            'Accept': 'application/json',
@@ -79,17 +78,27 @@ export const postAd = (postAdProps) => {
          productImages:postAdProps.selectedImageArray,
          price:postAdProps.price,
          isNegotiable:postAdProps.isNegotiable,
-         isFree:postAdProps.isFree 
+         isFree:postAdProps.isFree ,
+         deviceId:postAdProps.deviceInfo.deviceId,
+         mobileNumber:"123345678",
+         ipv6:postAdProps.deviceInfo.ipv6,
+         macAddresss:postAdProps.deviceInfo.macAddresss
+         
        })
       })
         .then(response => {
           if (!response.ok) {
+            console.log("errorresponse")
+            console.log(response);
            // throw Error(response.statusText);
           
           }
           else{
-            
+            console.log("rresponse");
+            console.log(response);
           }
+          console.log("rresponse");
+            console.log(response);
           //dispatch(itemsIsLoading(false));
           return response;
         })                   

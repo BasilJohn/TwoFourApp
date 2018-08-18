@@ -58,6 +58,7 @@ class PostAd extends Component {
   }
 
   _handleClickPostAdButton() {
+
     this.props.postAd(this.props);
   }
 
@@ -225,9 +226,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ ad }) => {
+const mapStateToProps = ({ ad,auth }) => {
   const { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray } = ad;
-  return { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray };
+  const { deviceInfo }=auth;
+  return { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray,deviceInfo };
 };
 
 export default connect(mapStateToProps, {
