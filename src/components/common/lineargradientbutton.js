@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableHighlight, Text, StyleSheet, Dimensions } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
 import CommonStyles, {
   deviceHeight,
   deviceWidth
@@ -22,7 +22,7 @@ const LinearGradientButton = props => {
       ]}
       //locations={[0,0.75,1]}
     >
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={props.onPress}
         underlayColor={'transparent'}
         style={[
@@ -37,7 +37,7 @@ const LinearGradientButton = props => {
         <Text style={[styles.textStyle, { paddingTop: props.textPaddingTop,color:props.textColor }]}>
           {props.buttonText}
         </Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </LinearGradient>
   );
 };

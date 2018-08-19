@@ -1,4 +1,4 @@
-import { LOAD_CATEGORIES,LOAD_CATEGORY_SUCCESS } from "./types";
+import { LOAD_CATEGORIES,LOAD_CATEGORY_SUCCESS,GET_PRODUCTS_SUCCESS } from "./types";
 
 export const loadCategories = () => {
   return dispatch => {
@@ -18,3 +18,23 @@ export const loadCategories = () => {
       .catch();
   };
 };
+
+export const getProducts=()=>{
+
+  return dispatch => {
+    //dispatch(itemsIsLoading(true));
+    fetch("http://159.65.66.113:8082/api/v1/getProducts")
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        //dispatch(itemsIsLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(products =>
+        dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
+      )
+      .catch();
+  };
+}

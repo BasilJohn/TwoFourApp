@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
   KeyboardAvoidingView,
   Switch,
@@ -10,25 +9,19 @@ import {
   Alert
 } from "react-native";
 import {
-  ImageButton,
   GradientNavigationBar,
-  Button,
   LinearGradientButton
 } from "../common";
 import CommonStyles, {
-  deviceHeight,
-  shadowOpt,
-  deviceWidth
+  deviceHeight
 } from "../../styles/commonStyles";
-import { SearchBar } from "react-native-elements";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import {
   priceChanged,
   isNegotiableChanged,
   isFreeChanged,
   descriptionChanged,
-  postAd,
-  selectedImageArray
+  postAd
 } from "../../store/actions/ad";
 import { connect } from "react-redux";
 
@@ -64,27 +57,27 @@ class PostAd extends Component {
 
   _handleCancelButton = () => {
     Alert.alert(
-  "Cancel",
-  "Are you sure you want to cancel?",
-  [
-    {
-      text: "Yes",
-      onPress: this.openHomeScreen.bind(this),
-      style: "cancel"
-    },
-    { text: "No", onPress: () => console.log("OK Pressed") }
-  ],
-  { cancelable: true }
-);
+      "Cancel",
+      "Are you sure you want to cancel?",
+      [
+        {
+          text: "Yes",
+          onPress: this.openHomeScreen.bind(this),
+          style: "cancel"
+        },
+        { text: "No", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: true }
+    );
 
-}
+  }
 
-openHomeScreen(){
-this.props.navigator.push({
-  screen: "TwoFourApp.Home"
-});
+  openHomeScreen() {
+    this.props.navigator.push({
+      screen: "TwoFourApp.Home"
+    });
 
-}
+  }
 
   render() {
     return (
@@ -99,7 +92,7 @@ this.props.navigator.push({
               buttonAction: this._handleCancelButton.bind(this),
               buttonWidth: 22,
               buttonHeight: 22,
-              textButton:'Cancel'
+              textButton: 'Cancel'
             }
           ]}
         />
@@ -118,14 +111,14 @@ this.props.navigator.push({
                   <Text
                     style={[
                       CommonStyles.mediumText,
-                    CommonStyles.postAdTitleColor,
-                    CommonStyles.semiBold
+                      CommonStyles.postAdTitleColor,
+                      CommonStyles.semiBold
                     ]}
                   >
                     Price USD
                   </Text>
                 </View>
-                <View style={[CommonStyles.postAddPriceextInputField,CommonStyles.alignCenter]}>
+                <View style={[CommonStyles.postAddPriceextInputField, CommonStyles.alignCenter]}>
                   <TextInput
                     style={CommonStyles.textInputNoLeftImage}
                     placeholder="Price"
@@ -135,41 +128,41 @@ this.props.navigator.push({
                 </View>
               </View>
               <View style={[CommonStyles.switchBoxStyle]}>
-               <View style={{marginRight:30}}>
-                <Text
-                  style={[
-                    CommonStyles.mediumText,
-                    CommonStyles.postAdTitleColor,
-                    CommonStyles.semiBold
-                  ]}
-                >
-                  Negotiable
+                <View style={{ marginRight: 30 }}>
+                  <Text
+                    style={[
+                      CommonStyles.mediumText,
+                      CommonStyles.postAdTitleColor,
+                      CommonStyles.semiBold
+                    ]}
+                  >
+                    Negotiable
                 </Text>
                 </View>
                 <View>
-                <Switch
-                  onValueChange={this.onIsNegotiableChange}
-                  value={this.props.isNegotiable}
-                />
+                  <Switch
+                    onValueChange={this.onIsNegotiableChange}
+                    value={this.props.isNegotiable}
+                  />
                 </View>
               </View>
               <View style={[CommonStyles.switchBoxStyle]}>
-              <View style={{marginRight:85}}>
-                <Text
-                  style={[
-                    CommonStyles.mediumText,
-                    CommonStyles.postAdTitleColor,
-                    CommonStyles.semiBold
-                  ]}
-                >
-                  Free
+                <View style={{ marginRight: 85 }}>
+                  <Text
+                    style={[
+                      CommonStyles.mediumText,
+                      CommonStyles.postAdTitleColor,
+                      CommonStyles.semiBold
+                    ]}
+                  >
+                    Free
                 </Text>
                 </View>
                 <View>
-                <Switch
-                  onValueChange={this.onIsFreeChange}
-                  value={this.props.isFree}
-                />
+                  <Switch
+                    onValueChange={this.onIsFreeChange}
+                    value={this.props.isFree}
+                  />
                 </View>
               </View>
               <View >
@@ -217,19 +210,12 @@ this.props.navigator.push({
   }
 }
 
-const ELEMENT_HEIGHT = 377;
-const spaceHeight = deviceHeight - ELEMENT_HEIGHT;
 
-const styles = StyleSheet.create({
-  footerControl: {
-    alignItems: "center"
-  }
-});
 
-const mapStateToProps = ({ ad,auth }) => {
-  const { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray } = ad;
-  const { deviceInfo }=auth;
-  return { price, isNegotiable, isFree, description,title,categoryId,selectedImageArray,deviceInfo };
+const mapStateToProps = ({ ad, auth }) => {
+  const { price, isNegotiable, isFree, description, title, categoryId, selectedImageArray } = ad;
+  const { deviceInfo } = auth;
+  return { price, isNegotiable, isFree, description, title, categoryId, selectedImageArray, deviceInfo };
 };
 
 export default connect(mapStateToProps, {

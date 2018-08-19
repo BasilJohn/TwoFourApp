@@ -20,29 +20,32 @@ import CommonStyles, {
   NAV_HEIGHT
 } from "../../styles/commonStyles";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
+import { getProducts } from "../../store/actions/home";
+import { connect } from "react-redux";
 
 const { width, height } = Dimensions.get("window");
 
 const equalWidth = width / 3;
 
-export default class Home extends Component {
+class Home extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
   state = { moviesList: [] };
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item, index) => item.productId;
 
   renderRowItem = itemData => {
+    console.log(itemData)
     return (
       <View style={styles.imageContainerStyle}>
         <TouchableHighlight onPress={this._openadDetails.bind(this)}>
           <Image
             style={styles.imageStyle}
-            resizeMode="contain"
+            resizeMode="stretch"
             source={{
-              uri: "https://image.tmdb.org/t/p/w500" + itemData.item.poster_path
+              uri: itemData.item.heroImage
             }}
-            resizeMode="cover"
+            //resizeMode="cover"
           />
         </TouchableHighlight>
       </View>
@@ -60,37 +63,16 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    {
-      this.getMoviesFromApiAsync();
-    }
+    //this.getMoviesFromApiAsync();
+    this.props.getProducts();
   }
-
-  getMoviesFromApiAsync = () => {
-    return fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=e248a915f47615796d83a0de440f6755&language=en-US&page=1"
-    )
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          // handle error
-        }
-      })
-      .then(responseJson => {
-        this.setState({ moviesList: responseJson.results });
-        return responseJson.results;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
 
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
   }
 
-  render(props) {
+  render() {
+  
     return (
       <View style={CommonStyles.normalPage}>
         <HomeSearchBar
@@ -111,7 +93,7 @@ export default class Home extends Component {
           <ScrollView>
             <View>
               <FlatList
-                data={this.state.moviesList}
+                data={this.props.productList.heroImage}
                 numColumns={3}
                 keyExtractor={this._keyExtractor}
                 renderItem={this.renderRowItem}
@@ -144,11 +126,21 @@ const styles = StyleSheet.create({
     // alignItems: 'center'
   },
   imageStyle: {
-    height: equalWidth - 6,
+   height: equalWidth - 6,
     width: equalWidth - 6,
     borderRadius: 5
   },
   imageContainerStyle: {
-    padding: 3
+    padding: 3,
+    //backgroundColor: 'black'
   }
 });
+
+const mapStateToProps = ({ home }) => {
+  const { productList } = home;
+  return { productList };
+};
+
+export default connect(mapStateToProps, {
+  getProducts
+})(Home);
