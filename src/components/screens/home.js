@@ -35,7 +35,6 @@ class Home extends Component {
   _keyExtractor = (item, index) => item.productId;
 
   renderRowItem = itemData => {
-    console.log(itemData)
     return (
       <View style={styles.imageContainerStyle}>
         <TouchableHighlight onPress={this._openadDetails.bind(this)}>
