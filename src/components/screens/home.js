@@ -52,6 +52,7 @@ class Home extends Component {
   };
 
   _openadDetails = (selecedItem) => {
+   
     this.props.navigator.push({
       passProps:{productId:selecedItem.item.productId},
       screen: "TwoFourApp.AdDetails"

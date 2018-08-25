@@ -100,11 +100,11 @@ export const postAd = (postAdProps) => {
   };
 };
 
-export const getProductDetails=()=>{
+export const getProductDetails=(productId)=>{
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://159.65.66.113:8082/api/v1/getProduct?productId=19")
+    fetch("http://159.65.66.113:8082/api/v1/getProduct?productId="+productId)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);

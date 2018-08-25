@@ -37,7 +37,8 @@ class AdDetails extends Component {
   }
 
   componentWillMount() {
-    this.props.getProductDetails();
+   
+    this.props.getProductDetails(this.props.productId);
   }
 
   render() {
