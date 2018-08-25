@@ -37,22 +37,23 @@ class Home extends Component {
   renderRowItem = itemData => {
     return (
       <View style={styles.imageContainerStyle}>
-        <TouchableHighlight onPress={this._openadDetails.bind(this)}>
+        <TouchableHighlight onPress={this._openadDetails.bind(this,itemData)}>
           <Image
             style={styles.imageStyle}
             resizeMode="stretch"
             source={{
               uri: itemData.item.heroImage
             }}
-            //resizeMode="cover"
+          //resizeMode="cover"
           />
         </TouchableHighlight>
       </View>
     );
   };
 
-  _openadDetails = () => {
+  _openadDetails = (selecedItem) => {
     this.props.navigator.push({
+      passProps:{productId:selecedItem.item.productId},
       screen: "TwoFourApp.AdDetails"
     });
   };
@@ -71,7 +72,6 @@ class Home extends Component {
   }
 
   render() {
-  
     return (
       <View style={CommonStyles.normalPage}>
         <HomeSearchBar
@@ -92,7 +92,7 @@ class Home extends Component {
           <ScrollView>
             <View>
               <FlatList
-                data={this.props.productList.heroImage}
+                data={this.props.productList.products}
                 numColumns={3}
                 keyExtractor={this._keyExtractor}
                 renderItem={this.renderRowItem}
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center'
   },
   imageStyle: {
-   height: equalWidth - 6,
+    height: equalWidth - 6,
     width: equalWidth - 6,
     borderRadius: 5
   },

@@ -7,19 +7,21 @@ import {
   IS_FREE_CHANGED,
   DESCRIPTION_CHANGED,
   POST_AD_SUCCESS,
-  IMAGE_SELECTED
+  IMAGE_SELECTED,
+  SELECTED_AD_DETAILS
 } from "../actions/types";
 
 const INITIAL_STATE = {
   title: "",
   selectedImageArray: [],
-  cameraImage:null,
+  cameraImage: null,
   categoryId: null,
   price: null,
   isNegotiable: false,
   isFree: false,
   description: "",
-  isPostAdSuccess:false
+  isPostAdSuccess: false,
+  postedAdDetails: {}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,6 +44,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, isPostAdSuccess: action.payload };
     case IMAGE_SELECTED:
       return { ...state, selectedImageArray: action.payload };
+    case SELECTED_AD_DETAILS:
+      return { ...state, postedAdDetails: action.payload };
     default:
       return state;
   }

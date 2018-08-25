@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import {
-  Animated,
   View,
   StyleSheet,
   Image,
   Dimensions,
   ScrollView,
   Text,
-  TouchableOpacity,
-  TouchableHighlight,Platform
+  TouchableHighlight,
+  Platform
 } from "react-native";
 import ProfileTile from "./profile/profiletile";
 import CommonStyles, { deviceHeight } from "../../styles/commonStyles";
 import {
   DetailItem,
-  PrimeButton,
   ImageSlider,
   LinearGradientButton,
   GradientNavigationBar
@@ -23,15 +21,14 @@ import { SocialIcon } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import LinearGradient from "react-native-linear-gradient";
-
+import { connect } from "react-redux";
+import { getProductDetails } from "../../store/actions/ad";
 const deviceWidth = Dimensions.get("window").width;
-const FIXED_BAR_WIDTH = 280;
-const BAR_SPACE = 10;
 
-export default class App extends Component {
+class AdDetails extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
-  handlePress = () => {};
+  handlePress = () => { };
   _reportUserButtonPress() {
     this.props.navigator.push({
       screen: "TwoFourApp.ReportUser",
@@ -39,7 +36,23 @@ export default class App extends Component {
     });
   }
 
+  componentWillMount() {
+    this.props.getProductDetails();
+  }
+
   render() {
+    const productImageArray =
+      Object.keys(this.props.postedAdDetails).length != 0
+        ? this.props.postedAdDetails.product.images
+        : [];
+        const price =
+      Object.keys(this.props.postedAdDetails).length != 0
+        ? this.props.postedAdDetails.product.price
+        : '';
+        const title =
+      Object.keys(this.props.postedAdDetails).length != 0
+        ? this.props.postedAdDetails.product.title
+        : '';
     return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar
@@ -57,7 +70,7 @@ export default class App extends Component {
         />
         <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.container}>
-            <ImageSlider />
+            <ImageSlider imageArray={productImageArray} />
           </View>
           <View style={styles.productNameContainer}>
             <LinearGradient
@@ -87,7 +100,7 @@ export default class App extends Component {
                   }
                 ]}
               >
-                {"$ 9999999.00"}
+                {"$ "+price}
               </Text>
             </LinearGradient>
             <View style={[CommonStyles.row]}>
@@ -99,7 +112,7 @@ export default class App extends Component {
                     CommonStyles.mediumBold
                   ]}
                 >
-                  {"Samsung Galaxy S8-256GB"}
+                  {title}
                 </Text>
               </View>
               <View style={{ flex: 0.1 }}>
@@ -189,7 +202,7 @@ export default class App extends Component {
                   style={{
                     position: "absolute",
                     top: 8,
-                    left: Platform.OS==='ios'? 8:0,
+                    left: Platform.OS === "ios" ? 8 : 0,
                     width: 25,
                     height: 20
                   }}
@@ -274,7 +287,6 @@ export default class App extends Component {
     );
   }
 }
-const spaceHeight = 70;
 
 const styles = StyleSheet.create({
   footerElevation: {
@@ -332,7 +344,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   reportButtonStyle: {
-    width:90,
+    width: 90,
     //backgroundColor: "white",
     height: 32,
     borderRadius: 30,
@@ -366,3 +378,15 @@ const styles = StyleSheet.create({
     padding: 0
   }
 });
+
+const mapStateToProps = ({ ad }) => {
+  const { postedAdDetails } = ad;
+  return { postedAdDetails };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getProductDetails
+  }
+)(AdDetails);

@@ -8,7 +8,21 @@ import CommonStyles, {
 } from "../../styles/commonStyles";
 
 export default class ImageSlider extends Component {
-  render() {
+  render(props) {
+
+    var imageList = this.props.imageArray.map(function (image, index) {
+     
+      return <View key={index} style={styles.contentContainer}>
+        <Image
+          resizeMode="contain"
+          style={{ width: deviceWidth, height: deviceHeight / 2.5 }}
+          source={{
+            uri:image
+          }}
+        />
+      </View>
+    }, this);
+
     return (
       <View
         style={{
@@ -24,40 +38,11 @@ export default class ImageSlider extends Component {
             indicatorSize={10}
             indicatorOffset={-17}
             delay={3000}
-            onScroll={() => console.log("on scroll view")}
-            onScrollBegin={() => console.log("scroll begin")}
-            onPageChange={page => console.log("scroll change", page)}
+            // onScroll={() => console.log("on scroll view")}
+            // onScrollBegin={() => console.log("scroll begin")}
+            // onPageChange={page => console.log("scroll change", page)}
           >
-            <View style={styles.contentContainer}>
-              <Image
-                resizeMode="contain"
-                style={{ width: deviceWidth, height: deviceHeight / 2.5 }}
-                source={{
-                  uri:
-                    "https://s-media-cache-ak0.pinimg.com/originals/ee/51/39/ee5139157407967591081ee04723259a.png"
-                }}
-              />
-            </View>
-            <View style={styles.contentContainer}>
-              <Image
-                resizeMode="contain"
-                style={{ width: deviceWidth, height: deviceHeight / 2.5 }}
-                source={{
-                  uri:
-                    "https://s-media-cache-ak0.pinimg.com/originals/40/4f/83/404f83e93175630e77bc29b3fe727cbe.jpg"
-                }}
-              />
-            </View>
-            <View style={styles.contentContainer}>
-              <Image
-                resizeMode="contain"
-                style={{ width: deviceWidth, height: deviceHeight / 2.5 }}
-                source={{
-                  uri:
-                    "https://s-media-cache-ak0.pinimg.com/originals/8d/1a/da/8d1adab145a2d606c85e339873b9bb0e.jpg"
-                }}
-              />
-            </View>
+           {imageList}
           </Carousel>
         </View>
       </View>

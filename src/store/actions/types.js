@@ -21,6 +21,10 @@ export const EMAIL_CHANGED='email_changed';
 export const GET_DEVICE_INFO='get_device_info';
 export const IS_USER_LOGGED_IN='is_user_logged_in';
 
+//ADDETAILS
+export const SELECTED_AD_DETAILS='selected_ad_details';
+
+
 
 
 

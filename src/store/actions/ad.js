@@ -6,6 +6,7 @@ import {
   IS_FREE_CHANGED,
   DESCRIPTION_CHANGED,
   IMAGE_SELECTED,
+  SELECTED_AD_DETAILS
 } from "./types";
 
 export const titleChanged = text => {
@@ -85,16 +86,13 @@ export const postAd = (postAdProps) => {
     })
       .then(response => {
         if (!response.ok) {
-          console.log("errorresponse");
-          console.log(response);
+
           // throw Error(response.statusText);
         }
         else {
-          console.log("rresponse");
-          console.log(response);
+
         }
-        console.log("rresponse");
-        console.log(response);
+
         //dispatch(itemsIsLoading(false));
         return response;
       })
@@ -102,3 +100,22 @@ export const postAd = (postAdProps) => {
   };
 };
 
+export const getProductDetails=()=>{
+
+  return dispatch => {
+    //dispatch(itemsIsLoading(true));
+    fetch("http://159.65.66.113:8082/api/v1/getProduct?productId=19")
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        //dispatch(itemsIsLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(productDetails =>
+        dispatch({ type: SELECTED_AD_DETAILS, payload: productDetails })
+      )
+      .catch();
+  };
+}
