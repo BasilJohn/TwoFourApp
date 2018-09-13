@@ -10,47 +10,54 @@ import {
 import CommonStyles from "../../../styles/commonStyles";
 import { Rating } from "react-native-elements";
 import { deviceWidth } from "../notify/notificationitem";
+import _ from 'lodash';
 const RATING_IMAGE = require("../../../assets/img/star.svg");
 
-export default class ProfileTile extends React.Component {
 
-  _profileTileIconOress() {
-    console.log(this.props.mainPageProps.navigator)
+export default class ProfileTile extends React.Component {
+  _profileTileIconPress() {
+
     this.props.mainPageProps.navigator.push({
       screen: "TwoFourApp.UserProfile",
       title: "User Profile"
     });
-  } 
+  }
 
   state = { profileImage: "." };
 
   render() {
+    let supplierDetail =
+      Object.keys(this.props.mainPageProps.postedAdDetails).length != 0
+        ? this.props.mainPageProps.postedAdDetails.product.supplierDetail
+        : {};
 
-  
+
     return (
       <View style={styles.mainStyle}>
         <View style={styles.containerStyle}>
           <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={this._profileTileIconOress.bind(this)} >
-            <Image
-              resizeMode="cover"
-              style={styles.profileImageStyle}
-              borderRadius={30}
-              source={require("../../../assets/img/profileimage.jpg")}
-            />
-             </TouchableOpacity>
+            <TouchableOpacity onPress={this._profileTileIconPress.bind(this)}>
+              <Image
+                resizeMode="cover"
+                style={styles.profileImageStyle}
+                borderRadius={30}
+                source={require("../../../assets/img/profileimage.jpg")}
+              />
+            </TouchableOpacity>
             <View style={styles.nameContainer}>
               <View style={{ paddingBottom: 10 }}>
-              <TouchableOpacity onPress={this._profileTileIconOress.bind(this)} >
-                <Text
-                  style={[
-                    CommonStyles.headerText,
-                    CommonStyles.blackColor,
-                    CommonStyles.mediumBold
-                  ]}
+                <TouchableOpacity
+                  onPress={this._profileTileIconPress.bind(this)}
                 >
-                  Tony Stark
-                </Text>
+                  <Text
+                    style={[
+                      CommonStyles.headerText,
+                      CommonStyles.blackColor,
+                      CommonStyles.mediumBold
+                    ]}
+                  >
+                    Tony Stark
+                  </Text>
                 </TouchableOpacity>
               </View>
               <View>
@@ -62,11 +69,10 @@ export default class ProfileTile extends React.Component {
                   readonly={true}
                   ratingCount={5}
                   imageSize={15}
-                  startingValue={2.5}
+                  startingValue={supplierDetail.rating}
                 />
               </View>
             </View>
-           
           </View>
           <View style={styles.followButtonContainer}>
             <TouchableOpacity style={styles.followButtonStyle}>
@@ -92,7 +98,7 @@ export default class ProfileTile extends React.Component {
                   CommonStyles.regularBold
                 ]}
               >
-                298 Like
+                {supplierDetail.likes} Like
               </Text>
             </View>
           </View>
@@ -113,7 +119,7 @@ export default class ProfileTile extends React.Component {
                   CommonStyles.regularBold
                 ]}
               >
-                196 Dislike
+                {supplierDetail.dislikes} Dislike
               </Text>
             </View>
           </View>
@@ -134,7 +140,7 @@ export default class ProfileTile extends React.Component {
                   CommonStyles.regularBold
                 ]}
               >
-                97 Followers
+                {supplierDetail.followers} Followers
               </Text>
             </View>
           </View>
@@ -152,9 +158,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#FFFFFF",
     elevation: 5,
-    shadowOffset: {width: 0, height: 0},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.4, 
+    shadowOffset: { width: 0, height: 0 },
+    shadowColor: "#000000",
+    shadowOpacity: 0.4,
     shadowRadius: 3,
     padding: 5
   },
@@ -163,8 +169,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   profileImageStyle: {
-    marginLeft:10,
-    marginTop:10,
+    marginLeft: 10,
+    marginTop: 10,
     height: 60,
     width: 60
   },
@@ -182,13 +188,13 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   followButtonContainer: {
-    marginTop:15,
-    marginRight:10,
+    marginTop: 15,
+    marginRight: 10,
     flex: 0.7,
     alignItems: "flex-end"
   },
   followButtonStyle: {
-    width: deviceWidth-280,
+    width: deviceWidth - 280,
     backgroundColor: "#7B7B7B",
     height: 32,
     borderRadius: 40,

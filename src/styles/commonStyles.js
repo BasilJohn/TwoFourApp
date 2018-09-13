@@ -55,7 +55,9 @@ export default (CommonStyles = StyleSheet.create({
   },
   wrapperBox: {
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    justifyContent:"flex-start",
+    alignSelf:"flex-start"
   },
   noTabScrollView: {
     marginTop: 10,

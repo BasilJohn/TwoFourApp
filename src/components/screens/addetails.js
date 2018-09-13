@@ -15,8 +15,10 @@ import {
   DetailItem,
   ImageSlider,
   LinearGradientButton,
-  GradientNavigationBar
+  GradientNavigationBar,
+  Spinner
 } from "../common";
+import { renderif } from "../../common/renderif";
 import { SocialIcon } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
@@ -28,7 +30,7 @@ const deviceWidth = Dimensions.get("window").width;
 class AdDetails extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
-  handlePress = () => { };
+  handlePress = () => {};
   _reportUserButtonPress() {
     this.props.navigator.push({
       screen: "TwoFourApp.ReportUser",
@@ -37,23 +39,206 @@ class AdDetails extends Component {
   }
 
   componentWillMount() {
-   
     this.props.getProductDetails(this.props.productId);
   }
 
+  renderContent() {
+    switch (Object.keys(this.props.postedAdDetails).length > 0) {
+      case false:
+        return <Spinner />;
+      case true:
+        return (
+          <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={styles.container}>
+              <ImageSlider
+                imageArray={this.props.postedAdDetails.product.images}
+              />
+            </View>
+            <View style={styles.productNameContainer}>
+              <LinearGradient
+                start={{ x: 0.2, y: 0.4 }}
+                end={{ x: 1.0, y: 1.0 }}
+                colors={["#3D88A7", "#3972A0", "#355F9A"]}
+                style={{
+                  position: "absolute",
+                  left: 10,
+                  top: -15,
+                  height: 32,
+                  width: 100,
+                  borderWidth: 0,
+                  borderColor: "black",
+                  borderRadius: 20
+                }}
+              >
+                <Text
+                  style={[
+                    CommonStyles.appText,
+                    CommonStyles.whiteColor,
+                    CommonStyles.semiBold,
+                    {
+                      textAlign: "center",
+                      paddingTop: 5,
+                      backgroundColor: "transparent"
+                    }
+                  ]}
+                >
+                  {"$ " + this.props.postedAdDetails.product.price}
+                </Text>
+              </LinearGradient>
+              <View style={[CommonStyles.row]}>
+                <View style={{ flex: 0.9 }}>
+                  <Text
+                    style={[
+                      CommonStyles.headerText,
+                      CommonStyles.titleGreyColor,
+                      CommonStyles.mediumBold
+                    ]}
+                  >
+                    {this.props.postedAdDetails.product.title}
+                  </Text>
+                </View>
+                <View style={{ flex: 0.1 }}>
+                  <Ionicons
+                    style={[CommonStyles.horizontalRight]}
+                    name={"md-heart-outline"}
+                    color={"#6D6C6C"}
+                    size={25}
+                  />
+                </View>
+              </View>
+              <View style={[CommonStyles.row]}>
+                <View>
+                  <Text
+                    style={[
+                      CommonStyles.appText,
+                      CommonStyles.smallTextGreyColor,
+                      CommonStyles.regularBold
+                    ]}
+                  >
+                    {"Posted" +
+                      " " +
+                      this.props.postedAdDetails.product.lastUpdated}
+                  </Text>
+                </View>
+                <View style={{ paddingLeft: 20 }}>
+                  <Text
+                    style={[
+                      CommonStyles.appText,
+                      CommonStyles.smallTextGreyColor,
+                      CommonStyles.regularBold
+                    ]}
+                  >
+                    {this.props.postedAdDetails.product.views + " " + "views"}
+                  </Text>
+                </View>
+              </View>
+              <View style={[CommonStyles.row]}>
+                <View>
+                  <Text
+                    style={[
+                      CommonStyles.appText,
+                      CommonStyles.smallTextGreyColor,
+                      CommonStyles.regularBold
+                    ]}
+                  >
+                    {this.props.postedAdDetails.product.city}
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={{ alignItems: "center" }}>
+              <ProfileTile mainPageProps={this.props} />
+
+              <View style={CommonStyles.wrapperBox}>
+                <DetailItem
+                  headerText="Description"
+                  detailText={this.props.postedAdDetails.product.description}
+                />
+              </View>
+              <View style={[styles.headerContainer, CommonStyles.row]}>
+                <View style={{ flex: 0.7 }}>
+                  <Text
+                    style={[
+                      CommonStyles.mediumText,
+                      CommonStyles.titleGreyColor,
+                      CommonStyles.semiBold,
+                      { marginBottom: 2, alignSelf: "flex-start" }
+                    ]}
+                  >
+                    {"Share Ad"}
+                  </Text>
+                </View>
+                <View style={{ flex: 0.3 }}>
+                  <Image
+                    resizeMode={"cover"}
+                    source={require("../../assets/img/Danger.png")}
+                    style={{
+                      position: "absolute",
+                      top: 8,
+                      left: Platform.OS === "ios" ? 8 : 0,
+                      width: 25,
+                      height: 20
+                    }}
+                  />
+                  <TouchableHighlight
+                    underlayColor={"transparent"}
+                    onPress={this._reportUserButtonPress.bind(this)}
+                    style={styles.reportButtonStyle}
+                  >
+                    <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
+                  </TouchableHighlight>
+                </View>
+              </View>
+              <View
+                style={[
+                  styles.socialIconContainer,
+                  CommonStyles.paddingTenLeft
+                ]}
+              >
+                <View style={CommonStyles.row}>
+                  <View>
+                    <SocialIcon
+                      button
+                      style={styles.socialIconStyle}
+                      type="facebook"
+                    />
+                  </View>
+                  <View>
+                    <SocialIcon
+                      button
+                      style={styles.socialIconStyle}
+                      type="google-plus-official"
+                    />
+                  </View>
+                  <View>
+                    <SocialIcon
+                      button
+                      style={styles.socialIconStyle}
+                      type="instagram"
+                    />
+                  </View>
+                  <View>
+                    <SocialIcon
+                      button
+                      style={styles.socialIconStyle}
+                      type="twitter"
+                    />
+                  </View>
+                </View>
+                <View
+                  style={[CommonStyles.paddingTenLeftRight, styles.reportView]}
+                />
+              </View>
+            </View>
+          </ScrollView>
+        );
+      default:
+        return <Spinner />;
+    }
+  }
+
   render() {
-    const productImageArray =
-      Object.keys(this.props.postedAdDetails).length != 0
-        ? this.props.postedAdDetails.product.images
-        : [];
-        const price =
-      Object.keys(this.props.postedAdDetails).length != 0
-        ? this.props.postedAdDetails.product.price
-        : '';
-        const title =
-      Object.keys(this.props.postedAdDetails).length != 0
-        ? this.props.postedAdDetails.product.title
-        : '';
+   
     return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar
@@ -69,193 +254,7 @@ class AdDetails extends Component {
             }
           ]}
         />
-        <ScrollView bounces={false} contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.container}>
-            <ImageSlider imageArray={productImageArray} />
-          </View>
-          <View style={styles.productNameContainer}>
-            <LinearGradient
-              start={{ x: 0.2, y: 0.4 }}
-              end={{ x: 1.0, y: 1.0 }}
-              colors={["#3D88A7", "#3972A0", "#355F9A"]}
-              style={{
-                position: "absolute",
-                left: 10,
-                top: -15,
-                height: 32,
-                width: 100,
-                borderWidth: 0,
-                borderColor: "black",
-                borderRadius: 20
-              }}
-            >
-              <Text
-                style={[
-                  CommonStyles.appText,
-                  CommonStyles.whiteColor,
-                  CommonStyles.semiBold,
-                  {
-                    textAlign: "center",
-                    paddingTop: 5,
-                    backgroundColor: "transparent"
-                  }
-                ]}
-              >
-                {"$ "+price}
-              </Text>
-            </LinearGradient>
-            <View style={[CommonStyles.row]}>
-              <View style={{ flex: 0.9 }}>
-                <Text
-                  style={[
-                    CommonStyles.headerText,
-                    CommonStyles.titleGreyColor,
-                    CommonStyles.mediumBold
-                  ]}
-                >
-                  {title}
-                </Text>
-              </View>
-              <View style={{ flex: 0.1 }}>
-                <Ionicons
-                  style={[CommonStyles.horizontalRight]}
-                  name={"md-heart-outline"}
-                  color={"#6D6C6C"}
-                  size={25}
-                />
-              </View>
-            </View>
-            <View style={[CommonStyles.row]}>
-              <View>
-                <Text
-                  style={[
-                    CommonStyles.appText,
-                    CommonStyles.smallTextGreyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
-                  {"Posted 2 hours ago"}
-                </Text>
-              </View>
-              <View style={{ paddingLeft: 20 }}>
-                <Text
-                  style={[
-                    CommonStyles.appText,
-                    CommonStyles.smallTextGreyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
-                  {"60 Views"}
-                </Text>
-              </View>
-            </View>
-            <View style={[CommonStyles.row]}>
-              <View>
-                <Text
-                  style={[
-                    CommonStyles.appText,
-                    CommonStyles.smallTextGreyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
-                  {"K K Nagar"}
-                </Text>
-              </View>
-              {/* <View style={{ paddingLeft: 20 }}>
-                <Text
-                  style={[
-                    CommonStyles.appText,
-                    CommonStyles.smallTextGreyColor,
-                    CommonStyles.regularBold
-                  ]}
-                >
-                  {"60 Views"}
-                </Text>
-              </View> */}
-            </View>
-          </View>
-          <View style={{ alignItems: "center" }}>
-            <ProfileTile mainPageProps={this.props} />
-
-            <View style={CommonStyles.wrapperBox}>
-              <DetailItem
-                headerText="Description"
-                detailText="Apple iPhone 6 used phone recently bought 32 gb internal condition urgent sale low price are not be entertained please!"
-              />
-            </View>
-            <View style={[styles.headerContainer, CommonStyles.row]}>
-              <View style={{ flex: 0.7 }}>
-                <Text
-                  style={[
-                    CommonStyles.mediumText,
-                    CommonStyles.titleGreyColor,
-                    CommonStyles.semiBold,
-                    { marginBottom: 2, alignSelf: "flex-start" }
-                  ]}
-                >
-                  {"Share Ad"}
-                </Text>
-              </View>
-              <View style={{ flex: 0.3 }}>
-                <Image
-                  resizeMode={"cover"}
-                  source={require("../../assets/img/Danger.png")}
-                  style={{
-                    position: "absolute",
-                    top: 8,
-                    left: Platform.OS === "ios" ? 8 : 0,
-                    width: 25,
-                    height: 20
-                  }}
-                />
-                <TouchableHighlight
-                  underlayColor={"transparent"}
-                  onPress={this._reportUserButtonPress.bind(this)}
-                  style={styles.reportButtonStyle}
-                >
-                  <Text style={styles.reportButtonTextStyle}>{"Report"}</Text>
-                </TouchableHighlight>
-              </View>
-            </View>
-            <View
-              style={[styles.socialIconContainer, CommonStyles.paddingTenLeft]}
-            >
-              <View style={CommonStyles.row}>
-                <View>
-                  <SocialIcon
-                    button
-                    style={styles.socialIconStyle}
-                    type="facebook"
-                  />
-                </View>
-                <View>
-                  <SocialIcon
-                    button
-                    style={styles.socialIconStyle}
-                    type="google-plus-official"
-                  />
-                </View>
-                <View>
-                  <SocialIcon
-                    button
-                    style={styles.socialIconStyle}
-                    type="instagram"
-                  />
-                </View>
-                <View>
-                  <SocialIcon
-                    button
-                    style={styles.socialIconStyle}
-                    type="twitter"
-                  />
-                </View>
-              </View>
-              <View
-                style={[CommonStyles.paddingTenLeftRight, styles.reportView]}
-              />
-            </View>
-          </View>
-        </ScrollView>
+        {this.renderContent()}
         <View
           style={[
             styles.footerElevation,
