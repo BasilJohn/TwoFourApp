@@ -10,17 +10,26 @@ import {
 import CommonStyles from "../../../styles/commonStyles";
 import { Rating } from "react-native-elements";
 import { deviceWidth } from "../notify/notificationitem";
-import _ from 'lodash';
+import _ from "lodash";
 const RATING_IMAGE = require("../../../assets/img/star.svg");
+import { connect } from "react-redux";
+import { followUnFollow } from "../../../store/actions/user";
 
-
-export default class ProfileTile extends React.Component {
+class ProfileTile extends React.Component {
   _profileTileIconPress() {
-
     this.props.mainPageProps.navigator.push({
       screen: "TwoFourApp.UserProfile",
       title: "User Profile"
     });
+  }
+
+  state = { isFollowing: false };
+
+
+  followUnFollow() {
+
+    //this.props.followUnFollow();
+    this.setState({ isFollowing: !this.state.isFollowing })
   }
 
   state = { profileImage: "." };
@@ -31,6 +40,7 @@ export default class ProfileTile extends React.Component {
         ? this.props.mainPageProps.postedAdDetails.product.supplierDetail
         : {};
 
+    let friendUnFriendText = this.state.isFollowing ? "Following" : "Follow";
 
     return (
       <View style={styles.mainStyle}>
@@ -75,8 +85,11 @@ export default class ProfileTile extends React.Component {
             </View>
           </View>
           <View style={styles.followButtonContainer}>
-            <TouchableOpacity style={styles.followButtonStyle}>
-              <Text style={styles.followButtonTextStyle}>{"Friend"}</Text>
+            <TouchableOpacity
+              onPress={this.followUnFollow.bind(this)}
+              style={styles.followButtonStyle}
+            >
+              <Text style={styles.followButtonTextStyle}>{friendUnFriendText}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -226,3 +239,15 @@ const styles = StyleSheet.create({
     paddingRight: 20
   }
 });
+
+const mapStateToProps = ({ user }) => {
+  const { isSuccess } = user;
+  return { isSuccess };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    followUnFollow
+  }
+)(ProfileTile);

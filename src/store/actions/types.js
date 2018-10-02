@@ -23,6 +23,11 @@ export const IS_USER_LOGGED_IN='is_user_logged_in';
 
 //ADDETAILS
 export const SELECTED_AD_DETAILS='selected_ad_details';
+export const IS_FAVOURITE_SUCCESS='is_favourite_success';
+
+
+//USER
+export const FOLLOW_UNFOLLOW_SUCCESS='follow_unfollow_success'
 
 
 

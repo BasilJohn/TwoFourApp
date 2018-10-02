@@ -61,15 +61,15 @@ export default class CustomTabBar extends Component {
         tabBtn3={{
           activeBtn: require("../../assets/img/Notification_M.png"),
           inactiveBtn: require("../../assets/img/Notification_M.png"),
-          width: 25,
-          height: 30,
+          width: 30,
+          height: 32,
           buttonAction: this.handlePress.bind(this, "Notification")
           //buttonAction: this._onNotificationIconClick.bind(this),
         }}
         tabBtn4={{
           activeBtn: require("../../assets/img/profile_m.png"),
           inactiveBtn: require("../../assets/img/profile_m.png"),
-          width: 25,
+          width: 30,
           height: 30,
           buttonAction: this.handlePress.bind(this, "UserProfile")
           //buttonAction: this._onProfileIconClick.bind(this),

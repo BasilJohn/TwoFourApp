@@ -8,7 +8,8 @@ import {
   DESCRIPTION_CHANGED,
   POST_AD_SUCCESS,
   IMAGE_SELECTED,
-  SELECTED_AD_DETAILS
+  SELECTED_AD_DETAILS,
+  IS_FAVOURITE_SUCCESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -21,8 +22,9 @@ const INITIAL_STATE = {
   isFree: false,
   description: "",
   isPostAdSuccess: false,
-  postedAdDetails: {}
-};
+  postedAdDetails: {},
+  isFavouriteSuccess: false
+}
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -46,6 +48,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selectedImageArray: action.payload };
     case SELECTED_AD_DETAILS:
       return { ...state, postedAdDetails: action.payload };
+    case IS_FAVOURITE_SUCCESS:
+      return { ...state, isFavouriteSuccess: action.payload };
     default:
       return state;
   }

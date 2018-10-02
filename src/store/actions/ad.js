@@ -6,7 +6,8 @@ import {
   IS_FREE_CHANGED,
   DESCRIPTION_CHANGED,
   IMAGE_SELECTED,
-  SELECTED_AD_DETAILS
+  SELECTED_AD_DETAILS,
+  IS_FAVOURITE_SUCCESS
 } from "./types";
 
 export const titleChanged = text => {
@@ -62,7 +63,7 @@ export const postAd = (postAdProps) => {
 
   return () => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://159.65.66.113:8081/api/v1/postProduct", {
+    fetch("http://206.189.220.236:8081/api/v1/postProduct", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -86,8 +87,8 @@ export const postAd = (postAdProps) => {
     })
       .then(response => {
         if (!response.ok) {
-
-          // throw Error(response.statusText);
+           
+          //throw Error(response.statusText);
         }
         else {
 
@@ -104,7 +105,7 @@ export const getProductDetails=(productId)=>{
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://159.65.66.113:8082/api/v1/getProduct?productId="+productId)
+    fetch("http://206.189.220.236:8082/api/v1/getProduct?productId="+productId)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -119,3 +120,31 @@ export const getProductDetails=(productId)=>{
       .catch();
   };
 }
+
+export const isFavourite = values => {
+  return dispatch => {
+    //dispatch(itemsIsLoading(true));
+    fetch("http://206.189.220.236:8080/api/v1/3/follow/11", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        loggedInUserId: values.loggedInUserId,
+        toFollow: values.toFollowUserId
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          // throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(isSuccess =>
+        dispatch({ type: IS_FAVOURITE_SUCCESS, payload: isSuccess })
+      )
+      .catch();
+  };
+};

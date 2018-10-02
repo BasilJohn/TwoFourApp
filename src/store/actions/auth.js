@@ -47,7 +47,7 @@ export const signUpUser = signUpProps => {
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-     fetch("http://159.65.66.113:8081/api/v1/signUp",{
+     fetch("http://206.189.220.236:8081/api/v1/signUp",{
       method: 'POST',
       headers: {
           'Accept': 'application/json',

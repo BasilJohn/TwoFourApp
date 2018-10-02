@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   TouchableHighlight,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
 import ProfileTile from "./profile/profiletile";
 import CommonStyles, { deviceHeight } from "../../styles/commonStyles";
@@ -24,18 +25,27 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { noNavTabbarNavigation } from "../../styles/navigatorstyle";
 import LinearGradient from "react-native-linear-gradient";
 import { connect } from "react-redux";
-import { getProductDetails } from "../../store/actions/ad";
+import { getProductDetails, isFavourite } from "../../store/actions/ad";
 const deviceWidth = Dimensions.get("window").width;
 
 class AdDetails extends Component {
   static navigatorStyle = noNavTabbarNavigation;
 
-  handlePress = () => {};
+  handlePress = () => { };
   _reportUserButtonPress() {
     this.props.navigator.push({
       screen: "TwoFourApp.ReportUser",
       title: "Rate"
     });
+
+  }
+  state = { isFavourite: false };
+
+
+  isFavourite() {
+
+    // this.props.isFavourite();
+    this.setState({ isFavourite: !this.state.isFavourite })
   }
 
   componentWillMount() {
@@ -43,6 +53,9 @@ class AdDetails extends Component {
   }
 
   renderContent() {
+
+    let isFavourite = this.state.isFavourite ? "md-heart" : "md-heart-outline";
+
     switch (Object.keys(this.props.postedAdDetails).length > 0) {
       case false:
         return <Spinner />;
@@ -98,12 +111,14 @@ class AdDetails extends Component {
                   </Text>
                 </View>
                 <View style={{ flex: 0.1 }}>
-                  <Ionicons
-                    style={[CommonStyles.horizontalRight]}
-                    name={"md-heart-outline"}
-                    color={"#6D6C6C"}
-                    size={25}
-                  />
+                  <TouchableOpacity onPress={this.isFavourite.bind(this)}>
+                    <Ionicons
+                      style={[CommonStyles.horizontalRight]}
+                      name={isFavourite}
+                      color={"#6D6C6C"}
+                      size={25}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
               <View style={[CommonStyles.row]}>
@@ -238,7 +253,7 @@ class AdDetails extends Component {
   }
 
   render() {
-   
+
     return (
       <View style={CommonStyles.normalPage}>
         <GradientNavigationBar
@@ -380,13 +395,13 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ ad }) => {
-  const { postedAdDetails } = ad;
-  return { postedAdDetails };
+  const { postedAdDetails, isFavouriteSuccess } = ad;
+  return { postedAdDetails, isFavouriteSuccess };
 };
 
 export default connect(
   mapStateToProps,
   {
-    getProductDetails
+    getProductDetails, isFavourite
   }
 )(AdDetails);

@@ -23,7 +23,7 @@ export const getProducts=()=>{
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://159.65.66.113:8082/api/v1/getProducts")
+    fetch("http://206.189.220.236:8082/api/v1/getProducts")
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
