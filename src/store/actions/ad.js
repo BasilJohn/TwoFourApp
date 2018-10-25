@@ -63,7 +63,7 @@ export const postAd = (postAdProps) => {
 
   return () => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://206.189.220.236:8081/api/v1/postProduct", {
+    fetch("http://206.189.220.236:8082/api/v1/postProduct", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -88,12 +88,12 @@ export const postAd = (postAdProps) => {
       .then(response => {
         if (!response.ok) {
            
-          //throw Error(response.statusText);
+          console.log(response.statusText);
         }
         else {
 
         }
-
+        console.log(response);
         //dispatch(itemsIsLoading(false));
         return response;
       })

@@ -26,6 +26,7 @@ const window = Dimensions.get("window");
 
 export const IMAGE_HEIGHT = window.width / 2;
 export const IMAGE_HEIGHT_SMALL = window.width / 7;
+export const deviceWidth = Dimensions.get("window").width;
 
 const IMAGE_FOLDERICON_DEFAULT = require("../../assets/img/addgallery.png");
 
@@ -313,14 +314,14 @@ class PostAd extends Component {
                     </TouchableWithoutFeedback>
                   </View>
                 </View>
-                <View style={[CommonStyles.buttonBox,{paddingTop:40}]}>
+                <View style={{ width: deviceWidth / 2 - 20,paddingTop:40 }}>
                 <LinearGradientButton
                   colorOne={"#3D88A7"}
                   colorTwo={"#3972A0"}
                   colorThree={"#355F9A"}
                   buttonText={"Cancel"}
                   height={50}
-                  width={80}
+                  //width={80}
                   borderRadius={60}
                   textPaddingTop={15}
                   textColor={"#FFFFFF"}

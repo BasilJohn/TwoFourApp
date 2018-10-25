@@ -278,21 +278,21 @@ class AdDetails extends Component {
             { justifyContent: "space-between", padding: 10 }
           ]}
         >
-          <View>
+          <View style={{ width: deviceWidth / 2 - 20 }}>
             <LinearGradientButton
               colorOne={"#3D88A7"}
               colorTwo={"#3972A0"}
               colorThree={"#355F9A"}
               buttonText={"Message"}
               height={42}
-              width={210}
+              //width={210}
               borderRadius={60}
               textPaddingTop={9}
               textColor={"#FFFF"}
               onPress={this.handlePress.bind(this)}
             />
           </View>
-          <View style={styles.offerButtonStyle}>
+          <View style={[styles.offerButtonStyle,{ width: deviceWidth / 2 - 20 }]}>
             <TouchableHighlight underlayColor={"transparent"}>
               <Text style={styles.offerButtonTextStyle}>{"Make Offer"}</Text>
             </TouchableHighlight>
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
   offerButtonStyle: {
-    width: deviceWidth - 210,
+    //width: deviceWidth - 210,
     backgroundColor: "#7B7B7B",
     height: 42,
     borderRadius: 30
