@@ -301,6 +301,12 @@ class SignInScreen extends Component {
     //   },
     //   animationType: 'slide-down'
     // });
+  //  console.log("this.props - Before",this.props)
+
+    this.props.signInUser(this.props);
+
+  //  console.log("this.props - after",this.props)
+  //  console.log("this.props.isUserAuthenticated",this.props.isUserAuthenticated)
 
     if(this.props.isUserAuthenticated)
     {
@@ -348,13 +354,13 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ auth }) => {
-  const { deviceInfo, isUserAlreadyLoggedIn } = auth;
-  return { deviceInfo, isUserAlreadyLoggedIn };
+  const { userName, password, isUserAuthenticated,deviceInfo, isUserAlreadyLoggedIn } = auth;
+  return { userName, password, isUserAuthenticated,deviceInfo, isUserAlreadyLoggedIn };
 };
 
 export default connect(
   mapStateToProps,
   {
-    getDeviceInfo, checkIsUserLoggedIn
+    userNameChanged, passwordChanged, signInUser,getDeviceInfo, checkIsUserLoggedIn
   }
 )(SignInScreen);

@@ -85,11 +85,10 @@ export const signUpUser = signUpProps => {
 
 export const signInUser = signInProps => {
 
-    console.log("BJ",signInProps);
-
     return dispatch => {
-       fetch("https://www.reddit.com/r/reactjs.json",{
-        //fetch("http://206.189.220.236:8080/api/v1/signIn",{
+       //fetch("https://www.reddit.com/r/reactjs.json"
+       //,{
+        fetch("http://206.189.220.236:8080/api/v1/signIn",{
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -98,39 +97,27 @@ export const signInUser = signInProps => {
         body: JSON.stringify({
           userName: signInProps.userName,
           password: signInProps.password,
-          //email: signInProps.emailId,
-          deviceId:signUpProps.deviceInfo.deviceId,
+          deviceId:signInProps.deviceInfo.deviceId,
           mobileNumber:"1",
-          ipv6:signUpProps.deviceInfo.ipv6,
-          macAddress:signUpProps.deviceInfo.macAddress
+          ipv6:signInProps.deviceInfo.ipv6,
+          macAddress:signInProps.deviceInfo.macAddress
         })
-       })
-         .then(response => {
-
-            console.log("response",response);
-           if (!response.ok) {
-             
-            // throw Error(response.statusText);
-           
-           }
-           else{
-              
-           }
-           //dispatch(itemsIsLoading(false));
-           return response.formData.data.children;
-         })
-         .then(signInInfo =>
-            dispatch(signInInfo(signInInfo))
+       }
+       )
+         .then(response => response.json())
+         .then(response =>
+            //dispatch(signInInfo(response.data.children[0].data.score))
+            dispatch(signInInfo(response.data.customerId))
           )                   
          .catch();
      };
   };
 
-  export const signInInfo = data => {
-
+  export const signInInfo = (data) => {
+    //console.log("data",data);
     return {
         type: IS_USER_AUTHENTICATED,
-        payload: true
+        payload: (data > 0)
     };
   };
 
