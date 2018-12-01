@@ -82,6 +82,38 @@ export const signUpUser = signUpProps => {
    };
 };
 
+export const signInUser = signInProps => {
+
+    console.log("BJ",signInProps);
+
+    // return dispatch => {
+    //    fetch("http://206.189.220.236:8081/api/v1/signIn",{
+    //     method: 'POST',
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       userName: signInProps.userName,
+    //       password: signInProps.password,
+    //       email: signInProps.emailId
+    //     })
+    //    })
+    //      .then(response => {
+    //        if (!response.ok) {
+             
+    //         // throw Error(response.statusText);
+           
+    //        }
+    //        else{
+              
+    //        }
+    //        //dispatch(itemsIsLoading(false));
+    //        return response;
+    //      })                   
+    //      .catch();
+    //  };
+  };
 export const checkIsUserLoggedIn = deviceInfo => {
 
     return {

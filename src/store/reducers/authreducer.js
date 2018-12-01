@@ -4,7 +4,8 @@ import {
   CONFIRM_PASSWORD_CHANGED,
   EMAIL_CHANGED,
   GET_DEVICE_INFO,
-  IS_USER_LOGGED_IN
+  IS_USER_LOGGED_IN,
+  IS_USER_AUTHENTICATED
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -14,7 +15,8 @@ const INITIAL_STATE = {
   emailId: "",
   deviceInfo: {
   },
-  isUserAlreadyLoggedIn:false
+  isUserAlreadyLoggedIn:false,
+  isUserAuthenticated:false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -31,6 +33,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, deviceInfo: action.payload };
     case IS_USER_LOGGED_IN:
       return { ...state, isUserAlreadyLoggedIn: action.payload };
+    case IS_USER_AUTHENTICATED:
+      return { ...state, isUserAuthenticated: action.payload };    
     default:
       return state;
   }

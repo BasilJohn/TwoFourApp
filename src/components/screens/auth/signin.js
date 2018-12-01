@@ -17,7 +17,7 @@ import CommonStyles, {
   deviceWidth
 } from "../../../styles/commonStyles";
 import renderIf from '../../../common/renderif';
-import { getDeviceInfo, checkIsUserLoggedIn } from "../../../store/actions/auth";
+import { getDeviceInfo, checkIsUserLoggedIn, userNameChanged, passwordChanged, signInUser } from "../../../store/actions/auth";
 import DeviceInfo from "react-native-device-info";
 import { connect } from "react-redux";
 
@@ -27,8 +27,16 @@ class SignInScreen extends Component {
     macAddress: "",
     phoneNumber: "",
     ipv6: "",
+    isUserPreValidated: false,
     isUserPreValidated: false
   };
+
+  userNameChanged(value) {
+       this.props.userNameChanged(value);
+     }
+  passwordChanged(value) {
+       this.props.passwordChanged(value);
+     }
 
   componentDidMount() {
     this.setState({ deviceId: DeviceInfo.getDeviceId() });
@@ -94,7 +102,7 @@ class SignInScreen extends Component {
                     <TextInput
                       placeholder="Username"
                       style={CommonStyles.textInput}
-                      underlineColorAndroid="transparent"
+                      underlineColorAndroid="transparent" onChangeText={this.userNameChanged.bind(this)}
                     />
                   </View>
                   <View style={CommonStyles.signInTextInputField}>
@@ -111,7 +119,7 @@ class SignInScreen extends Component {
                     <TextInput
                       placeholder="Password"
                       style={CommonStyles.textInput}
-                      underlineColorAndroid="transparent"
+                      underlineColorAndroid="transparent"  onChangeText={this.passwordChanged.bind(this)}
                     />
                   </View>
                   <View
@@ -293,9 +301,13 @@ class SignInScreen extends Component {
     //   },
     //   animationType: 'slide-down'
     // });
-    this.props.navigator.push({
-      screen: "TwoFourApp.Home"
-    });
+
+    if(this.props.isUserAuthenticated)
+    {
+      this.props.navigator.push({
+        screen: "TwoFourApp.Home"
+      });
+    }
   }
   _handleClickFortgotPass() {
     this.props.navigator.push({

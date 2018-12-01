@@ -20,6 +20,7 @@ export const CONFIRM_PASSWORD_CHANGED='confirm_password_changed';
 export const EMAIL_CHANGED='email_changed';
 export const GET_DEVICE_INFO='get_device_info';
 export const IS_USER_LOGGED_IN='is_user_logged_in';
+export const IS_USER_AUTHENTICATED='is_user_authenticated';
 
 //ADDETAILS
 export const SELECTED_AD_DETAILS='selected_ad_details';
