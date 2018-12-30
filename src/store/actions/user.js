@@ -1,9 +1,11 @@
 import { FOLLOW_UNFOLLOW_SUCCESS } from "./types";
+import apiConfig from 'config/apiconfig'
 
 export const followUnFollow = values => {
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://206.189.220.236:8080/api/v1/3/follow/11", {
+    fetch(apiConfig.baseApiUrl +"/3/follow/11",{
+    //fetch("http://206.189.220.236:8080/api/v1/3/follow/11", {
       method: "POST",
       headers: {
         Accept: "application/json",

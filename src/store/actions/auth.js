@@ -8,6 +8,7 @@ import {
     IS_USER_LOGGED_IN,
     IS_USER_AUTHENTICATED
 } from "./types"
+import apiConfig from 'config/apiconfig'
 
 export const userNameChanged = text => {
     return {
@@ -48,7 +49,9 @@ export const signUpUser = signUpProps => {
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-     fetch("http://206.189.220.236:8081/api/v1/signUp",{
+    
+     //fetch("http://206.189.220.236:8081/api/v1/signUp",{
+     fetch(apiConfig.baseApiUrl +"/signUp",{
       method: 'POST',
       headers: {
           'Accept': 'application/json',
@@ -88,7 +91,8 @@ export const signInUser = signInProps => {
     return dispatch => {
        //fetch("https://www.reddit.com/r/reactjs.json"
        //,{
-        fetch("http://206.189.220.236:8080/api/v1/signIn",{
+        fetch(apiConfig.baseApiUrl +"/signIn",{
+        //fetch("http://206.189.220.236:8080/api/v1/signIn",{
         method: 'POST',
         headers: {
             'Accept': 'application/json',

@@ -10,6 +10,7 @@ import CommonStyles, {
 import CustomActions from '../chatcomponents/customactions';
 import CustomView  from '../chatcomponents/customview'
 import DefaultMessageList from '../chatcomponents/defaultmessagelist';
+import apiConfig from 'config/apiconfig'
 
 import { View,Text,Image,StyleSheet,Platform,TouchableOpacity } from "react-native";
 //window.navigator.userAgent = "react-native";
@@ -37,7 +38,9 @@ export default class Chat extends React.Component {
   static navigatorStyle = noNavTabbarNavigation;
 
     componentDidMount(){
-    this.socket = io.connect("http://68.66.233.230:3000/");
+      
+      //this.socket = io.connect("http://68.66.233.230:3000/");
+      this.socket = io.connect(apiConfig.chatUiApiUrl);
     this.socket.on("chat message", this.onReceivedMessage.bind(this));
   }
   componentWillMount() {

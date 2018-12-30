@@ -9,6 +9,7 @@ import {
   SELECTED_AD_DETAILS,
   IS_FAVOURITE_SUCCESS
 } from "./types";
+import apiConfig from 'config/apiconfig'
 
 export const titleChanged = text => {
   return {
@@ -63,7 +64,8 @@ export const postAd = (postAdProps) => {
 
   return () => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://206.189.220.236:8082/api/v1/postProduct", {
+    fetch(apiConfig.baseApiUrl +"/postProduct",{
+    //fetch("http://206.189.220.236:8082/api/v1/postProduct", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -105,7 +107,8 @@ export const getProductDetails=(productId)=>{
 
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://206.189.220.236:8082/api/v1/getProduct?productId="+productId)
+    fetch(apiConfig.baseApiUrl +"/getProduct?productId="+productId)
+    //fetch("http://206.189.220.236:8082/api/v1/getProduct?productId="+productId)
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -124,7 +127,8 @@ export const getProductDetails=(productId)=>{
 export const isFavourite = values => {
   return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch("http://206.189.220.236:8080/api/v1/3/follow/11", {
+    fetch(apiConfig.baseApiUrl +"/3/follow/11",{
+    //fetch("http://206.189.220.236:8080/api/v1/3/follow/11", {
       method: "POST",
       headers: {
         Accept: "application/json",
