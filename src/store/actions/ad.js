@@ -9,7 +9,7 @@ import {
   SELECTED_AD_DETAILS,
   IS_FAVOURITE_SUCCESS
 } from "./types";
-import apiConfig from 'config/apiconfig'
+import apiConfig from '../../config/apiconfig';
 
 export const titleChanged = text => {
   return {

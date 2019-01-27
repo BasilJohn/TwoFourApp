@@ -8,7 +8,7 @@ import {
     IS_USER_LOGGED_IN,
     IS_USER_AUTHENTICATED
 } from "./types"
-import apiConfig from 'config/apiconfig'
+import apiConfig from '../../config/apiconfig';
 
 export const userNameChanged = text => {
     return {

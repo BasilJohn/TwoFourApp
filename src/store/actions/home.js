@@ -1,5 +1,5 @@
 import { LOAD_CATEGORIES,LOAD_CATEGORY_SUCCESS,GET_PRODUCTS_SUCCESS } from "./types";
-import apiConfig from 'config/apiconfig'
+import apiConfig from '../../config/apiconfig';
 
 export const loadCategories = () => {
   return dispatch => {
