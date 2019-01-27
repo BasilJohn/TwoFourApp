@@ -10,7 +10,7 @@ import CommonStyles, {
 import CustomActions from '../chatcomponents/customactions';
 import CustomView  from '../chatcomponents/customview'
 import DefaultMessageList from '../chatcomponents/defaultmessagelist';
-import apiConfig from 'config/apiconfig'
+import apiConfig from '../../config/apiconfig';
 
 import { View,Text,Image,StyleSheet,Platform,TouchableOpacity } from "react-native";
 //window.navigator.userAgent = "react-native";
