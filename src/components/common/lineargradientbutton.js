@@ -16,7 +16,7 @@ const LinearGradientButton = props => {
         styles.LinearGradientStyle,
         {
           height: props.height,
-          width: deviceWidth - props.width,
+          width: deviceWidth,
           borderRadius: props.borderRadius
         }
       ]}
@@ -29,7 +29,7 @@ const LinearGradientButton = props => {
           styles.buttonStyle,
           {
             height: props.height,
-            width: deviceWidth - props.width,
+            width: deviceWidth,
             borderRadius: props.borderRadius
           }
         ]}
