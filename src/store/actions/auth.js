@@ -110,20 +110,12 @@ export const signInUser = signInProps => {
        )
          .then(response => response.json())
          .then(response =>
-            //dispatch(signInInfo(response.data.children[0].data.score))
-            dispatch(signInInfo(response.data.customerId))
-          )                   
+            dispatch({ type: IS_USER_AUTHENTICATED, payload: response.customerId>0 })
+            )                   
          .catch();
      };
   };
 
-  export const signInInfo = (data) => {
-    //console.log("data",data);
-    return {
-        type: IS_USER_AUTHENTICATED,
-        payload: (data > 0)
-    };
-  };
 
 export const checkIsUserLoggedIn = checkIsUserLoggedIn => {
 
