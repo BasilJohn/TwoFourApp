@@ -62,10 +62,11 @@ export const imageArraySelected = image => {
 
 export const postAd = (postAdProps) => {
 
-  return () => {
+  // alert()
+  return dispatch => {
     //dispatch(itemsIsLoading(true));
-    fetch(apiConfig.baseApiUrl +"/postProduct",{
-    //fetch("http://206.189.220.236:8082/api/v1/postProduct", {
+   // fetch(apiConfig.baseApiUrlPost +"/postProduct",{
+    fetch("http://104.196.127.83:8081/api/v1/postProduct", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -73,7 +74,7 @@ export const postAd = (postAdProps) => {
       },
       body: JSON.stringify({
         supplierId: 1,
-        categoryName: postAdProps.categoryId,
+        categoryId: 2,
         productName: postAdProps.title,
         condition: 'New',
         description: postAdProps.description,
@@ -89,17 +90,15 @@ export const postAd = (postAdProps) => {
     })
       .then(response => {
         if (!response.ok) {
-           
-          console.log(response.statusText);
+        
         }
         else {
 
         }
-        console.log(response);
-        //dispatch(itemsIsLoading(false));
         return response;
       })
-      .catch();
+      .catch(e => {
+      })
   };
 };
 

@@ -67,7 +67,7 @@ class PostAd extends React.PureComponent {
   onCategorySelectetd(categoryId, categoryName) {
   
     this.setState({selected:categoryId});
-    this.props.categorySelected(categoryName);
+    this.props.categorySelected(categoryId);
   }
 
   filterCategory=(text)=>{
