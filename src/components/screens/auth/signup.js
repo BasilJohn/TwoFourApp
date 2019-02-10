@@ -25,8 +25,68 @@ import {
   signUpUser
   } from "../../../store/actions/auth";
 class SignUpScreen extends Component {
+
+  state = {
+    usernameErrorStatus:false,
+    passwordErrorStatus:false,
+    usernameErrorMsg:"",
+    passwordErrorMsg:"",
+    confirmPasswordErrorStatus:false,
+    emailErrorStatus:false,
+    confirmPasswordErrorMsg:"",
+    emailErrorMsg:""
+  };
+
+  validate(text, type)
+  {
+    if(type == "username")
+    {
+      if(text.trim() != 0){
+        this.setState({ usernameErrorStatus : true, usernameErrorMsg:""}) ;
+        this.userNameChanged(text);
+      }else{
+          this.setState({ usernameErrorStatus : false,usernameErrorMsg:"* Please enter a username."}) ;
+
+      }
+    }
+
+    if(type == "password")
+    {
+      if(text.trim() != 0){
+        this.setState({ passwordErrorStatus : true, passwordErrorMsg:""}) ;
+        this.passwordChanged(text);
+      }else{
+          this.setState({ passwordErrorStatus : false,passwordErrorMsg:"* Please enter a password."}) ;
+
+      }
+    }
+
+    if(type == "confirmPassword")
+    {
+      if(text.trim() != 0){
+        this.setState({ confirmPasswordErrorStatus : true, confirmPasswordErrorMsg:""}) ;
+        this.confirmPasswordChanged(text);
+      }else{
+          this.setState({ confirmPasswordErrorStatus : false,confirmPasswordErrorMsg:"* Please enter a confirm Password."}) ;
+
+      }
+    }
+    if(type == "email")
+    {
+      if(text.trim() != 0){
+        this.setState({ emailErrorStatus : true, emailErrorMsg:""}) ;
+        this.emailChanged(text);
+      }else{
+          this.setState({ emailErrorStatus : false,emailErrorMsg:"* Please enter a email."}) ;
+
+      }
+    }
+  }
+
   userNameChanged(value) {
+
     this.props.userNameChanged(value);
+    console.log(this.props);
   }
   passwordChanged(value) {
     this.props.passwordChanged(value);
@@ -40,11 +100,57 @@ class SignUpScreen extends Component {
 
   _signUpButtonPress() {
         
-    this.props.signUpUser(this.props);
+      var isValidate = true;
 
-    this.props.navigator.push({
-      screen: "TwoFourApp.Home"
-    });
+      if(this.props.userName != 0){
+        this.setState({ usernameErrorStatus : true, usernameErrorMsg:""}) ;
+      }else{
+          this.setState({ usernameErrorStatus : false,usernameErrorMsg:"* Please enter a username."}) ;
+          isValidate = false;
+
+      }
+ 
+      if(this.props.password != 0){
+        this.setState({ passwordErrorStatus : true, passwordErrorMsg:""}) ;
+      }else{
+          this.setState({ passwordErrorStatus : false,passwordErrorMsg:"* Please enter a password."}) ;
+          isValidate = false;
+
+      }
+
+      if(this.props.confirmPassword != 0){
+        this.setState({ confirmPasswordErrorStatus : true, confirmPasswordErrorMsg:""}) ;
+      }else{
+          this.setState({ confirmPasswordErrorStatus : false,confirmPasswordErrorMsg:"* Please enter a confirm Password."}) ;
+          isValidate = false;
+
+      }
+
+      if(this.props.emailId != 0){
+        this.setState({ emailErrorStatus : true, emailErrorMsg:""}) ;
+      }else{
+          this.setState({ emailErrorStatus : false,emailErrorMsg:"* Please enter a email."}) ;
+          isValidate = false;
+
+      }
+    
+      if(this.props.password != 0 && this.props.confirmPassword != 0){
+        if (this.props.password !=  this.props.confirmPassword)
+        {
+          this.setState({ confirmPasswordErrorStatus : false,confirmPasswordErrorMsg:"* Password and confirm password don't match."}) ;
+        }
+      }
+
+      if(isValidate)
+      {
+        console.log(isValidate);
+
+        this.props.signUpUser(this.props);
+
+        this.props.navigator.push({
+          screen: "TwoFourApp.Home"
+        });
+      }
   }
   doSomething() {
     // this.setState({
@@ -90,9 +196,14 @@ class SignUpScreen extends Component {
                   placeholder="Username"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
-                  onChangeText={this.userNameChanged.bind(this)}
+                  onChangeText={(text) => this.validate(text,"username") }
                 />
               </View>
+              { this.state.usernameErrorStatus == false ? (
+                      <Text style={styles.errorMessage}>
+                        {this.state.usernameErrorMsg} 
+                      </Text>
+                      ) : null  }
               <View style={CommonStyles.signInTextInputField}>
                 <Image
                   source={require("../../../assets/img/padlock.png")}
@@ -108,9 +219,14 @@ class SignUpScreen extends Component {
                   placeholder="Password"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"  secureTextEntry={true}
-                  onChangeText={this.passwordChanged.bind(this)}
+                  onChangeText={(text) => this.validate(text,"password") }
                 />
               </View>
+              { this.state.passwordErrorStatus == false ? (
+                      <Text style={styles.errorMessage}>
+                        {this.state.passwordErrorMsg} 
+                      </Text>
+                      ) : null  }
               <View style={CommonStyles.signInTextInputField}>
                 <Image
                   source={require("../../../assets/img/padlock.png")}
@@ -125,10 +241,15 @@ class SignUpScreen extends Component {
                 <TextInput
                   placeholder="Confirm Password"
                   style={CommonStyles.textInput}
-                  underlineColorAndroid="transparent"
-                  onChangeText={this.confirmPasswordChanged.bind(this)}
+                  underlineColorAndroid="transparent"  secureTextEntry={true}
+                  onChangeText={(text) => this.validate(text,"confirmPassword") }
                 />
               </View>
+              { this.state.confirmPasswordErrorStatus == false ? (
+                      <Text style={styles.errorMessage}>
+                        {this.state.confirmPasswordErrorMsg} 
+                      </Text>
+                      ) : null  }
               <View style={CommonStyles.signInTextInputField}>
                 <Image
                   resizeMode="contain"
@@ -145,9 +266,14 @@ class SignUpScreen extends Component {
                   placeholder="Email Id"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
-                  onChangeText={this.emailChanged.bind(this)}
+                  onChangeText={(text) => this.validate(text,"email") }
                 />
               </View>
+              { this.state.emailErrorStatus == false ? (
+                      <Text style={styles.errorMessage}>
+                        {this.state.emailErrorMsg} 
+                      </Text>
+                      ) : null  }
             </View>
             <View style={[CommonStyles.buttonBox]}>
               <LinearGradientButton
@@ -281,7 +407,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 15
-  }
+  },
+  errorMessage: {
+    fontSize: 14,
+    color:"red",
+    marginLeft:-170,
+  },
 });
 
 const mapStateToProps = ({ auth }) => {
