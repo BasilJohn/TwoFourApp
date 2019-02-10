@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { connect } from "react-redux";
 import ProfileTile from "../profile/profiletile";
 import {
   LinearGradientButton,
@@ -13,7 +14,9 @@ import CommonStyles, {
 } from "../../../styles/commonStyles";
 import UserItemList from "../userItems/useritemlist";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
-export default class UserProfile extends React.Component {
+import { getProfileTileData } from "../../../store/actions/auth";
+
+class UserProfile extends React.Component {
   static navigatorStyle = noNavTabbarNavigation;
 
   constructor(props) {
@@ -30,6 +33,12 @@ export default class UserProfile extends React.Component {
       screen: "TwoFourApp.UserProfileSetting"
     });
   }
+
+  componentDidMount(){
+    this.props.getProfileTileData(1);
+  }
+
+
   render() {
     let priceType = this.state.priceType.type;
 
@@ -50,7 +59,7 @@ export default class UserProfile extends React.Component {
         />
 
         <View style={[{ alignItems: "center" ,marginTop:15}]}>
-          <ProfileTile mainPageProps={this.props}/>
+          
         </View>
         <View style={CommonStyles.noTabScrollView}>
           <View style={CommonStyles.wrapperBox}>
@@ -242,3 +251,15 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
+const mapStateToProps = ({ auth }) => {
+  const { profileTileData} = auth;
+  return { profileTileData };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getProfileTileData
+  }
+)(UserProfile);
