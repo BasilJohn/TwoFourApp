@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
   ScrollView,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,Platform
 } from "react-native";
 import RadioButton from "react-native-radio-button";
 import { LinearGradientButton, Spinner } from "../../common";
@@ -28,7 +28,8 @@ class SignInScreen extends Component {
     phoneNumber: "",
     ipv6: "",
     isUserPreValidated: false,
-    isUserPreValidated: false
+    isUserPreValidated: false,
+    hidePassword: true
   };
 
   userNameChanged(value) {
@@ -59,6 +60,12 @@ class SignInScreen extends Component {
       this.props.checkIsUserLoggedIn(deviceInfo);
     });
   }
+  
+managePasswordVisibility = () =>
+{
+  this.setState({ hidePassword: !this.state.hidePassword });
+}
+
   doSomething() { }
   handlePress = () => { };
   constructor(props) {
@@ -105,24 +112,29 @@ class SignInScreen extends Component {
                       underlineColorAndroid="transparent" onChangeText={this.userNameChanged.bind(this)}
                     />
                   </View>
-                  <View style={CommonStyles.signInTextInputField}>
-                    <Image
-                      source={require("../../../assets/img/padlock.png")}
-                      style={{
-                        position: "absolute",
-                        bottom: 12,
-                        left: 20,
-                        width: 17,
-                        height: 22
-                      }}
-                    />
-                    <TextInput
-                      placeholder="Password"
-                      style={CommonStyles.textInput} secureTextEntry={true}
-                      underlineColorAndroid="transparent"  onChangeText={this.passwordChanged.bind(this)}
-                    />
 
-        
+                  <View style = { styles.container }>
+                    <View style={CommonStyles.signInTextInputField}>
+                      <Image
+                        source={require("../../../assets/img/padlock.png")}
+                        style={{
+                          position: "absolute",
+                          bottom: 12,
+                          left: 20,
+                          width: 17,
+                          height: 22
+                        }}
+                      />
+                      <TextInput
+                        placeholder="Password"
+                        style={CommonStyles.textInput}  secureTextEntry = { this.state.hidePassword }
+                        underlineColorAndroid="transparent"  onChangeText={this.passwordChanged.bind(this)}
+                      />
+                      <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
+                              <Image source = { ( this.state.hidePassword ) ? require('../../../assets/img/hide.png') : require('../../../assets/img/view.png') } style = { styles.btnImage } />
+                      </TouchableOpacity>
+          
+                    </View>
                   </View>
 
                   <View
@@ -353,6 +365,50 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 15
+  },
+  container:
+  {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 25,
+    paddingTop: (Platform.OS === 'ios') ? 20 : 0
+  },
+ 
+  textBoxBtnHolder:
+  {
+    position: 'relative',
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+ 
+  textBox:
+  {
+    fontSize: 18,
+    alignSelf: 'stretch',
+    height: 45,
+    paddingRight: 45,
+    paddingLeft: 8,
+    borderWidth: 1,
+    paddingVertical: 0,
+    borderColor: 'grey',
+    borderRadius: 5
+  },
+ 
+  visibilityBtn:
+  {
+    position: 'absolute',
+    right: 3,
+    height: 40,
+    width: 35,
+    padding: 5
+  },
+ 
+  btnImage:
+  {
+    resizeMode: 'contain',
+    height: '100%',
+    width: '100%'
   }
 });
 
