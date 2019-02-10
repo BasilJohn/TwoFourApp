@@ -6,7 +6,8 @@ import {
     ,SIGN_UP_SUCCESS
     ,GET_DEVICE_INFO,
     IS_USER_LOGGED_IN,
-    IS_USER_AUTHENTICATED
+    IS_USER_AUTHENTICATED,
+    GET_PROFILE_TILE_SUCCESS
 } from "./types"
 import apiConfig from '../../config/apiconfig';
 
@@ -124,3 +125,22 @@ export const checkIsUserLoggedIn = checkIsUserLoggedIn => {
         payload: true
     };
   };
+
+  export const getProfileTileData=(customerId)=>{
+
+    return dispatch => {
+      fetch(apiConfig.baseApiUrl +"/getProfile?customerId="+customerId)
+        .then(response => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
+          //dispatch(itemsIsLoading(false));
+          return response;
+        })
+        .then(response => response.json())
+        .then(profileDetails =>
+          dispatch({ type: GET_PROFILE_TILE_SUCCESS, payload: profileDetails })
+        )
+        .catch();
+    };
+  }

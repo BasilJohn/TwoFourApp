@@ -21,6 +21,7 @@ export const EMAIL_CHANGED='email_changed';
 export const GET_DEVICE_INFO='get_device_info';
 export const IS_USER_LOGGED_IN='is_user_logged_in';
 export const IS_USER_AUTHENTICATED='is_user_authenticated';
+export const GET_PROFILE_TILE_SUCCESS='get_profile_tile_success';
 
 //ADDETAILS
 export const SELECTED_AD_DETAILS='selected_ad_details';

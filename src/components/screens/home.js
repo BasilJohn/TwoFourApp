@@ -60,7 +60,7 @@ class Home extends Component {
   };
 
   componentWillMount() {
-    this.props.getProducts();
+    // this.props.getProducts();
 
   }
 

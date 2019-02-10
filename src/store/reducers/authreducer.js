@@ -5,7 +5,8 @@ import {
   EMAIL_CHANGED,
   GET_DEVICE_INFO,
   IS_USER_LOGGED_IN,
-  IS_USER_AUTHENTICATED
+  IS_USER_AUTHENTICATED,
+  GET_PROFILE_TILE_SUCCESS
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -16,7 +17,8 @@ const INITIAL_STATE = {
   deviceInfo: {
   },
   isUserAlreadyLoggedIn:false,
-  isUserAuthenticated:false
+  isUserAuthenticated:false,
+  profileTileData:{}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -34,7 +36,9 @@ export default (state = INITIAL_STATE, action) => {
     case IS_USER_LOGGED_IN:
       return { ...state, isUserAlreadyLoggedIn: action.payload };
     case IS_USER_AUTHENTICATED:
-      return { ...state, isUserAuthenticated: action.payload };    
+      return { ...state, isUserAuthenticated: action.payload };  
+    case GET_PROFILE_TILE_SUCCESS:
+      return { ...state, profileTileData: action.payload };     
     default:
       return state;
   }
