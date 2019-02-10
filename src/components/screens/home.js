@@ -10,7 +10,7 @@ import {
   ScrollView,
   Button
 } from "react-native";
-import { Footer, CustomTabBar, HomeSearchBar } from "../common";
+import { Footer, CustomTabBar, HomeSearchBar, Spinner } from "../common";
 
 import SlidingMenu from "../common/slidingmenu";
 
@@ -60,6 +60,7 @@ class Home extends Component {
   };
 
   componentWillMount() {
+    this.props.getProducts();
 
   }
 
@@ -72,9 +73,14 @@ class Home extends Component {
     super(props);
   }
 
-  render() {
-    return (
-      <View style={CommonStyles.normalPage}>
+  renderContent() {
+
+    switch (Object.keys(this.props.productList).length > 0 ) {
+      case false:
+        return <Spinner />;
+      case true:
+        return (
+          <View style={CommonStyles.normalPage}>
         <HomeSearchBar
           navigator={this.props.navigator}
           titleText="Post Ad"
@@ -88,6 +94,7 @@ class Home extends Component {
             }
           ]}
         />
+
         <View style={styles.container}>
           <SlidingMenu />
           <ScrollView>
@@ -105,6 +112,14 @@ class Home extends Component {
           </View>
         </View>
       </View>
+    );
+      default:
+        return <Spinner />;
+    }
+  }
+  render() {
+    return (
+      this.renderContent()
     );
   }
 

@@ -107,7 +107,7 @@ class SignUpScreen extends Component {
                 <TextInput
                   placeholder="Password"
                   style={CommonStyles.textInput}
-                  underlineColorAndroid="transparent"
+                  underlineColorAndroid="transparent"  secureTextEntry={true}
                   onChangeText={this.passwordChanged.bind(this)}
                 />
               </View>

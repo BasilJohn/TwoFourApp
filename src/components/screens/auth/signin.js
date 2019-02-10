@@ -118,10 +118,13 @@ class SignInScreen extends Component {
                     />
                     <TextInput
                       placeholder="Password"
-                      style={CommonStyles.textInput}
+                      style={CommonStyles.textInput} secureTextEntry={true}
                       underlineColorAndroid="transparent"  onChangeText={this.passwordChanged.bind(this)}
                     />
+
+        
                   </View>
+
                   <View
                     style={[
                       CommonStyles.row,
