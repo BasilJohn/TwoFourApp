@@ -29,7 +29,11 @@ class SignInScreen extends Component {
     ipv6: "",
     isUserPreValidated: false,
     isUserPreValidated: false,
-    hidePassword: true
+    hidePassword: true,
+    usernameErrorStatus:false,
+    passwordErrorStatus:false,
+    usernameErrorMsg:"",
+    passwordErrorMsg:""
   };
 
   userNameChanged(value) {
@@ -64,6 +68,31 @@ class SignInScreen extends Component {
 managePasswordVisibility = () =>
 {
   this.setState({ hidePassword: !this.state.hidePassword });
+}
+validate(text, type)
+{
+  if(type == "username")
+  {
+    if(text.trim() != 0){
+      this.setState({ usernameErrorStatus : true, usernameErrorMsg:""}) ;
+      this.userNameChanged.bind(text);
+    }else{
+        this.setState({ usernameErrorStatus : false,usernameErrorMsg:"* Please enter a username."}) ;
+
+    }
+  }
+
+  if(type == "password")
+  {
+    if(text.trim() != 0){
+      this.setState({ passwordErrorStatus : true, passwordErrorMsg:""}) ;
+      this.passwordChanged.bind(text);
+    }else{
+        this.setState({ passwordErrorStatus : false,passwordErrorMsg:"* Please enter a password."}) ;
+
+    }
+  }
+
 }
 
   doSomething() { }
@@ -109,10 +138,14 @@ managePasswordVisibility = () =>
                     <TextInput
                       placeholder="Username"
                       style={CommonStyles.textInput}
-                      underlineColorAndroid="transparent" onChangeText={this.userNameChanged.bind(this)}
+                      underlineColorAndroid="transparent"onChangeText={(text) => this.validate(text,"username") }
                     />
                   </View>
-
+                  { this.state.usernameErrorStatus == false ? (
+                          <Text style={styles.errorMessage}>
+                            {this.state.usernameErrorMsg}
+                          </Text>
+                          ) : null  }
                   <View style = { styles.container }>
                     <View style={CommonStyles.signInTextInputField}>
                       <Image
@@ -128,15 +161,18 @@ managePasswordVisibility = () =>
                       <TextInput
                         placeholder="Password"
                         style={CommonStyles.textInput}  secureTextEntry = { this.state.hidePassword }
-                        underlineColorAndroid="transparent"  onChangeText={this.passwordChanged.bind(this)}
+                        underlineColorAndroid="transparent"  onChangeText={(text) => this.validate(text,"password") }
                       />
                       <TouchableOpacity activeOpacity = { 0.8 } style = { styles.visibilityBtn } onPress = { this.managePasswordVisibility }>
                               <Image source = { ( this.state.hidePassword ) ? require('../../../assets/img/hide.png') : require('../../../assets/img/view.png') } style = { styles.btnImage } />
                       </TouchableOpacity>
-          
                     </View>
                   </View>
-
+                  { this.state.passwordErrorStatus == false ? (
+                      <Text style={styles.errorMessage}>
+                        {this.state.passwordErrorMsg}
+                      </Text>
+                      ) : null  }
                   <View
                     style={[
                       CommonStyles.row,
@@ -329,6 +365,9 @@ managePasswordVisibility = () =>
         screen: "TwoFourApp.Home"
       });
     }
+    else{
+      this.setState({ passwordErrorStatus : false,passwordErrorMsg:"* Incorrect username/password."}) ;
+    }
   }
   _handleClickFortgotPass() {
     this.props.navigator.push({
@@ -403,7 +442,11 @@ const styles = StyleSheet.create({
     width: 35,
     padding: 5
   },
- 
+  errorMessage: {
+    fontSize: 14,
+    color:"red",
+    marginLeft:-150,
+  },
   btnImage:
   {
     resizeMode: 'contain',
