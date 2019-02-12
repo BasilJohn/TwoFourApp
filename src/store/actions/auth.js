@@ -113,7 +113,8 @@ export const signInUser = signInProps => {
          .then(response =>
             dispatch({ type: IS_USER_AUTHENTICATED, payload: response.customerId>0 })
             )                   
-         .catch();
+            .catch(e => {
+            })
      };
   };
 

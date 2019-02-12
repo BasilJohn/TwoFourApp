@@ -22,7 +22,8 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      priceType: { type: "selling" }
+      priceType: { type: "selling" },
+      profileData:{}
     };
   }
 
@@ -32,6 +33,13 @@ class UserProfile extends React.Component {
     this.props.navigator.push({
       screen: "TwoFourApp.UserProfileSetting"
     });
+  }
+
+  componentDidUpdate(prevProps) {
+
+    if(this.props.profileTileData!==prevProps.profileTileData){
+      this.setState({profileData:this.props.profileTileData})
+    }
   }
 
   componentDidMount(){

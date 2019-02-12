@@ -75,7 +75,7 @@ validate(text, type)
   {
     if(text.trim() != 0){
       this.setState({ usernameErrorStatus : true, usernameErrorMsg:""}) ;
-      this.userNameChanged.bind(text);
+      this.userNameChanged(text);
     }else{
         this.setState({ usernameErrorStatus : false,usernameErrorMsg:"* Please enter a username."}) ;
 
@@ -86,7 +86,7 @@ validate(text, type)
   {
     if(text.trim() != 0){
       this.setState({ passwordErrorStatus : true, passwordErrorMsg:""}) ;
-      this.passwordChanged.bind(text);
+      this.passwordChanged(text);
     }else{
         this.setState({ passwordErrorStatus : false,passwordErrorMsg:"* Please enter a password."}) ;
 
