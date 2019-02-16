@@ -50,8 +50,6 @@ class UserProfile extends React.Component {
   render() {
     let priceType = this.state.priceType.type;
 
-    console.log("BAS",this.props)
-
     return (
       <View style={[CommonStyles.normalPage, styles.mainContainer]}>
         <GradientNavigationBar

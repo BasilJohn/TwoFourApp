@@ -90,10 +90,7 @@ export const signUpUser = signUpProps => {
 export const signInUser = signInProps => {
 
     return dispatch => {
-       //fetch("https://www.reddit.com/r/reactjs.json"
-       //,{
-        fetch("http://104.196.127.83:8082/api/v1/signIn",{
-        //fetch("http://206.189.220.236:8080/api/v1/signIn",{
+        fetch(apiConfig.baseApiUrl+"/signIn",{
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -114,7 +111,6 @@ export const signInUser = signInProps => {
             dispatch({ type: IS_USER_AUTHENTICATED, payload: response.customerId>0 })
             )                   
             .catch(e => {
-              alert(e)
             })
      };
   };
