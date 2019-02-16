@@ -35,10 +35,20 @@ class ProfileTile extends React.Component {
   state = { profileImage: "." };
 
   render() {
-    let supplierDetail =
-      Object.keys(this.props.mainPageProps.postedAdDetails).length != 0
-        ? this.props.mainPageProps.postedAdDetails.product.supplierDetail
-        : {};
+
+    let supplierDetail={}
+
+    if(this.props.pageName==="adDetails"){
+      supplierDetail=Object.keys(this.props.mainPageProps.postedAdDetails).length != 0
+      ? this.props.mainPageProps.postedAdDetails.product.supplierDetail
+      : {};
+    }
+    else if(this.props.pageName==="userProfile"){
+      supplierDetail=Object.keys(this.props.mainPageProps.profileTileData).length != 0
+      ? this.props.mainPageProps.profileTileData
+      : {};
+    }
+     
 
     let friendUnFriendText = this.state.isFollowing ? "Following" : "Follow";
 
@@ -84,7 +94,8 @@ class ProfileTile extends React.Component {
               </View>
             </View>
           </View>
-          <View style={styles.followButtonContainer}>
+          <View style={this.props.pageName==="adDetails"?
+          styles.followButtonContainer:styles.displayNone}>
             <TouchableOpacity
               onPress={this.followUnFollow.bind(this)}
               style={styles.followButtonStyle}
@@ -237,6 +248,9 @@ const styles = StyleSheet.create({
     borderColor: "#F0F0F0",
     paddingLeft: 20,
     paddingRight: 20
+  },
+  displayNone:{
+    display:"none"
   }
 });
 

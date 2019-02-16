@@ -162,7 +162,7 @@ class AdDetails extends Component {
               </View>
             </View>
             <View style={{ alignItems: "center" }}>
-              <ProfileTile mainPageProps={this.props} />
+              <ProfileTile mainPageProps={this.props} pageName={"adDetails"}/>
 
               <View style={CommonStyles.wrapperBox}>
                 <DetailItem
