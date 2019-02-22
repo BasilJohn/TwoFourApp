@@ -90,10 +90,7 @@ export const signUpUser = signUpProps => {
 export const signInUser = signInProps => {
 
     return dispatch => {
-       //fetch("https://www.reddit.com/r/reactjs.json"
-       //,{
-        fetch(apiConfig.baseApiUrl +"/signIn",{
-        //fetch("http://206.189.220.236:8080/api/v1/signIn",{
+        fetch(apiConfig.baseApiUrl+"/signIn",{
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -113,7 +110,8 @@ export const signInUser = signInProps => {
          .then(response =>
             dispatch({ type: IS_USER_AUTHENTICATED, payload: response.customerId>0 })
             )                   
-         .catch();
+            .catch(e => {
+            })
      };
   };
 
@@ -129,7 +127,7 @@ export const checkIsUserLoggedIn = checkIsUserLoggedIn => {
   export const getProfileTileData=(customerId)=>{
 
     return dispatch => {
-      fetch(apiConfig.baseApiUrl +"/getProfile?customerId="+customerId)
+      fetch(apiConfig.baseApiUrl +"/getProfileDetail?customerId="+customerId)
         .then(response => {
           if (!response.ok) {
             throw Error(response.statusText);

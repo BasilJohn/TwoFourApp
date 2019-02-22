@@ -1,4 +1,4 @@
-import { FOLLOW_UNFOLLOW_SUCCESS } from "./types";
+import { FOLLOW_UNFOLLOW_SUCCESS,USER_SETTINGS_DATA_SUCCESS } from "./types";
 import apiConfig from '../../config/apiconfig';
 
 export const followUnFollow = values => {
@@ -29,3 +29,22 @@ export const followUnFollow = values => {
       .catch();
   };
 };
+
+export const getUserSettingsInfo=(supplierId)=>{
+
+  return dispatch => {
+    fetch(apiConfig.baseApiUrlPost +"/getProfileSetting?supplierId="+supplierId)
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        //dispatch(itemsIsLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(userSettingsData =>
+        dispatch({ type: USER_SETTINGS_DATA_SUCCESS, payload: userSettingsData })
+      )
+      .catch();
+  };
+}

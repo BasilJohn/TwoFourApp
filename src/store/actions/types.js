@@ -29,7 +29,9 @@ export const IS_FAVOURITE_SUCCESS='is_favourite_success';
 
 
 //USER
-export const FOLLOW_UNFOLLOW_SUCCESS='follow_unfollow_success'
+export const FOLLOW_UNFOLLOW_SUCCESS='follow_unfollow_success';
+export const USER_SETTINGS_DATA_SUCCESS='user_settings_data_success';
+
 
 
 

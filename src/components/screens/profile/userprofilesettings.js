@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   ScrollView
 } from "react-native";
+import { connect } from "react-redux";
 import { LinearGradientButton, GradientNavigationBar } from "../../common";
 import CommonStyles, {
   deviceHeight,
@@ -16,11 +17,36 @@ import CommonStyles, {
   deviceWidth
 } from "../../../styles/commonStyles";
 import { noNavTabbarNavigation } from "../../../styles/navigatorstyle";
+import { getUserSettingsInfo } from "../../../store/actions/user";
 
-export default class UserProfileSetting extends React.Component {
+
+class UserProfileSetting extends React.Component {
+
   static navigatorStyle = noNavTabbarNavigation;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      userSettingsData:{}
+    };
+  }
+  
   _handleClickSaveButton() {}
+
   _signOutButtonPress() {}
+
+  componentDidMount(){
+    this.props.getUserSettingsInfo(1);
+  }
+
+  componentDidUpdate(prevProps){
+
+    if(this.props.userSettingsData!==prevProps.userSettingsData){
+      this.setState({userSettingsData:this.props.userSettingsData})
+    }
+
+  }
+
   render() {
     return (
       <View style={CommonStyles.normalPage}>
@@ -74,9 +100,10 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
-                  placeholder="John Player"
+                  placeholder="User Name"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  value={this.props.userSettingsData.supplierName}
                 />
               </View>
               <View style={CommonStyles.squareTextInputField}>
@@ -92,9 +119,10 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
-                  placeholder="Player@gmail.com"
+                  placeholder="Email"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  value={this.props.userSettingsData.supplierEmail}
                 />
               </View>
               <View style={CommonStyles.squareTextInputField}>
@@ -113,6 +141,7 @@ export default class UserProfileSetting extends React.Component {
                   placeholder="Password"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  // value={}
                 />
               </View>
               <View style={CommonStyles.squareTextInputField}>
@@ -128,9 +157,10 @@ export default class UserProfileSetting extends React.Component {
                   }}
                 />
                 <TextInput
-                  placeholder="6677177777"
+                  placeholder="Mobile Number"
                   style={CommonStyles.textInput}
                   underlineColorAndroid="transparent"
+                  value={this.props.userSettingsData.mobileNumber}
                 />
               </View>
             </View>
@@ -272,3 +302,15 @@ const styles = StyleSheet.create({
     marginBottom: spaceHeight * 0.05
   }
 });
+
+const mapStateToProps = ({ user }) => {
+  const { userSettingsData} = user;
+  return { userSettingsData };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getUserSettingsInfo
+  }
+)(UserProfileSetting);
